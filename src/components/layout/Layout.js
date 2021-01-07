@@ -1,38 +1,52 @@
 import React from 'react';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
 import {
 	BrowserRouter as Router,
 	Switch,
 	Route,
-	NavLink,
+	Redirect,
 } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
-import Home from '../home/Home';
+import { AuthContextProvider } from './context/AuthContext';
+import ProtectedRoute from './components/routes/ProtectedRoute';
+import Home from './components/home/Home';
+import Login from './components/auth/Login';
+import Register from './components/auth/Register';
+import Hotels from './components/admin/Hotels';
+import AddHotel from './components/admin/AddHotel';
+import EditHotel from './components/admin/EditHotel';
+import Dashboard from './components/admin/Dashboard';
+import Nav from './components/layout/Nav';
+import './App.css';
 
-function Layout() {
+function App() {
 	return (
-		<Router>
-			<Navbar bg='dark' variant='dark' expand='lg'>
-				<NavLink to='/' exact>
-					<Navbar.Brand>Games</Navbar.Brand>
-				</NavLink>
-				<Navbar.Toggle aria-controls='basic-navbar-nav' />
-				<Navbar.Collapse id='basic-navbar-nav'>
-					<Nav className='mr-auto'>
-						<NavLink to='/' exact className='nav-link'>
-							Home
-						</NavLink>
-					</Nav>
-				</Navbar.Collapse>
-			</Navbar>
-			<Container>
-				<Switch>
-					<Route path='/' exact component={Home} />
-				</Switch>
-			</Container>
-		</Router>
+		<AuthContextProvider>
+			<Router>
+				<Nav />
+
+				<Container>
+					<Switch>
+						<Route path='/' exact component={Home} />
+						<Route path='/login' component={Login} />
+						<Route path='/register' component={Register} />
+						<ProtectedRoute path='/admin' exact component={Dashboard} />
+						<ProtectedRoute path='/admin/hotels' exact component={Hotels} />
+						<ProtectedRoute
+							path='/admin/hotels/add'
+							exact
+							component={AddHotel}
+						/>
+						<ProtectedRoute
+							path='/admin/hotels/edit/:id'
+							exact
+							component={EditHotel}
+						/>
+						<Redirect to='/' />
+					</Switch>
+				</Container>
+			</Router>
+		</AuthContextProvider>
 	);
 }
 
-export default Layout;
+export default App;
