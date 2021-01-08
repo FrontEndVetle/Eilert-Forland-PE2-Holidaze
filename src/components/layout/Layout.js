@@ -17,13 +17,13 @@ import Hotels from '../admin/Hotels';
 import AddHotel from '../admin/AddHotel';
 import EditHotel from '../admin/EditHotel';
 import Dashboard from '../admin/Dashboard';
-import Nav from './Nav';
+import NavBar from './Nav';
 
 function App() {
 	return (
 		<AuthContextProvider>
 			<Router>
-				<Nav />
+				<NavBar />
 
 				<Container>
 					<Switch>
