@@ -10,7 +10,7 @@ function Nav() {
 			<NavLink to='/' exact>
 				Home
 			</NavLink>
-			<NavLink to='/' exact>
+			<NavLink to='/accommodation' exact>
 				Accommodation
 			</NavLink>
 			<NavLink to='/contact' exact>

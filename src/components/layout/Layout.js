@@ -10,6 +10,7 @@ import { AuthContextProvider } from '../../context/AuthContext';
 import ProtectedRoute from '../routes/ProtectedRoute';
 import Home from '../home/Home';
 import Contact from '../contact/Contact';
+import Accommodation from '../accommodation/Accommodation';
 import Login from '../auth/Login';
 import Register from '../auth/Register';
 import Hotels from '../admin/Hotels';
@@ -28,6 +29,7 @@ function App() {
 					<Switch>
 						<Route path='/' exact component={Home} />
 						<Route path='/contact' exact component={Contact} />
+						<Route path='/accommodation' exact component={Accommodation} />
 						<Route path='/login' component={Login} />
 						<Route path='/register' component={Register} />
 						<ProtectedRoute path='/admin' exact component={Dashboard} />
