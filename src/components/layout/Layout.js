@@ -6,17 +6,17 @@ import {
 	Redirect,
 } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
-import { AuthContextProvider } from './context/AuthContext';
-import ProtectedRoute from './components/routes/ProtectedRoute';
-import Home from './components/home/Home';
-import Login from './components/auth/Login';
-import Register from './components/auth/Register';
-import Hotels from './components/admin/Hotels';
-import AddHotel from './components/admin/AddHotel';
-import EditHotel from './components/admin/EditHotel';
-import Dashboard from './components/admin/Dashboard';
-import Nav from './components/layout/Nav';
-import './App.css';
+import { AuthContextProvider } from '../../context/AuthContext';
+import ProtectedRoute from '../routes/ProtectedRoute';
+import Home from '../home/Home';
+import Contact from '../contact/Contact';
+import Login from '../auth/Login';
+import Register from '../auth/Register';
+import Hotels from '../admin/Hotels';
+import AddHotel from '../admin/AddHotel';
+import EditHotel from '../admin/EditHotel';
+import Dashboard from '../admin/Dashboard';
+import Nav from './Nav';
 
 function App() {
 	return (
@@ -27,6 +27,7 @@ function App() {
 				<Container>
 					<Switch>
 						<Route path='/' exact component={Home} />
+						<Route path='/contact' exact component={Contact} />
 						<Route path='/login' component={Login} />
 						<Route path='/register' component={Register} />
 						<ProtectedRoute path='/admin' exact component={Dashboard} />

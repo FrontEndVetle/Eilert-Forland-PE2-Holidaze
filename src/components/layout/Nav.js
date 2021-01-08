@@ -10,6 +10,12 @@ function Nav() {
 			<NavLink to='/' exact>
 				Home
 			</NavLink>
+			<NavLink to='/' exact>
+				Accommodation
+			</NavLink>
+			<NavLink to='/contact' exact>
+				Contact
+			</NavLink>
 
 			{user ? (
 				<>
