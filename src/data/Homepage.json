@@ -1,0 +1,16 @@
+[{
+        "id": 1,
+        "title": "John",
+        "information": ["Bergen1", "Bergen2", "Bergen3"]
+    },
+    {
+        "id": 2,
+        "title": "Bergen",
+        "information": ["Bergen1", "Bergen2", "Bergen3"]
+    },
+    {
+        "id": 3,
+        "title": "Oslo",
+        "information": ["Bergen1", "Bergen2", "Bergen3"]
+    }
+]
