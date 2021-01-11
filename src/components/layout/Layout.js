@@ -17,7 +17,7 @@ import Hotels from '../admin/Hotels';
 import AddHotel from '../admin/AddHotel';
 import EditHotel from '../admin/EditHotel';
 import Dashboard from '../admin/Dashboard';
-import NavBar from './Nav';
+import NavBar from './header/Nav';
 
 function App() {
 	return (
