@@ -1,16 +1,19 @@
 [{
         "id": 1,
         "title": "John",
-        "information": ["Bergen1", "Bergen2", "Bergen3"]
+        "information": ["Bergen1", "Bergen2", "Bergen3"],
+        "image": "/images/bryggen.jpg"
     },
     {
         "id": 2,
         "title": "Bergen",
-        "information": ["Bergen1", "Bergen2", "Bergen3"]
+        "information": ["Bergen1", "Bergen2", "Bergen3"],
+        "image": ["/images/skansen.jpg"]
     },
     {
         "id": 3,
         "title": "Oslo",
-        "information": ["Bergen1", "Bergen2", "Bergen3"]
+        "information": ["Bergen1", "Bergen2", "Bergen3"],
+        "image": ["/images/bryggen.jpg"]
     }
 ]
