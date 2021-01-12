@@ -5,10 +5,15 @@
 
 .navbar {
     background-color: $nav-bg;
+    text-align: center;
+}
+
+.navbar a {
+    color: $text-light;
 }
 
 .navbar-nav a {
-    margin-left: 100px;
+    margin-left: 10px;
     &:hover {
         background-color: red;
     }
@@ -16,8 +21,7 @@
 
 .dropdown-menu {
     background-color: $nav-bg;
-    padding: 20px;
-    float: left;
+    margin-right: 100px;
     &__btn {
         width: 100%;
     }

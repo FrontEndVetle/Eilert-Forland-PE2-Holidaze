@@ -5,7 +5,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Logout from '../../auth/Logout';
 import Logo from './logo.png';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
 
 function NavBar() {
 	const { user } = useContext(AuthContext);
@@ -29,31 +30,22 @@ function NavBar() {
 						Contact
 					</NavLink>
 				</Nav>
-
 				{user ? (
 					<>
-						<NavDropdown title='Admin' id='nav-dropdown'>
-							<NavDropdown.Item eventKey='4.1'>
-								<NavLink to='/admin' exact>
-									Dashboard
-								</NavLink>
-							</NavDropdown.Item>
-							<NavDropdown.Item eventKey='4.2'>
-								{' '}
-								<NavLink to='/admin/hotels/add' exact>
-									Add Establishment
-								</NavLink>
-							</NavDropdown.Item>
-							<NavDropdown.Item eventKey='4.3'>
-								<NavLink to='/admin/hotels' exact>
-									Establishments
-								</NavLink>
-							</NavDropdown.Item>
-							<NavDropdown.Divider />
-							<NavDropdown.Item eventKey='4.4'>
+						<DropdownButton
+							menuAlign='right'
+							title='Admin'
+							id='dropdown-menu-align-right'>
+							<Dropdown.Item href='/admin'>Action</Dropdown.Item>
+							<Dropdown.Item href='/admin/hotels/add'>
+								Another action
+							</Dropdown.Item>
+							<Dropdown.Item href='/admin/hotels'>Something else</Dropdown.Item>
+							<Dropdown.Divider />
+							<Dropdown.Item>
 								<Logout />
-							</NavDropdown.Item>
-						</NavDropdown>
+							</Dropdown.Item>
+						</DropdownButton>
 					</>
 				) : (
 					<NavLink className='ml-auto' to='/register'>
