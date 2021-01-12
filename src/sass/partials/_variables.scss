@@ -7,10 +7,12 @@ $Game-of-thrones-5-hex: #0A0C0E;/*
 
 /*font*/
 
-@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Lato&display=swap");
-$heading-stack: "Cinzel Decorative",
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Nunito:wght@400;600&family=Open+Sans&display=swap');
+$heading-stack: 'Nunito',
 sans-serif;
-$font-stack: "Lato",
+$heading-special: 'Lobster',
+cursive;
+$font-stack: 'Open Sans',
 sans-serif;
 
 /*font size*/
@@ -24,9 +26,9 @@ $nav-text-t: 13px;
 $sub-heading-d: 24px;
 $sub-heading-t: 16px;
 $sub-heading-m: 14px;
-$local-heading-d: 18px;
-$local-heading-t: 14px;
-$local-heading-m: 12px;
+$heading-special: 24px;
+$heading-special: 16px;
+$heading-special: 14px;
 $body-text-d: 16px;
 $body-text-t: 14px;
 $body-text-m: 12px;
@@ -36,15 +38,11 @@ $btn-text-m: 12px;
 
 /*colours*/
 
-$text-color-dark: #2e2e2e;
-$bg-color: #0c0c0c;
-$bg-win: #2e2e2e;
-$text-color: #e0e0e0;
+$text-light: #ebebeb;
+$text-color: #2e2e2e;
 $link-hover: #a09f9f;
 $btn-color: #2c4459;
 $btn-hover: #4d748c;
 $hover-a: #343a3f;
-$content-bg: #343a3f;
-$card-border: 3px solid #4d748c;
-$event-bg: #050505;
-$selected-card: 3px solid #a30d0d;
+$nav-bg: #00103d;
+$footer-bg: #00103d;
