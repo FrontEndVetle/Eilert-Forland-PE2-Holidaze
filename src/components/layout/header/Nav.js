@@ -5,11 +5,12 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Logout from '../../auth/Logout';
 import Logo from './logo.png';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function NavBar() {
 	const { user } = useContext(AuthContext);
 	return (
-		<Navbar bg='dark' variant='dark' expand='lg'>
+		<Navbar variant='dark' expand='lg'>
 			<NavLink to='/' exact>
 				<Navbar.Brand>
 					<img className='logo' src={Logo} alt='Logo' />
@@ -17,7 +18,7 @@ function NavBar() {
 			</NavLink>
 			<Navbar.Toggle aria-controls='basic-navbar-nav' />
 			<Navbar.Collapse id='basic-navbar-nav'>
-				<Nav className='mr-auto'>
+				<Nav className='ml-auto mr-auto'>
 					<NavLink to='/' exact>
 						Home
 					</NavLink>
@@ -31,11 +32,33 @@ function NavBar() {
 
 				{user ? (
 					<>
-						<NavLink to='/admin'>Admin</NavLink>
-						<Logout />
+						<NavDropdown title='Admin' id='nav-dropdown'>
+							<NavDropdown.Item eventKey='4.1'>
+								<NavLink to='/admin' exact>
+									Dashboard
+								</NavLink>
+							</NavDropdown.Item>
+							<NavDropdown.Item eventKey='4.2'>
+								{' '}
+								<NavLink to='/admin/hotels/add' exact>
+									Add Establishment
+								</NavLink>
+							</NavDropdown.Item>
+							<NavDropdown.Item eventKey='4.3'>
+								<NavLink to='/admin/hotels' exact>
+									Establishments
+								</NavLink>
+							</NavDropdown.Item>
+							<NavDropdown.Divider />
+							<NavDropdown.Item eventKey='4.4'>
+								<Logout />
+							</NavDropdown.Item>
+						</NavDropdown>
 					</>
 				) : (
-					<NavLink to='/register'>Login</NavLink>
+					<NavLink className='ml-auto' to='/register'>
+						Login
+					</NavLink>
 				)}
 			</Navbar.Collapse>
 		</Navbar>
@@ -43,19 +66,3 @@ function NavBar() {
 }
 
 export default NavBar;
-
-/*<Navbar bg='dark' variant='dark' expand='lg'>
-				<NavLink to='/' exact>
-					<Navbar.Brand>Games</Navbar.Brand>
-				</NavLink>
-				<Navbar.Toggle aria-controls='basic-navbar-nav' />
-				<Navbar.Collapse id='basic-navbar-nav'>
-					<Nav className='mr-auto'>
-						<NavLink to='/' exact className='nav-link'>
-							Home
-						</NavLink>
-						<NavLink to='/register' exact className='nav-link'>
-							Login
-						</NavLink>
-					</Nav>
-				</Navbar.Collapse>*/

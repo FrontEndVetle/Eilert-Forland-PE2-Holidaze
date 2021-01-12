@@ -18,13 +18,13 @@ import AddHotel from '../admin/AddHotel';
 import EditHotel from '../admin/EditHotel';
 import Dashboard from '../admin/Dashboard';
 import NavBar from './header/Nav';
+import Footer from './footer/Footer';
 
 function App() {
 	return (
 		<AuthContextProvider>
 			<Router>
 				<NavBar />
-
 				<Container>
 					<Switch>
 						<Route path='/' exact component={Home} />
@@ -47,6 +47,7 @@ function App() {
 						<Redirect to='/' />
 					</Switch>
 				</Container>
+				<Footer />
 			</Router>
 		</AuthContextProvider>
 	);

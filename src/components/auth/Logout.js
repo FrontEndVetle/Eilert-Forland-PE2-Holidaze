@@ -11,7 +11,11 @@ function Login() {
 		history.push('/');
 	}
 
-	return <button onClick={doLogout}>Log out</button>;
+	return (
+		<button className='dropdown-menu__btn btn' onClick={doLogout}>
+			Log out
+		</button>
+	);
 }
 
 export default Login;
