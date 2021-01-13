@@ -1,0 +1,23 @@
+.btn {
+    background-color: $btn-color;
+    color: $text-light;
+    padding: 3px;
+    border: none;
+    font-size: $btn-text-m;
+    &:hover {
+        $btn-hover: #00103d;
+    }
+}
+
+@media (min-width: 641px) {
+    .btn {
+        font-size: $btn-text-t;
+        padding: 5px;
+    }
+}
+
+@media (min-width: 961px) {
+    .btn {
+        font-size: $btn-text-d;
+    }
+}

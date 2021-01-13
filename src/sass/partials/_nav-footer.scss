@@ -14,9 +14,6 @@
 
 .navbar-nav a {
     margin-left: 10px;
-    &:hover {
-        background-color: red;
-    }
 }
 
 .dropdown-menu {
@@ -33,6 +30,10 @@
     color: $text-light;
     &__title {
         text-decoration: underline red 2px;
+    }
+    .c-footer {
+        background-color: $copyright-bg;
+        margin-top: 10px;
     }
 }
 

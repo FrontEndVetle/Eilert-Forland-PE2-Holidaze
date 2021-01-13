@@ -35,7 +35,8 @@ function NavBar() {
 						<DropdownButton
 							menuAlign='right'
 							title='Admin'
-							id='dropdown-menu-align-right'>
+							id='dropdown-menu-align-right'
+							className='btn'>
 							<Dropdown.Item href='/admin'>Action</Dropdown.Item>
 							<Dropdown.Item href='/admin/hotels/add'>
 								Another action

@@ -2,7 +2,7 @@
         "id": 1,
         "title": "John",
         "information": ["Bergen1", "Bergen2", "Bergen3"],
-        "image": "/images/bryggen.jpg"
+        "image": ["/images/skansen.jpg"]
     },
     {
         "id": 2,
@@ -14,6 +14,6 @@
         "id": 3,
         "title": "Oslo",
         "information": ["Bergen1", "Bergen2", "Bergen3"],
-        "image": ["/images/bryggen.jpg"]
+        "image": ["/images/skansen.jpg"]
     }
 ]
