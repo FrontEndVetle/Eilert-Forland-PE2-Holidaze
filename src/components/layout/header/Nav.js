@@ -37,11 +37,11 @@ function NavBar() {
 							title='Admin'
 							id='dropdown-menu-align-right'
 							className='btn'>
-							<Dropdown.Item href='/admin'>Action</Dropdown.Item>
+							<Dropdown.Item href='/admin'>Dashboard</Dropdown.Item>
 							<Dropdown.Item href='/admin/hotels/add'>
-								Another action
+								Add new establishment
 							</Dropdown.Item>
-							<Dropdown.Item href='/admin/hotels'>Something else</Dropdown.Item>
+							<Dropdown.Item href='/admin/hotels'>Establishments</Dropdown.Item>
 							<Dropdown.Divider />
 							<Dropdown.Item>
 								<Logout />

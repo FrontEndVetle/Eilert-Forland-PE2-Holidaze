@@ -5,9 +5,9 @@ import {
 	Route,
 	Redirect,
 } from 'react-router-dom';
-import Container from 'react-bootstrap/Container';
 import { AuthContextProvider } from '../../context/AuthContext';
 import ProtectedRoute from '../routes/ProtectedRoute';
+import Container from 'react-bootstrap/Container';
 import Home from '../home/Home';
 import Contact from '../contact/Contact';
 import Accommodation from '../accommodation/Accommodation';
@@ -25,7 +25,7 @@ function App() {
 		<AuthContextProvider>
 			<Router>
 				<NavBar />
-				<Container>
+				<Container fluid>
 					<Switch>
 						<Route path='/' exact component={Home} />
 						<Route path='/contact' exact component={Contact} />

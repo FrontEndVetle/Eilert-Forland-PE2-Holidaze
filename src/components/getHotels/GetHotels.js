@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
 import { BASE_URL, headers } from '../../constants/api';
+import HotelCards from '../accommodation/HotelCards';
+import Container from 'react-bootstrap/Container';
+import { Row } from 'react-bootstrap';
+import Col from 'react-bootstrap/Col';
 
-function Hotels() {
+function GetHotels() {
 	const [hotels, setHotels] = useState([]);
 	const [error, setError] = useState(null);
 
@@ -27,23 +30,26 @@ function Hotels() {
 	}, []);
 
 	return (
-		<>
-			<h1> Hotels </h1> {error && <div className='error'> {error} </div>}{' '}
-			<ul>
-				{' '}
+		<Container>
+			<Row className='justify-content-between'>
+				{error && <div className='error'> {error} </div>}{' '}
 				{hotels.map((hotel) => {
+					const { id, name, image, price } = hotel;
 					return (
-						<li key={hotel.id}>
-							<NavLink to={`/admin/hotels/edit/${hotel.id}`}>
-								{' '}
-								{hotel.name}{' '}
-							</NavLink>{' '}
-						</li>
+						<Col sm={6} md={4} md={3} key={id}>
+							<HotelCards
+								key={id}
+								name={name}
+								image={image}
+								price={price}
+								id={id}
+							/>
+						</Col>
 					);
 				})}{' '}
-			</ul>{' '}
-		</>
+			</Row>
+		</Container>
 	);
 }
 
-export default Hotels;
+export default GetHotels;

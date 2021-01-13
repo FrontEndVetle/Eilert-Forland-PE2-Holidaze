@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container';
 function Footer() {
 	return (
 		<footer className='footer pt-4 mt-4'>
-			<Container-fluid>
+			<Container fluid>
 				<Row className='text-center text-md-left d-flex justify-content-around'>
 					<Col md='3'>
 						<h5 className='footer__title'>Holidaze</h5>
@@ -52,7 +52,7 @@ function Footer() {
 				</Row>
 
 				<div className='text-center py-3 c-footer'>
-					<Container-fluid>
+					<Container fluid>
 						<small>
 							&copy; {new Date().getFullYear()} Copyright:{' '}
 							<a href='https://github.com/FrontEndVetle'>
@@ -60,9 +60,9 @@ function Footer() {
 								Eilert Vetle Førland{' '}
 							</a>
 						</small>
-					</Container-fluid>
+					</Container>
 				</div>
-			</Container-fluid>
+			</Container>
 		</footer>
 	);
 }

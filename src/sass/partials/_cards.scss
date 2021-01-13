@@ -3,6 +3,12 @@
     border-radius: 5%;
     border: none;
     box-shadow: 0px 1px 4px;
+    text-align: center;
+    &__title {
+        &--special {
+            font-family: $heading-special;
+        }
+    }
 }
 
 @media (min-width: 641px) {}
