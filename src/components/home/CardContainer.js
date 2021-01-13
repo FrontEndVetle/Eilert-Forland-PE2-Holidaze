@@ -6,7 +6,7 @@ import HomeInfoCards from './HomeInfoCards';
 
 function CardContainer() {
 	return (
-		<Row>
+		<Row className='justify-content-between'>
 			{HomeData.map((HomeDetail) => {
 				const { id, title, image } = HomeDetail;
 				const infoList = HomeDetail.information.map((info) => (
