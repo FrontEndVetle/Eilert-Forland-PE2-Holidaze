@@ -51,14 +51,16 @@ function Footer() {
 					</Col>
 				</Row>
 
-				<div className='text-center py-3'>
-					<Container fluid>
-						&copy; {new Date().getFullYear()} Copyright:{' '}
-						<a href='https://github.com/FrontEndVetle'>
-							{' '}
-							Eilert Vetle Førland{' '}
-						</a>
-					</Container>
+				<div className='text-center py-3 c-footer'>
+					<Container-fluid>
+						<small>
+							&copy; {new Date().getFullYear()} Copyright:{' '}
+							<a href='https://github.com/FrontEndVetle'>
+								{' '}
+								Eilert Vetle Førland{' '}
+							</a>
+						</small>
+					</Container-fluid>
 				</div>
 			</Container-fluid>
 		</footer>
