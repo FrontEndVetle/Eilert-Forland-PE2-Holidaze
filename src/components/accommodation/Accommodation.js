@@ -1,12 +1,13 @@
 import React from 'react';
-import GetHotels from '../getHotels/GetHotels';
+import HotelContainer from './HotelContainer';
+import Container from 'react-bootstrap/Container';
 
 function Accommodation() {
 	return (
-		<>
+		<Container>
 			<h1>Accommodations</h1>
-			<GetHotels />;
-		</>
+			<HotelContainer />;
+		</Container>
 	);
 }
 
