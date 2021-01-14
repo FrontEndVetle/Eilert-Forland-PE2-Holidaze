@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BASE_URL, headers } from '../../constants/api';
 import HotelCards from '../accommodation/HotelCards';
+import HotelMap from './hotelMap/HotelMap';
 import Container from 'react-bootstrap/Container';
 import { Row } from 'react-bootstrap';
 import Col from 'react-bootstrap/Col';
@@ -48,6 +49,7 @@ function GetHotels() {
 					);
 				})}{' '}
 			</Row>
+			<HotelMap />
 		</Container>
 	);
 }
