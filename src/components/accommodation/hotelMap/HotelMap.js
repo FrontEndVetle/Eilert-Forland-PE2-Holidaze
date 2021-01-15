@@ -1,31 +1,31 @@
-import React, { Component } from 'react';
-import GoogleMapReact from 'google-map-react';
+import React from 'react';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import inIcon from '../../../images/skansen.jpg';
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
-class HotelMap extends Component {
-	static defaultProps = {
-		center: {
-			lat: 60.397076,
-			lng: 5.324383,
-		},
-		zoom: 11,
-	};
+const containerStyle = {
+	width: '100%',
+	height: '100%',
+};
 
-	render() {
-		return (
-			// Important! Always set the container height explicitly
-			<div style={{ height: '100vh', width: '100%' }}>
-				<GoogleMapReact
-					bootstrapURLKeys={{
-						key: 'AIzaSyCYNfjg6TYg7I_NYQdd_73-UZH8Rgk2gFU',
-					}}
-					defaultCenter={this.props.center}
-					defaultZoom={this.props.zoom}>
-					<AnyReactComponent lat={60.397076} lng={5.324383} text='My Marker' />
-				</GoogleMapReact>
-			</div>
-		);
-	}
+const MARKER_POSITION = {
+	lat: 37.772,
+	lng: -122.214,
+};
+
+const center = {
+	lat: 60.397076,
+	lng: 5.324383,
+};
+
+function HotelMap() {
+	return (
+		<LoadScript googleMapsApiKey='AIzaSyCYNfjg6TYg7I_NYQdd_73-UZH8Rgk2gFU'>
+			<GoogleMap mapContainerStyle={containerStyle} center={center} zoom={12}>
+				<Marker position={MARKER_POSITION} icon={pinIcon} />
+				<></>
+			</GoogleMap>
+		</LoadScript>
+	);
 }
 
 export default HotelMap;
