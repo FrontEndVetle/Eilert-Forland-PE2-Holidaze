@@ -34,16 +34,20 @@ function GetHotels() {
 	}, []);
 
 	let price;
-	let y;
+	let numberGuests;
+	let searchValue;
 
-	function maxGuests(x) {
-		console.log(x);
-		return (y = x);
+	function maxGuests(visitors) {
+		return (numberGuests = visitors);
 	}
 
 	function maxPrice(max) {
-		console.log(max);
 		return (price = max);
+	}
+
+	function searchName(e) {
+		searchValue = e.target.value.toLowerCase();
+		return searchValue;
 	}
 
 	const filterHotels = function filter() {
@@ -52,8 +56,14 @@ function GetHotels() {
 			//each hotel name to lowercase to compare with search value
 			const hotelPrice = acco.price;
 			const hotelCapacity = acco.maxGuests;
+			const lowerCaseName = acco.name.toLowerCase();
+
 			//check if the hotel name includes the search value
-			if (hotelPrice < maxPrice(price) && hotelCapacity > maxGuests(y)) {
+			if (
+				hotelPrice < maxPrice(price) &&
+				hotelCapacity > maxGuests(numberGuests) &&
+				lowerCaseName.includes(searchName(searchValue))
+			) {
 				//add to filtered array
 
 				return true;
@@ -86,8 +96,7 @@ function GetHotels() {
 	};*/
 	return (
 		<Container>
-			{}
-			<Search handleSearch={filterHotels} />
+			<Search searchName={searchName} handleSearch={filterHotels} />
 			<Filters
 				maxGuests={maxGuests}
 				maxPrice={maxPrice}

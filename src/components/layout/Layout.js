@@ -19,6 +19,7 @@ import EditHotel from '../admin/EditHotel';
 import Dashboard from '../admin/Dashboard';
 import NavBar from './header/Nav';
 import Footer from './footer/Footer';
+import HotelDetail from '../accommodation/HotelDetail';
 
 function App() {
 	return (
@@ -32,6 +33,7 @@ function App() {
 						<Route path='/accommodation' exact component={Accommodation} />
 						<Route path='/login' component={Login} />
 						<Route path='/register' component={Register} />
+						<Route path='/hotel/:id' component={HotelDetail} />
 						<ProtectedRoute path='/admin' exact component={Dashboard} />
 						<ProtectedRoute path='/admin/hotels' exact component={Hotels} />
 						<ProtectedRoute
