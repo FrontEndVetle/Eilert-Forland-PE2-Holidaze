@@ -4,10 +4,13 @@ import HotelCards from '../accommodation/HotelCards';
 import Container from 'react-bootstrap/Container';
 import { Row } from 'react-bootstrap';
 import Col from 'react-bootstrap/Col';
+import Search from '../util/filter/Search';
+import Filters from '../util/filter/Filters';
 
 function GetHotels() {
 	const [hotels, setHotels] = useState([]);
 	const [error, setError] = useState(null);
+	const [filteredHotels, setFilteredHotels] = useState([]);
 
 	const url = BASE_URL + 'establishments';
 	const options = { headers };
@@ -24,29 +27,82 @@ function GetHotels() {
 					setError(json.message);
 				} else {
 					setHotels(json);
+					setFilteredHotels(json);
 				}
 			})
 			.catch((error) => console.log(error));
 	}, []);
 
+	let price;
+	let y;
+
+	function maxGuests(x) {
+		console.log(x);
+		return (y = x);
+	}
+
+	function maxPrice(max) {
+		console.log(max);
+		return (price = max);
+	}
+
+	const filterHotels = function filter() {
+		//create a new array from the hotels array
+		const filteredArray = hotels.filter(function (acco) {
+			//each hotel name to lowercase to compare with search value
+			const hotelPrice = acco.price;
+			const hotelCapacity = acco.maxGuests;
+			//check if the hotel name includes the search value
+			if (hotelPrice < maxPrice(price) && hotelCapacity > maxGuests(y)) {
+				//add to filtered array
+
+				return true;
+			}
+
+			return false;
+		});
+		//set filtered hotels to the new array
+		setFilteredHotels(filteredArray);
+	};
+
+	/*const filterHotels = function filter(e) {
+		const searchValue = e.target.value.toLowerCase();
+		//create a new array from the hotels array
+		const filteredArray = hotels.filter(function (acco) {
+			//each hotel name to lowercase to compare with search value
+			const lowerCaseName = acco.name.toLowerCase();
+			const x = acco.price;
+			//check if the hotel name includes the search value
+			if (lowerCaseName.includes(searchValue) && x < maxPrice(price)) {
+				//add to filtered array
+
+				return true;
+			}
+
+			return false;
+		});
+		//set filtered hotels to the new array
+		setFilteredHotels(filteredArray);
+	};*/
 	return (
 		<Container>
+			{}
+			<Search handleSearch={filterHotels} />
+			<Filters
+				maxGuests={maxGuests}
+				maxPrice={maxPrice}
+				handleSearch={filterHotels}
+			/>
 			<Row className='justify-content-between'>
 				{error && <div className='error'> {error} </div>}
-				{hotels.map((hotel) => {
-					const { id, name, image, price, lat, lng } = hotel;
+				{filteredHotels.map((hotel) => {
+					const { id, name, image, price } = hotel;
 					hotelList.push({ lat: hotel.lat, lng: hotel.lng, name: hotel.name });
 
 					return (
 						<>
-							<Col sm={6} md={4} md={3} key={id}>
-								<HotelCards
-									key={id}
-									name={name}
-									image={image}
-									price={price}
-									id={id}
-								/>
+							<Col sm={6} md={4} md={3}>
+								<HotelCards key={id} name={name} image={image} price={price} />
 							</Col>
 						</>
 					);
