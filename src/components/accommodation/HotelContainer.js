@@ -110,8 +110,8 @@ function GetHotels() {
 
 					return (
 						<>
-							<Col sm={6} md={4} md={3}>
-								<HotelCards key={id} name={name} image={image} price={price} />
+							<Col sm={6} md={4} md={3} key={id}>
+								<HotelCards name={name} image={image} price={price} id={id} />
 							</Col>
 						</>
 					);
