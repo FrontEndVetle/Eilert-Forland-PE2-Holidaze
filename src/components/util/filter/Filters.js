@@ -1,19 +1,11 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Slider from '@material-ui/core/Slider';
-
-const useStyles = makeStyles({
-	root: {
-		width: 200,
-	},
-});
+import Col from 'react-bootstrap/Col';
 
 function Filters({ maxGuests, maxPrice, handleSearch }) {
-	const classes = useStyles();
-
 	return (
 		<>
-			<div className={classes.root}>
+			<Col>
 				<Slider
 					defaultValue={5}
 					getAriaValueText={maxGuests}
@@ -26,8 +18,8 @@ function Filters({ maxGuests, maxPrice, handleSearch }) {
 					onChange={(event) => handleSearch(event)}
 				/>
 				<p className='text-center'>Max guests</p>
-			</div>
-			<div className={classes.root}>
+			</Col>
+			<Col>
 				<Slider
 					defaultValue={100}
 					getAriaValueText={maxPrice}
@@ -40,7 +32,7 @@ function Filters({ maxGuests, maxPrice, handleSearch }) {
 					onChange={(event) => handleSearch(event)}
 				/>
 				<p className='text-center'>Max price </p>
-			</div>
+			</Col>
 		</>
 	);
 }

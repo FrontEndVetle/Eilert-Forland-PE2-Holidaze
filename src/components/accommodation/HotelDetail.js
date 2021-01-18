@@ -29,7 +29,7 @@ function HomeDetail() {
 
 	return (
 		<Row>
-			<Col md={6} className='detail-image'>
+			<Col md={6}>
 				<Image src={detail.image} />
 			</Col>
 			<Col>

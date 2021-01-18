@@ -1,19 +1,32 @@
-import PropTypes from 'prop-types';
-import InputGroup from 'react-bootstrap/InputGroup';
-import FormControl from 'react-bootstrap/FormControl';
+import React from 'react';
+import TextField from '@material-ui/core/TextField';
+import Autocomplete from '@material-ui/lab/Autocomplete';
 
-export default function Search({ searchName, handleSearch }) {
+export default function Search({ searchName, hotels }) {
+	const options = hotels.map((option) => {
+		const firstLetter = option.name[0].toUpperCase();
+		return {
+			firstLetter: /[0-9]/.test(firstLetter) ? '0-9' : firstLetter,
+			...option,
+		};
+	});
+
 	return (
-		<InputGroup>
-			<FormControl
-				placeholder='Search for hotel..'
-				onChange={(event) => searchName(event)}
-				onChange={(event) => handleSearch(event)}
-			/>
-		</InputGroup>
+		<Autocomplete
+			id='grouped-demo'
+			options={options.sort(
+				(a, b) => -b.firstLetter.localeCompare(a.firstLetter)
+			)}
+			groupBy={(option) => option.firstLetter}
+			getOptionLabel={(option) => option.name}
+			renderInput={(params) => (
+				<TextField
+					{...params}
+					label='With categories'
+					variant='outlined'
+					onChange={(event) => searchName(event)}
+				/>
+			)}
+		/>
 	);
 }
-
-Search.propTypes = {
-	handleSearch: PropTypes.func.isRequired,
-};

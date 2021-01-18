@@ -9,8 +9,13 @@
     border: none;
     font-size: $btn-text-m;
     &:hover {
-        $btn-hover: #00103d;
+        background-color: $btn-hover;
     }
+}
+
+//utilities
+.spinner {
+    margin: 200px 50%;
 }
 
 @media (min-width: 641px) {

@@ -6,11 +6,13 @@ import { Row } from 'react-bootstrap';
 import Col from 'react-bootstrap/Col';
 import Search from '../util/filter/Search';
 import Filters from '../util/filter/Filters';
+import Spinner from 'react-bootstrap/Spinner';
 
 function GetHotels() {
 	const [hotels, setHotels] = useState([]);
 	const [error, setError] = useState(null);
 	const [filteredHotels, setFilteredHotels] = useState([]);
+	const [loading, setLoading] = useState(true);
 
 	const url = BASE_URL + 'establishments';
 	const options = { headers };
@@ -19,8 +21,8 @@ function GetHotels() {
 	useEffect(() => {
 		fetch(url, options)
 			.then((response) => response.json())
+			.finally(() => setLoading(false))
 			.then((json) => {
-				console.log(json);
 				// handle error
 				if (json.error) {
 					setHotels([]);
@@ -33,20 +35,29 @@ function GetHotels() {
 			.catch((error) => console.log(error));
 	}, []);
 
+	if (loading) {
+		return <Spinner animation='border' className='spinner' />;
+	}
+
+	//varibles to store user filter input
 	let price;
 	let numberGuests;
 	let searchValue;
 
+	//get users filter for number of visitors
 	function maxGuests(visitors) {
 		return (numberGuests = visitors);
 	}
 
+	//get maxPrice value user has set
 	function maxPrice(max) {
-		return (price = max);
+		price = max;
+		return price;
 	}
 
 	function searchName(e) {
 		searchValue = e.target.value.toLowerCase();
+		filterHotels();
 		return searchValue;
 	}
 
@@ -57,12 +68,14 @@ function GetHotels() {
 			const hotelPrice = acco.price;
 			const hotelCapacity = acco.maxGuests;
 			const lowerCaseName = acco.name.toLowerCase();
-
+			if (searchValue === undefined) {
+				searchValue = '';
+			}
 			//check if the hotel name includes the search value
 			if (
 				hotelPrice < maxPrice(price) &&
 				hotelCapacity > maxGuests(numberGuests) &&
-				lowerCaseName.includes(searchName(searchValue))
+				lowerCaseName.includes(searchValue)
 			) {
 				//add to filtered array
 
@@ -74,34 +87,16 @@ function GetHotels() {
 		//set filtered hotels to the new array
 		setFilteredHotels(filteredArray);
 	};
-
-	/*const filterHotels = function filter(e) {
-		const searchValue = e.target.value.toLowerCase();
-		//create a new array from the hotels array
-		const filteredArray = hotels.filter(function (acco) {
-			//each hotel name to lowercase to compare with search value
-			const lowerCaseName = acco.name.toLowerCase();
-			const x = acco.price;
-			//check if the hotel name includes the search value
-			if (lowerCaseName.includes(searchValue) && x < maxPrice(price)) {
-				//add to filtered array
-
-				return true;
-			}
-
-			return false;
-		});
-		//set filtered hotels to the new array
-		setFilteredHotels(filteredArray);
-	};*/
 	return (
 		<Container>
-			<Search searchName={searchName} handleSearch={filterHotels} />
-			<Filters
-				maxGuests={maxGuests}
-				maxPrice={maxPrice}
-				handleSearch={filterHotels}
-			/>
+			<Search searchName={searchName} hotels={hotels} />
+			<Row className='justify-content-between filters'>
+				<Filters
+					maxGuests={maxGuests}
+					maxPrice={maxPrice}
+					handleSearch={filterHotels}
+				/>
+			</Row>
 			<Row className='justify-content-between'>
 				{error && <div className='error'> {error} </div>}
 				{filteredHotels.map((hotel) => {
