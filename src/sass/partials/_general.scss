@@ -2,31 +2,6 @@
     padding: 0;
 }
 
-.btn {
-    background-color: $btn-color;
-    color: $text-light;
-    padding: 3px;
-    border: none;
-    font-size: $btn-text-m;
-    &:hover {
-        background-color: $btn-hover;
-    }
-}
+@media (min-width: 641px) {}
 
-//utilities
-.spinner {
-    margin: 200px 50%;
-}
-
-@media (min-width: 641px) {
-    .btn {
-        font-size: $btn-text-t;
-        padding: 5px;
-    }
-}
-
-@media (min-width: 961px) {
-    .btn {
-        font-size: $btn-text-d;
-    }
-}
+@media (min-width: 961px) {}

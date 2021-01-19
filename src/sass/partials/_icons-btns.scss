@@ -1,0 +1,43 @@
+.btn {
+    background-color: $btn-color;
+    color: $text-light;
+    padding: 3px;
+    border: none;
+    font-size: $btn-text-m;
+    &:hover {
+        background-color: $btn-hover;
+    }
+}
+
+//utilities
+.spinner {
+    margin: 200px 50%;
+}
+
+.material-icons {
+    font-size: 15px;
+    margin-right: 10px;
+    padding: 0;
+    position: relative;
+    /* Adjust these values accordingly */
+    top: 7px;
+}
+
+@media (min-width: 641px) {
+    .btn {
+        font-size: $btn-text-t;
+        padding: 5px;
+    }
+    .material-icons {
+        font-size: 30px;
+    }
+}
+
+@media (min-width: 961px) {
+    .btn {
+        font-size: $btn-text-d;
+    }
+    .material-icons {
+        font-size: 25px;
+    }
+}
