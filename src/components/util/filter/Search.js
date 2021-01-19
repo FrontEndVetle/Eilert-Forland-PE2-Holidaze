@@ -1,10 +1,14 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import { Link } from 'react-router-dom';
 
+let id;
 export default function Search({ searchName, hotels }) {
 	const options = hotels.map((option) => {
 		const firstLetter = option.name[0].toUpperCase();
+		id = option.id;
+
 		return {
 			firstLetter: /[0-9]/.test(firstLetter) ? '0-9' : firstLetter,
 			...option,
@@ -19,10 +23,15 @@ export default function Search({ searchName, hotels }) {
 			)}
 			groupBy={(option) => option.firstLetter}
 			getOptionLabel={(option) => option.name}
+			renderOption={(option) => (
+				<Link to={'hotel/' + option.id}>
+					{option.name} ${option.price}
+				</Link>
+			)}
 			renderInput={(params) => (
 				<TextField
 					{...params}
-					label='With categories'
+					label='Search Accommodations'
 					variant='outlined'
 					onChange={(event) => searchName(event)}
 				/>

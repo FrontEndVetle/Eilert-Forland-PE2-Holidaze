@@ -27,7 +27,7 @@ function Filters({ maxGuests, maxPrice, handleSearch }) {
 					step={10}
 					marks
 					min={40}
-					max={200}
+					max={250}
 					valueLabelDisplay='on'
 					onChange={(event) => handleSearch(event)}
 				/>
