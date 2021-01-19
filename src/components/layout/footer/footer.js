@@ -36,16 +36,24 @@ function Footer() {
 						<h5 className='footer__title'>Links</h5>
 						<ul>
 							<li>
-								<a href='#!'>Link 1</a>
+								<a href='#!'>
+									<i className='material-icons'>Facebook</i>Link 1
+								</a>
 							</li>
 							<li>
-								<a href='#!'>Link 2</a>
+								<a href='#!'>
+									<i className='material-icons'>hotel</i>Link 2
+								</a>
 							</li>
 							<li>
-								<a href='#!'>Link 3</a>
+								<a href='#!'>
+									<i className='material-icons'>hotel</i>Link 3
+								</a>
 							</li>
 							<li>
-								<a href='#!'>Link 4</a>
+								<a href='#!'>
+									<i className='material-icons'>hotel</i>Link 4
+								</a>
 							</li>
 						</ul>
 					</Col>

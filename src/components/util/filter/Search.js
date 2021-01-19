@@ -17,14 +17,14 @@ export default function Search({ searchName, hotels }) {
 
 	return (
 		<Autocomplete
-			id='grouped-demo'
 			options={options.sort(
 				(a, b) => -b.firstLetter.localeCompare(a.firstLetter)
 			)}
 			groupBy={(option) => option.firstLetter}
 			getOptionLabel={(option) => option.name}
 			renderOption={(option) => (
-				<Link to={'hotel/' + option.id}>
+				<Link className='search-link' to={'hotel/' + option.id}>
+					<i className='material-icons'>hotel</i>
 					{option.name} ${option.price}
 				</Link>
 			)}

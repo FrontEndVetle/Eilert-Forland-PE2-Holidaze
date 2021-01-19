@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Spinner from 'react-bootstrap/Spinner';
 import { useParams } from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Image from 'react-bootstrap/Image';
-import { BASE_URL, headers } from '../../constants/api';
+import { BASE_URL, headers } from '../../../constants/api';
+import HotelItem from './HotelItem';
 
 function HomeDetail() {
 	const [detail, setDetail] = useState(null);
@@ -29,12 +28,7 @@ function HomeDetail() {
 
 	return (
 		<Row>
-			<Col md={6}>
-				<Image src={detail.image} />
-			</Col>
-			<Col>
-				<h1>{detail.name}</h1>
-			</Col>
+			<HotelItem image={detail.image} name={detail.name} />
 		</Row>
 	);
 }

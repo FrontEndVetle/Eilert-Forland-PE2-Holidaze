@@ -19,7 +19,7 @@ import EditHotel from '../admin/EditHotel';
 import Dashboard from '../admin/Dashboard';
 import NavBar from './header/Nav';
 import Footer from './footer/Footer';
-import HotelDetail from '../accommodation/HotelDetail';
+import HotelDetail from '../accommodation/hotelDetail/HotelDetail';
 
 function App() {
 	return (
