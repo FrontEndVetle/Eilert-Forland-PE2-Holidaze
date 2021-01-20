@@ -1,6 +1,6 @@
 [{
         "id": 1,
-        "title": "John",
+        "title": "Why choose Holidaze",
         "information": ["Bergen1", "Bergen2", "Bergen3"],
         "icons": ["BeachAccessIcon", "BeachAccessIcon", "BeachAccessIcon"],
 
@@ -8,7 +8,7 @@
     },
     {
         "id": 2,
-        "title": "Bergen",
+        "title": "Why visit Bergen",
         "information": ["Bergen1", "Bergen2", "Bergen3"],
         "icons": ["BeachAccessIcon", "BeachAccessIcon", "BeachAccessIcon"],
 
@@ -16,7 +16,7 @@
     },
     {
         "id": 3,
-        "title": "Oslo",
+        "title": "Top attractions",
         "information": ["Bergen1", "Bergen2", "Bergen3"],
         "icons": ["BeachAccessIcon", "BeachAccessIcon", "BeachAccessIcon"],
 

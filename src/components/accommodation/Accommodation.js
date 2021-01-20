@@ -6,7 +6,7 @@ function Accommodation() {
 	return (
 		<Container>
 			<h1>Accommodations</h1>
-			<HotelContainer />;
+			<HotelContainer />
 		</Container>
 	);
 }

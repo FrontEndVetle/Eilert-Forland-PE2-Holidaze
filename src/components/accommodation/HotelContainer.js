@@ -98,19 +98,32 @@ function GetHotels() {
 				/>
 			</Row>
 			<Row className='justify-content-between'>
-				{error && <div className='error'> {error} </div>}
-				{filteredHotels.map((hotel) => {
-					const { id, name, image, price } = hotel;
-					hotelList.push({ lat: hotel.lat, lng: hotel.lng, name: hotel.name });
+				<Col sm={12} md={8}>
+					<Row>
+						{error && <div className='error'> {error} </div>}
+						{filteredHotels.map((hotel) => {
+							const { id, name, image, price, maxGuests } = hotel;
+							hotelList.push({
+								lat: hotel.lat,
+								lng: hotel.lng,
+								name: hotel.name,
+							});
 
-					return (
-						<>
-							<Col sm={6} md={4} md={3} key={id}>
-								<HotelCards name={name} image={image} price={price} id={id} />
-							</Col>
-						</>
-					);
-				})}{' '}
+							return (
+								<HotelCards
+									maxGuests={maxGuests}
+									name={name}
+									image={image}
+									price={price}
+									id={id}
+								/>
+							);
+						})}
+					</Row>
+				</Col>
+				<Col sm={12} md={4}>
+					htorhjktorthr
+				</Col>
 			</Row>
 		</Container>
 	);

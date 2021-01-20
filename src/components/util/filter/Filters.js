@@ -17,7 +17,7 @@ function Filters({ maxGuests, maxPrice, handleSearch }) {
 					valueLabelDisplay='on'
 					onChange={(event) => handleSearch(event)}
 				/>
-				<p className='text-center'>Max guests</p>
+				<p className='text-center'>Guests</p>
 			</Col>
 			<Col>
 				<Slider
