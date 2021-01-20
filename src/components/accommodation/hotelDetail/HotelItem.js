@@ -12,16 +12,29 @@ import ImageIcon from '@material-ui/icons/Image';
 import WorkIcon from '@material-ui/icons/Work';
 import BeachAccessIcon from '@material-ui/icons/BeachAccess';
 import Divider from '@material-ui/core/Divider';
+import InfoIcon from '@material-ui/icons/Info';
 
 function HotelItem({ image, name, info }) {
 	return (
 		<>
+			<h1>{name}</h1>
 			<Row>
 				<Col md={7}>
 					<Paper elevation={2}>
-						<h1>{name}</h1>
-						<Image src={image} className='image' />
-						<p>{info} </p>
+						<List>
+							<Image src={image} className='image' />
+
+							<Divider variant='inset' component='li' />
+							<ListItem>
+								<ListItemAvatar>
+									<Avatar>
+										<InfoIcon />
+									</Avatar>
+								</ListItemAvatar>
+								<ListItemText primary={info} secondary='Jan 7, 2014' />
+							</ListItem>
+							<Divider variant='inset' component='li' />
+						</List>
 					</Paper>
 					<Row>
 						<Col md={6}>

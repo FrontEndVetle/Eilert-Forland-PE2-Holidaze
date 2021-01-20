@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { BASE_URL, headers } from '../../../constants/api';
 import HotelItem from './HotelItem';
 import Container from 'react-bootstrap/Container';
+import BookDate from './BookDate';
 
 function HomeDetail() {
 	const [detail, setDetail] = useState(null);
@@ -33,6 +34,7 @@ function HomeDetail() {
 				image={detail.image}
 				name={detail.name}
 			/>
+			<BookDate />
 		</Container>
 	);
 }
