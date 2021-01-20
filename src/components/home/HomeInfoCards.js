@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Paper from '@material-ui/core/Paper';
+import List from '@material-ui/core/List';
 
 function HomeInfoCards({ title, infoList, image }) {
 	return (
@@ -11,7 +12,7 @@ function HomeInfoCards({ title, infoList, image }) {
 					<Card.Title className='card__title card__title--special'>
 						{title}
 					</Card.Title>
-					<Card.Text className='card__info'>{infoList} </Card.Text>
+					<List>{infoList} </List>
 				</Card.Body>
 			</Card>
 		</Paper>

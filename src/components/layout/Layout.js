@@ -26,29 +26,23 @@ function App() {
 		<AuthContextProvider>
 			<Router>
 				<NavBar />
-				<Container fluid>
-					<Switch>
-						<Route path='/' exact component={Home} />
-						<Route path='/contact' exact component={Contact} />
-						<Route path='/accommodation' exact component={Accommodation} />
-						<Route path='/login' component={Login} />
-						<Route path='/register' component={Register} />
-						<Route path='/hotel/:id' component={HotelDetail} />
-						<ProtectedRoute path='/admin' exact component={Dashboard} />
-						<ProtectedRoute path='/admin/hotels' exact component={Hotels} />
-						<ProtectedRoute
-							path='/admin/hotels/add'
-							exact
-							component={AddHotel}
-						/>
-						<ProtectedRoute
-							path='/admin/hotels/edit/:id'
-							exact
-							component={EditHotel}
-						/>
-						<Redirect to='/' />
-					</Switch>
-				</Container>
+				<Switch>
+					<Route path='/' exact component={Home} />
+					<Route path='/contact' exact component={Contact} />
+					<Route path='/accommodation' exact component={Accommodation} />
+					<Route path='/login' component={Login} />
+					<Route path='/register' component={Register} />
+					<Route path='/hotel/:id' component={HotelDetail} />
+					<ProtectedRoute path='/admin' exact component={Dashboard} />
+					<ProtectedRoute path='/admin/hotels' exact component={Hotels} />
+					<ProtectedRoute path='/admin/hotels/add' exact component={AddHotel} />
+					<ProtectedRoute
+						path='/admin/hotels/edit/:id'
+						exact
+						component={EditHotel}
+					/>
+					<Redirect to='/' />
+				</Switch>
 				<Footer />
 			</Router>
 		</AuthContextProvider>

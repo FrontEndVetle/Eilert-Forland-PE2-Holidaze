@@ -2,18 +2,24 @@
         "id": 1,
         "title": "John",
         "information": ["Bergen1", "Bergen2", "Bergen3"],
+        "icons": ["BeachAccessIcon", "BeachAccessIcon", "BeachAccessIcon"],
+
         "image": ["/images/skansen.jpg"]
     },
     {
         "id": 2,
         "title": "Bergen",
         "information": ["Bergen1", "Bergen2", "Bergen3"],
+        "icons": ["BeachAccessIcon", "BeachAccessIcon", "BeachAccessIcon"],
+
         "image": ["/images/skansen.jpg"]
     },
     {
         "id": 3,
         "title": "Oslo",
         "information": ["Bergen1", "Bergen2", "Bergen3"],
+        "icons": ["BeachAccessIcon", "BeachAccessIcon", "BeachAccessIcon"],
+
         "image": ["/images/skansen.jpg"]
     }
 ]
