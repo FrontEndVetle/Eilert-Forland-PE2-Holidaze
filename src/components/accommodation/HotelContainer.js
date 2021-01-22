@@ -23,6 +23,7 @@ function GetHotels() {
 			.then((response) => response.json())
 			.finally(() => setLoading(false))
 			.then((json) => {
+				console.log(json);
 				// handle error
 				if (json.error) {
 					setHotels([]);

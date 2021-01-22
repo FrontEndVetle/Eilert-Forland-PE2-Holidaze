@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 
 function Footer() {
 	return (
-		<footer className='footer pt-4 mt-4'>
+		<footer className='footer pt-4'>
 			<Container fluid>
 				<Row className='text-center text-md-left d-flex justify-content-around'>
 					<Col md='3'>

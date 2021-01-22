@@ -6,6 +6,7 @@
 .navbar {
     background-color: $nav-bg;
     text-align: center;
+    margin-bottom: 100px;
 }
 
 .navbar a {
@@ -28,6 +29,8 @@
 .footer {
     background-color: $footer-bg;
     color: $text-light;
+    position: relative;
+    margin-top: 150px;
     &__title {
         text-decoration: underline red 2px;
     }
