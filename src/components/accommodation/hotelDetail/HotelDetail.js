@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col';
 import { useParams } from 'react-router-dom';
 import { BASE_URL, headers } from '../../../constants/api';
 import HotelInfo from './HotelInfo';
+import EnquiryModal from './EnquiryModal';
 import Container from 'react-bootstrap/Container';
 import BookDate from './BookDate';
 import BookingInfo from './BookingInfo';
@@ -15,6 +16,7 @@ function HomeDetail() {
 	const [startDate, setStartDate] = useState(new Date('2021/01/01'));
 	const [endDate, setEndDate] = useState(new Date('2021/02/01'));
 	const [guests, setGuests] = useState(1);
+	const [show, setShow] = useState(false);
 
 	let dining;
 	let { id } = useParams();
@@ -55,6 +57,10 @@ function HomeDetail() {
 	let checkinnDate = startDate.toLocaleDateString();
 	let checkoutDate = endDate.toLocaleDateString();
 
+	//display modal or hide
+	const modalClose = () => setShow(false);
+	const modalShow = () => setShow(true);
+
 	return (
 		<Container>
 			<Row>
@@ -83,9 +89,11 @@ function HomeDetail() {
 						startDate={startDate}
 						checkinnDate={checkinnDate}
 						checkoutDate={checkoutDate}
+						modalShow={modalShow}
 					/>
 				</Col>
 			</Row>
+			<EnquiryModal modalClose={modalClose} show={show} />
 		</Container>
 	);
 }
