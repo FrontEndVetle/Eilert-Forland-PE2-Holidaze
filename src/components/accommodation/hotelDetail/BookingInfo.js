@@ -12,7 +12,14 @@ import WorkIcon from '@material-ui/icons/Work';
 import BeachAccessIcon from '@material-ui/icons/BeachAccess';
 import Divider from '@material-ui/core/Divider';
 
-function BookingInfo({ days, price, totalPrice }) {
+function BookingInfo({
+	days,
+	price,
+	totalPrice,
+	guests,
+	checkinnDate,
+	checkoutDate,
+}) {
 	return (
 		<>
 			<Paper elevation={2}>
@@ -23,7 +30,7 @@ function BookingInfo({ days, price, totalPrice }) {
 								<ImageIcon />
 							</Avatar>
 						</ListItemAvatar>
-						<ListItemText primary='Checkinn' secondary='Jan 9, 2014' />
+						<ListItemText primary='Checkinn' secondary={checkinnDate} />
 					</ListItem>
 					<Divider variant='inset' component='li' />
 					<ListItem>
@@ -32,7 +39,7 @@ function BookingInfo({ days, price, totalPrice }) {
 								<WorkIcon />
 							</Avatar>
 						</ListItemAvatar>
-						<ListItemText primary='Checkout' secondary='Jan 7, 2014' />
+						<ListItemText primary='Checkout' secondary={checkoutDate} />
 					</ListItem>
 					<Divider variant='inset' component='li' />
 					<ListItem>
@@ -41,8 +48,10 @@ function BookingInfo({ days, price, totalPrice }) {
 								<BeachAccessIcon />
 							</Avatar>
 						</ListItemAvatar>
-						<ListItemText primary={days} secondary='July 20, 2014' />
+						<ListItemText primary={days + ' Nights'} />
 					</ListItem>
+					<Divider variant='inset' component='li' />
+
 					<ListItem>
 						<ListItemAvatar>
 							<Avatar>
@@ -53,6 +62,16 @@ function BookingInfo({ days, price, totalPrice }) {
 							primary={'€' + totalPrice + ' Total'}
 							secondary={'€' + price + ' per person per night'}
 						/>
+					</ListItem>
+					<Divider variant='inset' component='li' />
+
+					<ListItem>
+						<ListItemAvatar>
+							<Avatar>
+								<BeachAccessIcon />
+							</Avatar>
+						</ListItemAvatar>
+						<ListItemText primary={guests + ' Guests'} />
 					</ListItem>
 				</List>
 			</Paper>

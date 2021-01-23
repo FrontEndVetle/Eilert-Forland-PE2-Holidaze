@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import Paper from '@material-ui/core/Paper';
@@ -10,14 +10,23 @@ import Divider from '@material-ui/core/Divider';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
 
-function BookDate({ startDate, setStartDate, endDate, setEndDate }) {
+function BookDate({
+	startDate,
+	setStartDate,
+	endDate,
+	setEndDate,
+	handleSelect,
+}) {
 	return (
 		<Paper elevation={2} className='mt-2'>
 			<List>
 				<h2 className='text-center'>Choose booking dates</h2>
 				<ListItem>
 					<DatePicker
+						dateFormat='dd-MM-yyyy'
 						selected={startDate}
 						onChange={(date) => setStartDate(date)}
 						selectsStart
@@ -26,6 +35,7 @@ function BookDate({ startDate, setStartDate, endDate, setEndDate }) {
 					/>
 					<ArrowForwardIcon />
 					<DatePicker
+						dateFormat='dd-MM-yyyy'
 						selected={endDate}
 						onChange={(date) => setEndDate(date)}
 						selectsEnd
@@ -37,15 +47,16 @@ function BookDate({ startDate, setStartDate, endDate, setEndDate }) {
 				<Divider variant='middle' />
 
 				<ListItem>
-					<InputLabel>Guests</InputLabel>
-					<Select value=''>
-						<MenuItem value='1'>
-							<em>None</em>
-						</MenuItem>
-						<MenuItem value={1}>1</MenuItem>
-						<MenuItem value={2}>2</MenuItem>
-						<MenuItem value={3}>3</MenuItem>
-					</Select>
+					<label>Select a state</label>
+					<DropdownButton
+						alignRight
+						title='Dropdown right'
+						id='dropdown-menu-align-right'
+						onSelect={handleSelect}>
+						<Dropdown.Item eventKey={1}>1</Dropdown.Item>
+						<Dropdown.Item eventKey={2}>2</Dropdown.Item>
+						<Dropdown.Item eventKey={3}>3</Dropdown.Item>
+					</DropdownButton>
 				</ListItem>
 			</List>
 		</Paper>

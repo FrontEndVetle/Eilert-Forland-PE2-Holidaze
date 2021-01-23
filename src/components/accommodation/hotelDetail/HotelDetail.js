@@ -14,9 +14,9 @@ function HomeDetail() {
 	const [loading, setLoading] = useState(true);
 	const [startDate, setStartDate] = useState(new Date('2021/01/01'));
 	const [endDate, setEndDate] = useState(new Date('2021/02/01'));
+	const [guests, setGuests] = useState(1);
 
 	let dining;
-	let x;
 	let { id } = useParams();
 
 	const url = BASE_URL + 'establishments/' + id;
@@ -44,7 +44,16 @@ function HomeDetail() {
 
 	const differenceTime = endDate.getTime() - startDate.getTime();
 	const days = differenceTime / (1000 * 3600 * 24);
-	const totalPrice = detail.price * days;
+	const totalPrice = detail.price * days * guests;
+
+	const handleSelect = (e) => {
+		console.log(e);
+		setGuests(e);
+	};
+
+	//convert date object to string to display info
+	let checkinnDate = startDate.toLocaleDateString();
+	let checkoutDate = endDate.toLocaleDateString();
 
 	return (
 		<Container>
@@ -61,6 +70,8 @@ function HomeDetail() {
 						setStartDate={setStartDate}
 						endDate={endDate}
 						setEndDate={setEndDate}
+						handleSelect={handleSelect}
+						guests={guests}
 					/>
 				</Col>
 				<Col>
@@ -68,6 +79,10 @@ function HomeDetail() {
 						days={days}
 						price={detail.price}
 						totalPrice={totalPrice}
+						guests={guests}
+						startDate={startDate}
+						checkinnDate={checkinnDate}
+						checkoutDate={checkoutDate}
 					/>
 				</Col>
 			</Row>
