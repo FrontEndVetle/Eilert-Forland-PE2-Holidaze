@@ -62,12 +62,20 @@ function HomeDetail() {
 
 	//post enquiry
 	function onSubmit(data) {
+		const urlEnquiry = BASE_URL + 'enquiries';
+
 		console.log('data', data);
 		let validated = document.querySelector('.validated');
 		validated.style.display = 'block';
 
-		options.method = 'POST';
-		options.body = JSON.stringify(data);
+		FETCH_OPTIONS.method = 'POST';
+
+		FETCH_OPTIONS.body = JSON.stringify(data);
+
+		// send every
+		fetch(urlEnquiry, FETCH_OPTIONS)
+			.then((r) => r.json())
+			.then((j) => console.log(j));
 	}
 
 	return (

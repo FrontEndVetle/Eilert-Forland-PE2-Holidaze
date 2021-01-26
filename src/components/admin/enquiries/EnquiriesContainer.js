@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
 import { BASE_URL, FETCH_OPTIONS } from '../../../constants/api';
+import EnquiriesList from './EnquiriesList';
+import Row from 'react-bootstrap/Row';
+import Container from 'react-bootstrap/Container';
 
 function EnquiriesContainer() {
 	const [hotels, setHotels] = useState([]);
@@ -25,22 +27,25 @@ function EnquiriesContainer() {
 	}, []);
 
 	return (
-		<>
-			<h1> Hotels </h1> {error && <div className='error'> {error} </div>}{' '}
-			<ul>
-				{' '}
-				{hotels.map((hotel) => {
+		<Container>
+			<Row>
+				<h1> Hotels </h1> {error && <div className='error'> {error} </div>}{' '}
+				{hotels.map((hotel, i) => {
+					const { name, email, message, createdAt, checkIn, checkOut } = hotel;
 					return (
-						<li key={hotel.id}>
-							<NavLink to={`/admin/hotels/edit/${hotel.id}`}>
-								{' '}
-								{hotel.name}{' '}
-							</NavLink>{' '}
-						</li>
+						<EnquiriesList
+							key={i}
+							name={name}
+							email={email}
+							message={message}
+							createdAt={createdAt}
+							checkIn={checkIn}
+							checkOut={checkOut}
+						/>
 					);
-				})}{' '}
-			</ul>{' '}
-		</>
+				})}
+			</Row>
+		</Container>
 	);
 }
 

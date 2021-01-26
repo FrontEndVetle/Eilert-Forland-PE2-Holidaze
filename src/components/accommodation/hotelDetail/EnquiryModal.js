@@ -8,13 +8,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 const schema = yup.object().shape({
 	name: yup
 		.string()
-		.required('Please write your first name')
+		.required('Please write your name')
 		.min(2, 'First Name must have minimum 2 letters'),
-
-	textArea: yup
-		.string()
-		.required('Please enter your message')
-		.min(10, 'Message must be atleast 10 characters'),
 
 	email: yup.string().required('Please write your Email').email(),
 });
@@ -37,10 +32,10 @@ function EnquiryModal({ modalClose, show, onSubmit }) {
 							<Form.Label>First name</Form.Label>
 							<Form.Control
 								name='name'
-								placeholder='Enter your first name'
+								placeholder='Please enter your name'
 								ref={register}
 							/>
-							{errors.firstName && <p>{errors.name.message}</p>}
+							{errors.name && <p>{errors.name.message}</p>}
 						</Form.Group>
 
 						<Form.Group>
@@ -52,17 +47,17 @@ function EnquiryModal({ modalClose, show, onSubmit }) {
 							/>
 							{errors.email && <p>{errors.email.message}</p>}
 						</Form.Group>
-
 						<Form.Group>
-							<Form.Label>Send us a message</Form.Label>
-							<Form.Control
-								name='textArea'
-								as='textarea'
-								placeholder='Enter your message'
-								rows={3}
-								ref={register}
-							/>
-							{errors.textArea && <p>{errors.textArea.message}</p>}
+							<Form.Label>checkin</Form.Label>
+							<Form.Control name='checkIn' ref={register} />
+						</Form.Group>
+						<Form.Group>
+							<Form.Label>checkout</Form.Label>
+							<Form.Control name='checkOut' ref={register} />
+						</Form.Group>
+						<Form.Group>
+							<Form.Label>establishmentId</Form.Label>
+							<Form.Control name='establishmentId' ref={register} />
 						</Form.Group>
 
 						<Button type='submit'>Submit</Button>
