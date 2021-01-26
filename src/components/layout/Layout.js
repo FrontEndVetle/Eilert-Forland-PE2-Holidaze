@@ -7,7 +7,6 @@ import {
 } from 'react-router-dom';
 import { AuthContextProvider } from '../../context/AuthContext';
 import ProtectedRoute from '../routes/ProtectedRoute';
-import Container from 'react-bootstrap/Container';
 import Home from '../home/Home';
 import Contact from '../contact/Contact';
 import Accommodation from '../accommodation/Accommodation';
@@ -20,6 +19,8 @@ import Dashboard from '../admin/Dashboard';
 import NavBar from './header/Nav';
 import Footer from './footer/Footer';
 import HotelDetail from '../accommodation/hotelDetail/HotelDetail';
+import EnquiriesContainer from '../admin/enquiries/EnquiriesContainer';
+import Messages from '../admin/messages/MessagesContainer';
 
 function App() {
 	return (
@@ -36,6 +37,13 @@ function App() {
 					<ProtectedRoute path='/admin' exact component={Dashboard} />
 					<ProtectedRoute path='/admin/hotels' exact component={Hotels} />
 					<ProtectedRoute path='/admin/hotels/add' exact component={AddHotel} />
+					<ProtectedRoute
+						path='/admin/enquiries'
+						exact
+						component={EnquiriesContainer}
+					/>
+					<ProtectedRoute path='/admin/messages' exact component={Messages} />
+
 					<ProtectedRoute
 						path='/admin/hotels/edit/:id'
 						exact

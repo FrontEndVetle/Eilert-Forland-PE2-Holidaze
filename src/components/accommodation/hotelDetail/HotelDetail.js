@@ -3,7 +3,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { useParams } from 'react-router-dom';
-import { BASE_URL, headers } from '../../../constants/api';
+import { BASE_URL, FETCH_OPTIONS } from '../../../constants/api';
 import HotelInfo from './HotelInfo';
 import EnquiryModal from './EnquiryModal';
 import Container from 'react-bootstrap/Container';
@@ -22,10 +22,9 @@ function HomeDetail() {
 	let { id } = useParams();
 
 	const url = BASE_URL + 'establishments/' + id;
-	const options = { headers };
 
 	useEffect(() => {
-		fetch(url, options)
+		fetch(url, FETCH_OPTIONS)
 			.then((response) => response.json())
 			.then((json) => setDetail(json))
 			.catch((error) => console.log(error))
@@ -61,6 +60,16 @@ function HomeDetail() {
 	const modalClose = () => setShow(false);
 	const modalShow = () => setShow(true);
 
+	//post enquiry
+	function onSubmit(data) {
+		console.log('data', data);
+		let validated = document.querySelector('.validated');
+		validated.style.display = 'block';
+
+		options.method = 'POST';
+		options.body = JSON.stringify(data);
+	}
+
 	return (
 		<Container>
 			<Row>
@@ -93,7 +102,7 @@ function HomeDetail() {
 					/>
 				</Col>
 			</Row>
-			<EnquiryModal modalClose={modalClose} show={show} />
+			<EnquiryModal modalClose={modalClose} show={show} onSubmit={onSubmit} />
 		</Container>
 	);
 }

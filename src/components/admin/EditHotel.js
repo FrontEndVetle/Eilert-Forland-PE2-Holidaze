@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { BASE_URL, headers, PATCH } from '../../constants/api';
+import { BASE_URL, FETCH_OPTIONS, PATCH } from '../../constants/api';
 import DeleteHotel from './DeleteHotel';
 
 function AddHotel() {
@@ -19,11 +19,10 @@ function AddHotel() {
 
 	let { id } = useParams();
 
-	const options = { headers };
 	const fetchUrl = BASE_URL + 'establishments/' + id;
 
 	useEffect(() => {
-		fetch(fetchUrl, options)
+		fetch(fetchUrl, FETCH_OPTIONS)
 			.then((response) => response.json())
 			.then((json) => setHotel(json))
 			.catch((error) => console.log(error));
@@ -32,13 +31,13 @@ function AddHotel() {
 	async function onSubmit(data) {
 		console.log('data', data);
 
-		const updateOptions = {
-			headers,
-			method: PATCH,
-			body: JSON.stringify(data),
-		};
-		await fetch(fetchUrl, updateOptions);
-		history.push('/admin/hotels');
+		FETCH_OPTIONS.method = 'PATCH';
+
+		FETCH_OPTIONS.body = JSON.stringify(updatedEstablishment);
+
+		fetch(url, FETCH_OPTIONS)
+			.then((r) => r.json())
+			.then((j) => console.log(j));
 	}
 
 	return (

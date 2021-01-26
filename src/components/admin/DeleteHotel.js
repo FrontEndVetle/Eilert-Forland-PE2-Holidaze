@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { confirmAlert } from 'react-confirm-alert';
 import Button from 'react-bootstrap/Button';
-import { BASE_URL, headers, DELETE } from '../../constants/api';
+import { BASE_URL, FETCH_OPTIONS, DELETE } from '../../constants/api';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 
 function DeleteHotel(props) {
@@ -25,8 +25,9 @@ function DeleteHotel(props) {
 
 	async function deleteHotel() {
 		const url = BASE_URL + 'establishments/' + props.id;
-		const options = { headers, method: DELETE };
-		await fetch(url, options);
+		FETCH_OPTIONS.method = 'DELETE';
+
+		fetch(url, FETCH_OPTIONS);
 		history.push('/admin/hotels');
 	}
 

@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { BASE_URL, headers } from '../../constants/api';
+import { BASE_URL, FETCH_OPTIONS } from '../../constants/api';
 
 function AddHotel() {
 	const { register, handleSubmit } = useForm();
@@ -15,10 +15,16 @@ function AddHotel() {
 
 		const url = BASE_URL + 'establishments';
 
-		const options = { headers, method: 'POST', body: JSON.stringify(data) };
+		// when creating an establishment we need to use the POST method
+		FETCH_OPTIONS.method = 'POST';
 
-		await fetch(url, options);
+		// serialise the data
+		FETCH_OPTIONS.body = JSON.stringify(newEstablishment);
 
+		// send every
+		fetch(url, FETCH_OPTIONS)
+			.then((r) => r.json())
+			.then((j) => console.log(j));
 		history.push('/admin/hotels');
 	}
 

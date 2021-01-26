@@ -6,34 +6,23 @@ import Form from 'react-bootstrap/Form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 const schema = yup.object().shape({
-	firstName: yup
+	name: yup
 		.string()
 		.required('Please write your first name')
 		.min(2, 'First Name must have minimum 2 letters'),
 
-	lastName: yup
-		.string()
-		.required('Please write your last name')
-		.min(2, 'Last name must have minimum 2 letters'),
-
-	textArea: yup
+	message: yup
 		.string()
 		.required('Please enter your message')
 		.min(10, 'Message must be atleast 10 characters'),
 
-	eMail: yup.string().required('Please write your Email').email(),
+	email: yup.string().required('Please write your Email').email(),
 });
 
-function ContactForm() {
+function ContactForm({ onSubmit }) {
 	const { register, handleSubmit, errors } = useForm({
 		resolver: yupResolver(schema),
 	});
-
-	function onSubmit(data) {
-		console.log('data', data);
-		let validated = document.querySelector('.validated');
-		validated.style.display = 'block';
-	}
 
 	return (
 		<Form onSubmit={handleSubmit(onSubmit)}>
@@ -41,27 +30,17 @@ function ContactForm() {
 			<Form.Group>
 				<Form.Label>First name</Form.Label>
 				<Form.Control
-					name='firstName'
+					name='name'
 					placeholder='Enter your first name'
 					ref={register}
 				/>
-				{errors.firstName && <p>{errors.firstName.message}</p>}
-			</Form.Group>
-
-			<Form.Group>
-				<Form.Label>Last name</Form.Label>
-				<Form.Control
-					name='lastName'
-					placeholder='Enter your last name'
-					ref={register}
-				/>
-				{errors.lastName && <p>{errors.lastName.message}</p>}
+				{errors.name && <p>{errors.name.message}</p>}
 			</Form.Group>
 
 			<Form.Group>
 				<Form.Label>Email</Form.Label>
 				<Form.Control
-					name='eMail'
+					name='email'
 					placeholder='Enter your Email'
 					ref={register}
 				/>
@@ -71,13 +50,13 @@ function ContactForm() {
 			<Form.Group>
 				<Form.Label>Send us a message</Form.Label>
 				<Form.Control
-					name='textArea'
+					name='message'
 					as='textarea'
 					placeholder='Enter your message'
 					rows={3}
 					ref={register}
 				/>
-				{errors.textArea && <p>{errors.textArea.message}</p>}
+				{errors.message && <p>{errors.message.message}</p>}
 			</Form.Group>
 
 			<Button type='submit'>Submit</Button>

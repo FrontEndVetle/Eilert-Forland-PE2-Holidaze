@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { BASE_URL, FETCH_OPTIONS } from '../../constants/api';
+import { BASE_URL, FETCH_OPTIONS } from '../../../constants/api';
 
-function Hotels() {
+function EnquiriesContainer() {
 	const [hotels, setHotels] = useState([]);
 	const [error, setError] = useState(null);
 
-	const url = BASE_URL + 'establishments';
+	const url = BASE_URL + 'enquiries';
 
 	useEffect(() => {
 		fetch(url, FETCH_OPTIONS)
@@ -44,4 +44,4 @@ function Hotels() {
 	);
 }
 
-export default Hotels;
+export default EnquiriesContainer;

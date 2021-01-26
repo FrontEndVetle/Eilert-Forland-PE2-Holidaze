@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BASE_URL, headers } from '../../constants/api';
+import { BASE_URL, FETCH_OPTIONS } from '../../constants/api';
 import HotelCards from '../accommodation/HotelCards';
 import Container from 'react-bootstrap/Container';
 import { Row } from 'react-bootstrap';
@@ -15,11 +15,10 @@ function GetHotels() {
 	const [loading, setLoading] = useState(true);
 
 	const url = BASE_URL + 'establishments';
-	const options = { headers };
 	let hotelList = [];
 
 	useEffect(() => {
-		fetch(url, options)
+		fetch(url, FETCH_OPTIONS)
 			.then((response) => response.json())
 			.finally(() => setLoading(false))
 			.then((json) => {
