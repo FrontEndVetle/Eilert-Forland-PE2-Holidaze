@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BASE_URL, FETCH_OPTIONS } from '../../../constants/api';
-import EnquiriesList from './EnquiriesList';
+import MessageList from './MessageList';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 
@@ -9,6 +9,7 @@ function EnquiriesContainer() {
 	const [error, setError] = useState(null);
 
 	const url = BASE_URL + 'enquiries';
+	const deletePath = 'enquiries/';
 
 	useEffect(() => {
 		fetch(url, FETCH_OPTIONS)
@@ -31,9 +32,17 @@ function EnquiriesContainer() {
 			<Row>
 				<h1> Hotels </h1> {error && <div className='error'> {error} </div>}{' '}
 				{hotels.map((hotel, i) => {
-					const { name, email, message, createdAt, checkIn, checkOut } = hotel;
+					const {
+						name,
+						email,
+						message,
+						createdAt,
+						checkIn,
+						checkOut,
+						id,
+					} = hotel;
 					return (
-						<EnquiriesList
+						<MessageList
 							key={i}
 							name={name}
 							email={email}
@@ -41,10 +50,12 @@ function EnquiriesContainer() {
 							createdAt={createdAt}
 							checkIn={checkIn}
 							checkOut={checkOut}
+							id={id}
+							deletePath={deletePath}
 						/>
 					);
-				})}
-			</Row>
+				})}{' '}
+			</Row>{' '}
 		</Container>
 	);
 }

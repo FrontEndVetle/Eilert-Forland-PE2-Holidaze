@@ -18,7 +18,7 @@ function BookingInfo({
 	price,
 	totalPrice,
 	guests,
-	checkinnDate,
+	checkinDate,
 	checkoutDate,
 	modalShow,
 }) {
@@ -32,7 +32,7 @@ function BookingInfo({
 								<ImageIcon />
 							</Avatar>
 						</ListItemAvatar>
-						<ListItemText primary='Checkinn' secondary={checkinnDate} />
+						<ListItemText primary='Checkinn' secondary={checkinDate} />
 					</ListItem>
 					<Divider variant='inset' component='li' />
 					<ListItem>

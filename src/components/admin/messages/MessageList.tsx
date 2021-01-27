@@ -2,13 +2,33 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import ListGroupItem from 'react-bootstrap/ListGroupItem';
-import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Divider from '@material-ui/core/Divider';
 import Paper from '@material-ui/core/Paper';
 import Col from 'react-bootstrap/Col';
+import ConfirmDelete from '../../util/ConfirmDelete';
 
-function EnquiriesList({ name, email, message, createdAt, checkIn, checkOut }) {
+type Props = {
+	id: string;
+	name: string;
+	email: string;
+	message: string;
+	createdAt: string;
+	checkIn: string;
+	checkOut: string;
+	deletePath: string;
+};
+
+function EnquiriesList({
+	id,
+	name,
+	email,
+	message,
+	createdAt,
+	checkIn,
+	checkOut,
+	deletePath,
+}: Props) {
 	return (
 		<Col sm={12}>
 			<Paper elevation={2}>
@@ -24,26 +44,25 @@ function EnquiriesList({ name, email, message, createdAt, checkIn, checkOut }) {
 							</Card.Body>
 							<ListGroup className='list-group-flush'>
 								<ListGroupItem>Checkin: {checkIn} </ListGroupItem>
-								<ListGroupItem>checkOut: {checkOut} </ListGroupItem>
+								<ListGroupItem>checkout: {checkOut} </ListGroupItem>
 							</ListGroup>
 						</Col>
 						<Divider orientation='vertical' flexItem />
 						<Col sm={5}>
 							<ListGroup className='list-group-flush'>
-								<ListGroupItem>Checkin: {checkIn} </ListGroupItem>
-								<ListGroupItem>checkOut: {checkOut} </ListGroupItem>
+								<ListGroupItem>Checkin: {email} </ListGroupItem>
+								<ListGroupItem>checkout: {checkOut} </ListGroupItem>
 							</ListGroup>
 						</Col>
 					</Row>
 					<Card.Body>
 						<Card.Link>
-							<Button className='card__btn btn' variant='secondary' block>
-								Delete Enquiry
-							</Button>
+							<ConfirmDelete id={id} deletePath={deletePath} />
 						</Card.Link>
 					</Card.Body>
 				</Card>
 			</Paper>
+			<Divider className='mt-5' />
 		</Col>
 	);
 }

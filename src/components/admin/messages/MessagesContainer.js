@@ -9,6 +9,7 @@ function Messages() {
 	const [error, setError] = useState(null);
 
 	const url = BASE_URL + 'contacts';
+	const deletePath = 'contacts/';
 
 	useEffect(() => {
 		fetch(url, FETCH_OPTIONS)
@@ -31,7 +32,7 @@ function Messages() {
 			<Row>
 				<h1> Hotels </h1> {error && <div className='error'> {error} </div>}{' '}
 				{hotels.map((hotel, i) => {
-					const { name, email, message, createdAt, checkIn, checkOut } = hotel;
+					const { name, email, message, createdAt, id } = hotel;
 					return (
 						<MessageList
 							key={i}
@@ -39,6 +40,8 @@ function Messages() {
 							email={email}
 							message={message}
 							createdAt={createdAt}
+							id={id}
+							deletePath={deletePath}
 						/>
 					);
 				})}

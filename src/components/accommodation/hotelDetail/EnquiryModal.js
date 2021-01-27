@@ -4,6 +4,9 @@ import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import Form from 'react-bootstrap/Form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import Divider from '@material-ui/core/Divider';
 
 const schema = yup.object().shape({
 	name: yup
@@ -14,7 +17,7 @@ const schema = yup.object().shape({
 	email: yup.string().required('Please write your Email').email(),
 });
 
-function EnquiryModal({ modalClose, show, onSubmit }) {
+function EnquiryModal({ hotel, startDate, modalClose, show, onSubmit }) {
 	const { register, handleSubmit, errors } = useForm({
 		resolver: yupResolver(schema),
 	});
@@ -27,50 +30,66 @@ function EnquiryModal({ modalClose, show, onSubmit }) {
 				</Modal.Header>
 				<Modal.Body>
 					<Form onSubmit={handleSubmit(onSubmit)}>
-						<h3 className='validated'>The form has been sent. Thank you</h3>
-						<Form.Group>
-							<Form.Label>First name</Form.Label>
-							<Form.Control
-								name='name'
-								placeholder='Please enter your name'
-								ref={register}
-							/>
-							{errors.name && <p>{errors.name.message}</p>}
-						</Form.Group>
+						<Row className='justify-content-between filters'>
+							<Col sm={5}>
+								<Form.Group>
+									<Form.Label>First name</Form.Label>
+									<Form.Control
+										name='name'
+										placeholder='Please enter your name'
+										ref={register}
+										defaultValue='heisss'
+									/>
+									{errors.name && <p>{errors.name.message}</p>}
+								</Form.Group>
 
-						<Form.Group>
-							<Form.Label>Email</Form.Label>
-							<Form.Control
-								name='email'
-								placeholder='Enter your Email'
-								ref={register}
-							/>
-							{errors.email && <p>{errors.email.message}</p>}
-						</Form.Group>
-						<Form.Group>
-							<Form.Label>checkin</Form.Label>
-							<Form.Control name='checkIn' ref={register} />
-						</Form.Group>
-						<Form.Group>
-							<Form.Label>checkout</Form.Label>
-							<Form.Control name='checkOut' ref={register} />
-						</Form.Group>
-						<Form.Group>
-							<Form.Label>establishmentId</Form.Label>
-							<Form.Control name='establishmentId' ref={register} />
-						</Form.Group>
+								<Form.Group>
+									<Form.Label>Email</Form.Label>
 
-						<Button type='submit'>Submit</Button>
+									<Form.Control
+										name='email'
+										placeholder='Enter your Email'
+										ref={register}
+										type='valid'
+									/>
+									{errors.email && <p>{errors.email.message}</p>}
+								</Form.Group>
+							</Col>
+							<Divider orientation='vertical' flexItem />
+
+							<Col sm={5}>
+								<Form.Group>
+									<Form.Label>checkin</Form.Label>
+									<Form.Control
+										name='checkIn'
+										ref={register}
+										defaultValue={startDate}
+										type='text'
+									/>
+								</Form.Group>
+								<Form.Group>
+									<Form.Label>checkout</Form.Label>
+									<Form.Control name='checkOut' ref={register} />
+								</Form.Group>
+								<Form.Group>
+									<Form.Label>Accommodation</Form.Label>
+									<Form.Control
+										name='establishmentId'
+										ref={register}
+										defaultValue={hotel}
+										readOnly
+									/>
+								</Form.Group>
+							</Col>
+						</Row>
+						<Modal.Footer>
+							<Button type='submit'>Submit</Button>
+							<Button variant='primary' onClick={modalClose}>
+								Cancel
+							</Button>
+						</Modal.Footer>
 					</Form>
 				</Modal.Body>
-				<Modal.Footer>
-					<Button variant='secondary' onClick={modalClose}>
-						Send
-					</Button>
-					<Button variant='primary' onClick={modalClose}>
-						Cancel
-					</Button>
-				</Modal.Footer>
 			</Modal>
 		</>
 	);

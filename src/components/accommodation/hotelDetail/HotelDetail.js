@@ -9,6 +9,7 @@ import EnquiryModal from './EnquiryModal';
 import Container from 'react-bootstrap/Container';
 import BookDate from './BookDate';
 import BookingInfo from './BookingInfo';
+import Swal from 'sweetalert2';
 
 function HomeDetail() {
 	const [detail, setDetail] = useState(null);
@@ -53,7 +54,7 @@ function HomeDetail() {
 	};
 
 	//convert date object to string to display info
-	let checkinnDate = startDate.toLocaleDateString();
+	let checkinDate = startDate.toLocaleDateString();
 	let checkoutDate = endDate.toLocaleDateString();
 
 	//display modal or hide
@@ -63,10 +64,7 @@ function HomeDetail() {
 	//post enquiry
 	function onSubmit(data) {
 		const urlEnquiry = BASE_URL + 'enquiries';
-
 		console.log('data', data);
-		let validated = document.querySelector('.validated');
-		validated.style.display = 'block';
 
 		FETCH_OPTIONS.method = 'POST';
 
@@ -76,6 +74,14 @@ function HomeDetail() {
 		fetch(urlEnquiry, FETCH_OPTIONS)
 			.then((r) => r.json())
 			.then((j) => console.log(j));
+		setShow(false);
+
+		Swal.fire({
+			title: 'Enquiry is Sent!',
+			text: 'We reply within 24 hours',
+			icon: 'success',
+			confirmButtonText: 'OK',
+		});
 	}
 
 	return (
@@ -104,13 +110,19 @@ function HomeDetail() {
 						totalPrice={totalPrice}
 						guests={guests}
 						startDate={startDate}
-						checkinnDate={checkinnDate}
+						checkinDate={checkinDate}
 						checkoutDate={checkoutDate}
 						modalShow={modalShow}
 					/>
 				</Col>
 			</Row>
-			<EnquiryModal modalClose={modalClose} show={show} onSubmit={onSubmit} />
+			<EnquiryModal
+				hotel={detail.name}
+				startDate={startDate}
+				modalClose={modalClose}
+				show={show}
+				onSubmit={onSubmit}
+			/>
 		</Container>
 	);
 }
