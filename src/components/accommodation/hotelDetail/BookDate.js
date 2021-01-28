@@ -2,10 +2,6 @@ import React from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import Paper from '@material-ui/core/Paper';
-import Button from 'react-bootstrap/Button';
-import MenuItem from '@material-ui/core/MenuItem';
-import InputLabel from '@material-ui/core/InputLabel';
-import Select from '@material-ui/core/Select';
 import Divider from '@material-ui/core/Divider';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -26,7 +22,7 @@ function BookDate({
 				<h2 className='text-center'>Choose booking dates</h2>
 				<ListItem>
 					<DatePicker
-						dateFormat='dd-MM-yyyy'
+						dateFormat='yyyy-MM-dd'
 						selected={startDate}
 						onChange={(date) => setStartDate(date)}
 						selectsStart
@@ -35,7 +31,7 @@ function BookDate({
 					/>
 					<ArrowForwardIcon />
 					<DatePicker
-						dateFormat='dd-MM-yyyy'
+						dateFormat='yyyy-MM-dd'
 						selected={endDate}
 						onChange={(date) => setEndDate(date)}
 						selectsEnd

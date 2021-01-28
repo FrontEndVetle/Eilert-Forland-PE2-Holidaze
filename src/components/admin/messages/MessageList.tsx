@@ -13,10 +13,11 @@ type Props = {
 	name: string;
 	email: string;
 	message: string;
-	createdAt: string;
-	checkIn: string;
-	checkOut: string;
+	createdAt: number;
+	checkIn: number;
+	checkOut: number;
 	deletePath: string;
+	hotelName: string;
 };
 
 function EnquiriesList({
@@ -28,6 +29,7 @@ function EnquiriesList({
 	checkIn,
 	checkOut,
 	deletePath,
+	hotelName,
 }: Props) {
 	return (
 		<Col sm={12}>
@@ -39,18 +41,22 @@ function EnquiriesList({
 					<Row className='justify-content-between filters'>
 						<Col sm={5}>
 							<Card.Body>
-								<Card.Title>{name} </Card.Title>
+								<Card.Title>
+									<h2>{name}</h2>{' '}
+								</Card.Title>
 								<Card.Text>{message}</Card.Text>
 							</Card.Body>
 							<ListGroup className='list-group-flush'>
-								<ListGroupItem>Checkin: {checkIn} </ListGroupItem>
-								<ListGroupItem>checkout: {checkOut} </ListGroupItem>
+								<ListGroupItem>E-mail: {email} </ListGroupItem>
 							</ListGroup>
 						</Col>
 						<Divider orientation='vertical' flexItem />
 						<Col sm={5}>
+							<Card.Title>
+								<h3>{hotelName}</h3>
+							</Card.Title>
 							<ListGroup className='list-group-flush'>
-								<ListGroupItem>Checkin: {email} </ListGroupItem>
+								<ListGroupItem>Checkin: {checkIn} </ListGroupItem>
 								<ListGroupItem>checkout: {checkOut} </ListGroupItem>
 							</ListGroup>
 						</Col>

@@ -10,6 +10,7 @@ import Container from 'react-bootstrap/Container';
 import BookDate from './BookDate';
 import BookingInfo from './BookingInfo';
 import Swal from 'sweetalert2';
+import moment from 'moment';
 
 function HomeDetail() {
 	const [detail, setDetail] = useState(null);
@@ -53,9 +54,9 @@ function HomeDetail() {
 		setGuests(e);
 	};
 
-	//convert date object to string to display info
-	let checkinDate = startDate.toLocaleDateString();
-	let checkoutDate = endDate.toLocaleDateString();
+	//convert date to correct format compared to PHP backend format.
+	let checkoutDate = moment(endDate).format('YYYY-MM-DD');
+	let checkinDate = moment(startDate).format('YYYY-MM-DD');
 
 	//display modal or hide
 	const modalClose = () => setShow(false);
@@ -118,7 +119,8 @@ function HomeDetail() {
 			</Row>
 			<EnquiryModal
 				hotel={detail.name}
-				startDate={startDate}
+				checkinDate={checkinDate}
+				checkoutDate={checkoutDate}
 				modalClose={modalClose}
 				show={show}
 				onSubmit={onSubmit}

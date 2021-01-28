@@ -3,6 +3,7 @@ import { BASE_URL, FETCH_OPTIONS } from '../../../constants/api';
 import MessageList from './MessageList';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
+import moment from 'moment';
 
 function EnquiriesContainer() {
 	const [hotels, setHotels] = useState([]);
@@ -30,7 +31,7 @@ function EnquiriesContainer() {
 	return (
 		<Container>
 			<Row>
-				<h1> Hotels </h1> {error && <div className='error'> {error} </div>}{' '}
+				<h1> Enquiries </h1> {error && <div className='error'> {error} </div>}{' '}
 				{hotels.map((hotel, i) => {
 					const {
 						name,
@@ -40,18 +41,25 @@ function EnquiriesContainer() {
 						checkIn,
 						checkOut,
 						id,
+						establishmentId,
 					} = hotel;
+
+					let checkInDate = moment(checkIn).format('YYYY-MM-DD');
+					let checkOutDate = moment(checkOut).format('YYYY-MM-DD');
+					let sentDate = moment(createdAt).format('YYYY-MM-DD');
+
 					return (
 						<MessageList
 							key={i}
 							name={name}
 							email={email}
 							message={message}
-							createdAt={createdAt}
-							checkIn={checkIn}
-							checkOut={checkOut}
+							createdAt={sentDate}
+							checkIn={checkInDate}
+							checkOut={checkOutDate}
 							id={id}
 							deletePath={deletePath}
+							hotelName={establishmentId}
 						/>
 					);
 				})}{' '}

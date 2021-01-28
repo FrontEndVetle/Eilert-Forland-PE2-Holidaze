@@ -17,7 +17,14 @@ const schema = yup.object().shape({
 	email: yup.string().required('Please write your Email').email(),
 });
 
-function EnquiryModal({ hotel, startDate, modalClose, show, onSubmit }) {
+function EnquiryModal({
+	hotel,
+	checkoutDate,
+	checkinDate,
+	modalClose,
+	show,
+	onSubmit,
+}) {
 	const { register, handleSubmit, errors } = useForm({
 		resolver: yupResolver(schema),
 	});
@@ -33,12 +40,21 @@ function EnquiryModal({ hotel, startDate, modalClose, show, onSubmit }) {
 						<Row className='justify-content-between filters'>
 							<Col sm={5}>
 								<Form.Group>
-									<Form.Label>First name</Form.Label>
+									<Form.Label>Accommodation</Form.Label>
+									<Form.Control
+										name='establishmentId'
+										ref={register}
+										defaultValue={hotel}
+										readOnly
+									/>
+								</Form.Group>
+								<Form.Group>
+									<Form.Label>Name</Form.Label>
 									<Form.Control
 										name='name'
 										placeholder='Please enter your name'
 										ref={register}
-										defaultValue='heisss'
+										type='valid'
 									/>
 									{errors.name && <p>{errors.name.message}</p>}
 								</Form.Group>
@@ -59,24 +75,22 @@ function EnquiryModal({ hotel, startDate, modalClose, show, onSubmit }) {
 
 							<Col sm={5}>
 								<Form.Group>
-									<Form.Label>checkin</Form.Label>
+									<Form.Label>Checkin</Form.Label>
 									<Form.Control
 										name='checkIn'
 										ref={register}
-										defaultValue={startDate}
-										type='text'
+										defaultValue={checkinDate}
+										type='date'
+										readOnly
 									/>
 								</Form.Group>
 								<Form.Group>
-									<Form.Label>checkout</Form.Label>
-									<Form.Control name='checkOut' ref={register} />
-								</Form.Group>
-								<Form.Group>
-									<Form.Label>Accommodation</Form.Label>
+									<Form.Label>Checkout</Form.Label>
 									<Form.Control
-										name='establishmentId'
+										name='checkOut'
 										ref={register}
-										defaultValue={hotel}
+										defaultValue={checkoutDate}
+										type='date'
 										readOnly
 									/>
 								</Form.Group>
