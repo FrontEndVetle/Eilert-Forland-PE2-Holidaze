@@ -1,11 +1,11 @@
 import React from 'react';
 import Slider from '@material-ui/core/Slider';
-import Col from 'react-bootstrap/Col';
+import Grid from '@material-ui/core/Grid';
 
 function Filters({ maxGuests, maxPrice, handleSearch }) {
 	return (
 		<>
-			<Col>
+			<Grid item={true} xs={5}>
 				<Slider
 					defaultValue={5}
 					getAriaValueText={maxGuests}
@@ -18,8 +18,8 @@ function Filters({ maxGuests, maxPrice, handleSearch }) {
 					onChange={(event) => handleSearch(event)}
 				/>
 				<p className='text-center'>Guests</p>
-			</Col>
-			<Col>
+			</Grid>
+			<Grid item={true} xs={5}>
 				<Slider
 					defaultValue={100}
 					getAriaValueText={maxPrice}
@@ -32,7 +32,7 @@ function Filters({ maxGuests, maxPrice, handleSearch }) {
 					onChange={(event) => handleSearch(event)}
 				/>
 				<p className='text-center'>Max price </p>
-			</Col>
+			</Grid>
 		</>
 	);
 }

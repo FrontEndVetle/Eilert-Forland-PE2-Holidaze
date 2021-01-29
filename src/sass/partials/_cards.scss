@@ -4,6 +4,7 @@
     border: none;
     text-align: center;
     &__title {
+        text-align: center;
         &--special {
             font-family: $heading-special;
         }

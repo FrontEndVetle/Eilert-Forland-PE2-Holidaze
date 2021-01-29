@@ -1,6 +1,6 @@
 import React from 'react';
 import HotelContainer from './HotelContainer';
-import Container from 'react-bootstrap/Container';
+import Container from '@material-ui/core/Container';
 
 function Accommodation() {
 	return (

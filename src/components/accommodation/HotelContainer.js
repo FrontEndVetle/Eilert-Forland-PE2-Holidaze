@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { BASE_URL, FETCH_OPTIONS } from '../../constants/api';
 import HotelCards from '../accommodation/HotelCards';
-import Container from 'react-bootstrap/Container';
-import { Row } from 'react-bootstrap';
-import Col from 'react-bootstrap/Col';
 import Search from '../util/filter/Search';
 import Filters from '../util/filter/Filters';
 import Spinner from 'react-bootstrap/Spinner';
+import Grid from '@material-ui/core/Grid';
+import Container from '@material-ui/core/Container';
 
 function GetHotels() {
 	const [hotels, setHotels] = useState([]);
@@ -88,18 +87,24 @@ function GetHotels() {
 		setFilteredHotels(filteredArray);
 	};
 	return (
-		<Container>
+		<>
 			<Search searchName={searchName} hotels={hotels} />
-			<Row className='justify-content-between filters'>
+			<Grid
+				item={true}
+				container
+				direction='row'
+				justify='space-around'
+				alignItems='center'>
 				<Filters
 					maxGuests={maxGuests}
 					maxPrice={maxPrice}
 					handleSearch={filterHotels}
 				/>
-			</Row>
-			<Row className='justify-content-between'>
-				<Col sm={12} md={8}>
-					<Row>
+			</Grid>
+
+			<Grid container xs={12} item>
+				<Grid xs={12} md={8} item>
+					<Grid container item>
 						{error && <div className='error'> {error} </div>}
 						{filteredHotels.map((hotel) => {
 							const { id, name, image, price, maxGuests } = hotel;
@@ -119,13 +124,13 @@ function GetHotels() {
 								/>
 							);
 						})}
-					</Row>
-				</Col>
-				<Col sm={12} md={4}>
+					</Grid>
+				</Grid>
+				<Grid xs={12} md={4} item>
 					htorhjktorthr
-				</Col>
-			</Row>
-		</Container>
+				</Grid>
+			</Grid>
+		</>
 	);
 }
 

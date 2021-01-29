@@ -14,7 +14,6 @@ import Grid from '@material-ui/core/Grid';
 import ListItemText from '@material-ui/core/ListItemText';
 import WorkIcon from '@material-ui/icons/Work';
 import CardActions from '@material-ui/core/CardActions';
-import Chip from '@material-ui/core/Chip';
 
 type Props = {
 	id: string;
