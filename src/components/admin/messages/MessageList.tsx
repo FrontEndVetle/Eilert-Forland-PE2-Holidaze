@@ -1,12 +1,20 @@
 import React from 'react';
-import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
-import ListGroupItem from 'react-bootstrap/ListGroupItem';
-import Row from 'react-bootstrap/Row';
+import Card from '@material-ui/core/Card';
 import Divider from '@material-ui/core/Divider';
 import Paper from '@material-ui/core/Paper';
-import Col from 'react-bootstrap/Col';
 import ConfirmDelete from '../../util/ConfirmDelete';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import Avatar from '@material-ui/core/Avatar';
+import ImageIcon from '@material-ui/icons/Image';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import ListItemText from '@material-ui/core/ListItemText';
+import WorkIcon from '@material-ui/icons/Work';
+import CardActions from '@material-ui/core/CardActions';
+import Chip from '@material-ui/core/Chip';
 
 type Props = {
 	id: string;
@@ -32,44 +40,69 @@ function EnquiriesList({
 	hotelName,
 }: Props) {
 	return (
-		<Col sm={12}>
-			<Paper elevation={2}>
-				<Card>
-					<Card.Footer>
-						<small className='text-muted'>Sent {createdAt} </small>
-					</Card.Footer>
-					<Row className='justify-content-between filters'>
-						<Col sm={5}>
-							<Card.Body>
-								<Card.Title>
-									<h2>{name}</h2>{' '}
-								</Card.Title>
-								<Card.Text>{message}</Card.Text>
-							</Card.Body>
-							<ListGroup className='list-group-flush'>
-								<ListGroupItem>E-mail: {email} </ListGroupItem>
-							</ListGroup>
-						</Col>
-						<Divider orientation='vertical' flexItem />
-						<Col sm={5}>
-							<Card.Title>
-								<h3>{hotelName}</h3>
-							</Card.Title>
-							<ListGroup className='list-group-flush'>
-								<ListGroupItem>Checkin: {checkIn} </ListGroupItem>
-								<ListGroupItem>checkout: {checkOut} </ListGroupItem>
-							</ListGroup>
-						</Col>
-					</Row>
-					<Card.Body>
-						<Card.Link>
-							<ConfirmDelete id={id} deletePath={deletePath} />
-						</Card.Link>
-					</Card.Body>
-				</Card>
-			</Paper>
-			<Divider className='mt-5' />
-		</Col>
+		<>
+			<Grid container spacing={3}>
+				<Grid item xs={1}>
+					<ListItemAvatar>
+						<Avatar>
+							<ImageIcon />
+						</Avatar>
+					</ListItemAvatar>
+				</Grid>
+				<Grid item xs={10}>
+					<Paper elevation={2}>
+						<Card>
+							<CardHeader
+								avatar={<Avatar aria-label='recipe'>R</Avatar>}
+								title={'Sent ' + createdAt}
+								align='center'
+							/>
+
+							<Grid container spacing={3} justify='space-evenly'>
+								<Grid item xs={5}>
+									<h2>{name}</h2>
+									<CardContent>
+										<ListItem>
+											<Typography paragraph>{message}</Typography>
+										</ListItem>
+										<Divider variant='inset' />
+									</CardContent>
+									<ListItem>E-mail: {email}</ListItem>
+								</Grid>
+								<Divider orientation='vertical' flexItem />
+								<Grid item xs={5}>
+									<h3>{hotelName}</h3>
+									<Divider variant='inset' />
+
+									<ListItem>
+										<ListItemAvatar>
+											<Avatar>
+												<ImageIcon />
+											</Avatar>
+										</ListItemAvatar>
+										<ListItemText primary='Checkinn' secondary={checkIn} />
+									</ListItem>
+									<Divider variant='inset' component='li' />
+
+									<ListItem>
+										<ListItemAvatar>
+											<Avatar>
+												<WorkIcon />
+											</Avatar>
+										</ListItemAvatar>
+										<ListItemText primary='Checkout' secondary={checkOut} />
+									</ListItem>
+									<Divider variant='inset' component='li' />
+								</Grid>
+							</Grid>
+							<CardActions style={{ justifyContent: 'center' }}>
+								<ConfirmDelete id={id} deletePath={deletePath} />
+							</CardActions>
+						</Card>
+					</Paper>
+				</Grid>
+			</Grid>
+		</>
 	);
 }
 

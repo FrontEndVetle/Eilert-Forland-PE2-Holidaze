@@ -1,66 +1,65 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import * as yup from 'yup';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import { yupResolver } from '@hookform/resolvers/yup';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/core/styles';
 
-const schema = yup.object().shape({
-	name: yup
-		.string()
-		.required('Please write your first name')
-		.min(2, 'First Name must have minimum 2 letters'),
+const useStyles = makeStyles((theme) => ({
+	form: {
+		width: '100%', // Fix IE 11 issue.
+		marginTop: theme.spacing(1),
+	},
+}));
 
-	message: yup
-		.string()
-		.required('Please enter your message')
-		.min(10, 'Message must be atleast 10 characters'),
+function ContactForm({ onSubmit, heading }) {
+	const classes = useStyles();
 
-	email: yup.string().required('Please write your Email').email(),
-});
-
-function ContactForm({ onSubmit }) {
-	const { register, handleSubmit, errors } = useForm({
-		resolver: yupResolver(schema),
-	});
+	const { register, handleSubmit } = useForm({});
 
 	return (
-		<Form onSubmit={handleSubmit(onSubmit)}>
-			<h3 className='validated'>The form has been sent. Thank you</h3>
-			<Form.Group>
-				<Form.Label>First name</Form.Label>
-				<Form.Control
-					name='name'
-					placeholder='Enter your first name'
-					ref={register}
-				/>
-				{errors.name && <p>{errors.name.message}</p>}
-			</Form.Group>
+		<Container component='main' maxWidth='xs'>
+			<Grid container direction='column' justify='center' alignItems='center'>
+				<form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
+					<h1>{heading}</h1>
+					<TextField
+						name='name'
+						label='Full Name'
+						placeholder='Placeholder'
+						fullWidth
+						margin='normal'
+						required
+						inputRef={register}
+					/>
 
-			<Form.Group>
-				<Form.Label>Email</Form.Label>
-				<Form.Control
-					name='email'
-					placeholder='Enter your Email'
-					ref={register}
-				/>
-				{errors.eMail && <p>{errors.eMail.message}</p>}
-			</Form.Group>
+					<TextField
+						name='email'
+						label='Email'
+						placeholder='Enter your Email'
+						inputRef={register}
+						required
+						fullWidth
+						margin='normal'
+					/>
 
-			<Form.Group>
-				<Form.Label>Send us a message</Form.Label>
-				<Form.Control
-					name='message'
-					as='textarea'
-					placeholder='Enter your message'
-					rows={3}
-					ref={register}
-				/>
-				{errors.message && <p>{errors.message.message}</p>}
-			</Form.Group>
+					<TextField
+						name='message'
+						as='textarea'
+						placeholder='Enter your message'
+						rows={3}
+						inputRef={register}
+						fullWidth
+						margin='normal'
+						multiline
+						rowsMax={4}
+						variant='outlined'
+					/>
 
-			<Button type='submit'>Submit</Button>
-		</Form>
+					<Button type='submit'>Submit</Button>
+				</form>
+			</Grid>
+		</Container>
 	);
 }
 

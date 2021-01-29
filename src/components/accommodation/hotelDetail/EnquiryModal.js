@@ -1,20 +1,22 @@
 import React from 'react';
-import { Modal, Button } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
-import * as yup from 'yup';
 import Form from 'react-bootstrap/Form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
 import Divider from '@material-ui/core/Divider';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import MuiDialogTitle from '@material-ui/core/DialogTitle';
+import MuiDialogContent from '@material-ui/core/DialogContent';
+import MuiDialogActions from '@material-ui/core/DialogActions';
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import Slide from '@material-ui/core/Slide';
 
-const schema = yup.object().shape({
-	name: yup
-		.string()
-		.required('Please write your name')
-		.min(2, 'First Name must have minimum 2 letters'),
-
-	email: yup.string().required('Please write your Email').email(),
+//make dialog slide up from bottom
+const Transition = React.forwardRef(function Transition(props, ref) {
+	return <Slide direction='up' ref={ref} {...props} />;
 });
 
 function EnquiryModal({
@@ -25,86 +27,82 @@ function EnquiryModal({
 	show,
 	onSubmit,
 }) {
-	const { register, handleSubmit, errors } = useForm({
-		resolver: yupResolver(schema),
-	});
+	const { register, handleSubmit } = useForm({});
 
 	return (
 		<>
-			<Modal show={show} onHide={modalClose} centered>
-				<Modal.Header closeButton>
-					<Modal.Title>Send us an enquiry</Modal.Title>
-				</Modal.Header>
-				<Modal.Body>
+			<Dialog open={show} onClose={modalClose} TransitionComponent={Transition}>
+				<MuiDialogTitle id='customized-dialog-title' onClose={modalClose}>
+					Send us an enquiry
+				</MuiDialogTitle>
+				<MuiDialogContent dividers>
 					<Form onSubmit={handleSubmit(onSubmit)}>
-						<Row className='justify-content-between filters'>
-							<Col sm={5}>
-								<Form.Group>
-									<Form.Label>Accommodation</Form.Label>
-									<Form.Control
-										name='establishmentId'
-										ref={register}
-										defaultValue={hotel}
-										readOnly
-									/>
-								</Form.Group>
-								<Form.Group>
-									<Form.Label>Name</Form.Label>
-									<Form.Control
-										name='name'
-										placeholder='Please enter your name'
-										ref={register}
-										type='valid'
-									/>
-									{errors.name && <p>{errors.name.message}</p>}
-								</Form.Group>
+						<Grid container spacing={1} justify='space-between'>
+							<Grid item xs={12} sm={5}>
+								<TextField
+									name='establishmentId'
+									inputRef={register}
+									defaultValue={hotel}
+									InputProps={{
+										readOnly: true,
+									}}
+									helperText='Name of accommodation'
+								/>
+								<TextField
+									name='name'
+									label='Name'
+									placeholder='Please enter your name'
+									fullWidth
+									margin='normal'
+									required
+									inputRef={register}
+								/>
 
-								<Form.Group>
-									<Form.Label>Email</Form.Label>
-
-									<Form.Control
-										name='email'
-										placeholder='Enter your Email'
-										ref={register}
-										type='valid'
-									/>
-									{errors.email && <p>{errors.email.message}</p>}
-								</Form.Group>
-							</Col>
+								<TextField
+									name='email'
+									label='Email'
+									placeholder='Enter your Email'
+									fullWidth
+									margin='normal'
+									required
+									inputRef={register}
+								/>
+							</Grid>
 							<Divider orientation='vertical' flexItem />
 
-							<Col sm={5}>
-								<Form.Group>
-									<Form.Label>Checkin</Form.Label>
-									<Form.Control
-										name='checkIn'
-										ref={register}
-										defaultValue={checkinDate}
-										type='date'
-										readOnly
-									/>
-								</Form.Group>
-								<Form.Group>
-									<Form.Label>Checkout</Form.Label>
-									<Form.Control
-										name='checkOut'
-										ref={register}
-										defaultValue={checkoutDate}
-										type='date'
-										readOnly
-									/>
-								</Form.Group>
-							</Col>
-						</Row>
-						<Modal.Footer>
+							<Grid item xs={12} sm={5}>
+								<TextField
+									name='checkIn'
+									defaultValue={checkinDate}
+									fullWidth
+									margin='normal'
+									inputRef={register}
+									InputProps={{
+										readOnly: true,
+									}}
+									helperText='Checkin'
+								/>
+								<TextField
+									name='checkOut'
+									defaultValue={checkoutDate}
+									fullWidth
+									margin='normal'
+									required
+									inputRef={register}
+									InputProps={{
+										readOnly: true,
+									}}
+									helperText='Checkout'
+								/>
+							</Grid>
+						</Grid>
+						<MuiDialogActions>
 							<Button type='submit'>Submit</Button>
-							<Button variant='primary' onClick={modalClose}>
-								Cancel
-							</Button>
-						</Modal.Footer>
+							<Button onClick={modalClose}>Cancel</Button>
+						</MuiDialogActions>
 					</Form>
-				</Modal.Body>
-			</Modal>
+				</MuiDialogContent>
+			</Dialog>
 		</>
 	);
 }

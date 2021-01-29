@@ -49,10 +49,20 @@ function HomeDetail() {
 	const days = differenceTime / (1000 * 3600 * 24);
 	const totalPrice = detail.price * days * guests;
 
+	//number of guests
 	const handleSelect = (e) => {
-		console.log(e);
-		setGuests(e);
+		setGuests(e.target.value);
 	};
+
+	//Use maxGuests to secure you cant choose more guests then max
+	let guestOptions = [];
+	for (let i = 0; i < detail.maxGuests; i++) {
+		guestOptions.push(
+			<option key={i} value={1 + i}>
+				{1 + i} Guest
+			</option>
+		);
+	}
 
 	//convert date to correct format compared to PHP backend format.
 	let checkoutDate = moment(endDate).format('YYYY-MM-DD');
@@ -101,7 +111,7 @@ function HomeDetail() {
 						endDate={endDate}
 						setEndDate={setEndDate}
 						handleSelect={handleSelect}
-						guests={guests}
+						guestOptions={guestOptions}
 					/>
 				</Col>
 				<Col>

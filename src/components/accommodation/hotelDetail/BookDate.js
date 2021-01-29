@@ -8,6 +8,10 @@ import ListItem from '@material-ui/core/ListItem';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
+import Form from 'react-bootstrap/Form';
+import Grid from '@material-ui/core/Grid';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
 
 function BookDate({
 	startDate,
@@ -15,44 +19,44 @@ function BookDate({
 	endDate,
 	setEndDate,
 	handleSelect,
+	guestOptions,
 }) {
 	return (
 		<Paper elevation={2} className='mt-2'>
 			<List>
 				<h2 className='text-center'>Choose booking dates</h2>
-				<ListItem>
-					<DatePicker
-						dateFormat='yyyy-MM-dd'
-						selected={startDate}
-						onChange={(date) => setStartDate(date)}
-						selectsStart
-						startDate={startDate}
-						endDate={endDate}
-					/>
-					<ArrowForwardIcon />
-					<DatePicker
-						dateFormat='yyyy-MM-dd'
-						selected={endDate}
-						onChange={(date) => setEndDate(date)}
-						selectsEnd
-						startDate={startDate}
-						endDate={endDate}
-						minDate={startDate}
-					/>
-				</ListItem>
-				<Divider variant='middle' />
+				<Grid container spacing={1} justify='center'>
+					<Grid item xs={12} sm={5}>
+						<DatePicker
+							dateFormat='yyyy-MM-dd'
+							selected={startDate}
+							onChange={(date) => setStartDate(date)}
+							selectsStart
+							startDate={startDate}
+							endDate={endDate}
+						/>
+					</Grid>
+					<Grid item xs={12} sm={1}>
+						<ArrowForwardIcon />
+					</Grid>
+					<Grid item xs={12} sm={5}>
+						<DatePicker
+							dateFormat='yyyy-MM-dd'
+							selected={endDate}
+							onChange={(date) => setEndDate(date)}
+							selectsEnd
+							startDate={startDate}
+							endDate={endDate}
+							minDate={startDate}
+						/>
+					</Grid>
+				</Grid>
 
+				<Divider variant='middle' />
 				<ListItem>
-					<label>Select a state</label>
-					<DropdownButton
-						alignRight
-						title='Dropdown right'
-						id='dropdown-menu-align-right'
-						onSelect={handleSelect}>
-						<Dropdown.Item eventKey={1}>1</Dropdown.Item>
-						<Dropdown.Item eventKey={2}>2</Dropdown.Item>
-						<Dropdown.Item eventKey={3}>3</Dropdown.Item>
-					</DropdownButton>
+					<Select native onChange={handleSelect}>
+						{guestOptions}
+					</Select>
 				</ListItem>
 			</List>
 		</Paper>

@@ -9,8 +9,6 @@ function Contact() {
 
 	async function onSubmit(data) {
 		console.log('data', data);
-		let validated = document.querySelector('.validated');
-		validated.style.display = 'block';
 
 		const url = BASE_URL + 'contacts';
 
@@ -22,10 +20,11 @@ function Contact() {
 			.then((j) => console.log(j));
 	}
 
+	const heading = 'Contact us';
+
 	return (
 		<Container>
-			<h1>Contact Page</h1>
-			<ContactForm onSubmit={onSubmit} />
+			<ContactForm onSubmit={onSubmit} heading={heading} />
 		</Container>
 	);
 }
