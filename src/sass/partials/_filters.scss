@@ -1,5 +1,9 @@
-.filters {
+.filter {
     margin-top: 50px;
+    &__title {
+        text-align: center;
+        margin-bottom: 50px;
+    }
 }
 
 .search-link {

@@ -12,14 +12,14 @@ function Footer() {
 					direction='row'
 					justify='space-around'
 					alignItems='center'>
-					<Grid md={2} item>
+					<Grid xs={12} md={2} item>
 						<h5 className='footer__title'>Holidaze</h5>
 						<p>
 							Here you can use rows and columns here to organize your footer
 							content.
 						</p>
 					</Grid>
-					<Grid md={2} item>
+					<Grid xs={12} md={2} item>
 						<h5 className='footer__title'>Links</h5>
 						<ul>
 							<li>
@@ -36,7 +36,7 @@ function Footer() {
 							</li>
 						</ul>
 					</Grid>
-					<Grid md={2} item>
+					<Grid xs={12} md={2} item>
 						<h5 className='footer__title'>Links</h5>
 						<ul>
 							<li>
@@ -66,10 +66,9 @@ function Footer() {
 				<div>
 					<Container maxWidth={false} className='footer__c'>
 						<small>
-							&copy; {new Date().getFullYear()} Copyright:{' '}
+							&copy; {new Date().getFullYear()} Copyright:
 							<a href='https://github.com/FrontEndVetle'>
-								{' '}
-								Eilert Vetle Førland{' '}
+								Eilert Vetle Førland
 							</a>
 						</small>
 					</Container>

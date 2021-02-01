@@ -115,13 +115,15 @@ function GetHotels() {
 							});
 
 							return (
-								<HotelCards
-									maxGuests={maxGuests}
-									name={name}
-									image={image}
-									price={price}
-									id={id}
-								/>
+								<Grid xs={12} md={4} item>
+									<HotelCards
+										maxGuests={maxGuests}
+										name={name}
+										image={image}
+										price={price}
+										id={id}
+									/>
+								</Grid>
 							);
 						})}
 					</Grid>

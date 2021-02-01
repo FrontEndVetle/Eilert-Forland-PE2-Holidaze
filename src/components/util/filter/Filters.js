@@ -16,8 +16,9 @@ function Filters({ maxGuests, maxPrice, handleSearch }) {
 					max={10}
 					valueLabelDisplay='on'
 					onChange={(event) => handleSearch(event)}
+					className='filter'
 				/>
-				<p className='text-center'>Guests</p>
+				<p className='filter__title'>Guests</p>
 			</Grid>
 			<Grid item={true} xs={5}>
 				<Slider
@@ -30,8 +31,9 @@ function Filters({ maxGuests, maxPrice, handleSearch }) {
 					max={250}
 					valueLabelDisplay='on'
 					onChange={(event) => handleSearch(event)}
+					className='filter'
 				/>
-				<p className='text-center'>Max price </p>
+				<p className='filter__title'>Max price € </p>
 			</Grid>
 		</>
 	);

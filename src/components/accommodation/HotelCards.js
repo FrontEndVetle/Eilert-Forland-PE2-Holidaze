@@ -19,47 +19,45 @@ import Grid from '@material-ui/core/Grid';
 function HotelCards({ name, id, image, price, maxGuests }) {
 	return (
 		<>
-			<Grid xs={12} md={4} item>
+			<Card className='card'>
 				<Paper elevation={2}>
-					<Card className='card'>
-						<CardMedia
-							className='card__img'
-							component='img'
-							image={image}
-							title='Accommodation image'
-						/>
-						<CardContent>
-							<h2 className='card__title'> {name}</h2>
-							<List>
-								<ListItem>
-									<ListItemAvatar>
-										<Avatar>
-											<EuroIcon />
-										</Avatar>
-									</ListItemAvatar>
-									<ListItemText primary={price} secondary='prices from' />
-								</ListItem>
-								<Divider variant='inset' component='li' />
-								<ListItem>
-									<ListItemAvatar>
-										<Avatar>
-											<HotelIcon />
-										</Avatar>
-									</ListItemAvatar>
-									<ListItemText
-										className='card__text'
-										primary={maxGuests}
-										secondary='Maximum Guests'
-									/>
-								</ListItem>
-								<Link to={'hotel/' + id}>
-									<Button className='card__btn btn'>View</Button>
-								</Link>
-							</List>
-						</CardContent>
-					</Card>
+					<CardMedia
+						className='card__img'
+						component='img'
+						image={image}
+						title='Accommodation image'
+					/>
+					<CardContent>
+						<h2 className='card__title'> {name}</h2>
+						<List>
+							<ListItem>
+								<ListItemAvatar>
+									<Avatar>
+										<EuroIcon />
+									</Avatar>
+								</ListItemAvatar>
+								<ListItemText primary={price} secondary='prices from' />
+							</ListItem>
+							<Divider variant='inset' component='li' />
+							<ListItem>
+								<ListItemAvatar>
+									<Avatar>
+										<HotelIcon />
+									</Avatar>
+								</ListItemAvatar>
+								<ListItemText
+									className='card__text'
+									primary={maxGuests}
+									secondary='Maximum Guests'
+								/>
+							</ListItem>
+							<Link to={'hotel/' + id}>
+								<Button className='card__btn btn'>View</Button>
+							</Link>
+						</List>
+					</CardContent>
 				</Paper>
-			</Grid>
+			</Card>
 		</>
 	);
 }
