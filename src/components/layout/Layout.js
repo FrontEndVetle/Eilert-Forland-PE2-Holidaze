@@ -16,7 +16,7 @@ import Hotels from '../admin/Hotels';
 import AddHotel from '../admin/AddHotel';
 import EditHotel from '../admin/EditHotel';
 import Dashboard from '../admin/dashboard/DashboardContainer';
-import NavBar from './header/Nav';
+import NavBar from './header/Nav2';
 import Footer from './footer/Footer';
 import HotelDetail from '../accommodation/hotelDetail/HotelDetail';
 import EnquiriesContainer from '../admin/messages/EnquiriesContainer';

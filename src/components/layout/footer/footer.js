@@ -1,21 +1,25 @@
 import React from 'react';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
+import Grid from '@material-ui/core/Grid';
+import Container from '@material-ui/core/Container';
+import { withStyles } from '@material-ui/core/styles';
 
 function Footer() {
 	return (
-		<footer className='footer pt-4'>
-			<Container fluid>
-				<Row className='text-center text-md-left d-flex justify-content-around'>
-					<Col md='3'>
+		<footer className='footer'>
+			<Container maxWidth disableGutters='true'>
+				<Grid
+					container
+					direction='row'
+					justify='space-around'
+					alignItems='center'>
+					<Grid md={2}>
 						<h5 className='footer__title'>Holidaze</h5>
 						<p>
 							Here you can use rows and columns here to organize your footer
 							content.
 						</p>
-					</Col>
-					<Col md='2'>
+					</Grid>
+					<Grid md={2}>
 						<h5 className='footer__title'>Links</h5>
 						<ul>
 							<li>
@@ -31,8 +35,8 @@ function Footer() {
 								<a href='#!'>Link 4</a>
 							</li>
 						</ul>
-					</Col>
-					<Col md='2'>
+					</Grid>
+					<Grid md={2}>
 						<h5 className='footer__title'>Links</h5>
 						<ul>
 							<li>
@@ -56,11 +60,11 @@ function Footer() {
 								</a>
 							</li>
 						</ul>
-					</Col>
-				</Row>
+					</Grid>
+				</Grid>
 
-				<div className='text-center py-3 c-footer'>
-					<Container fluid>
+				<div>
+					<Container maxWidth className='footer__c'>
 						<small>
 							&copy; {new Date().getFullYear()} Copyright:{' '}
 							<a href='https://github.com/FrontEndVetle'>

@@ -31,12 +31,15 @@
     color: $text-light;
     position: relative;
     margin-top: 150px;
+    padding-top: 20px;
     &__title {
         text-decoration: underline red 2px;
     }
-    .c-footer {
+    &__c {
         background-color: $copyright-bg;
         margin-top: 10px;
+        text-align: center;
+        padding: 10px;
     }
 }
 
