@@ -1,16 +1,14 @@
 //Nav
 .logo {
-    width: 50%;
+    width: 100px;
 }
 
-.navbar {
+.nav {
     background-color: $nav-bg;
     text-align: center;
-    margin-bottom: 100px;
-}
-
-.navbar a {
-    color: $text-light;
+    &__menu {
+        background-color: $nav-bg;
+    }
 }
 
 .navbar-nav a {
@@ -43,6 +41,16 @@
     }
 }
 
-@media (min-width: 641px) {}
+@media (min-width: 641px) {
+    //Nav
+    .logo {
+        width: 120px;
+    }
+}
 
-@media (min-width: 961px) {}
+@media (min-width: 961px) {
+    //Nav
+    .logo {
+        width: 150px;
+    }
+}

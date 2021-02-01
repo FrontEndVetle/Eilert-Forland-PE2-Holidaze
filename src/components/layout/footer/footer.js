@@ -6,20 +6,20 @@ import { withStyles } from '@material-ui/core/styles';
 function Footer() {
 	return (
 		<footer className='footer'>
-			<Container maxWidth disableGutters='true'>
+			<Container maxWidth={false} disableGutters={true}>
 				<Grid
 					container
 					direction='row'
 					justify='space-around'
 					alignItems='center'>
-					<Grid md={2}>
+					<Grid md={2} item>
 						<h5 className='footer__title'>Holidaze</h5>
 						<p>
 							Here you can use rows and columns here to organize your footer
 							content.
 						</p>
 					</Grid>
-					<Grid md={2}>
+					<Grid md={2} item>
 						<h5 className='footer__title'>Links</h5>
 						<ul>
 							<li>
@@ -36,7 +36,7 @@ function Footer() {
 							</li>
 						</ul>
 					</Grid>
-					<Grid md={2}>
+					<Grid md={2} item>
 						<h5 className='footer__title'>Links</h5>
 						<ul>
 							<li>
@@ -64,7 +64,7 @@ function Footer() {
 				</Grid>
 
 				<div>
-					<Container maxWidth className='footer__c'>
+					<Container maxWidth={false} className='footer__c'>
 						<small>
 							&copy; {new Date().getFullYear()} Copyright:{' '}
 							<a href='https://github.com/FrontEndVetle'>

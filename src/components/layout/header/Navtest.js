@@ -20,18 +20,16 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Hidden from '@material-ui/core/Hidden';
 import Logout from '../../auth/Logout';
+import Grid from '@material-ui/core/Grid';
+import Logo from './logo.png';
 
 const useStyles = makeStyles((theme) => ({
-	grow: {
-		flexGrow: 1,
-	},
-
-	sectionDesktop: {
+	/*sectionDesktop: {
 		display: 'none',
 		[theme.breakpoints.up('md')]: {
 			display: 'flex',
 		},
-	},
+	},*/
 
 	list: {
 		width: 250,
@@ -82,14 +80,10 @@ export default function Nav2() {
 			onKeyDown={toggleDrawer(anchor, false)}>
 			<List>
 				<NavLink to='/accommodation' exact>
-					<ListItem>
-						<ListItemText primary='Accommodation' />
-					</ListItem>
+					<MenuItem>Accommodation</MenuItem>
 				</NavLink>
 				<NavLink to='/contact' exact>
-					<ListItem>
-						<ListItemText primary='Contact' />
-					</ListItem>
+					<MenuItem>Contact</MenuItem>
 				</NavLink>
 			</List>
 			<Divider />
@@ -97,23 +91,17 @@ export default function Nav2() {
 				{user ? (
 					<>
 						<NavLink to='/admin' exact>
-							<ListItem>
-								<ListItemText primary='Admin dashboard' />
-							</ListItem>
+							<MenuItem>Admin dashboard</MenuItem>
 						</NavLink>
 						<NavLink to='/admin/hotels/add' exact>
-							<ListItem>
-								<ListItemText primary='Add establishment' />
-							</ListItem>
+							<MenuItem>Add establishment</MenuItem>
 						</NavLink>
 						<NavLink to='/admin/hotels/' exact>
-							<ListItem>
-								<ListItemText primary='Establishments' />
-							</ListItem>
+							<MenuItem>Establishments</MenuItem>
 						</NavLink>
-						<ListItem>
+						<MenuItem>
 							<Logout />
-						</ListItem>
+						</MenuItem>
 					</>
 				) : (
 					<NavLink className='ml-auto' to='/register'>
@@ -129,6 +117,7 @@ export default function Nav2() {
 	const menuId = 'primary-search-account-menu';
 	const renderMenu = (
 		<Menu
+			className='nav__menu'
 			anchorEl={anchorEl}
 			anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
 			id={menuId}
@@ -142,7 +131,7 @@ export default function Nav2() {
 						<MenuItem>Admin dashboard</MenuItem>
 					</NavLink>
 					<NavLink to='/admin/hotels/add' exact>
-						<MenuItem>Add establishment</MenuItem>
+						<MenuItem>Agfdgt</MenuItem>
 					</NavLink>
 					<NavLink to='/admin/hotels/' exact>
 						<MenuItem>Establishments</MenuItem>
@@ -162,44 +151,48 @@ export default function Nav2() {
 	return (
 		<div className={classes.grow}>
 			<AppBar position='static'>
-				<Toolbar>
-					<Typography className={classes.title} variant='h6' noWrap>
-						Material-UI
-					</Typography>
-
-					<div className={classes.grow} />
-					<div className={classes.sectionDesktop}>
-						<NavLink to='/accommodation' exact>
-							<Tab label='Accommodation' />
-						</NavLink>
-						<NavLink to='/contact' exact>
-							<Tab label='Contact' />
-						</NavLink>
-
-						<IconButton
-							edge='end'
-							aria-label='account of current user'
-							aria-controls={menuId}
-							aria-haspopup='true'
-							onClick={handleProfileMenuOpen}
-							color='inherit'>
-							<AccountCircle />
-						</IconButton>
-					</div>
-
-					<Hidden mdUp implementation='css'>
-						{['left'].map((anchor) => (
-							<React.Fragment key={anchor}>
-								<Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
-								<Drawer
-									anchor={anchor}
-									open={state[anchor]}
-									onClose={toggleDrawer(anchor, false)}>
-									{list(anchor)}
-								</Drawer>
-							</React.Fragment>
-						))}
-					</Hidden>
+				<Toolbar className='nav'>
+					<Grid
+						container
+						direction='row'
+						justify='space-between'
+						alignItems='center'>
+						<Grid xs={1}>
+							<NavLink to='/' exact>
+								<img className='logo' src={Logo} alt='Logo' />
+							</NavLink>
+						</Grid>
+						<Hidden smDown implementation='css'>
+							<NavLink to='/accommodation' exact>
+								<Tab label='Accommodation' />
+							</NavLink>
+							<NavLink to='/contact' exact>
+								<Tab label='Contact' />
+							</NavLink>
+						</Hidden>
+						<Hidden smDown implementation='css'>
+							<IconButton
+								aria-label='account of current user'
+								aria-controls={menuId}
+								onClick={handleProfileMenuOpen}
+								color='inherit'>
+								<AccountCircle />
+							</IconButton>
+						</Hidden>
+						<Hidden mdUp implementation='css'>
+							{['left'].map((anchor) => (
+								<React.Fragment key={anchor}>
+									<Button onClick={toggleDrawer(anchor, true)}>Meny</Button>
+									<Drawer
+										anchor={anchor}
+										open={state[anchor]}
+										onClose={toggleDrawer(anchor, false)}>
+										{list(anchor)}
+									</Drawer>
+								</React.Fragment>
+							))}
+						</Hidden>
+					</Grid>
 				</Toolbar>
 			</AppBar>
 			{renderMenu}

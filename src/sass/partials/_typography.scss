@@ -30,10 +30,6 @@ h6 {
     font-family: $heading-stack;
 }
 
-.nav-link {
-    font-size: $nav-text-m;
-}
-
 //styles
 ul,
 li {
@@ -56,9 +52,6 @@ li {
     body {
         font-size: $body-text-t;
     }
-    .nav-link {
-        font-size: $nav-text-t;
-    }
 }
 
 @media only screen and (min-width: 768px) {
@@ -74,8 +67,5 @@ li {
     }
     body {
         font-size: $body-text-d;
-    }
-    .nav-link {
-        font-size: $nav-text-d;
     }
 }

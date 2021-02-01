@@ -18,9 +18,9 @@ function CardContainer() {
 			<Row className='justify-content-between'>
 				{HomeData.map((HomeDetail) => {
 					const { id, title, image } = HomeDetail;
-					const infoList = HomeDetail.information.map((info) => (
+					const infoList = HomeDetail.information.map((info, i) => (
 						<>
-							<ListItem key={info}>
+							<ListItem key={i}>
 								<ListItemAvatar>
 									<Avatar>
 										<BeachAccessIcon />
@@ -34,7 +34,12 @@ function CardContainer() {
 
 					return (
 						<Col sm={6} md={4} md={3} key={id}>
-							<HomeInfoCards title={title} infoList={infoList} image={image} />
+							<HomeInfoCards
+								id={id}
+								title={title}
+								infoList={infoList}
+								image={image}
+							/>
 						</Col>
 					);
 				})}
