@@ -5,7 +5,6 @@ import Search from '../util/filter/Search';
 import Filters from '../util/filter/Filters';
 import Spinner from 'react-bootstrap/Spinner';
 import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
 
 function GetHotels() {
 	const [hotels, setHotels] = useState([]);
@@ -15,6 +14,8 @@ function GetHotels() {
 
 	const url = BASE_URL + 'establishments';
 	const linkPath = 'hotel/';
+	const btnText = 'View';
+
 	let hotelList = [];
 
 	useEffect(() => {
@@ -124,6 +125,7 @@ function GetHotels() {
 										price={price}
 										id={id}
 										linkPath={linkPath}
+										btnText={btnText}
 									/>
 								</Grid>
 							);

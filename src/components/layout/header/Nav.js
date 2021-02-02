@@ -23,13 +23,6 @@ import Grid from '@material-ui/core/Grid';
 import Logo from './logo.png';
 
 const useStyles = makeStyles((theme) => ({
-	/*sectionDesktop: {
-		display: 'none',
-		[theme.breakpoints.up('md')]: {
-			display: 'flex',
-		},
-	},*/
-
 	list: {
 		width: 250,
 	},
@@ -41,7 +34,6 @@ const useStyles = makeStyles((theme) => ({
 export default function Nav2() {
 	const classes = useStyles();
 	const [anchorEl, setAnchorEl] = React.useState(null);
-
 	const isMenuOpen = Boolean(anchorEl);
 
 	const handleProfileMenuOpen = (event) => {
@@ -98,6 +90,12 @@ export default function Nav2() {
 						<NavLink to='/admin/hotels/' exact>
 							<MenuItem>Establishments</MenuItem>
 						</NavLink>
+						<NavLink to='/admin/enquiries' exact>
+							<MenuItem>Enquiries</MenuItem>
+						</NavLink>
+						<NavLink to='/admin/messages' exact>
+							<MenuItem>Contact forms</MenuItem>
+						</NavLink>
 						<MenuItem>
 							<Logout />
 						</MenuItem>
@@ -129,10 +127,16 @@ export default function Nav2() {
 						<MenuItem>Admin dashboard</MenuItem>
 					</NavLink>
 					<NavLink to='/admin/hotels/add' exact>
-						<MenuItem>Agfdgt</MenuItem>
+						<MenuItem>Add establishment</MenuItem>
 					</NavLink>
 					<NavLink to='/admin/hotels/' exact>
 						<MenuItem>Establishments</MenuItem>
+					</NavLink>
+					<NavLink to='/admin/enquiries' exact>
+						<MenuItem>Enquiries</MenuItem>
+					</NavLink>
+					<NavLink to='/admin/messages' exact>
+						<MenuItem>Contact forms</MenuItem>
 					</NavLink>
 					<ListItem>
 						<Logout />

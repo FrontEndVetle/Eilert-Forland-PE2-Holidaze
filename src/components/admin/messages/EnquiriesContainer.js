@@ -62,8 +62,8 @@ function EnquiriesContainer() {
 							hotelName={establishmentId}
 						/>
 					);
-				})}{' '}
-			</Row>{' '}
+				})}
+			</Row>
 		</Container>
 	);
 }

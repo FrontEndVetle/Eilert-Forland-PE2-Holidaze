@@ -30,7 +30,7 @@ function ConfirmDelete({ id, deletePath }) {
 
 	return (
 		<Button variant='danger' onClick={checkDelete}>
-			Delete{' '}
+			Delete
 		</Button>
 	);
 }

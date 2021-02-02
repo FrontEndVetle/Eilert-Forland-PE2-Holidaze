@@ -15,48 +15,50 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 
-function HotelCards({ name, id, image, price, maxGuests, linkPath }) {
+function HotelCards({ name, id, image, price, maxGuests, linkPath, btnText }) {
 	return (
 		<>
-			<Card className='card'>
-				<Paper elevation={2}>
-					<CardMedia
-						className='card__img'
-						component='img'
-						image={image}
-						title='Accommodation image'
-					/>
-					<CardContent>
-						<h2 className='card__title'> {name}</h2>
-						<List>
-							<ListItem>
-								<ListItemAvatar>
-									<Avatar>
-										<EuroIcon />
-									</Avatar>
-								</ListItemAvatar>
-								<ListItemText primary={price} secondary='prices from' />
-							</ListItem>
-							<Divider variant='inset' component='li' />
-							<ListItem>
-								<ListItemAvatar>
-									<Avatar>
-										<HotelIcon />
-									</Avatar>
-								</ListItemAvatar>
-								<ListItemText
-									className='card__text'
-									primary={maxGuests}
-									secondary='Maximum Guests'
-								/>
-							</ListItem>
-							<Link to={linkPath + id}>
-								<Button className='card__btn btn'>View</Button>
-							</Link>
-						</List>
-					</CardContent>
-				</Paper>
-			</Card>
+			<Link to={linkPath + id}>
+				<Card className='card'>
+					<Paper elevation={2}>
+						<CardMedia
+							className='card__img'
+							component='img'
+							image={image}
+							title='Accommodation image'
+						/>
+						<CardContent>
+							<h2 className='card__title'> {name}</h2>
+							<List>
+								<ListItem>
+									<ListItemAvatar>
+										<Avatar>
+											<EuroIcon />
+										</Avatar>
+									</ListItemAvatar>
+									<ListItemText primary={price} secondary='prices from' />
+								</ListItem>
+								<Divider variant='inset' component='li' />
+								<ListItem>
+									<ListItemAvatar>
+										<Avatar>
+											<HotelIcon />
+										</Avatar>
+									</ListItemAvatar>
+									<ListItemText
+										className='card__text'
+										primary={maxGuests}
+										secondary='Maximum Guests'
+									/>
+								</ListItem>
+								<Link to={linkPath + id}>
+									<Button className='card__btn btn'>{btnText} </Button>
+								</Link>
+							</List>
+						</CardContent>
+					</Paper>
+				</Card>
+			</Link>
 		</>
 	);
 }
