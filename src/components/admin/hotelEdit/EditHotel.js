@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { BASE_URL, FETCH_OPTIONS, PATCH } from '../../constants/api';
+import { BASE_URL, FETCH_OPTIONS, PATCH } from '../../../constants/api';
 import DeleteHotel from './DeleteHotel';
 
 function AddHotel() {
@@ -43,30 +43,28 @@ function AddHotel() {
 	return (
 		<>
 			<Form onSubmit={handleSubmit(onSubmit)}>
-				<h1>Edit Hotel</h1>
+				<h1> Edit Hotel </h1>{' '}
 				<Form.Group>
-					<Form.Label>Name</Form.Label>
+					<Form.Label> Name </Form.Label>{' '}
 					<Form.Control
 						name='name'
 						defaultValue={hotel.name}
 						placeholder='Enter a name for the hotel'
 						ref={register}
-					/>
+					/>{' '}
 				</Form.Group>
-
 				<Form.Group>
-					<Form.Label>Email</Form.Label>
+					<Form.Label> Email </Form.Label>{' '}
 					<Form.Control
 						name='email'
 						defaultValue={hotel.email}
 						placeholder='Enter an email address'
 						ref={register}
-					/>
+					/>{' '}
 				</Form.Group>
-
-				<Button type='submit'>Update</Button>
-			</Form>
-			<DeleteHotel id={id} />
+				<Button type='submit'> Update </Button>{' '}
+			</Form>{' '}
+			<DeleteHotel id={id} />{' '}
 		</>
 	);
 }

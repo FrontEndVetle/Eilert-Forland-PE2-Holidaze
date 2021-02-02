@@ -14,9 +14,8 @@ import PropTypes from 'prop-types';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
-import Grid from '@material-ui/core/Grid';
 
-function HotelCards({ name, id, image, price, maxGuests }) {
+function HotelCards({ name, id, image, price, maxGuests, linkPath }) {
 	return (
 		<>
 			<Card className='card'>
@@ -51,7 +50,7 @@ function HotelCards({ name, id, image, price, maxGuests }) {
 									secondary='Maximum Guests'
 								/>
 							</ListItem>
-							<Link to={'hotel/' + id}>
+							<Link to={linkPath + id}>
 								<Button className='card__btn btn'>View</Button>
 							</Link>
 						</List>

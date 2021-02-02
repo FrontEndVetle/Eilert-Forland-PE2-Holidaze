@@ -22,8 +22,8 @@ function DashboardCards({ link, name, info }: Props) {
 	return (
 		<>
 			<Grid item xs={12} sm={6} md={3}>
-				<Paper elevation={2}>
-					<Card className='card'>
+				<Card className='card'>
+					<Paper elevation={2}>
 						<CardMedia
 							className='card__img'
 							component='img'
@@ -32,21 +32,13 @@ function DashboardCards({ link, name, info }: Props) {
 						<CardContent>
 							<h2 className='card__title'> {name}</h2>
 							<List>
-								<ListItem>
-									<ListItemAvatar>
-										<Avatar>
-											<EuroIcon />
-										</Avatar>
-									</ListItemAvatar>
-									<p>{info} </p>
-								</ListItem>
 								<NavLink to={link}>
-									<Button className='card__btn btn'>{link} </Button>
+									<Button className='card__btn btn'>Enter</Button>
 								</NavLink>
 							</List>
 						</CardContent>
-					</Card>
-				</Paper>
+					</Paper>
+				</Card>
 			</Grid>
 		</>
 	);

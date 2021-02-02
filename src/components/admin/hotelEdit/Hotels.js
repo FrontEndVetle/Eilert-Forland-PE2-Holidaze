@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { BASE_URL, FETCH_OPTIONS } from '../../constants/api';
+import { BASE_URL, FETCH_OPTIONS } from '../../../constants/api';
 
 function Hotels() {
 	const [hotels, setHotels] = useState([]);
 	const [error, setError] = useState(null);
 
 	const url = BASE_URL + 'establishments';
+	const linkPath = '/admin/hotels/edit/';
 
 	useEffect(() => {
 		fetch(url, FETCH_OPTIONS)
@@ -28,18 +29,16 @@ function Hotels() {
 		<>
 			<h1> Hotels </h1> {error && <div className='error'> {error} </div>}{' '}
 			<ul>
-				{' '}
 				{hotels.map((hotel) => {
 					return (
 						<li key={hotel.id}>
 							<NavLink to={`/admin/hotels/edit/${hotel.id}`}>
-								{' '}
-								{hotel.name}{' '}
-							</NavLink>{' '}
+								{hotel.name}
+							</NavLink>
 						</li>
 					);
-				})}{' '}
-			</ul>{' '}
+				})}
+			</ul>
 		</>
 	);
 }

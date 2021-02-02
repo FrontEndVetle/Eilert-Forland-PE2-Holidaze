@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { BASE_URL, FETCH_OPTIONS } from '../../constants/api';
+import { BASE_URL, FETCH_OPTIONS } from '../../../constants/api';
 
 function AddHotel() {
 	const { register, handleSubmit } = useForm();
@@ -30,26 +30,24 @@ function AddHotel() {
 
 	return (
 		<Form onSubmit={handleSubmit(onSubmit)}>
-			<h1>Add Hotel</h1>
+			<h1> Add Hotel </h1>{' '}
 			<Form.Group>
-				<Form.Label>Name</Form.Label>
+				<Form.Label> Name </Form.Label>{' '}
 				<Form.Control
 					name='name'
 					placeholder='Enter a name for the hotel'
 					ref={register}
-				/>
+				/>{' '}
 			</Form.Group>
-
 			<Form.Group>
-				<Form.Label>Email</Form.Label>
+				<Form.Label> Email </Form.Label>{' '}
 				<Form.Control
 					name='email'
 					placeholder='Enter an email address'
 					ref={register}
-				/>
+				/>{' '}
 			</Form.Group>
-
-			<Button type='submit'>Submit</Button>
+			<Button type='submit'> Submit </Button>{' '}
 		</Form>
 	);
 }

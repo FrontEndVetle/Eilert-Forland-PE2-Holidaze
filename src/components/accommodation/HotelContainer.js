@@ -14,6 +14,7 @@ function GetHotels() {
 	const [loading, setLoading] = useState(true);
 
 	const url = BASE_URL + 'establishments';
+	const linkPath = 'hotel/';
 	let hotelList = [];
 
 	useEffect(() => {
@@ -122,6 +123,7 @@ function GetHotels() {
 										image={image}
 										price={price}
 										id={id}
+										linkPath={linkPath}
 									/>
 								</Grid>
 							);
