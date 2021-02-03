@@ -30,6 +30,8 @@ function EditHotelForm({
 		},
 	});
 
+	console.log(name);
+
 	return (
 		<Container maxWidth='sm'>
 			<Grid container direction='row' justify='center' alignItems='center'>
@@ -41,8 +43,6 @@ function EditHotelForm({
 						alignItems='flex-start'>
 						<TextField
 							name='name'
-							type='text'
-							label={name}
 							inputRef={register}
 							defaultValue={name}
 							InputProps={{

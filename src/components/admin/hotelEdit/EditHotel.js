@@ -44,34 +44,47 @@ function EditHotel() {
 			.then((j) => console.log(j));
 	}
 
-	console.log(hotel.name);
+	const {
+		name,
+		description,
+		address,
+		image,
+		email,
+		price,
+		maxGuests,
+		lng,
+		lat,
+		selfCatering,
+	} = hotel;
 
-	return (
-		<Container>
-			<Grid
-				container
-				direction='column'
-				justify='space-between'
-				alignItems='center'>
-				<h1>Edit Establishment</h1>
-				<EditHotelForm
-					onSubmit={onSubmit}
-					name={hotel.name}
-					email={hotel.email}
-					id={hotel.id}
-					deletePath={deletePath}
-					image={hotel.image}
-					price={hotel.price}
-					maxGuests={hotel.maxGuests}
-					lat={hotel.lat}
-					lng={hotel.lng}
-					description={hotel.description}
-					address={hotel.address}
-					selfCatering={hotel.selfCatering}
-				/>
-			</Grid>
-		</Container>
-	);
+	if (hotel) {
+		return (
+			<Container>
+				<Grid
+					container
+					direction='column'
+					justify='space-between'
+					alignItems='center'>
+					<h1>Edit Establishment</h1>
+					<EditHotelForm
+						onSubmit={onSubmit}
+						name={name}
+						email={email}
+						id={id}
+						deletePath={deletePath}
+						image={image}
+						price={price}
+						maxGuests={maxGuests}
+						lat={lat}
+						lng={lng}
+						description={description}
+						address={address}
+						selfCatering={selfCatering}
+					/>
+				</Grid>
+			</Container>
+		);
+	}
 }
 
 export default EditHotel;
