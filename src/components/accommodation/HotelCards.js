@@ -18,15 +18,16 @@ import Card from '@material-ui/core/Card';
 function HotelCards({ name, id, image, price, maxGuests, linkPath, btnText }) {
 	return (
 		<>
-			<Link to={linkPath + id}>
-				<Card className='card'>
-					<Paper elevation={2}>
+			<Card className='card'>
+				<Paper elevation={2}>
+					<Link to={linkPath + id}>
 						<CardMedia
 							className='card__img'
 							component='img'
 							image={image}
 							title='Accommodation image'
 						/>
+
 						<CardContent>
 							<h2 className='card__title'> {name}</h2>
 							<List>
@@ -51,14 +52,16 @@ function HotelCards({ name, id, image, price, maxGuests, linkPath, btnText }) {
 										secondary='Maximum Guests'
 									/>
 								</ListItem>
-								<Link to={linkPath + id}>
-									<Button className='card__btn btn'>{btnText} </Button>
-								</Link>
 							</List>
 						</CardContent>
-					</Paper>
-				</Card>
-			</Link>
+					</Link>
+					<CardContent>
+						<Link to={linkPath + id}>
+							<Button className='card__btn btn'>{btnText} </Button>
+						</Link>
+					</CardContent>
+				</Paper>
+			</Card>
 		</>
 	);
 }

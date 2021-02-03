@@ -3,7 +3,7 @@ import { BASE_URL, FETCH_OPTIONS } from '../../constants/api';
 import HotelCards from '../accommodation/HotelCards';
 import Search from '../util/filter/Search';
 import Filters from '../util/filter/Filters';
-import Spinner from 'react-bootstrap/Spinner';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import Grid from '@material-ui/core/Grid';
 
 function GetHotels() {
@@ -37,7 +37,7 @@ function GetHotels() {
 	}, []);
 
 	if (loading) {
-		return <Spinner animation='border' className='spinner' />;
+		return <CircularProgress className='spinner' />;
 	}
 
 	//varibles to store user filter input
@@ -117,7 +117,7 @@ function GetHotels() {
 							});
 
 							return (
-								<Grid xs={12} md={4} item>
+								<Grid xs={12} md={4} item key={id}>
 									<HotelCards
 										maxGuests={maxGuests}
 										name={name}

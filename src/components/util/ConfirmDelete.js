@@ -28,11 +28,7 @@ function ConfirmDelete({ id, deletePath }) {
 		fetch(url, FETCH_OPTIONS);
 	}
 
-	return (
-		<Button variant='danger' onClick={checkDelete}>
-			Delete
-		</Button>
-	);
+	return <Button onClick={checkDelete}>Delete</Button>;
 }
 
 export default ConfirmDelete;

@@ -23,6 +23,8 @@ function EditHotelForm({
 	description,
 	address,
 	name,
+	id,
+	deletePath,
 }) {
 	const { register, handleSubmit, setValue } = useForm({
 		defaultValues: {
@@ -138,6 +140,7 @@ function EditHotelForm({
 						margin='normal'
 						defaultValue={address}
 					/>
+					<ConfirmDelete id={id} deletePath={deletePath} />
 
 					<Button type='submit'>Submit</Button>
 				</form>
@@ -157,6 +160,8 @@ EditHotelForm.propTypes = {
 	lng: PropTypes.number,
 	description: PropTypes.string,
 	address: PropTypes.string,
+	id: PropTypes.string,
+	deletePath: PropTypes.string,
 };
 
 export default EditHotelForm;

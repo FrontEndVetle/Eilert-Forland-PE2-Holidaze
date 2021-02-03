@@ -7,7 +7,7 @@ import EditHotelForm from './EditHotelForm';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import ConfirmDelete from '../../util/ConfirmDelete';
-import Spinner from 'react-bootstrap/Spinner';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 function EditHotel() {
 	const history = useHistory();
@@ -29,7 +29,7 @@ function EditHotel() {
 	}, []);
 
 	if (loading) {
-		return <Spinner animation='border' className='spinner' />;
+		return <CircularProgress className='spinner' />;
 	}
 
 	async function onSubmit(data) {

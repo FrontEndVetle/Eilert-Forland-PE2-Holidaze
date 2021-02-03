@@ -4,10 +4,12 @@ import MessageList from './MessageList';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import moment from 'moment';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 function EnquiriesContainer() {
 	const [hotels, setHotels] = useState([]);
 	const [error, setError] = useState(null);
+	const [loading, setLoading] = useState(true);
 
 	const url = BASE_URL + 'enquiries';
 	const deletePath = 'enquiries/';
@@ -15,6 +17,7 @@ function EnquiriesContainer() {
 	useEffect(() => {
 		fetch(url, FETCH_OPTIONS)
 			.then((response) => response.json())
+			.finally(() => setLoading(false))
 			.then((json) => {
 				console.log(json);
 				// handle error
@@ -27,6 +30,10 @@ function EnquiriesContainer() {
 			})
 			.catch((error) => console.log(error));
 	}, []);
+
+	if (loading) {
+		return <CircularProgress className='spinner' />;
+	}
 
 	return (
 		<Container>

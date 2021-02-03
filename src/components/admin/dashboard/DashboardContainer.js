@@ -22,7 +22,15 @@ function Dashboard() {
 				{adminOptions.map((option) => {
 					const { id, name, link, info } = option;
 
-					return <DashBoardCards id={id} name={name} link={link} info={info} />;
+					return (
+						<DashBoardCards
+							key={id}
+							id={id}
+							name={name}
+							link={link}
+							info={info}
+						/>
+					);
 				})}
 			</Grid>
 		</Container>

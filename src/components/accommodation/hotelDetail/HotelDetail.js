@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Spinner from 'react-bootstrap/Spinner';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { useParams } from 'react-router-dom';
@@ -34,7 +34,7 @@ function HomeDetail() {
 	}, []);
 
 	if (loading) {
-		return <Spinner animation='border' className='spinner' />;
+		return <CircularProgress className='spinner' />;
 	}
 
 	if (detail.selfCatering === true) {
