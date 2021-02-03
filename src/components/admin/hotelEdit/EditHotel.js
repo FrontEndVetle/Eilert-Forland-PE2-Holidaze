@@ -1,48 +1,50 @@
 import React, { useState, useEffect } from 'react';
-import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
 import { BASE_URL, FETCH_OPTIONS, PATCH } from '../../../constants/api';
 import DeleteHotel from './DeleteHotel';
 import EditHotelForm from './EditHotelForm';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
+import ConfirmDelete from '../../util/ConfirmDelete';
+import Spinner from 'react-bootstrap/Spinner';
 
-function AddHotel() {
-	const defaultState = {
-		name: '',
-		email: '',
-	};
-
+function EditHotel() {
 	const history = useHistory();
-	const { register, handleSubmit } = useForm();
-	const [hotel, setHotel] = useState(defaultState);
+	const [hotel, setHotel] = useState({});
+	const [loading, setLoading] = useState(true);
+
 	const deletePath = 'establishments/';
 
 	let { id } = useParams();
 
-	const fetchUrl = BASE_URL + 'establishments/' + id;
+	const url = BASE_URL + 'establishments/' + id;
 
 	useEffect(() => {
-		fetch(fetchUrl, FETCH_OPTIONS)
+		fetch(url, FETCH_OPTIONS)
 			.then((response) => response.json())
+			.finally(() => setLoading(false))
 			.then((json) => setHotel(json))
 			.catch((error) => console.log(error));
 	}, []);
+
+	if (loading) {
+		return <Spinner animation='border' className='spinner' />;
+	}
 
 	async function onSubmit(data) {
 		console.log('data', data);
 
 		FETCH_OPTIONS.method = 'PATCH';
 
-		FETCH_OPTIONS.body = JSON.stringify(updatedEstablishment);
+		FETCH_OPTIONS.body = JSON.stringify(data);
 
 		fetch(url, FETCH_OPTIONS)
 			.then((r) => r.json())
 			.then((j) => console.log(j));
 	}
+
+	console.log(hotel.name);
 
 	return (
 		<Container>
@@ -72,27 +74,4 @@ function AddHotel() {
 	);
 }
 
-export default AddHotel;
-/*<Form onSubmit={handleSubmit(onSubmit)}>
-				<h1> Edit Hotel </h1>
-				<Form.Group>
-					<Form.Label> Name </Form.Label>
-					<Form.Control
-						name='name'
-						defaultValue={hotel.name}
-						placeholder='Enter a name for the hotel'
-						ref={register}
-					/>
-				</Form.Group>
-				<Form.Group>
-					<Form.Label> Email </Form.Label>
-					<Form.Control
-						name='email'
-						defaultValue={hotel.email}
-						placeholder='Enter an email address'
-						ref={register}
-					/>{' '}
-				</Form.Group>
-				<Button type='submit'> Update </Button>
-			</Form>{' '}
-			<DeleteHotel id={id} />*/
+export default EditHotel;

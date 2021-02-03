@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { confirmAlert } from 'react-confirm-alert';
-import Button from 'react-bootstrap/Button';
+import Button from '@material-ui/core/Button';
 import { BASE_URL, FETCH_OPTIONS, DELETE } from '../../constants/api';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 

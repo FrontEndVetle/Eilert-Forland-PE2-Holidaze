@@ -1,6 +1,5 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import Form from 'react-bootstrap/Form';
 import Divider from '@material-ui/core/Divider';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -33,7 +32,7 @@ function EnquiryModal({
 					Send us an enquiry
 				</MuiDialogTitle>
 				<MuiDialogContent dividers>
-					<Form onSubmit={handleSubmit(onSubmit)}>
+					<form onSubmit={handleSubmit(onSubmit)}>
 						<Grid container spacing={1} justify='space-between'>
 							<Grid item xs={12} sm={5}>
 								<TextField
@@ -97,7 +96,7 @@ function EnquiryModal({
 							<Button type='submit'>Submit</Button>
 							<Button onClick={modalClose}>Cancel</Button>
 						</MuiDialogActions>
-					</Form>
+					</form>
 				</MuiDialogContent>
 			</Dialog>
 		</>

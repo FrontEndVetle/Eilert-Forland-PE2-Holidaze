@@ -1,13 +1,15 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
-import Button from 'react-bootstrap/Button';
+import Button from '@material-ui/core/Button';
 import Form from 'react-bootstrap/Form';
 import { BASE_URL, FETCH_OPTIONS } from '../../../constants/api';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import ConfirmDelete from '../../util/ConfirmDelete';
+import EditHotelForm from './EditHotelForm';
 
 function AddHotel() {
-	const { register, handleSubmit } = useForm();
-
 	const history = useHistory();
 
 	async function onSubmit(data) {
@@ -19,7 +21,7 @@ function AddHotel() {
 		FETCH_OPTIONS.method = 'POST';
 
 		// serialise the data
-		FETCH_OPTIONS.body = JSON.stringify(newEstablishment);
+		FETCH_OPTIONS.body = JSON.stringify(data);
 
 		// send every
 		fetch(url, FETCH_OPTIONS)
@@ -29,7 +31,21 @@ function AddHotel() {
 	}
 
 	return (
-		<Form onSubmit={handleSubmit(onSubmit)}>
+		<Container>
+			<Grid
+				container
+				direction='column'
+				justify='space-between'
+				alignItems='center'>
+				<h1>Add Establishment</h1>
+				<EditHotelForm onSubmit={onSubmit} />
+			</Grid>
+		</Container>
+	);
+}
+
+export default AddHotel;
+/*<Form onSubmit={handleSubmit(onSubmit)}>
 			<h1> Add Hotel </h1>{' '}
 			<Form.Group>
 				<Form.Label> Name </Form.Label>{' '}
@@ -48,8 +64,4 @@ function AddHotel() {
 				/>{' '}
 			</Form.Group>
 			<Button type='submit'> Submit </Button>{' '}
-		</Form>
-	);
-}
-
-export default AddHotel;
+		</Form>*/

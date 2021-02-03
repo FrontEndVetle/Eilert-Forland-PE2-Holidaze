@@ -13,7 +13,7 @@ import Swal from 'sweetalert2';
 import moment from 'moment';
 
 function HomeDetail() {
-	const [detail, setDetail] = useState(null);
+	const [detail, setDetail] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [startDate, setStartDate] = useState(new Date('2021/01/01'));
 	const [endDate, setEndDate] = useState(new Date('2021/02/01'));

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Container from '@material-ui/core/Container';
@@ -9,14 +9,12 @@ import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import InputAdornment from '@material-ui/core/InputAdornment';
+import PropTypes from 'prop-types';
+import { FormControlLabel } from '@material-ui/core';
 
 function EditHotelForm({
 	onSubmit,
-	heading,
-	id,
-	name,
 	email,
-	deletePath,
 	image,
 	price,
 	maxGuests,
@@ -24,36 +22,44 @@ function EditHotelForm({
 	lng,
 	description,
 	address,
-	selfCatering,
+	name,
 }) {
-	const { register, handleSubmit } = useForm({});
+	const { register, handleSubmit, control } = useForm({
+		defaultValues: {
+			email: 'bluebill1049@hotmail.com',
+		},
+	});
 
 	return (
-		<Container component='main' maxWidth='xs'>
-			<Grid container direction='column' justify='center' alignItems='center'>
+		<Container maxWidth='sm'>
+			<Grid container direction='row' justify='center' alignItems='center'>
 				<form onSubmit={handleSubmit(onSubmit)}>
-					<h1>{heading}</h1>
-					<TextField
-						name='name'
-						label='Hotel Name'
-						placeholder={name}
-						fullWidth
-						margin='normal'
-						required
-						inputRef={register}
-						defaultValue={name}
-					/>
-
-					<TextField
-						name='email'
-						label='Email'
-						placeholder={email}
-						inputRef={register}
-						required
-						fullWidth
-						margin='normal'
-						defaultValue={email}
-					/>
+					<Grid
+						container
+						direction='row'
+						justify='space-between'
+						alignItems='flex-start'>
+						<TextField
+							name='name'
+							type='text'
+							label={name}
+							inputRef={register}
+							defaultValue={name}
+							InputProps={{
+								readOnly: false,
+							}}
+							helperText='Name of accommodation'
+						/>
+						<TextField
+							name='email'
+							type='email'
+							inputRef={register}
+							label={email}
+							required
+							margin='normal'
+							defaultValue={email}
+						/>
+					</Grid>
 					<TextField
 						name='image'
 						label='Image link'
@@ -64,20 +70,95 @@ function EditHotelForm({
 						margin='normal'
 						defaultValue={image}
 					/>
-					<Input
-						name='price'
+					<Grid
+						container
+						direction='row'
+						justify='space-between'
+						alignItems='flex-start'>
+						<Input
+							type='number'
+							name='price'
+							inputRef={register}
+							defaultValue={price}
+							startAdornment={
+								<InputAdornment position='start'>€</InputAdornment>
+							}
+						/>
+						<Input
+							type='number'
+							name='maxGuests'
+							inputRef={register}
+							defaultValue={maxGuests}
+							startAdornment={
+								<InputAdornment position='start'>Guests</InputAdornment>
+							}
+						/>
+					</Grid>
+					<Grid
+						container
+						direction='row'
+						justify='space-between'
+						alignItems='flex-start'>
+						<Input
+							type='number'
+							name='lat'
+							inputRef={register}
+							defaultValue={lat}
+							startAdornment={
+								<InputAdornment position='start'>lat</InputAdornment>
+							}
+						/>
+						<Input
+							type='number'
+							name='lng'
+							inputRef={register}
+							defaultValue={lng}
+							startAdornment={
+								<InputAdornment position='start'>lng</InputAdornment>
+							}
+						/>
+					</Grid>
+					<TextField
+						name='description'
+						as='textarea'
+						placeholder={description}
+						rows={3}
 						inputRef={register}
-						defaultValue={price}
 						fullWidth
-						startAdornment={<InputAdornment position='start'>€</InputAdornment>}
+						margin='normal'
+						multiline
+						rowsMax={4}
+						variant='outlined'
+					/>
+					<TextField
+						name='address'
+						label='Address'
+						placeholder={address}
+						inputRef={register}
+						required
+						fullWidth
+						margin='normal'
+						defaultValue={address}
 					/>
 
 					<Button type='submit'>Submit</Button>
-					<ConfirmDelete id={id} deletePath={deletePath} />
 				</form>
 			</Grid>
 		</Container>
 	);
 }
+
+EditHotelForm.propTypes = {
+	name: PropTypes.string,
+	onSubmit: PropTypes.func,
+	email: PropTypes.string,
+	image: PropTypes.string,
+	price: PropTypes.number,
+	maxGuests: PropTypes.number,
+	lat: PropTypes.number,
+	lng: PropTypes.number,
+	description: PropTypes.string,
+	address: PropTypes.string,
+};
 
 export default EditHotelForm;
