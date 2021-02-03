@@ -1,8 +1,6 @@
 import React from 'react';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
-
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
 import HomeData from '../../data/Homepage.json';
 import HomeInfoCards from './HomeInfoCards';
 import ListItem from '@material-ui/core/ListItem';
@@ -15,12 +13,16 @@ import Divider from '@material-ui/core/Divider';
 function CardContainer() {
 	return (
 		<Container>
-			<Row className='justify-content-between'>
+			<Grid
+				container
+				direction='row'
+				justify='space-around'
+				alignItems='center'>
 				{HomeData.map((HomeDetail) => {
 					const { id, title, image } = HomeDetail;
 					const infoList = HomeDetail.information.map((info, i) => (
-						<>
-							<ListItem key={i}>
+						<div key={i}>
+							<ListItem>
 								<ListItemAvatar>
 									<Avatar>
 										<BeachAccessIcon />
@@ -29,21 +31,16 @@ function CardContainer() {
 								<ListItemText primary={info} />
 							</ListItem>
 							<Divider variant='inset' component='li' />
-						</>
+						</div>
 					));
 
 					return (
-						<Col sm={6} md={4} md={3} key={id}>
-							<HomeInfoCards
-								id={id}
-								title={title}
-								infoList={infoList}
-								image={image}
-							/>
-						</Col>
+						<Grid sm={6} md={3} key={id} item>
+							<HomeInfoCards title={title} infoList={infoList} image={image} />
+						</Grid>
 					);
 				})}
-			</Row>
+			</Grid>
 		</Container>
 	);
 }

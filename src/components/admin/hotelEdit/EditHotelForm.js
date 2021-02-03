@@ -24,37 +24,35 @@ function EditHotelForm({
 	address,
 	name,
 }) {
-	const { register, handleSubmit, control } = useForm({
+	const { register, handleSubmit, setValue } = useForm({
 		defaultValues: {
-			email: 'bluebill1049@hotmail.com',
+			email: email,
 		},
 	});
-
-	console.log(name);
 
 	return (
 		<Container maxWidth='sm'>
 			<Grid container direction='row' justify='center' alignItems='center'>
-				<form onSubmit={handleSubmit(onSubmit)}>
+				<form
+					onSubmit={handleSubmit(onSubmit)}
+					key={(email, name, image, price, maxGuests, description)}>
 					<Grid
 						container
 						direction='row'
 						justify='space-between'
 						alignItems='flex-start'>
 						<TextField
+							required
 							name='name'
 							inputRef={register}
+							label='Name of Accommodation'
 							defaultValue={name}
-							InputProps={{
-								readOnly: false,
-							}}
-							helperText='Name of accommodation'
+							margin='normal'
 						/>
 						<TextField
 							name='email'
-							type='email'
 							inputRef={register}
-							label={email}
+							label='e-mail'
 							required
 							margin='normal'
 							defaultValue={email}
@@ -120,8 +118,8 @@ function EditHotelForm({
 					</Grid>
 					<TextField
 						name='description'
+						label='Description of accommodation'
 						as='textarea'
-						placeholder={description}
 						rows={3}
 						inputRef={register}
 						fullWidth
@@ -129,11 +127,11 @@ function EditHotelForm({
 						multiline
 						rowsMax={4}
 						variant='outlined'
+						defaultValue={description}
 					/>
 					<TextField
 						name='address'
 						label='Address'
-						placeholder={address}
 						inputRef={register}
 						required
 						fullWidth

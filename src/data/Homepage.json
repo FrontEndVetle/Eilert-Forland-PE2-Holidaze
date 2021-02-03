@@ -4,7 +4,7 @@
         "information": ["Bergen1", "Bergen2", "Bergen3"],
         "icons": ["BeachAccessIcon", "BeachAccessIcon", "BeachAccessIcon"],
 
-        "image": ["/images/skansen.jpg"]
+        "image": "/images/skansen.jpg"
     },
     {
         "id": 2,
@@ -12,7 +12,7 @@
         "information": ["Bergen1", "Bergen2", "Bergen3"],
         "icons": ["BeachAccessIcon", "BeachAccessIcon", "BeachAccessIcon"],
 
-        "image": ["/images/skansen.jpg"]
+        "image": "/images/skansen.jpg"
     },
     {
         "id": 3,
@@ -20,6 +20,6 @@
         "information": ["Bergen1", "Bergen2", "Bergen3"],
         "icons": ["BeachAccessIcon", "BeachAccessIcon", "BeachAccessIcon"],
 
-        "image": ["/images/skansen.jpg"]
+        "image": "/images/skansen.jpg"
     }
 ]
