@@ -19,16 +19,16 @@ function Register() {
 
 	return (
 		<Form onSubmit={handleSubmit(onSubmit)}>
-			<h1> Login </h1>{' '}
+			<h1> Login </h1>
 			<Form.Group>
-				<Form.Label> Name </Form.Label>{' '}
+				<Form.Label> Name </Form.Label>
 				<Form.Control
 					name='username'
 					placeholder='Enter your username'
 					ref={register}
 				/>{' '}
 			</Form.Group>
-			<Button type='submit'> Submit </Button>{' '}
+			<Button type='submit'> Submit </Button>
 		</Form>
 	);
 }

@@ -1,0 +1,20 @@
+.contact-bg {
+    /* The image used */
+    background: url('../../images/bryggen.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: relative;
+    height: calc(100vh - 100px);
+}
+
+.contact-content {
+    background: $light-bg;
+    margin-top: 100px;
+    padding: 10px;
+}
+
+@media (min-width: 641px) {}
+
+@media (min-width: 961px) {}

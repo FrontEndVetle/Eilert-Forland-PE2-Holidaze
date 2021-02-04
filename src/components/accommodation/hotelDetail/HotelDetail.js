@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import Grid from '@material-ui/core/Grid';
 import { useParams } from 'react-router-dom';
 import { BASE_URL, FETCH_OPTIONS } from '../../../constants/api';
 import HotelInfo from './HotelInfo';
 import EnquiryModal from './EnquiryModal';
-import Container from 'react-bootstrap/Container';
+import Container from '@material-ui/core/Container';
 import BookDate from './BookDate';
 import BookingInfo from './BookingInfo';
 import Swal from 'sweetalert2';
 import moment from 'moment';
+import HotelMap from '../hotelMap/HotelMap';
+import Paper from '@material-ui/core/Paper';
 
 function HomeDetail() {
 	const [detail, setDetail] = useState([]);
@@ -95,10 +96,23 @@ function HomeDetail() {
 		});
 	}
 
+	const pinList = [];
+	pinList.push({
+		lat: detail.lat,
+		lng: detail.lng,
+		name: detail.name,
+		maxGuests: detail.maxGuests,
+		price: detail.price,
+	});
+
 	return (
 		<Container>
-			<Row>
-				<Col>
+			<Grid
+				container
+				direction='row'
+				justify='space-between'
+				alignItems='center'>
+				<Grid xs={12} sm={7} md={5} item>
 					<HotelInfo
 						info={detail.description}
 						image={detail.image}
@@ -112,9 +126,15 @@ function HomeDetail() {
 						setEndDate={setEndDate}
 						handleSelect={handleSelect}
 						guestOptions={guestOptions}
+						modalShow={modalShow}
 					/>
-				</Col>
-				<Col>
+				</Grid>
+				<Grid xs={12} sm={4} item>
+					<Paper elevation={2}>
+						<div className='map-specific'>
+							<HotelMap pinList={pinList} mapZoom={10} />
+						</div>
+					</Paper>
 					<BookingInfo
 						days={days}
 						price={detail.price}
@@ -123,10 +143,9 @@ function HomeDetail() {
 						startDate={startDate}
 						checkinDate={checkinDate}
 						checkoutDate={checkoutDate}
-						modalShow={modalShow}
 					/>
-				</Col>
-			</Row>
+				</Grid>
+			</Grid>
 			<EnquiryModal
 				hotel={detail.name}
 				checkinDate={checkinDate}

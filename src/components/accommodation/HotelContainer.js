@@ -6,6 +6,7 @@ import Filters from '../util/filter/Filters';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Grid from '@material-ui/core/Grid';
 import HotelMap from './hotelMap/HotelMap';
+import Paper from '@material-ui/core/Paper';
 
 function GetHotels() {
 	const [hotels, setHotels] = useState([]);
@@ -17,6 +18,7 @@ function GetHotels() {
 	const linkPath = 'hotel/';
 	const btnText = 'View';
 
+	//map coordinates and
 	let pinList = [];
 
 	useEffect(() => {
@@ -115,6 +117,8 @@ function GetHotels() {
 								lat: hotel.lat,
 								lng: hotel.lng,
 								name: hotel.name,
+								maxGuests: 'Guest capacity ' + hotel.maxGuests,
+								price: 'Price ' + hotel.price + ' euro',
 							});
 
 							return (
@@ -134,7 +138,11 @@ function GetHotels() {
 					</Grid>
 				</Grid>
 				<Grid xs={12} md={4} item>
-					<HotelMap pinList={pinList} />
+					<Paper elevation={2}>
+						<div className='google-map'>
+							<HotelMap pinList={pinList} mapZoom={10} />
+						</div>
+					</Paper>
 				</Grid>
 			</Grid>
 		</>

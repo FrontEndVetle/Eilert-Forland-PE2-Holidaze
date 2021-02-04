@@ -12,6 +12,7 @@ import Form from 'react-bootstrap/Form';
 import Grid from '@material-ui/core/Grid';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
+import Button from '@material-ui/core/Button';
 
 function BookDate({
 	startDate,
@@ -20,6 +21,7 @@ function BookDate({
 	setEndDate,
 	handleSelect,
 	guestOptions,
+	modalShow,
 }) {
 	return (
 		<Paper elevation={2} className='mt-2'>
@@ -57,6 +59,9 @@ function BookDate({
 					<Select native onChange={handleSelect}>
 						{guestOptions}
 					</Select>
+					<Button className=' btn' onClick={modalShow}>
+						Enquire about availability
+					</Button>
 				</ListItem>
 			</List>
 		</Paper>

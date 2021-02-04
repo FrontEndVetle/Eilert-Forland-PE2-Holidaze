@@ -14,10 +14,9 @@ import InfoIcon from '@material-ui/icons/Info';
 function HotelInfo({ image, name, info, dining }) {
 	return (
 		<Paper elevation={2}>
-			<h1>{name}</h1>
 			<List>
 				<Image src={image} className='image' />
-
+				<h1>{name}</h1>
 				<Divider className='mt-3' variant='inset' component='li' />
 				<ListItem>
 					<ListItemAvatar>

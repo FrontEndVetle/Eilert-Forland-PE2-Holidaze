@@ -1,0 +1,11 @@
+.map-specific {
+    height: 150px;
+}
+
+@media (min-width: 641px) {}
+
+@media (min-width: 961px) {
+    .map-specific {
+        height: 250px;
+    }
+}

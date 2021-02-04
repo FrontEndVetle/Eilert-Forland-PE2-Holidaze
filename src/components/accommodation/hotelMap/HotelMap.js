@@ -17,41 +17,43 @@ const center = {
 	lng: 5.324383,
 };
 
-function HotelMap({ pinList }) {
+function HotelMap({ pinList, mapZoom }) {
 	const [pinHotel, setPinHotel] = useState(null);
 
 	return (
-		<div className='google-map'>
-			<LoadScript googleMapsApiKey='AIzaSyCYNfjg6TYg7I_NYQdd_73-UZH8Rgk2gFU'>
-				<GoogleMap
-					mapContainerStyle={containerStyle}
-					center={center}
-					zoom={12}
-					defaultOptions={{ styles: MapStyles }}>
-					{pinList.map((pin, i) => {
-						return (
-							<Marker
-								key={i}
-								position={pin}
-								onClick={() => {
-									setPinHotel(pin);
-								}}
-							/>
-						);
-					})}
-					;
-					{pinHotel && (
-						<InfoWindow
-							position={{ lat: pinHotel.lat, lng: pinHotel.lng }}
-							onCloseClick={() => {
-								setPinHotel(null);
-							}}>
-							<div>{pinHotel.name} </div>
-						</InfoWindow>
-					)}
-				</GoogleMap>
-			</LoadScript>
-		</div>
+		<LoadScript googleMapsApiKey='AIzaSyCYNfjg6TYg7I_NYQdd_73-UZH8Rgk2gFU'>
+			<GoogleMap
+				options={{ styles: MapStyles }}
+				mapContainerStyle={containerStyle}
+				center={center}
+				zoom={mapZoom}>
+				{pinList.map((pin, i) => {
+					return (
+						<Marker
+							key={i}
+							position={pin}
+							onClick={() => {
+								setPinHotel(pin);
+							}}
+						/>
+					);
+				})}
+				;
+				{pinHotel && (
+					<InfoWindow
+						position={{ lat: pinHotel.lat, lng: pinHotel.lng }}
+						onCloseClick={() => {
+							setPinHotel(null);
+						}}>
+						<div>
+							<h4>{pinHotel.name} </h4>
+							<p>{pinHotel.price} </p>
+							<p>{pinHotel.maxGuests} </p>
+						</div>
+					</InfoWindow>
+				)}
+			</GoogleMap>
+		</LoadScript>
 	);
 }
 

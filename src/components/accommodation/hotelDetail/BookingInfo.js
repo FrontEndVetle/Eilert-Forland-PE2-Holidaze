@@ -11,7 +11,6 @@ import ImageIcon from '@material-ui/icons/Image';
 import WorkIcon from '@material-ui/icons/Work';
 import BeachAccessIcon from '@material-ui/icons/BeachAccess';
 import Divider from '@material-ui/core/Divider';
-import { Button } from 'react-bootstrap';
 
 function BookingInfo({
 	days,
@@ -74,11 +73,6 @@ function BookingInfo({
 							</Avatar>
 						</ListItemAvatar>
 						<ListItemText primary={guests + ' Guests'} />
-					</ListItem>
-					<ListItem>
-						<Button variant='primary' onClick={modalShow}>
-							Enquiry about availability
-						</Button>
 					</ListItem>
 				</List>
 			</Paper>
