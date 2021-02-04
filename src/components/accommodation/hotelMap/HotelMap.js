@@ -1,15 +1,15 @@
-import React from 'react';
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
-import inIcon from '../../../images/skansen.jpg';
+import React, { useState } from 'react';
+import {
+	GoogleMap,
+	LoadScript,
+	Marker,
+	InfoWindow,
+} from '@react-google-maps/api';
+import MapStyles from './MapStyles';
 
 const containerStyle = {
 	width: '100%',
 	height: '100%',
-};
-
-const MARKER_POSITION = {
-	lat: 37.772,
-	lng: -122.214,
 };
 
 const center = {
@@ -17,14 +17,41 @@ const center = {
 	lng: 5.324383,
 };
 
-function HotelMap() {
+function HotelMap({ pinList }) {
+	const [pinHotel, setPinHotel] = useState(null);
+
 	return (
-		<LoadScript googleMapsApiKey='AIzaSyCYNfjg6TYg7I_NYQdd_73-UZH8Rgk2gFU'>
-			<GoogleMap mapContainerStyle={containerStyle} center={center} zoom={12}>
-				<Marker position={MARKER_POSITION} icon={pinIcon} />
-				<></>
-			</GoogleMap>
-		</LoadScript>
+		<div className='google-map'>
+			<LoadScript googleMapsApiKey='AIzaSyCYNfjg6TYg7I_NYQdd_73-UZH8Rgk2gFU'>
+				<GoogleMap
+					mapContainerStyle={containerStyle}
+					center={center}
+					zoom={12}
+					defaultOptions={{ styles: MapStyles }}>
+					{pinList.map((pin, i) => {
+						return (
+							<Marker
+								key={i}
+								position={pin}
+								onClick={() => {
+									setPinHotel(pin);
+								}}
+							/>
+						);
+					})}
+					;
+					{pinHotel && (
+						<InfoWindow
+							position={{ lat: pinHotel.lat, lng: pinHotel.lng }}
+							onCloseClick={() => {
+								setPinHotel(null);
+							}}>
+							<div>{pinHotel.name} </div>
+						</InfoWindow>
+					)}
+				</GoogleMap>
+			</LoadScript>
+		</div>
 	);
 }
 

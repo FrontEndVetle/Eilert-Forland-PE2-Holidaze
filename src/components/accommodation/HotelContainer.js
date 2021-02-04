@@ -5,6 +5,7 @@ import Search from '../util/filter/Search';
 import Filters from '../util/filter/Filters';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Grid from '@material-ui/core/Grid';
+import HotelMap from './hotelMap/HotelMap';
 
 function GetHotels() {
 	const [hotels, setHotels] = useState([]);
@@ -16,14 +17,13 @@ function GetHotels() {
 	const linkPath = 'hotel/';
 	const btnText = 'View';
 
-	let hotelList = [];
+	let pinList = [];
 
 	useEffect(() => {
 		fetch(url, FETCH_OPTIONS)
 			.then((response) => response.json())
 			.finally(() => setLoading(false))
 			.then((json) => {
-				console.log(json);
 				// handle error
 				if (json.error) {
 					setHotels([]);
@@ -88,6 +88,7 @@ function GetHotels() {
 		//set filtered hotels to the new array
 		setFilteredHotels(filteredArray);
 	};
+
 	return (
 		<>
 			<Search searchName={searchName} hotels={hotels} />
@@ -110,7 +111,7 @@ function GetHotels() {
 						{error && <div className='error'> {error} </div>}
 						{filteredHotels.map((hotel) => {
 							const { id, name, image, price, maxGuests } = hotel;
-							hotelList.push({
+							pinList.push({
 								lat: hotel.lat,
 								lng: hotel.lng,
 								name: hotel.name,
@@ -133,7 +134,7 @@ function GetHotels() {
 					</Grid>
 				</Grid>
 				<Grid xs={12} md={4} item>
-					htorhjktorthr
+					<HotelMap pinList={pinList} />
 				</Grid>
 			</Grid>
 		</>
