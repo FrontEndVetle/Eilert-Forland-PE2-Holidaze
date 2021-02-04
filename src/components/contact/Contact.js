@@ -45,21 +45,21 @@ function Contact() {
 	}
 
 	return (
-		<div className='contact-bg'>
+		<div className='contact'>
 			<Container>
 				<Grid container direction='row' justify='center' alignItems='center'>
-					<Grid className='contact-content'>
+					<Grid className='contact__content'>
 						<Paper elevation={2}>
 							<Grid
 								container
 								direction='row'
 								justify='space-around'
 								alignItems='center'>
-								<Grid xs={10} md={5}>
+								<Grid xs={10} md={5} item>
 									<ContactForm onSubmit={onSubmit} heading={heading} />
 								</Grid>
 								<Divider orientation='vertical' flexItem />
-								<Grid xs={12} md={5}>
+								<Grid xs={12} md={5} item>
 									<div className='map-specific'>
 										<HotelMap pinList={pinList} mapZoom={10} />
 									</div>

@@ -108,10 +108,11 @@ function HomeDetail() {
 	return (
 		<Container>
 			<Grid
+				className='content'
 				container
 				direction='row'
-				justify='space-between'
-				alignItems='center'>
+				justify='space-around'
+				alignItems='flex-start'>
 				<Grid xs={12} sm={7} md={5} item>
 					<HotelInfo
 						info={detail.description}

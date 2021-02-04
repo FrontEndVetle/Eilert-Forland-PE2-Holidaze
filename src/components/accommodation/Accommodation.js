@@ -4,7 +4,7 @@ import Container from '@material-ui/core/Container';
 
 function Accommodation() {
 	return (
-		<Container>
+		<Container className='content'>
 			<h1>Accommodations</h1>
 			<HotelContainer />
 		</Container>
