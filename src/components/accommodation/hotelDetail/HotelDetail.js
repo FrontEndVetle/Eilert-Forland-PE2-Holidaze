@@ -76,10 +76,8 @@ function HomeDetail() {
 	//post enquiry
 	function onSubmit(data) {
 		const urlEnquiry = BASE_URL + 'enquiries';
-		console.log('data', data);
 
 		FETCH_OPTIONS.method = 'POST';
-
 		FETCH_OPTIONS.body = JSON.stringify(data);
 
 		// send every

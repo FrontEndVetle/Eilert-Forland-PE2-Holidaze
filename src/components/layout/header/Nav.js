@@ -8,7 +8,6 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-
 import Tab from '@material-ui/core/Tab';
 import clsx from 'clsx';
 import Drawer from '@material-ui/core/Drawer';
@@ -101,7 +100,16 @@ export default function Nav2() {
 						</MenuItem>
 					</>
 				) : user ? (
-					<Logout />
+					<>
+						<ListItem>
+							<ListItemText>
+								<p>{user} logged in</p>
+							</ListItemText>
+						</ListItem>
+						<ListItem>
+							<Logout />
+						</ListItem>
+					</>
 				) : (
 					<NavLink className='ml-auto' to='/register'>
 						<ListItem>
@@ -146,7 +154,11 @@ export default function Nav2() {
 						</ListItem>
 					</div>
 				) : user ? (
-					<Logout />
+					<div>
+						<ListItem>
+							<Logout />
+						</ListItem>
+					</div>
 				) : (
 					<div>
 						<NavLink className='ml-auto' to='/register'>

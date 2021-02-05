@@ -10,12 +10,12 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Divider from '@material-ui/core/Divider';
 import Avatar from '@material-ui/core/Avatar';
-import ImageIcon from '@material-ui/icons/Image';
 import List from '@material-ui/core/List';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import HotelMap from '../accommodation/hotelMap/HotelMap';
 import EmailIcon from '@material-ui/icons/Email';
 import PhoneIphoneIcon from '@material-ui/icons/PhoneIphone';
+import Swal from 'sweetalert2';
 
 function Contact() {
 	const history = useHistory();
@@ -42,6 +42,13 @@ function Contact() {
 		fetch(url, FETCH_OPTIONS)
 			.then((r) => r.json())
 			.then((j) => console.log(j));
+		Swal.fire({
+			title: 'Message sent!',
+			text: 'We reply to messages within 24 hours',
+			icon: 'success',
+			confirmButtonText: 'OK',
+		});
+		history.push('/');
 	}
 
 	return (

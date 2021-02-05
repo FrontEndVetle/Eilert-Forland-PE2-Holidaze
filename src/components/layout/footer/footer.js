@@ -1,6 +1,20 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import List from '@material-ui/core/List';
+import { NavLink } from 'react-router-dom';
+import Avatar from '@material-ui/core/Avatar';
+
+//icons
+import FacebookIcon from '@material-ui/icons/Facebook';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import EmailIcon from '@material-ui/icons/Email';
+import FolderIcon from '@material-ui/icons/Folder';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import TwitterIcon from '@material-ui/icons/Twitter';
 
 function Footer() {
 	return (
@@ -10,55 +24,102 @@ function Footer() {
 					container
 					direction='row'
 					justify='space-around'
-					alignItems='center'>
-					<Grid xs={12} md={2} item>
-						<h5 className='footer__title'>Holidaze</h5>
-						<p>
-							Here you can use rows and columns here to organize your footer
-							content.
-						</p>
+					alignItems='flex-start'>
+					<Grid xs={12} md={3} item>
+						<Grid
+							container
+							direction='column'
+							justify='flex-start'
+							alignItems='center'>
+							<h5 className='footer__title'>Holidaze</h5>
+
+							<p>
+								Holidaze assists tourists in providing traditional and
+								untraditional accommodation in and around Bergen.{' '}
+							</p>
+						</Grid>
 					</Grid>
-					<Grid xs={12} md={2} item>
-						<h5 className='footer__title'>Links</h5>
-						<ul>
-							<li>
-								<a href='#!'>Link 1</a>
-							</li>
-							<li>
-								<a href='#!'>Link 2</a>
-							</li>
-							<li>
-								<a href='#!'>Link 3</a>
-							</li>
-							<li>
-								<a href='#!'>Link 4</a>
-							</li>
-						</ul>
+					<Grid xs={12} md={3} item>
+						<Grid
+							container
+							direction='column'
+							justify='flex-start'
+							alignItems='center'>
+							<h5 className='footer__title'>Links</h5>
+							<List component='nav'>
+								<NavLink to='/' exact>
+									<ListItem button>
+										<ListItemAvatar>
+											<Avatar>
+												<FolderIcon />
+											</Avatar>
+										</ListItemAvatar>
+										<ListItemText primary='Home' />
+									</ListItem>
+								</NavLink>
+								<NavLink to='/accommodation' exact>
+									<ListItem button>
+										<ListItemAvatar>
+											<Avatar>
+												<FolderIcon />
+											</Avatar>
+										</ListItemAvatar>
+										<ListItemText primary='Accommodation' />
+									</ListItem>
+								</NavLink>
+								<NavLink to='/contact' exact>
+									<ListItem button>
+										<ListItemAvatar>
+											<Avatar>
+												<FolderIcon />
+											</Avatar>
+										</ListItemAvatar>
+										<ListItemText primary='Contact' />
+									</ListItem>
+								</NavLink>
+							</List>
+						</Grid>
 					</Grid>
-					<Grid xs={12} md={2} item>
-						<h5 className='footer__title'>Links</h5>
-						<ul>
-							<li>
-								<a href='#!'>
-									<i className='material-icons'>Facebook</i>Link 1
+					<Grid xs={12} md={3} item>
+						<Grid
+							container
+							direction='column'
+							justify='flex-start'
+							alignItems='center'>
+							<h5 className='footer__title'>Social media</h5>
+							<List component='nav'>
+								<a href='https://www.facebook.com/'>
+									<ListItem button>
+										<ListItemAvatar>
+											<Avatar>
+												<FacebookIcon />
+											</Avatar>
+										</ListItemAvatar>
+										<ListItemText primary='Facebook' />
+									</ListItem>
 								</a>
-							</li>
-							<li>
-								<a href='#!'>
-									<i className='material-icons'>hotel</i>Link 2
+								<a href='https://www.twitter.com/'>
+									<ListItem button>
+										<ListItemAvatar>
+											<Avatar>
+												<TwitterIcon />
+											</Avatar>
+										</ListItemAvatar>
+										<ListItemText primary='Twitter' />
+									</ListItem>
 								</a>
-							</li>
-							<li>
-								<a href='#!'>
-									<i className='material-icons'>hotel</i>Link 3
+								<a href='https://www.instagram.com/'>
+									<ListItem button>
+										<ListItemAvatar>
+											<Avatar>
+												<InstagramIcon />
+											</Avatar>
+										</ListItemAvatar>
+										<ListItemText primary='Instagram' />
+									</ListItem>
 								</a>
-							</li>
-							<li>
-								<a href='#!'>
-									<i className='material-icons'>hotel</i>Link 4
-								</a>
-							</li>
-						</ul>
+							</List>
+						</Grid>
 					</Grid>
 				</Grid>
 
