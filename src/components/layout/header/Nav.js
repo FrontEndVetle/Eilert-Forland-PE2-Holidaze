@@ -49,7 +49,7 @@ export default function Nav2() {
 	});
 
 	//get if user is logged in or not
-	const { user } = useContext(AuthContext);
+	const { admin, user } = useContext(AuthContext);
 
 	const toggleDrawer = (anchor, open) => (event) => {
 		if (
@@ -79,7 +79,7 @@ export default function Nav2() {
 			</List>
 			<Divider />
 			<List>
-				{user ? (
+				{admin ? (
 					<>
 						<NavLink to='/admin' exact>
 							<MenuItem>Admin dashboard</MenuItem>
@@ -100,6 +100,8 @@ export default function Nav2() {
 							<Logout />
 						</MenuItem>
 					</>
+				) : user ? (
+					<Logout />
 				) : (
 					<NavLink className='ml-auto' to='/register'>
 						<ListItem>
@@ -113,43 +115,47 @@ export default function Nav2() {
 
 	const menuId = 'primary-search-account-menu';
 	const NavDropdown = () => (
-		<Menu
-			anchorEl={anchorEl}
-			anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-			id={menuId}
-			keepMounted
-			transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-			open={isMenuOpen}
-			onClose={handleMenuClose}>
-			{user ? (
-				<div>
-					<NavLink to='/admin' exact>
-						<MenuItem>Admin dashboard</MenuItem>
-					</NavLink>
-					<NavLink to='/admin/hotels/add' exact>
-						<MenuItem>Add establishment</MenuItem>
-					</NavLink>
-					<NavLink to='/admin/hotels/' exact>
-						<MenuItem>Establishments</MenuItem>
-					</NavLink>
-					<NavLink to='/admin/enquiries' exact>
-						<MenuItem>Enquiries</MenuItem>
-					</NavLink>
-					<NavLink to='/admin/messages' exact>
-						<MenuItem>Contact forms</MenuItem>
-					</NavLink>
-					<ListItem>
-						<Logout />
-					</ListItem>
-				</div>
-			) : (
-				<div>
-					<NavLink className='ml-auto' to='/register'>
-						<MenuItem>Login</MenuItem>
-					</NavLink>
-				</div>
-			)}
-		</Menu>
+		<div>
+			<Menu
+				anchorEl={anchorEl}
+				anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+				id={menuId}
+				keepMounted
+				transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+				open={isMenuOpen}
+				onClose={handleMenuClose}>
+				{admin ? (
+					<div>
+						<NavLink to='/admin' exact>
+							<MenuItem>Admin dashboard</MenuItem>
+						</NavLink>
+						<NavLink to='/admin/hotels/add' exact>
+							<MenuItem>Add establishment</MenuItem>
+						</NavLink>
+						<NavLink to='/admin/hotels/' exact>
+							<MenuItem>Establishments</MenuItem>
+						</NavLink>
+						<NavLink to='/admin/enquiries' exact>
+							<MenuItem>Enquiries</MenuItem>
+						</NavLink>
+						<NavLink to='/admin/messages' exact>
+							<MenuItem>Contact forms</MenuItem>
+						</NavLink>
+						<ListItem>
+							<Logout />
+						</ListItem>
+					</div>
+				) : user ? (
+					<Logout />
+				) : (
+					<div>
+						<NavLink className='ml-auto' to='/register'>
+							<MenuItem>Login</MenuItem>
+						</NavLink>
+					</div>
+				)}
+			</Menu>
+		</div>
 	);
 
 	return (
@@ -175,6 +181,12 @@ export default function Nav2() {
 							</NavLink>
 						</Hidden>
 						<Hidden smDown implementation='css'>
+							{user ? (
+								<Tab onClick={handleProfileMenuOpen} label={'hi, ' + user} />
+							) : (
+								''
+							)}
+
 							<IconButton
 								aria-label='account of current user'
 								aria-controls={menuId}

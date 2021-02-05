@@ -7,13 +7,20 @@ import { AuthContext } from '../../context/AuthContext';
 
 function Register() {
 	const { register, handleSubmit } = useForm();
-	const { registerUser } = useContext(AuthContext);
+	const { registerAdmin, registerUser } = useContext(AuthContext);
 
 	const history = useHistory();
 
 	function onSubmit(data) {
 		console.log('data', data);
-		registerUser(data.username);
+		if (data.username === 'Admin' && data.password === 'Admin') {
+			registerAdmin(data.username);
+			history.push('/admin');
+		} else {
+			console.log('logged in as' + data.username);
+			registerUser(data.username);
+		}
+
 		history.push('/admin');
 	}
 
@@ -26,7 +33,15 @@ function Register() {
 					name='username'
 					placeholder='Enter your username'
 					ref={register}
-				/>{' '}
+				/>
+			</Form.Group>
+			<Form.Group>
+				<Form.Label>Password</Form.Label>
+				<Form.Control
+					name='password'
+					placeholder='Enter your password'
+					ref={register}
+				/>
 			</Form.Group>
 			<Button type='submit'> Submit </Button>
 		</Form>

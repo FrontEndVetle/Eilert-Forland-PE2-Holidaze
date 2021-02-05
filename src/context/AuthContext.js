@@ -5,7 +5,14 @@ const AuthContext = createContext();
 const AuthContextProvider = ({ children }) => {
 	const existingUser = localStorage.getItem('user') || null;
 
+	const [admin, setAdmin] = useState(existingUser);
 	const [user, setUser] = useState(existingUser);
+
+	function registerAdmin(username) {
+		localStorage.setItem('user', JSON.stringify(username));
+
+		setAdmin(username);
+	}
 
 	function registerUser(username) {
 		localStorage.setItem('user', JSON.stringify(username));
@@ -14,12 +21,14 @@ const AuthContextProvider = ({ children }) => {
 	}
 
 	function logout() {
+		setAdmin(null);
 		setUser(null);
 		localStorage.removeItem('user');
 	}
 
 	return (
-		<AuthContext.Provider value={{ user, registerUser, logout }}>
+		<AuthContext.Provider
+			value={{ admin, user, registerAdmin, registerUser, logout }}>
 			{children}
 		</AuthContext.Provider>
 	);
