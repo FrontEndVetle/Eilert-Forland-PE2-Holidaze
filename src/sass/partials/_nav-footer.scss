@@ -29,13 +29,18 @@
     color: $text-light;
     text-align: center;
     &__title {
-        text-decoration: underline red 2px;
+        margin-bottom: 10px;
     }
     &__c {
         background-color: $copyright-bg;
         margin-top: 10px;
         text-align: center;
         padding: 10px;
+    }
+    &__hr {
+        width: 60%;
+        padding-top: 0;
+        margin-top: 0;
     }
 }
 

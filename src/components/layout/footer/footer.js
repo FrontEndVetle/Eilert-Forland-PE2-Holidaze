@@ -32,7 +32,7 @@ function Footer() {
 							justify='flex-start'
 							alignItems='center'>
 							<h5 className='footer__title'>Holidaze</h5>
-
+							<hr className='footer__hr' />
 							<p>
 								Holidaze assists tourists in providing traditional and
 								untraditional accommodation in and around Bergen.{' '}
@@ -46,6 +46,8 @@ function Footer() {
 							justify='flex-start'
 							alignItems='center'>
 							<h5 className='footer__title'>Links</h5>
+							<hr className='footer__hr' />
+
 							<List component='nav'>
 								<NavLink to='/' exact>
 									<ListItem button>
@@ -87,6 +89,8 @@ function Footer() {
 							justify='flex-start'
 							alignItems='center'>
 							<h5 className='footer__title'>Social media</h5>
+							<hr className='footer__hr' />
+
 							<List component='nav'>
 								<a href='https://www.facebook.com/'>
 									<ListItem button>
