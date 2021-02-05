@@ -7,6 +7,7 @@ import { AuthContext } from '../../context/AuthContext';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
+import Swal from 'sweetalert2';
 
 function Register() {
 	const { register, handleSubmit } = useForm();
@@ -22,9 +23,14 @@ function Register() {
 		} else {
 			console.log('logged in as' + data.username);
 			registerUser(data.username);
+			history.push('/');
 		}
-
-		history.push('/admin');
+		Swal.fire({
+			title: 'Logged in!',
+			text: 'Welcome',
+			icon: 'success',
+			confirmButtonText: 'OK',
+		});
 	}
 
 	return (
