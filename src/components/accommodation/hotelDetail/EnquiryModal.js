@@ -32,7 +32,7 @@ function EnquiryModal({
 					Send us an enquiry
 				</MuiDialogTitle>
 				<MuiDialogContent dividers>
-					<form onSubmit={handleSubmit(onSubmit)}>
+					<form className='form' onSubmit={handleSubmit(onSubmit)}>
 						<Grid container spacing={1} justify='space-between'>
 							<Grid item xs={12} sm={5}>
 								<TextField

@@ -1,0 +1,11 @@
+.form {
+    padding: 5px;
+}
+
+@media (min-width: 641px) {}
+
+@media (min-width: 961px) {
+    .form {
+        padding: 20px;
+    }
+}

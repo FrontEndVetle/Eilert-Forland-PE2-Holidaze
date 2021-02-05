@@ -59,7 +59,7 @@ function Contact() {
 									<ContactForm onSubmit={onSubmit} heading={heading} />
 								</Grid>
 								<Divider orientation='vertical' flexItem />
-								<Grid xs={12} md={5} item>
+								<Grid xs={12} md={5} item className='form'>
 									<div className='map-specific'>
 										<HotelMap pinList={pinList} mapZoom={10} />
 									</div>

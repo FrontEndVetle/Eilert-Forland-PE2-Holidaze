@@ -8,7 +8,7 @@ function ContactForm({ onSubmit, heading }) {
 	const { register, handleSubmit } = useForm({});
 
 	return (
-		<form onSubmit={handleSubmit(onSubmit)}>
+		<form className='form' onSubmit={handleSubmit(onSubmit)}>
 			<h1>{heading}</h1>
 			<Grid>
 				<TextField
