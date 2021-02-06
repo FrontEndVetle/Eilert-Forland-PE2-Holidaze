@@ -6,13 +6,16 @@
 .nav {
     background-color: $nav-bg;
     text-align: center;
-    &__menu {
-        background-color: $nav-bg;
+    &__list {
+        color: $nav-bg !important;
     }
-}
-
-.navbar-nav a {
-    margin-left: 10px;
+    a {
+        color: $text-light;
+        &:hover {
+            color: $hover-a;
+            text-decoration: underline;
+        }
+    }
 }
 
 .dropdown-menu {

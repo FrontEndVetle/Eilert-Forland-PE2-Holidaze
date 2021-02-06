@@ -12,7 +12,7 @@ function Dashboard() {
 	];
 
 	return (
-		<Container>
+		<Container className='content'>
 			<Grid
 				container
 				direction='row'

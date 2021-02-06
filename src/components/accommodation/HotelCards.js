@@ -14,6 +14,7 @@ import PropTypes from 'prop-types';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
+import { NavLink } from 'react-router-dom';
 
 function HotelCards({ name, id, image, price, maxGuests, linkPath, btnText }) {
 	return (
@@ -30,7 +31,7 @@ function HotelCards({ name, id, image, price, maxGuests, linkPath, btnText }) {
 
 						<CardContent>
 							<h2 className='card__title'> {name}</h2>
-							<List>
+							<List className='card__text'>
 								<ListItem>
 									<ListItemAvatar>
 										<Avatar>
@@ -47,7 +48,6 @@ function HotelCards({ name, id, image, price, maxGuests, linkPath, btnText }) {
 										</Avatar>
 									</ListItemAvatar>
 									<ListItemText
-										className='card__text'
 										primary={maxGuests}
 										secondary='Maximum Guests'
 									/>
@@ -56,9 +56,9 @@ function HotelCards({ name, id, image, price, maxGuests, linkPath, btnText }) {
 						</CardContent>
 					</Link>
 					<CardContent>
-						<Link to={linkPath + id}>
-							<Button className='card__btn btn'>{btnText} </Button>
-						</Link>
+						<NavLink to={linkPath + id}>
+							<Button className='card__btn btn'>{btnText}</Button>
+						</NavLink>
 					</CardContent>
 				</Paper>
 			</Card>

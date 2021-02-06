@@ -68,7 +68,7 @@ export default function Nav2() {
 			role='presentation'
 			onClick={toggleDrawer(anchor, false)}
 			onKeyDown={toggleDrawer(anchor, false)}>
-			<List>
+			<List className='nav__list'>
 				<NavLink to='/accommodation' exact>
 					<MenuItem>Accommodation</MenuItem>
 				</NavLink>
@@ -111,7 +111,7 @@ export default function Nav2() {
 						</ListItem>
 					</>
 				) : (
-					<NavLink className='ml-auto' to='/register'>
+					<NavLink to='/register'>
 						<ListItem>
 							<ListItemText primary='Login' />
 						</ListItem>
@@ -133,7 +133,7 @@ export default function Nav2() {
 				open={isMenuOpen}
 				onClose={handleMenuClose}>
 				{admin ? (
-					<div>
+					<div className='nav'>
 						<NavLink to='/admin' exact>
 							<MenuItem>Admin dashboard</MenuItem>
 						</NavLink>
@@ -161,7 +161,7 @@ export default function Nav2() {
 					</div>
 				) : (
 					<div>
-						<NavLink className='ml-auto' to='/register'>
+						<NavLink to='/register'>
 							<MenuItem>Login</MenuItem>
 						</NavLink>
 					</div>

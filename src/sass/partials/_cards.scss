@@ -5,6 +5,7 @@
     text-align: center;
     &__title {
         text-align: center;
+        color: $text-color;
         &--special {
             font-family: $heading-special;
         }
@@ -15,6 +16,9 @@
     }
     &__btn {
         width: 100%;
+    }
+    &__text {
+        color: $text-color;
     }
 }
 
