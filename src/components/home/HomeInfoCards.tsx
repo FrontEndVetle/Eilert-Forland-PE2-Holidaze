@@ -13,8 +13,8 @@ type Props = {
 
 function HomeInfoCards({ title, infoList, image }: Props) {
 	return (
-		<Paper elevation={2}>
-			<Card>
+		<Card className='card'>
+			<Paper elevation={2}>
 				<CardMedia
 					className='card__img'
 					component='img'
@@ -22,11 +22,11 @@ function HomeInfoCards({ title, infoList, image }: Props) {
 					title='Homepage information image'
 				/>
 				<CardContent>
-					<h2>{title}</h2>
-					<List>{infoList} </List>
+					<h2 className='card__title'> {title}</h2>
+					<List className='card__text'>{infoList} </List>
 				</CardContent>
-			</Card>
-		</Paper>
+			</Paper>
+		</Card>
 	);
 }
 

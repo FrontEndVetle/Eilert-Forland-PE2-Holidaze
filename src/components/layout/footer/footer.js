@@ -15,6 +15,7 @@ import EmailIcon from '@material-ui/icons/Email';
 import FolderIcon from '@material-ui/icons/Folder';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import TwitterIcon from '@material-ui/icons/Twitter';
+import LinkIcon from '@material-ui/icons/Link';
 
 function Footer() {
 	return (
@@ -53,7 +54,7 @@ function Footer() {
 									<ListItem button>
 										<ListItemAvatar>
 											<Avatar>
-												<FolderIcon />
+												<LinkIcon />
 											</Avatar>
 										</ListItemAvatar>
 										<ListItemText primary='Home' />
@@ -63,7 +64,7 @@ function Footer() {
 									<ListItem button>
 										<ListItemAvatar>
 											<Avatar>
-												<FolderIcon />
+												<LinkIcon />
 											</Avatar>
 										</ListItemAvatar>
 										<ListItemText primary='Accommodation' />
@@ -73,7 +74,7 @@ function Footer() {
 									<ListItem button>
 										<ListItemAvatar>
 											<Avatar>
-												<FolderIcon />
+												<LinkIcon />
 											</Avatar>
 										</ListItemAvatar>
 										<ListItemText primary='Contact' />

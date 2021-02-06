@@ -17,7 +17,8 @@ function CardContainer() {
 				container
 				direction='row'
 				justify='space-around'
-				alignItems='center'>
+				alignItems='center'
+				className='content'>
 				{HomeData.map((HomeDetail) => {
 					const { id, title, image } = HomeDetail;
 					const infoList = HomeDetail.information.map((info, i) => (
@@ -35,7 +36,7 @@ function CardContainer() {
 					));
 
 					return (
-						<Grid sm={6} md={3} key={id} item>
+						<Grid xs={12} sm={5} md={3} key={id} item>
 							<HomeInfoCards title={title} infoList={infoList} image={image} />
 						</Grid>
 					);
