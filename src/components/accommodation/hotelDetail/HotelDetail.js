@@ -112,37 +112,43 @@ function HomeDetail() {
 				justify='space-around'
 				alignItems='flex-start'>
 				<Grid xs={12} sm={7} md={5} item>
-					<HotelInfo
-						info={detail.description}
-						image={detail.image}
-						name={detail.name}
-						dining={dining}
-					/>
-					<BookDate
-						startDate={startDate}
-						setStartDate={setStartDate}
-						endDate={endDate}
-						setEndDate={setEndDate}
-						handleSelect={handleSelect}
-						guestOptions={guestOptions}
-						modalShow={modalShow}
-					/>
+					<Paper elevation={2} className='detail'>
+						<HotelInfo
+							info={detail.description}
+							image={detail.image}
+							name={detail.name}
+							dining={dining}
+						/>
+					</Paper>
+					<Paper elevation={2} className='detail'>
+						<BookDate
+							startDate={startDate}
+							setStartDate={setStartDate}
+							endDate={endDate}
+							setEndDate={setEndDate}
+							handleSelect={handleSelect}
+							guestOptions={guestOptions}
+							modalShow={modalShow}
+						/>
+					</Paper>
 				</Grid>
 				<Grid xs={12} sm={4} item>
-					<Paper elevation={2}>
-						<div className='map-specific'>
+					<Paper elevation={2} className='detail'>
+						<div className=' detail__map'>
 							<HotelMap pinList={pinList} mapZoom={10} />
 						</div>
 					</Paper>
-					<BookingInfo
-						days={days}
-						price={detail.price}
-						totalPrice={totalPrice}
-						guests={guests}
-						startDate={startDate}
-						checkinDate={checkinDate}
-						checkoutDate={checkoutDate}
-					/>
+					<Paper elevation={2} className='detail'>
+						<BookingInfo
+							days={days}
+							price={detail.price}
+							totalPrice={totalPrice}
+							guests={guests}
+							startDate={startDate}
+							checkinDate={checkinDate}
+							checkoutDate={checkoutDate}
+						/>
+					</Paper>
 				</Grid>
 			</Grid>
 			<EnquiryModal

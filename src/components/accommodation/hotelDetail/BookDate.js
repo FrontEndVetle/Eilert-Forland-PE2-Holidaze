@@ -24,47 +24,45 @@ function BookDate({
 	modalShow,
 }) {
 	return (
-		<Paper elevation={2} className='mt-2'>
-			<List>
-				<h2 className='text-center'>Choose booking dates</h2>
-				<Grid container spacing={1} justify='center'>
-					<Grid item xs={12} sm={5}>
-						<DatePicker
-							dateFormat='yyyy-MM-dd'
-							selected={startDate}
-							onChange={(date) => setStartDate(date)}
-							selectsStart
-							startDate={startDate}
-							endDate={endDate}
-						/>
-					</Grid>
-					<Grid item xs={12} sm={1}>
-						<ArrowForwardIcon />
-					</Grid>
-					<Grid item xs={12} sm={5}>
-						<DatePicker
-							dateFormat='yyyy-MM-dd'
-							selected={endDate}
-							onChange={(date) => setEndDate(date)}
-							selectsEnd
-							startDate={startDate}
-							endDate={endDate}
-							minDate={startDate}
-						/>
-					</Grid>
+		<List>
+			<h2 className='text-center'>Choose booking dates</h2>
+			<Grid container spacing={1} justify='center'>
+				<Grid item xs={12} sm={5}>
+					<DatePicker
+						dateFormat='yyyy-MM-dd'
+						selected={startDate}
+						onChange={(date) => setStartDate(date)}
+						selectsStart
+						startDate={startDate}
+						endDate={endDate}
+					/>
 				</Grid>
+				<Grid item xs={12} sm={1}>
+					<ArrowForwardIcon />
+				</Grid>
+				<Grid item xs={12} sm={5}>
+					<DatePicker
+						dateFormat='yyyy-MM-dd'
+						selected={endDate}
+						onChange={(date) => setEndDate(date)}
+						selectsEnd
+						startDate={startDate}
+						endDate={endDate}
+						minDate={startDate}
+					/>
+				</Grid>
+			</Grid>
 
-				<Divider variant='middle' />
-				<ListItem>
-					<Select native onChange={handleSelect}>
-						{guestOptions}
-					</Select>
-					<Button className=' btn' onClick={modalShow}>
-						Enquire about availability
-					</Button>
-				</ListItem>
-			</List>
-		</Paper>
+			<Divider variant='middle' />
+			<ListItem>
+				<Select native onChange={handleSelect}>
+					{guestOptions}
+				</Select>
+				<Button className='detail__btn btn' onClick={modalShow}>
+					Enquire about availability
+				</Button>
+			</ListItem>
+		</List>
 	);
 }
 

@@ -46,7 +46,9 @@ function ContactForm({ onSubmit, heading }) {
 					variant='outlined'
 				/>
 
-				<Button type='submit'>Submit</Button>
+				<Button className='form__btn btn' type='submit'>
+					Submit
+				</Button>
 			</Grid>
 		</form>
 	);

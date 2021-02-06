@@ -1,5 +1,14 @@
 .form {
     padding: 5px;
+    &__btn {
+        width: 100%;
+        border: $btn-border !important;
+        color: $text-color !important;
+        &:hover {
+            background-color: $btn-hover !important;
+            color: $text-light !important;
+        }
+    }
 }
 
 @media (min-width: 641px) {}

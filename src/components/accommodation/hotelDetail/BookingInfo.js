@@ -23,59 +23,58 @@ function BookingInfo({
 }) {
 	return (
 		<>
-			<Paper elevation={2}>
-				<List>
-					<ListItem>
-						<ListItemAvatar>
-							<Avatar>
-								<ImageIcon />
-							</Avatar>
-						</ListItemAvatar>
-						<ListItemText primary='Checkinn' secondary={checkinDate} />
-					</ListItem>
-					<Divider variant='inset' component='li' />
-					<ListItem>
-						<ListItemAvatar>
-							<Avatar>
-								<WorkIcon />
-							</Avatar>
-						</ListItemAvatar>
-						<ListItemText primary='Checkout' secondary={checkoutDate} />
-					</ListItem>
-					<Divider variant='inset' component='li' />
-					<ListItem>
-						<ListItemAvatar>
-							<Avatar>
-								<BeachAccessIcon />
-							</Avatar>
-						</ListItemAvatar>
-						<ListItemText primary={days + ' Nights'} />
-					</ListItem>
-					<Divider variant='inset' component='li' />
+			<List>
+				<h3 className='text-center'>Booking information</h3>
+				<ListItem>
+					<ListItemAvatar>
+						<Avatar>
+							<ImageIcon />
+						</Avatar>
+					</ListItemAvatar>
+					<ListItemText primary='Checkinn' secondary={checkinDate} />
+				</ListItem>
+				<Divider variant='inset' component='li' />
+				<ListItem>
+					<ListItemAvatar>
+						<Avatar>
+							<WorkIcon />
+						</Avatar>
+					</ListItemAvatar>
+					<ListItemText primary='Checkout' secondary={checkoutDate} />
+				</ListItem>
+				<Divider variant='inset' component='li' />
+				<ListItem>
+					<ListItemAvatar>
+						<Avatar>
+							<BeachAccessIcon />
+						</Avatar>
+					</ListItemAvatar>
+					<ListItemText primary={days + ' Nights'} />
+				</ListItem>
+				<Divider variant='inset' component='li' />
 
-					<ListItem>
-						<ListItemAvatar>
-							<Avatar>
-								<BeachAccessIcon />
-							</Avatar>
-						</ListItemAvatar>
-						<ListItemText
-							primary={'€' + totalPrice + ' Total'}
-							secondary={'€' + price + ' per person per night'}
-						/>
-					</ListItem>
-					<Divider variant='inset' component='li' />
+				<ListItem>
+					<ListItemAvatar>
+						<Avatar>
+							<BeachAccessIcon />
+						</Avatar>
+					</ListItemAvatar>
+					<ListItemText
+						primary={'€' + totalPrice + ' Total'}
+						secondary={'€' + price + ' per person per night'}
+					/>
+				</ListItem>
+				<Divider variant='inset' component='li' />
 
-					<ListItem>
-						<ListItemAvatar>
-							<Avatar>
-								<BeachAccessIcon />
-							</Avatar>
-						</ListItemAvatar>
-						<ListItemText primary={guests + ' Guests'} />
-					</ListItem>
-				</List>
-			</Paper>
+				<ListItem>
+					<ListItemAvatar>
+						<Avatar>
+							<BeachAccessIcon />
+						</Avatar>
+					</ListItemAvatar>
+					<ListItemText primary={guests + ' Guests'} />
+				</ListItem>
+			</List>
 		</>
 	);
 }

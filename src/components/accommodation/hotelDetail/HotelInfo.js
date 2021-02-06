@@ -13,30 +13,28 @@ import InfoIcon from '@material-ui/icons/Info';
 
 function HotelInfo({ image, name, info, dining }) {
 	return (
-		<Paper elevation={2}>
-			<List>
-				<Image src={image} className='image' />
-				<h1>{name}</h1>
-				<Divider className='mt-3' variant='inset' component='li' />
-				<ListItem>
-					<ListItemAvatar>
-						<Avatar>
-							<InfoIcon />
-						</Avatar>
-					</ListItemAvatar>
-					<ListItemText primary={info} secondary='Jan 7, 2014' />
-				</ListItem>
-				<Divider variant='inset' component='li' />
-				<ListItem>
-					<ListItemAvatar>
-						<Avatar>
-							<FastfoodIcon />
-						</Avatar>
-					</ListItemAvatar>
-					<ListItemText primary={dining} secondary='Jan 7, 2014' />
-				</ListItem>
-			</List>
-		</Paper>
+		<List>
+			<Image src={image} className='detail__img' />
+			<h1 detail__heading>{name}</h1>
+			<Divider className='mt-3' variant='inset' component='li' />
+			<ListItem>
+				<ListItemAvatar>
+					<Avatar>
+						<InfoIcon />
+					</Avatar>
+				</ListItemAvatar>
+				<ListItemText primary={info} secondary='Jan 7, 2014' />
+			</ListItem>
+			<Divider variant='inset' component='li' />
+			<ListItem>
+				<ListItemAvatar>
+					<Avatar>
+						<FastfoodIcon />
+					</Avatar>
+				</ListItemAvatar>
+				<ListItemText primary={dining} secondary='Jan 7, 2014' />
+			</ListItem>
+		</List>
 	);
 }
 
