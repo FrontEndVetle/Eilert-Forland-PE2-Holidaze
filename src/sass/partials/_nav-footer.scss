@@ -16,6 +16,9 @@
             text-decoration: underline;
         }
     }
+    &__menu {
+        color: $text-light;
+    }
 }
 
 .dropdown-menu {

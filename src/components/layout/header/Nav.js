@@ -20,10 +20,11 @@ import Hidden from '@material-ui/core/Hidden';
 import Logout from '../../auth/Logout';
 import Grid from '@material-ui/core/Grid';
 import Logo from './logo.png';
+import MenuIcon from '@material-ui/icons/Menu';
 
 const useStyles = makeStyles((theme) => ({
 	list: {
-		width: 250,
+		width: 200,
 	},
 	fullList: {
 		width: 'auto',
@@ -208,7 +209,9 @@ export default function Nav2() {
 							</IconButton>
 						</Hidden>
 						<Hidden mdUp implementation='css'>
-							<Button onClick={toggleDrawer('left', true)}>Meny</Button>
+							<Button onClick={toggleDrawer('left', true)}>
+								<MenuIcon className='nav__menu' />
+							</Button>
 							<Drawer
 								open={state['left']}
 								onClose={toggleDrawer('left', false)}>

@@ -7,18 +7,19 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
-import BeachAccessIcon from '@material-ui/icons/BeachAccess';
+import ImportContactsIcon from '@material-ui/icons/ImportContacts';
 import Divider from '@material-ui/core/Divider';
 
 function CardContainer() {
 	return (
 		<Container>
 			<h1> Holidaze </h1>
+
 			<Grid
 				container
 				direction='row'
-				justify='space-around'
-				alignItems='center'
+				justify='space-between'
+				alignItems='flex-start'
 				className='content'>
 				{HomeData.map((HomeDetail) => {
 					const { id, title, image } = HomeDetail;
@@ -27,9 +28,9 @@ function CardContainer() {
 							<ListItem>
 								<ListItemAvatar>
 									<Avatar>
-										<BeachAccessIcon />
+										<ImportContactsIcon />
 									</Avatar>
-								</ListItemAvatar>{' '}
+								</ListItemAvatar>
 								<ListItemText primary={info} />
 							</ListItem>
 							<Divider variant='inset' component='li' />

@@ -8,7 +8,7 @@
         ],
         "icons": ["BeachAccessIcon", "BeachAccessIcon", "BeachAccessIcon"],
 
-        "image": "/images/skansen.jpg"
+        "image": "/images/night-city.jpg"
     },
     {
         "id": 2,
@@ -32,6 +32,6 @@
         ],
         "icons": ["BeachAccessIcon", "BeachAccessIcon", "BeachAccessIcon"],
 
-        "image": "/images/skansen.jpg"
+        "image": "/images/bryggen.jpg"
     }
 ]
