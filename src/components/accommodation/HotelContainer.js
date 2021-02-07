@@ -7,6 +7,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import Grid from '@material-ui/core/Grid';
 import HotelMap from './hotelMap/HotelMap';
 import Paper from '@material-ui/core/Paper';
+import { Elevation } from '../../constants/Elevation';
 
 function GetHotels() {
 	const [hotels, setHotels] = useState([]);
@@ -138,7 +139,7 @@ function GetHotels() {
 					</Grid>
 				</Grid>
 				<Grid xs={12} md={4} item>
-					<Paper elevation={2}>
+					<Paper elevation={Elevation}>
 						<div className='google-map'>
 							<HotelMap pinList={pinList} mapZoom={10} />
 						</div>

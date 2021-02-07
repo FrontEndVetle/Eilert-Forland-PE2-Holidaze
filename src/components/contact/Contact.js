@@ -16,6 +16,7 @@ import HotelMap from '../accommodation/hotelMap/HotelMap';
 import EmailIcon from '@material-ui/icons/Email';
 import PhoneIphoneIcon from '@material-ui/icons/PhoneIphone';
 import Swal from 'sweetalert2';
+import { Elevation } from '../../constants/Elevation';
 
 function Contact() {
 	const history = useHistory();
@@ -56,7 +57,7 @@ function Contact() {
 			<Container>
 				<Grid container direction='row' justify='center' alignItems='center'>
 					<Grid className='contact__content'>
-						<Paper elevation={2}>
+						<Paper elevation={Elevation}>
 							<Grid
 								container
 								direction='row'

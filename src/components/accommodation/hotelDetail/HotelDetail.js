@@ -12,6 +12,7 @@ import Swal from 'sweetalert2';
 import moment from 'moment';
 import HotelMap from '../hotelMap/HotelMap';
 import Paper from '@material-ui/core/Paper';
+import { Elevation } from '../../../constants/Elevation';
 
 function HomeDetail() {
 	const [detail, setDetail] = useState([]);
@@ -112,7 +113,7 @@ function HomeDetail() {
 				justify='space-around'
 				alignItems='flex-start'>
 				<Grid xs={12} sm={7} md={5} item>
-					<Paper elevation={2} className='detail'>
+					<Paper elevation={Elevation} className='detail'>
 						<HotelInfo
 							info={detail.description}
 							image={detail.image}
@@ -120,7 +121,7 @@ function HomeDetail() {
 							dining={dining}
 						/>
 					</Paper>
-					<Paper elevation={2} className='detail'>
+					<Paper elevation={Elevation} className='detail'>
 						<BookDate
 							startDate={startDate}
 							setStartDate={setStartDate}
@@ -133,12 +134,12 @@ function HomeDetail() {
 					</Paper>
 				</Grid>
 				<Grid xs={12} sm={4} item>
-					<Paper elevation={2} className='detail'>
+					<Paper elevation={Elevation} className='detail'>
 						<div className=' detail__map'>
 							<HotelMap pinList={pinList} mapZoom={10} />
 						</div>
 					</Paper>
-					<Paper elevation={2} className='detail'>
+					<Paper elevation={Elevation} className='detail'>
 						<BookingInfo
 							days={days}
 							price={detail.price}

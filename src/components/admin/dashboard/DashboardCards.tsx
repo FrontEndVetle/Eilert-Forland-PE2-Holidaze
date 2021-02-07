@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import Grid from '@material-ui/core/Grid';
 import { NavLink } from 'react-router-dom';
+import { Elevation } from '../../../constants/Elevation';
 
 type Props = {
 	name: string;
@@ -17,22 +18,20 @@ function DashboardCards({ link, name }: Props) {
 	return (
 		<>
 			<Grid item xs={12} sm={6} md={3}>
-				<Card className='card'>
-					<Paper elevation={2}>
-						<CardMedia
-							className='card__img'
-							component='img'
-							title='Accommodation image'
-						/>
-						<CardContent>
-							<h2 className='card__title'> {name}</h2>
-							<List>
-								<NavLink to={link}>
-									<Button className='card__btn btn'>Enter</Button>
-								</NavLink>
-							</List>
-						</CardContent>
-					</Paper>
+				<Card className='card' elevation={Elevation}>
+					<CardMedia
+						className='card__img'
+						component='img'
+						title='Accommodation image'
+					/>
+					<CardContent>
+						<h2 className='card__title'> {name}</h2>
+						<List>
+							<NavLink to={link}>
+								<Button className='card__btn btn'>Enter</Button>
+							</NavLink>
+						</List>
+					</CardContent>
 				</Card>
 			</Grid>
 		</>

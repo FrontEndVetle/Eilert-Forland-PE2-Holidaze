@@ -8,6 +8,7 @@ import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
 import Swal from 'sweetalert2';
+import { Elevation } from '../../constants/Elevation';
 
 function Register() {
 	const { register, handleSubmit } = useForm();
@@ -38,7 +39,7 @@ function Register() {
 			<Container>
 				<Grid container direction='row' justify='center' alignItems='center'>
 					<Grid className='contact__content' md={5}>
-						<Paper elevation={2}>
+						<Paper elevation={Elevation}>
 							<form className='form' onSubmit={handleSubmit(onSubmit)}>
 								<h1> Login </h1>
 								<TextField

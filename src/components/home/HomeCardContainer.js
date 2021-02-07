@@ -28,10 +28,10 @@ function CardContainer() {
 								<ListItemAvatar>
 									<Avatar>
 										<BeachAccessIcon />
-									</Avatar>{' '}
+									</Avatar>
 								</ListItemAvatar>{' '}
-								<ListItemText primary={info} />{' '}
-							</ListItem>{' '}
+								<ListItemText primary={info} />
+							</ListItem>
 							<Divider variant='inset' component='li' />
 						</div>
 					));
@@ -41,8 +41,8 @@ function CardContainer() {
 							<HomeInfoCards title={title} infoList={infoList} image={image} />{' '}
 						</Grid>
 					);
-				})}{' '}
-			</Grid>{' '}
+				})}
+			</Grid>
 		</Container>
 	);
 }
