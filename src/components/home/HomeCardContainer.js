@@ -13,6 +13,7 @@ import Divider from '@material-ui/core/Divider';
 function CardContainer() {
 	return (
 		<Container>
+			<h1> Holidaze </h1>
 			<Grid
 				container
 				direction='row'
@@ -27,21 +28,21 @@ function CardContainer() {
 								<ListItemAvatar>
 									<Avatar>
 										<BeachAccessIcon />
-									</Avatar>
-								</ListItemAvatar>
-								<ListItemText primary={info} />
-							</ListItem>
+									</Avatar>{' '}
+								</ListItemAvatar>{' '}
+								<ListItemText primary={info} />{' '}
+							</ListItem>{' '}
 							<Divider variant='inset' component='li' />
 						</div>
 					));
 
 					return (
-						<Grid xs={12} sm={5} md={3} key={id} item>
-							<HomeInfoCards title={title} infoList={infoList} image={image} />
+						<Grid xs={12} sm={5} md={4} key={id} item>
+							<HomeInfoCards title={title} infoList={infoList} image={image} />{' '}
 						</Grid>
 					);
-				})}
-			</Grid>
+				})}{' '}
+			</Grid>{' '}
 		</Container>
 	);
 }

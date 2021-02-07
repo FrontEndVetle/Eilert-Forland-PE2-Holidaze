@@ -1,23 +1,35 @@
 [{
         "id": 1,
-        "title": "Why choose Holidaze",
-        "information": ["Bergen1", "Bergen2", "Bergen3"],
+        "title": "Choose Holidaze",
+        "information": [
+            "service available all weekdays",
+            "local knowledge and offices",
+            "Accommodations in all forms and sizes"
+        ],
         "icons": ["BeachAccessIcon", "BeachAccessIcon", "BeachAccessIcon"],
 
         "image": "/images/skansen.jpg"
     },
     {
         "id": 2,
-        "title": "Why visit Bergen",
-        "information": ["Bergen1", "Bergen2", "Bergen3"],
+        "title": "Bergen",
+        "information": [
+            "Norway's second biggest city",
+            "Founded 950 years ago",
+            "World's biggest gingerbread city"
+        ],
         "icons": ["BeachAccessIcon", "BeachAccessIcon", "BeachAccessIcon"],
 
-        "image": "/images/skansen.jpg"
+        "image": "/images/bergen.jpg"
     },
     {
         "id": 3,
         "title": "Top attractions",
-        "information": ["Bergen1", "Bergen2", "Bergen3"],
+        "information": [
+            "Bryggen Hanseatic Wharf",
+            "Bergenhus Fortress",
+            " Grieg Museum"
+        ],
         "icons": ["BeachAccessIcon", "BeachAccessIcon", "BeachAccessIcon"],
 
         "image": "/images/skansen.jpg"
