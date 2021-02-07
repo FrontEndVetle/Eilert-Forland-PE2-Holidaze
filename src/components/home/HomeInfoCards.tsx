@@ -27,7 +27,7 @@ function HomeInfoCards({ title, infoList, image }: Props) {
 				<List className='card__text'>{infoList} </List>
 			</CardContent>
 			<CardContent>
-				<NavLink to='/accommodations'>
+				<NavLink to='/accommodation'>
 					<Button className='card__btn btn'>Accommodations</Button>
 				</NavLink>
 			</CardContent>

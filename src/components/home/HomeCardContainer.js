@@ -1,6 +1,5 @@
 import React from 'react';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
+import { Container, Grid } from '@material-ui/core';
 import HomeData from '../../data/Homepage.json';
 import HomeInfoCards from './HomeInfoCards';
 import ListItem from '@material-ui/core/ListItem';
@@ -13,8 +12,6 @@ import Divider from '@material-ui/core/Divider';
 function CardContainer() {
 	return (
 		<Container>
-			<h1> Holidaze </h1>
-
 			<Grid
 				container
 				direction='row'

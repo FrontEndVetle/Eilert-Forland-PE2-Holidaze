@@ -17,6 +17,9 @@ sans-serif;
 
 /*font size*/
 
+$heading-home-m: 30px;
+$heading-home-t: 40px;
+$heading-home-d: 50px;
 $heading-size-m: 16px;
 $heading-size-t: 24px;
 $heading-size-d: 40px;
@@ -35,7 +38,8 @@ $btn-text-m: 12px;
 
 /*colours*/
 
-$btn-border: 2px solid #2b528f;
+$btn-border: 1px solid #2b528f;
+$btn-border-light: 1px solid #ebebeb;
 $text-light: #ebebeb;
 $text-color: #2e2e2e;
 $link-hover: #fff;
