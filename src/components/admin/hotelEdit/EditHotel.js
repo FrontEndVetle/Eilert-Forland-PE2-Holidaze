@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import { BASE_URL, FETCH_OPTIONS, PATCH } from '../../../constants/api';
-import DeleteHotel from './DeleteHotel';
 import EditHotelForm from './EditHotelForm';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';

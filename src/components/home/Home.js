@@ -15,7 +15,7 @@ function Home() {
 					alignItems='center'>
 					<Grid className='home-banner__content'>
 						<h1 className='home-banner__title'>Holidaze</h1>
-						<p className='home-banner__text'>Cabins ┃ Guesthouses ┃ Hotels</p>
+						<p className='home-banner__text'>CABINS ┃ GUESTHOUSES ┃ HOTELS</p>
 						<div>
 							<NavLink to='/accommodation'>
 								<Button className='home-banner__btn btn'>accommodations</Button>
@@ -26,7 +26,7 @@ function Home() {
 			</Container>
 			<Container maxWidth={false} className='home-info'>
 				<Grid container direction='column' justify='center' alignItems='center'>
-					<Grid xs={10} md={4}>
+					<Grid xs={10} md={4} item>
 						<p className='home-info__text'>
 							Holidaze assists tourists in providing traditional and
 							untraditional accommodation in and around Bergen. We connect local

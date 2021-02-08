@@ -58,7 +58,7 @@ function BookDate({
 				<Select native onChange={handleSelect}>
 					{guestOptions}
 				</Select>
-				<Button className='detail__btn btn' onClick={modalShow}>
+				<Button className='detail__btn btn btn__action' onClick={modalShow}>
 					Enquire about availability
 				</Button>
 			</ListItem>

@@ -28,7 +28,7 @@ function DashboardCards({ link, name }: Props) {
 						<h2 className='card__title'> {name}</h2>
 						<List>
 							<NavLink to={link}>
-								<Button className='card__btn btn'>Enter</Button>
+								<Button className='card__btn  btn btn__primary'>Enter</Button>
 							</NavLink>
 						</List>
 					</CardContent>

@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
+import Button from '@material-ui/core/Button';
 
-function Login() {
+function LogOut() {
 	const { logout } = useContext(AuthContext);
 	const history = useHistory();
 
@@ -12,10 +13,10 @@ function Login() {
 	}
 
 	return (
-		<button className='dropdown-menu__btn btn' onClick={doLogout}>
+		<Button className='menu__btn btn' onClick={doLogout}>
 			Log out
-		</button>
+		</Button>
 	);
 }
 
-export default Login;
+export default LogOut;

@@ -19,7 +19,6 @@ function BookingInfo({
 	guests,
 	checkinDate,
 	checkoutDate,
-	modalShow,
 }) {
 	return (
 		<>

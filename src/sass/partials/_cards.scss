@@ -13,12 +13,6 @@
     }
     &__btn {
         width: 100%;
-        border: $btn-border !important;
-        color: $text-color !important;
-        &:hover {
-            background-color: $btn-hover !important;
-            color: $text-light !important;
-        }
     }
     &__text {
         color: $text-color;
@@ -42,14 +36,6 @@
     &__map {
         width: 100%;
         height: 200px;
-    }
-    &__btn {
-        border: $btn-border !important;
-        color: $text-color !important;
-        &:hover {
-            background-color: $btn-hover !important;
-            color: $text-light !important;
-        }
     }
 }
 

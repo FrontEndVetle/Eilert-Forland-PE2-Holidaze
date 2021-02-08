@@ -93,10 +93,12 @@ function EnquiryModal({
 							</Grid>
 						</Grid>
 						<MuiDialogActions>
-							<Button className='form__btn btn' type='submit'>
+							<Button className='form__btn btn btn__primary' type='submit'>
 								Submit
 							</Button>
-							<Button className='form__btn btn' onClick={modalClose}>
+							<Button
+								className='form__btn btn btn__primary'
+								onClick={modalClose}>
 								Cancel
 							</Button>
 						</MuiDialogActions>

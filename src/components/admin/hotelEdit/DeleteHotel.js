@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { confirmAlert } from 'react-confirm-alert';
-import Button from 'react-bootstrap/Button';
+import Button from '@material-ui/core/Button';
 import { BASE_URL, FETCH_OPTIONS, DELETE } from '../../../constants/api';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 
@@ -32,8 +32,8 @@ function DeleteHotel(props) {
 	}
 
 	return (
-		<Button variant='danger' onClick={checkDelete}>
-			Delete{' '}
+		<Button className='btn btn__action' onClick={checkDelete}>
+			Delete
 		</Button>
 	);
 }

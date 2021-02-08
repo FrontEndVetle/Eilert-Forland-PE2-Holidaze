@@ -54,7 +54,7 @@ function HotelCards({ name, id, image, price, maxGuests, linkPath, btnText }) {
 				</Link>
 				<CardContent>
 					<NavLink to={linkPath + id}>
-						<Button className='card__btn btn'>{btnText}</Button>
+						<Button className='card__btn btn btn__primary'>{btnText}</Button>
 					</NavLink>
 				</CardContent>
 			</Card>

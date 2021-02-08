@@ -114,7 +114,7 @@ export default function Nav2() {
 				) : (
 					<NavLink to='/register'>
 						<ListItem>
-							<ListItemText primary='Login' />
+							<Button className='menu__btn btn'>Log in</Button>
 						</ListItem>
 					</NavLink>
 				)}
@@ -133,6 +133,7 @@ export default function Nav2() {
 				transformOrigin={{ vertical: 'top', horizontal: 'right' }}
 				open={isMenuOpen}
 				onClose={handleMenuClose}
+				onClick={handleMenuClose}
 				className='menu'>
 				{admin ? (
 					<div>
@@ -197,17 +198,23 @@ export default function Nav2() {
 						<Hidden smDown implementation='css'>
 							{user ? (
 								<Tab onClick={handleProfileMenuOpen} label={'hi, ' + user} />
+							) : null}
+							{user || admin ? (
+								<>
+									<IconButton
+										aria-label='account of current user'
+										aria-controls={menuId}
+										onClick={handleProfileMenuOpen}
+										color='inherit'>
+										<AccountCircle />
+									</IconButton>
+									<NavDropdown />
+								</>
 							) : (
-								''
+								<NavLink to='/register'>
+									<MenuItem>Login</MenuItem>
+								</NavLink>
 							)}
-
-							<IconButton
-								aria-label='account of current user'
-								aria-controls={menuId}
-								onClick={handleProfileMenuOpen}
-								color='inherit'>
-								<AccountCircle />
-							</IconButton>
 						</Hidden>
 						<Hidden mdUp implementation='css'>
 							<Button
@@ -224,7 +231,6 @@ export default function Nav2() {
 							</Drawer>
 						</Hidden>
 					</Grid>
-					<NavDropdown />
 				</Toolbar>
 			</AppBar>
 		</div>
