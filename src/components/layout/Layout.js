@@ -11,7 +11,7 @@ import Home from '../home/Home';
 import Contact from '../contact/Contact';
 import Accommodation from '../accommodation/Accommodation';
 import Login from '../auth/Login';
-import Register from '../auth/Register';
+import Register from '../auth/Login';
 import Hotels from '../admin/hotelEdit/Hotels';
 import AddHotel from '../admin/hotelEdit/AddHotel';
 import EditHotel from '../admin/hotelEdit/EditHotel';

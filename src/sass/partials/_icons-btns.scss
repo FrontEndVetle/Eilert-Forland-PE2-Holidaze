@@ -4,17 +4,11 @@
 }
 
 //utilities
+//center spinner
 .spinner {
-    margin: 200px 50%;
-}
-
-.material-icons {
-    font-size: 15px;
-    margin-right: 10px;
-    padding: 0;
-    position: relative;
-    /* Adjust these values accordingly */
-    top: 7px;
+    margin-left: 50%;
+    margin-top: 20vh;
+    margin-bottom: 40vh;
 }
 
 @media (min-width: 641px) {
@@ -22,16 +16,10 @@
         font-size: $btn-text-t;
         padding: 5px;
     }
-    .material-icons {
-        font-size: 30px;
-    }
 }
 
 @media (min-width: 961px) {
     .btn {
         font-size: $btn-text-d;
-    }
-    .material-icons {
-        font-size: 25px;
     }
 }

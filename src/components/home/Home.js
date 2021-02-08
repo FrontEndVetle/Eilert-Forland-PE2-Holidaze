@@ -15,7 +15,7 @@ function Home() {
 					alignItems='center'>
 					<Grid className='home-banner__content'>
 						<h1 className='home-banner__title'>Holidaze</h1>
-						<p className='home-banner__text'>Cabins, Hotels, Guest Houses</p>
+						<p className='home-banner__text'>Cabins ┃ Guesthouses ┃ Hotels</p>
 						<div>
 							<NavLink to='/accommodation'>
 								<Button className='home-banner__btn btn'>accommodations</Button>

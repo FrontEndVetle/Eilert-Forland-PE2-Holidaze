@@ -6,9 +6,6 @@
 .nav {
     background-color: $nav-bg;
     text-align: center;
-    &__list {
-        color: $nav-bg !important;
-    }
     a {
         color: $text-light;
         &:hover {
@@ -16,16 +13,11 @@
             text-decoration: underline;
         }
     }
-    &__menu {
-        color: $text-light;
-    }
 }
 
-.dropdown-menu {
-    background-color: $nav-bg;
-    margin-right: 100px;
-    &__btn {
-        width: 100%;
+.menu {
+    a {
+        color: $text-color;
     }
 }
 

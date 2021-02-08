@@ -69,7 +69,7 @@ export default function Nav2() {
 			role='presentation'
 			onClick={toggleDrawer(anchor, false)}
 			onKeyDown={toggleDrawer(anchor, false)}>
-			<List className='nav__list'>
+			<List>
 				<NavLink to='/accommodation' exact>
 					<MenuItem>Accommodation</MenuItem>
 				</NavLink>
@@ -132,9 +132,10 @@ export default function Nav2() {
 				keepMounted
 				transformOrigin={{ vertical: 'top', horizontal: 'right' }}
 				open={isMenuOpen}
-				onClose={handleMenuClose}>
+				onClose={handleMenuClose}
+				className='menu'>
 				{admin ? (
-					<div className='nav'>
+					<div>
 						<NavLink to='/admin' exact>
 							<MenuItem>Admin dashboard</MenuItem>
 						</NavLink>
@@ -209,10 +210,14 @@ export default function Nav2() {
 							</IconButton>
 						</Hidden>
 						<Hidden mdUp implementation='css'>
-							<Button onClick={toggleDrawer('left', true)}>
-								<MenuIcon className='nav__menu' />
+							<Button
+								color='inherit'
+								onClick={toggleDrawer('left', true)}
+								color='inherit'>
+								<MenuIcon />
 							</Button>
 							<Drawer
+								className='menu'
 								open={state['left']}
 								onClose={toggleDrawer('left', false)}>
 								{NavDrawer('left')}
