@@ -1,16 +1,8 @@
 import React from 'react';
-import Col from 'react-bootstrap/Col';
-import Paper from '@material-ui/core/Paper';
-import Row from 'react-bootstrap/Row';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Avatar from '@material-ui/core/Avatar';
-import ImageIcon from '@material-ui/icons/Image';
-import WorkIcon from '@material-ui/icons/Work';
-import BeachAccessIcon from '@material-ui/icons/BeachAccess';
-import Divider from '@material-ui/core/Divider';
+import { ListGroup } from 'react-bootstrap';
+import { FaCalendar, FaEuroSign, FaUserAlt, FaBed } from 'react-icons/fa';
+
+//icons
 
 function BookingInfo({
 	days,
@@ -21,60 +13,31 @@ function BookingInfo({
 	checkoutDate,
 }) {
 	return (
-		<>
-			<List>
-				<h3 className='text-center'>Booking information</h3>
-				<ListItem>
-					<ListItemAvatar>
-						<Avatar>
-							<ImageIcon />
-						</Avatar>
-					</ListItemAvatar>
-					<ListItemText primary='Checkinn' secondary={checkinDate} />
-				</ListItem>
-				<Divider variant='inset' component='li' />
-				<ListItem>
-					<ListItemAvatar>
-						<Avatar>
-							<WorkIcon />
-						</Avatar>
-					</ListItemAvatar>
-					<ListItemText primary='Checkout' secondary={checkoutDate} />
-				</ListItem>
-				<Divider variant='inset' component='li' />
-				<ListItem>
-					<ListItemAvatar>
-						<Avatar>
-							<BeachAccessIcon />
-						</Avatar>
-					</ListItemAvatar>
-					<ListItemText primary={days + ' Nights'} />
-				</ListItem>
-				<Divider variant='inset' component='li' />
-
-				<ListItem>
-					<ListItemAvatar>
-						<Avatar>
-							<BeachAccessIcon />
-						</Avatar>
-					</ListItemAvatar>
-					<ListItemText
-						primary={'€' + totalPrice + ' Total'}
-						secondary={'€' + price + ' per person per night'}
-					/>
-				</ListItem>
-				<Divider variant='inset' component='li' />
-
-				<ListItem>
-					<ListItemAvatar>
-						<Avatar>
-							<BeachAccessIcon />
-						</Avatar>
-					</ListItemAvatar>
-					<ListItemText primary={guests + ' Guests'} />
-				</ListItem>
-			</List>
-		</>
+		<ListGroup variant='flush'>
+			<h3 className='text-center'>Booking information</h3>
+			<ListGroup.Item>
+				<FaCalendar className='icons' /> Checkin {checkinDate}
+			</ListGroup.Item>
+			<ListGroup.Item>
+				<FaCalendar className='icons' />
+				CheckOut {checkoutDate}
+			</ListGroup.Item>
+			<ListGroup.Item>
+				<FaBed className='icons' /> {days + ' Nights'}
+			</ListGroup.Item>
+			<ListGroup.Item>
+				<FaEuroSign className='icons' />
+				{'€' + totalPrice + ' Total'}
+			</ListGroup.Item>
+			<ListGroup.Item>
+				<FaEuroSign className='icons' />
+				{'€' + price + ' per person per night'}
+			</ListGroup.Item>
+			<ListGroup.Item>
+				<FaUserAlt className='icons' />
+				{guests + ' Guests'}
+			</ListGroup.Item>
+		</ListGroup>
 	);
 }
 

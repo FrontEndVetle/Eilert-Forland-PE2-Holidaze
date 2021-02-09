@@ -1,22 +1,15 @@
 import React from 'react';
 import ContactForm from './ContactForm';
+import { Container, Row, Col } from 'react-bootstrap';
+
 import { useHistory } from 'react-router-dom';
 import { BASE_URL, FETCH_OPTIONS } from '../../constants/api';
-import Container from '@material-ui/core/Container';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Divider from '@material-ui/core/Divider';
-import Avatar from '@material-ui/core/Avatar';
-import List from '@material-ui/core/List';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
+
 import HotelMap from '../accommodation/hotelMap/HotelMap';
-import EmailIcon from '@material-ui/icons/Email';
-import PhoneIphoneIcon from '@material-ui/icons/PhoneIphone';
+
 import Swal from 'sweetalert2';
-import { Elevation } from '../../constants/Elevation';
+import { ListGroup } from 'react-bootstrap';
+import { FaMobileAlt, FaEnvelope, FaHome } from 'react-icons/fa';
 
 function Contact() {
 	const history = useHistory();
@@ -55,62 +48,38 @@ function Contact() {
 	return (
 		<div className='contact'>
 			<Container>
-				<Grid container direction='row' justify='center' alignItems='center'>
-					<Grid className='contact__content'>
-						<Paper elevation={Elevation}>
-							<Grid
-								container
-								direction='row'
-								justify='space-around'
-								alignItems='center'>
-								<Grid xs={10} md={5} item>
-									<ContactForm onSubmit={onSubmit} heading={heading} />
-								</Grid>
-								<Divider orientation='vertical' flexItem />
-								<Grid xs={12} md={5} item className='form'>
-									<div className='map-specific'>
-										<HotelMap pinList={pinList} mapZoom={10} />
-									</div>
-									<List>
-										<ListItem>
-											<ListItemAvatar>
-												<Avatar>
-													<LocationOnIcon />
-												</Avatar>
-											</ListItemAvatar>
-											<ListItemText primary='Bryggen 14' secondary='Address' />
-										</ListItem>
-										<Divider variant='inset' />
-
-										<ListItem>
-											<ListItemAvatar>
-												<Avatar>
-													<EmailIcon />
-												</Avatar>
-											</ListItemAvatar>
-											<ListItemText
-												primary='holidaze@vacation.no'
-												secondary='Email'
-											/>
-										</ListItem>
-										<Divider variant='inset' />
-										<ListItem>
-											<ListItemAvatar>
-												<Avatar>
-													<PhoneIphoneIcon />
-												</Avatar>
-											</ListItemAvatar>
-											<ListItemText
-												primary='+47 55849390030'
-												secondary='Phone number'
-											/>
-										</ListItem>
-									</List>
-								</Grid>
-							</Grid>
-						</Paper>
-					</Grid>
-				</Grid>
+				<Row className='d-flex justify-content-center'>
+					<Col md={10} className='contact__content '>
+						<Row className='d-flex justify-content-around'>
+							<Col xs={10} md={5}>
+								<ContactForm onSubmit={onSubmit} heading={heading} />
+							</Col>
+							<div className='border-right d-none d-md-block d-lg-block'></div>
+							<Col xs={12} md={5} className='form'>
+								<div className='map-specific'>
+									<HotelMap pinList={pinList} mapZoom={10} />
+								</div>
+								<ListGroup variant='flush'>
+									<ListGroup.Item>
+										<FaHome className='icons' />
+										<p>Bryggen 14</p>
+										<small>address</small>
+									</ListGroup.Item>
+									<ListGroup.Item>
+										<FaEnvelope className='icons' />
+										<p>holidaze@vacation.no</p>
+										<small>Email</small>
+									</ListGroup.Item>
+									<ListGroup.Item>
+										<FaMobileAlt className='icons' />
+										<p>+47 55849390030</p>
+										<small>Phone number</small>
+									</ListGroup.Item>
+								</ListGroup>
+							</Col>
+						</Row>
+					</Col>
+				</Row>
 			</Container>
 		</div>
 	);

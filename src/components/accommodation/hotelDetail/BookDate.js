@@ -1,18 +1,12 @@
 import React from 'react';
+import { Row, Col } from 'react-bootstrap';
+import ListGroup from 'react-bootstrap/ListGroup';
+import Form from 'react-bootstrap/Form';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import Paper from '@material-ui/core/Paper';
-import Divider from '@material-ui/core/Divider';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
-import Form from 'react-bootstrap/Form';
-import Grid from '@material-ui/core/Grid';
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
-import Button from '@material-ui/core/Button';
+import { FaChevronRight } from 'react-icons/fa';
+
+import Button from 'react-bootstrap/Button';
 
 function BookDate({
 	startDate,
@@ -24,10 +18,10 @@ function BookDate({
 	modalShow,
 }) {
 	return (
-		<List>
+		<ListGroup variant='flush'>
 			<h2 className='text-center'>Choose booking dates</h2>
-			<Grid container spacing={1} justify='center'>
-				<Grid item xs={12} sm={5}>
+			<Row container spacing={1} className='d-flex justify-content-between'>
+				<Col xs={12} sm={5}>
 					<DatePicker
 						dateFormat='yyyy-MM-dd'
 						selected={startDate}
@@ -35,13 +29,15 @@ function BookDate({
 						selectsStart
 						startDate={startDate}
 						endDate={endDate}
+						className='detail__datepicker'
 					/>
-				</Grid>
-				<Grid item xs={12} sm={1}>
-					<ArrowForwardIcon />
-				</Grid>
-				<Grid item xs={12} sm={5}>
+				</Col>
+				<Col xs={12} sm={1}>
+					<FaChevronRight className='icons' />
+				</Col>
+				<Col xs={12} sm={5}>
 					<DatePicker
+						className='detail__datepicker'
 						dateFormat='yyyy-MM-dd'
 						selected={endDate}
 						onChange={(date) => setEndDate(date)}
@@ -50,19 +46,24 @@ function BookDate({
 						endDate={endDate}
 						minDate={startDate}
 					/>
-				</Grid>
-			</Grid>
+				</Col>
+			</Row>
 
-			<Divider variant='middle' />
-			<ListItem>
-				<Select native onChange={handleSelect}>
-					{guestOptions}
-				</Select>
+			<ListGroup.Item>
+				<Form.Group>
+					<Form.Label>Number of guests</Form.Label>
+					<Form.Control
+						onChange={handleSelect}
+						as='select'
+						className='detail__guests'>
+						{guestOptions}
+					</Form.Control>
+				</Form.Group>
 				<Button className='detail__btn btn btn__action' onClick={modalShow}>
 					Enquire about availability
 				</Button>
-			</ListItem>
-		</List>
+			</ListGroup.Item>
+		</ListGroup>
 	);
 }
 

@@ -1,135 +1,62 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import List from '@material-ui/core/List';
+import { Container, Row, Col } from 'react-bootstrap';
+
 import { NavLink } from 'react-router-dom';
-import Avatar from '@material-ui/core/Avatar';
 
 //icons
-import FacebookIcon from '@material-ui/icons/Facebook';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import EmailIcon from '@material-ui/icons/Email';
-import FolderIcon from '@material-ui/icons/Folder';
-import InstagramIcon from '@material-ui/icons/Instagram';
-import TwitterIcon from '@material-ui/icons/Twitter';
-import LinkIcon from '@material-ui/icons/Link';
 
 function Footer() {
 	return (
 		<footer className='footer'>
-			<Container maxWidth={false} disableGutters={true}>
-				<Grid
-					container
-					direction='row'
-					justify='space-around'
-					alignItems='flex-start'>
-					<Grid xs={12} md={3} item>
-						<Grid
-							container
-							direction='column'
-							justify='flex-start'
-							alignItems='center'>
-							<h5 className='footer__title'>Holidaze</h5>
-							<hr className='footer__hr' />
-							<p>
-								Holidaze assists tourists in providing traditional and
-								untraditional accommodation in and around Bergen.{' '}
-							</p>
-						</Grid>
-					</Grid>
-					<Grid xs={12} md={3} item>
-						<Grid
-							container
-							direction='column'
-							justify='flex-start'
-							alignItems='center'>
-							<h5 className='footer__title'>Links</h5>
-							<hr className='footer__hr' />
+			<Container fluid>
+				<Row className='d-flex justify-content-around'>
+					<Col xs={8} md={3}>
+						<h5 className='footer__title'>Holidaze</h5>
+						<hr className='footer__hr' />
+						<p>
+							Holidaze assists tourists in providing traditional and
+							untraditional accommodation in and around Bergen.{' '}
+						</p>
+					</Col>
+					<Col md={3}>
+						<h5 className='footer__title'>Links</h5>
+						<hr className='footer__hr' />
+						<ul className='footer__list'>
+							<NavLink to='/'>
+								<li>Home</li>
+							</NavLink>
+							<NavLink to='/accommodation'>
+								<li>Acommodation</li>
+							</NavLink>
+							<NavLink to='contact'>
+								<li>Contact</li>
+							</NavLink>
+						</ul>
+					</Col>
+					<Col md={3}>
+						<h5 className='footer__title'>Social media</h5>
+						<hr className='footer__hr' />
 
-							<List component='nav'>
-								<NavLink to='/' exact>
-									<ListItem button>
-										<ListItemAvatar>
-											<Avatar>
-												<LinkIcon />
-											</Avatar>
-										</ListItemAvatar>
-										<ListItemText primary='Home' />
-									</ListItem>
-								</NavLink>
-								<NavLink to='/accommodation' exact>
-									<ListItem button>
-										<ListItemAvatar>
-											<Avatar>
-												<LinkIcon />
-											</Avatar>
-										</ListItemAvatar>
-										<ListItemText primary='Accommodation' />
-									</ListItem>
-								</NavLink>
-								<NavLink to='/contact' exact>
-									<ListItem button>
-										<ListItemAvatar>
-											<Avatar>
-												<LinkIcon />
-											</Avatar>
-										</ListItemAvatar>
-										<ListItemText primary='Contact' />
-									</ListItem>
-								</NavLink>
-							</List>
-						</Grid>
-					</Grid>
-					<Grid xs={12} md={3} item>
-						<Grid
-							container
-							direction='column'
-							justify='flex-start'
-							alignItems='center'>
-							<h5 className='footer__title'>Social media</h5>
-							<hr className='footer__hr' />
+						<ul className='footer__list'>
+							<a href='https://www.facebook.com/'>
+								<li>Facebook</li>
+							</a>
+							<a href='https://www.twitter.com/'>
+								<li>Twitter</li>
+							</a>
+							<a href='https://www.instagram.com/'>
+								<li>Instagram</li>
+							</a>
+						</ul>
 
-							<List component='nav'>
-								<a href='https://www.facebook.com/'>
-									<ListItem button>
-										<ListItemAvatar>
-											<Avatar>
-												<FacebookIcon />
-											</Avatar>
-										</ListItemAvatar>
-										<ListItemText primary='Facebook' />
-									</ListItem>
-								</a>
-								<a href='https://www.twitter.com/'>
-									<ListItem button>
-										<ListItemAvatar>
-											<Avatar>
-												<TwitterIcon />
-											</Avatar>
-										</ListItemAvatar>
-										<ListItemText primary='Twitter' />
-									</ListItem>
-								</a>
-								<a href='https://www.instagram.com/'>
-									<ListItem button>
-										<ListItemAvatar>
-											<Avatar>
-												<InstagramIcon />
-											</Avatar>
-										</ListItemAvatar>
-										<ListItemText primary='Instagram' />
-									</ListItem>
-								</a>
-							</List>
-						</Grid>
-					</Grid>
-				</Grid>
+						<a href='https://www.facebook.com/'></a>
+						<a href='https://www.twitter.com/'></a>
+						<a href='https://www.instagram.com/'></a>
+					</Col>
+				</Row>
 
 				<div>
-					<Container maxWidth={false} className='footer__c'>
+					<Container fluid className='footer__c'>
 						<small>
 							&copy; {new Date().getFullYear()} Copyright:
 							<a href='https://github.com/FrontEndVetle'>

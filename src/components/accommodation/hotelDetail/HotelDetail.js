@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import Grid from '@material-ui/core/Grid';
+import { Container, Row, Col } from 'react-bootstrap';
+import Spinner from 'react-bootstrap/Spinner';
+
 import { useParams } from 'react-router-dom';
 import { BASE_URL, FETCH_OPTIONS } from '../../../constants/api';
 import HotelInfo from './HotelInfo';
 import EnquiryModal from './EnquiryModal';
-import Container from '@material-ui/core/Container';
 import BookDate from './BookDate';
 import BookingInfo from './BookingInfo';
 import Swal from 'sweetalert2';
 import moment from 'moment';
 import HotelMap from '../hotelMap/HotelMap';
-import Paper from '@material-ui/core/Paper';
-import { Elevation } from '../../../constants/Elevation';
 
 function HomeDetail() {
 	const [detail, setDetail] = useState([]);
@@ -36,7 +34,7 @@ function HomeDetail() {
 	}, []);
 
 	if (loading) {
-		return <CircularProgress className='spinner' />;
+		return <Spinner className='spinner' animation='border' variant='primary' />;
 	}
 
 	if (detail.selfCatering === true) {
@@ -106,22 +104,17 @@ function HomeDetail() {
 
 	return (
 		<Container>
-			<Grid
-				className='content'
-				container
-				direction='row'
-				justify='space-around'
-				alignItems='flex-start'>
-				<Grid xs={12} sm={7} md={5} item>
-					<Paper elevation={Elevation} className='detail'>
+			<Row className='content d-flex justify-content-between'>
+				<Col xs={12} sm={7} md={6}>
+					<div className='detail'>
 						<HotelInfo
 							info={detail.description}
 							image={detail.image}
 							name={detail.name}
 							dining={dining}
 						/>
-					</Paper>
-					<Paper elevation={Elevation} className='detail'>
+					</div>
+					<div className='detail'>
 						<BookDate
 							startDate={startDate}
 							setStartDate={setStartDate}
@@ -131,15 +124,15 @@ function HomeDetail() {
 							guestOptions={guestOptions}
 							modalShow={modalShow}
 						/>
-					</Paper>
-				</Grid>
-				<Grid xs={12} sm={4} item>
-					<Paper elevation={Elevation} className='detail'>
+					</div>
+				</Col>
+				<Col xs={12} sm={5}>
+					<div className='detail'>
 						<div className=' detail__map'>
 							<HotelMap pinList={pinList} mapZoom={10} />
 						</div>
-					</Paper>
-					<Paper elevation={Elevation} className='detail'>
+					</div>
+					<div className='detail'>
 						<BookingInfo
 							days={days}
 							price={detail.price}
@@ -149,9 +142,9 @@ function HomeDetail() {
 							checkinDate={checkinDate}
 							checkoutDate={checkoutDate}
 						/>
-					</Paper>
-				</Grid>
-			</Grid>
+					</div>
+				</Col>
+			</Row>
 			<EnquiryModal
 				hotel={detail.name}
 				checkinDate={checkinDate}

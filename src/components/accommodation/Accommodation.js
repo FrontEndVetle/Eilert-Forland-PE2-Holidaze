@@ -1,11 +1,10 @@
 import React from 'react';
 import HotelContainer from './HotelContainer';
-import Container from '@material-ui/core/Container';
+import Container from 'react-bootstrap/Container';
 
 function Accommodation() {
 	return (
-		<Container className='content'>
-			<h1>Accommodations</h1>
+		<Container>
 			<HotelContainer />
 		</Container>
 	);

@@ -1,11 +1,8 @@
 import React from 'react';
-import Card from '@material-ui/core/Card';
-import List from '@material-ui/core/List';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
+import Card from 'react-bootstrap/Card';
+import ListGroup from 'react-bootstrap/ListGroup';
 import { NavLink } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
-import { Elevation } from '../../constants/Elevation';
+import Button from 'react-bootstrap/Button';
 
 type Props = {
 	title: string;
@@ -15,22 +12,26 @@ type Props = {
 
 function HomeInfoCards({ title, infoList, image }: Props) {
 	return (
-		<Card className='card' elevation={Elevation}>
-			<CardMedia
+		<Card className='card'>
+			<Card.Img
+				variant='top'
 				className='card__img'
-				component='img'
-				image={image}
-				title='Homepage information image'
+				src={image}
+				alt='Homepage information image'
 			/>
-			<CardContent>
-				<h2 className='card__title font-special'> {title}</h2>
-				<List className='card__text'>{infoList} </List>
-			</CardContent>
-			<CardContent>
+			<Card.Body>
+				<Card.Title>
+					<h2 className='card__title font-special'> {title}</h2>
+				</Card.Title>
+
+				<ListGroup className='card__text' variant='flush'>
+					<ListGroup.Item>{infoList}</ListGroup.Item>
+				</ListGroup>
+
 				<NavLink to='/accommodation'>
 					<Button className='card__btn btn'>Accommodations</Button>
 				</NavLink>
-			</CardContent>
+			</Card.Body>
 		</Card>
 	);
 }

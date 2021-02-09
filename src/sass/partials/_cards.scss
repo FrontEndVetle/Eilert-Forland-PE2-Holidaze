@@ -1,6 +1,7 @@
 .card {
-    margin: 20px;
-    border-radius: 5%;
+    -webkit-box-shadow: $kit-shadow;
+    box-shadow: $box-shadow;
+    margin: 20px 5px;
     border: none;
     text-align: center;
     &__title {
@@ -20,22 +21,36 @@
 }
 
 .detail {
+    -webkit-box-shadow: $kit-shadow;
+    box-shadow: $box-shadow;
     padding: 20px;
-    border-radius: 5%;
     border: none;
-    text-align: center;
     margin-top: 20px;
+    text-align: center;
     &__title {
         text-align: center;
         color: $text-color;
     }
     &__img {
         width: 100%;
-        height: 200px;
+        height: 300px;
     }
     &__map {
         width: 100%;
         height: 200px;
+    }
+    &__datepicker {
+        width: 130px;
+        border-radius: 5%;
+        color: $text-light;
+        background-color: $nav-bg;
+        padding: 3px;
+    }
+    &__guests {
+        border-radius: 5%;
+        color: $text-light;
+        background-color: $nav-bg;
+        padding: 3px;
     }
 }
 

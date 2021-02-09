@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { BASE_URL, FETCH_OPTIONS } from '../../constants/api';
 import HotelCards from '../accommodation/HotelCards';
+import { Row, Col } from 'react-bootstrap';
+
 import Search from '../util/filter/Search';
 import Filters from '../util/filter/Filters';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import Grid from '@material-ui/core/Grid';
+import Spinner from 'react-bootstrap/Spinner';
 import HotelMap from './hotelMap/HotelMap';
-import Paper from '@material-ui/core/Paper';
-import { Elevation } from '../../constants/Elevation';
 
 function GetHotels() {
 	const [hotels, setHotels] = useState([]);
@@ -40,7 +39,7 @@ function GetHotels() {
 	}, []);
 
 	if (loading) {
-		return <CircularProgress className='spinner' />;
+		return <Spinner className='spinner' animation='border' variant='primary' />;
 	}
 
 	//varibles to store user filter input
@@ -93,24 +92,20 @@ function GetHotels() {
 	};
 
 	return (
-		<>
+		<div className='content'>
+			<h1>Accommodations</h1>
+
 			<Search searchName={searchName} hotels={hotels} />
-			<Grid
-				item={true}
-				container
-				direction='row'
-				justify='space-around'
-				alignItems='center'>
+			<Row className='d-flex justify-content-around'>
 				<Filters
 					maxGuests={maxGuests}
 					maxPrice={maxPrice}
 					handleSearch={filterHotels}
 				/>
-			</Grid>
-
-			<Grid container xs={12} item>
-				<Grid xs={12} md={8} item>
-					<Grid container item>
+			</Row>
+			<Row className='d-flex justify-content-between'>
+				<Col md={8}>
+					<Row>
 						{error && <div className='error'> {error} </div>}
 						{filteredHotels.map((hotel) => {
 							const { id, name, image, price, maxGuests } = hotel;
@@ -123,7 +118,7 @@ function GetHotels() {
 							});
 
 							return (
-								<Grid xs={12} md={4} item key={id}>
+								<Col xs={12} md={5} lg={4} key={id}>
 									<HotelCards
 										maxGuests={maxGuests}
 										name={name}
@@ -133,20 +128,18 @@ function GetHotels() {
 										linkPath={linkPath}
 										btnText={btnText}
 									/>
-								</Grid>
+								</Col>
 							);
 						})}
-					</Grid>
-				</Grid>
-				<Grid xs={12} md={4} item>
-					<Paper elevation={Elevation}>
-						<div className='google-map'>
-							<HotelMap pinList={pinList} mapZoom={10} />
-						</div>
-					</Paper>
-				</Grid>
-			</Grid>
-		</>
+					</Row>
+				</Col>
+				<Col xs={12} md={4}>
+					<div className='google-map'>
+						<HotelMap pinList={pinList} mapZoom={10} />
+					</div>
+				</Col>
+			</Row>
+		</div>
 	);
 }
 
