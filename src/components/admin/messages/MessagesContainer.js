@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { BASE_URL, FETCH_OPTIONS } from '../../../constants/api';
 import MessageList from './MessageList';
-import Row from 'react-bootstrap/Row';
-import Container from 'react-bootstrap/Container';
+import moment from 'moment';
+import { Container, Col, Row } from 'react-bootstrap/';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 function Messages() {
@@ -36,17 +36,22 @@ function Messages() {
 
 	return (
 		<Container>
-			<Row>
-				<h1> Hotels </h1> {error && <div className='error'> {error} </div>}{' '}
+			<Row className='content d-flex justify-content-center'>
+				<Col xs={12}>
+					<h1> Contact messages </h1>
+				</Col>
 				{hotels.map((hotel, i) => {
 					const { name, email, message, createdAt, id } = hotel;
+
+					let sentDate = moment(createdAt).format('YYYY-MM-DD');
+
 					return (
 						<MessageList
 							key={i}
 							name={name}
 							email={email}
 							message={message}
-							createdAt={createdAt}
+							createdAt={sentDate}
 							id={id}
 							deletePath={deletePath}
 						/>

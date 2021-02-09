@@ -3,10 +3,9 @@ import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import { BASE_URL, FETCH_OPTIONS, PATCH } from '../../../constants/api';
 import EditHotelForm from './EditHotelForm';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
 import ConfirmDelete from '../../util/ConfirmDelete';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import { Col, Row, Container } from 'react-bootstrap/';
 
 function EditHotel() {
 	const history = useHistory();
@@ -14,7 +13,7 @@ function EditHotel() {
 	const [loading, setLoading] = useState(true);
 
 	const deletePath = 'establishments/';
-
+	const btnName = 'Edit';
 	let { id } = useParams();
 
 	const url = BASE_URL + 'establishments/' + id;
@@ -59,18 +58,13 @@ function EditHotel() {
 	if (hotel) {
 		return (
 			<Container>
-				<Grid
-					container
-					direction='column'
-					justify='space-between'
-					alignItems='center'>
+				<Row className='content'>
 					<h1>Edit Establishment</h1>
 					<EditHotelForm
 						onSubmit={onSubmit}
 						name={name}
 						email={email}
 						id={id}
-						deletePath={deletePath}
 						image={image}
 						price={price}
 						maxGuests={maxGuests}
@@ -79,8 +73,14 @@ function EditHotel() {
 						description={description}
 						address={address}
 						selfCatering={selfCatering}
+						btnName={btnName}
 					/>
-				</Grid>
+					<Row>
+						<Col md={5}>
+							<ConfirmDelete id={id} deletePath={deletePath} />
+						</Col>
+					</Row>
+				</Row>
 			</Container>
 		);
 	}

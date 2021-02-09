@@ -1,13 +1,10 @@
 import React from 'react';
-import Paper from '@material-ui/core/Paper';
-import List from '@material-ui/core/List';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card';
-import Grid from '@material-ui/core/Grid';
+
 import { NavLink } from 'react-router-dom';
-import { Elevation } from '../../../constants/Elevation';
+import { Row, Col } from 'react-bootstrap';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 type Props = {
 	name: string;
@@ -17,23 +14,25 @@ type Props = {
 function DashboardCards({ link, name }: Props) {
 	return (
 		<>
-			<Grid item xs={12} sm={6} md={3}>
-				<Card className='card' elevation={Elevation}>
-					<CardMedia
-						className='card__img'
-						component='img'
-						title='Accommodation image'
-					/>
-					<CardContent>
-						<h2 className='card__title'> {name}</h2>
-						<List>
-							<NavLink to={link}>
-								<Button className='card__btn  btn btn__primary'>Enter</Button>
-							</NavLink>
-						</List>
-					</CardContent>
+			<Col xs={12} sm={6} md={3}>
+				<Card className='card'>
+					<NavLink to={link}>
+						<Card.Img
+							variant='top'
+							className='card__img'
+							src=''
+							alt='Admin utilities image'
+						/>
+						<ListGroup.Item>
+							<h2 className='card__title'> {name}</h2>
+						</ListGroup.Item>
+					</NavLink>
+
+					<NavLink to={link}>
+						<Button className='card__btn btn btn__primary'>Select</Button>
+					</NavLink>
 				</Card>
-			</Grid>
+			</Col>
 		</>
 	);
 }

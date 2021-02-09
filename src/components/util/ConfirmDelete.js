@@ -1,22 +1,28 @@
 import React, { useEffect } from 'react';
-import { confirmAlert } from 'react-confirm-alert';
-import Button from '@material-ui/core/Button';
+import Button from 'react-bootstrap/Button';
 import { BASE_URL, FETCH_OPTIONS, DELETE } from '../../constants/api';
 import 'react-confirm-alert/src/react-confirm-alert.css';
+import { useHistory } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 function ConfirmDelete({ id, deletePath }) {
+	const history = useHistory();
+
 	function checkDelete() {
-		confirmAlert({
-			title: 'Confirm deletion',
-			buttons: [
-				{
-					label: 'yes',
-					onClick: () => deleteHotel(deletePath),
-				},
-				{
-					label: 'no',
-				},
-			],
+		Swal.fire({
+			title: 'Are you sure?',
+			text: "You won't be able to revert this!",
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Yes, delete it!',
+		}).then((result) => {
+			if (result.isConfirmed) {
+				deleteHotel(deletePath);
+				Swal.fire('Deleted!', 'removed successfully', 'success');
+				history.push('/admin');
+			}
 		});
 	}
 

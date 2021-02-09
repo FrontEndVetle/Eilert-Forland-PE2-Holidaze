@@ -1,7 +1,6 @@
 import React from 'react';
 import DashBoardCards from './DashboardCards';
-import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
+import { Container, Row } from 'react-bootstrap';
 
 function Dashboard() {
 	const adminOptions = [
@@ -12,13 +11,8 @@ function Dashboard() {
 	];
 
 	return (
-		<Container className='content'>
-			<Grid
-				container
-				direction='row'
-				justify='center'
-				alignItems='center'
-				spacing={3}>
+		<Container>
+			<Row className='content d-flex justify-content-around'>
 				{adminOptions.map((option) => {
 					const { id, name, link, info } = option;
 
@@ -32,7 +26,7 @@ function Dashboard() {
 						/>
 					);
 				})}
-			</Grid>
+			</Row>
 		</Container>
 	);
 }

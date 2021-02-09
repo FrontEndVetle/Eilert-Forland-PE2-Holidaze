@@ -37,8 +37,10 @@ function EnquiriesContainer() {
 
 	return (
 		<Container>
-			<Row>
-				<h1> Enquiries </h1> {error && <div className='error'> {error} </div>}{' '}
+			<Row className='content d-flex justify-content-center'>
+				<Col xs={12}>
+					<h1> Enquiries </h1>
+				</Col>
 				{hotels.map((hotel, i) => {
 					const {
 						name,

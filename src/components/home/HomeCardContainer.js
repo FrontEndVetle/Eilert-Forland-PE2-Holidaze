@@ -1,8 +1,5 @@
 import React from 'react';
-import Container from 'react-bootstrap/Container';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
-import Card from 'react-bootstrap/Card';
+import { Col, Row, Card, Container } from 'react-bootstrap/';
 import HomeData from '../../data/Homepage.json';
 import HomeInfoCards from './HomeInfoCards';
 

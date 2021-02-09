@@ -2,15 +2,12 @@ import React, { useContext } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
-import TextField from '@material-ui/core/TextField';
 import { AuthContext } from '../../context/AuthContext';
-import Grid from '@material-ui/core/Grid';
 import Swal from 'sweetalert2';
 import Form from 'react-bootstrap/Form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
 
 const schema = yup.object().shape({
 	username: yup
@@ -55,32 +52,13 @@ function Register() {
 			<Container>
 				<Row className='d-flex justify-content-center'>
 					<Col className='contact__content' md={5}>
-						<Card className='card'>
-							<Card.Img
-								variant='top'
-								className='card__img'
-								src={Logo}
-								alt='logo'
-							/>
-							<Card.Body>
-								<Card.Title>
-									<h1 className='card__title'> Log in </h1>{' '}
-								</Card.Title>{' '}
-								<ListGroup className='card__text' variant='flush'>
-									<ListGroup.Item> {infoList} </ListGroup.Item>{' '}
-								</ListGroup>{' '}
-								<NavLink to='/accommodation'>
-									<Button className='card__btn btn'> Accommodations </Button>{' '}
-								</NavLink>{' '}
-							</Card.Body>{' '}
-						</Card>{' '}
-						<h1> Log in </h1>{' '}
+						<h1>Log in</h1>
 						<Form onSubmit={handleSubmit(onSubmit)}>
 							<Row>
 								<Col>
 									<Form.Row>
 										<Form.Group as={Col} md='12' controlId='name'>
-											<Form.Label> Full name </Form.Label>{' '}
+											<Form.Label>Full name</Form.Label>
 											<Form.Control
 												type='text'
 												name='username'
@@ -89,14 +67,11 @@ function Register() {
 												placeholder='Full name..'
 											/>
 											<Form.Control.Feedback type='invalid'>
-												{' '}
-												{errors.username && (
-													<p> {errors.username.message} </p>
-												)}{' '}
-											</Form.Control.Feedback>{' '}
-										</Form.Group>{' '}
+												{errors.username && <p>{errors.username.message}</p>}
+											</Form.Control.Feedback>
+										</Form.Group>
 										<Form.Group as={Col} md='12' controlId='email'>
-											<Form.Label> Email </Form.Label>{' '}
+											<Form.Label>Email</Form.Label>
 											<Form.Control
 												type='password'
 												name='password'
@@ -105,22 +80,20 @@ function Register() {
 												placeholder='Enter password'
 											/>
 											<Form.Control.Feedback type='invalid'>
-												{' '}
-												{errors.password && (
-													<p> {errors.password.message} </p>
-												)}{' '}
-											</Form.Control.Feedback>{' '}
-										</Form.Group>{' '}
-									</Form.Row>{' '}
-								</Col>{' '}
-							</Row>{' '}
+												{errors.password && <p>{errors.password.message}</p>}
+											</Form.Control.Feedback>
+										</Form.Group>
+									</Form.Row>
+								</Col>
+							</Row>
+
 							<Button className='form__btn btn btn__primary' type='submit'>
-								Send{' '}
-							</Button>{' '}
-						</Form>{' '}
-					</Col>{' '}
-				</Row>{' '}
-			</Container>{' '}
+								Send
+							</Button>
+						</Form>
+					</Col>
+				</Row>
+			</Container>
 		</div>
 	);
 }
@@ -128,24 +101,24 @@ function Register() {
 export default Register;
 
 /*<form className='form' onSubmit={handleSubmit(onSubmit)}>
-            	<h1> Login </h1>{' '}
-            	<TextField
-            		name='username'
-            		label='Username'
-            		placeholder='Enter your username'
-            		fullWidth
-            		margin='normal'
-            		required
-            		inputRef={register}
-            	/>{' '}
-            	<TextField
-            		name='password'
-            		label='Password'
-            		placeholder='Enter your password'
-            		fullWidth
-            		margin='normal'
-            		required
-            		inputRef={register}
-            	/>
-            	<Button type='submit'> Submit </Button>
-            </form>;*/
+	<h1> Login </h1>{' '}
+	<TextField
+		name='username'
+		label='Username'
+		placeholder='Enter your username'
+		fullWidth
+		margin='normal'
+		required
+		inputRef={register}
+	/>{' '}
+	<TextField
+		name='password'
+		label='Password'
+		placeholder='Enter your password'
+		fullWidth
+		margin='normal'
+		required
+		inputRef={register}
+	/>
+	<Button type='submit'> Submit </Button>
+</form>;*/

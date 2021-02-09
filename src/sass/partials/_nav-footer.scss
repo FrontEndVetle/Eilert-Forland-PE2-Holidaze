@@ -11,7 +11,20 @@
         &:hover {
             color: $hover-a;
             text-decoration: underline;
+            text-align: center;
         }
+    }
+}
+
+.dropdown-menu {
+    background-color: $nav-bg;
+}
+
+.dropdown-item {
+    text-align: center;
+    color: $text-color;
+    &:hover {
+        background-color: $nav-bg;
     }
 }
 

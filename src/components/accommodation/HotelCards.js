@@ -9,7 +9,7 @@ import { NavLink } from 'react-router-dom';
 function HotelCards({ name, id, image, price, maxGuests, linkPath, btnText }) {
 	return (
 		<>
-			<Card className='card'>
+			<Card>
 				<NavLink to={linkPath + id}>
 					<Card.Img
 						variant='top'
@@ -17,18 +17,19 @@ function HotelCards({ name, id, image, price, maxGuests, linkPath, btnText }) {
 						src={image}
 						alt='Accommodation image'
 					/>
-
-					<ListGroup className='card__text' variant='flush'>
-						<ListGroup.Item>
-							<h2 className='card__title'> {name}</h2>
-						</ListGroup.Item>
-						<ListGroup.Item>
-							<Card.Text>{price}</Card.Text>
-						</ListGroup.Item>
-						<ListGroup.Item>
-							<Card.Text>{maxGuests}</Card.Text>
-						</ListGroup.Item>
-					</ListGroup>
+					<Card.Body>
+						<ListGroup className='card__text' variant='flush'>
+							<ListGroup.Item>
+								<h2 className='card__title'> {name}</h2>
+							</ListGroup.Item>
+							<ListGroup.Item>
+								<Card.Text>{price}</Card.Text>
+							</ListGroup.Item>
+							<ListGroup.Item>
+								<Card.Text>{maxGuests}</Card.Text>
+							</ListGroup.Item>
+						</ListGroup>
+					</Card.Body>
 				</NavLink>
 
 				<NavLink to={linkPath + id}>
