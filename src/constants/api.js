@@ -9,3 +9,8 @@ export const FETCH_OPTIONS = {
 };
 export const PATCH = 'PATCH';
 export const DELETE = 'DELETE';
+
+export const headers = {
+    'Content-Type': 'application/json',
+    key: KEY,
+};
