@@ -56,24 +56,6 @@ function GetHotels() {
 			.catch((error) => console.log(error));
 	}, []);
 
-	useEffect(() => {
-		fetch(url, FETCH_OPTIONS)
-			.then((response) => response.json())
-			.then((json) => {
-				console.log(json);
-				// handle error
-				if (json.error) {
-					setHotels([]);
-					alert('alert');
-				} else {
-					setHotels(json);
-					setFilteredHotels(json);
-				}
-			})
-			.finally(() => setLoading(false))
-			.catch((error) => console.log(error));
-	}, []);
-
 	if (loading) {
 		return <Spinner className='spinner' animation='border' variant='primary' />;
 	}
