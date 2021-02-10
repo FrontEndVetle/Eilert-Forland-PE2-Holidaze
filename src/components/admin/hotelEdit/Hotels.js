@@ -36,22 +36,23 @@ function Hotels() {
 			{error && <div className='error'>{error}</div>}
 
 			<Row>
-				{hotels.map((hotel) => {
-					const { id, name, image, price, maxGuests } = hotel;
-					return (
-						<Col xs={12} md={3} key={id}>
-							<HotelCards
-								maxGuests={maxGuests}
-								name={name}
-								image={image}
-								price={price}
-								id={id}
-								linkPath={linkPath}
-								btnText={btnText}
-							/>
-						</Col>
-					);
-				})}
+				{hotels &&
+					hotels.map((hotel) => {
+						const { id, name, image, price, maxGuests } = hotel;
+						return (
+							<Col xs={12} md={3} key={id}>
+								<HotelCards
+									maxGuests={maxGuests}
+									name={name}
+									image={image}
+									price={price}
+									id={id}
+									linkPath={linkPath}
+									btnText={btnText}
+								/>
+							</Col>
+						);
+					})}
 			</Row>
 		</Container>
 	);
