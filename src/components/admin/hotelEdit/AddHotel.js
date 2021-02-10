@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Container } from 'react-bootstrap/';
 
 import { useHistory } from 'react-router-dom';
-import { BASE_URL, FETCH_OPTIONS } from '../../../constants/api';
+import { BASE_URL, headers } from '../../../constants/api';
 import EditHotelForm from './EditHotelForm';
 
 function AddHotel() {
@@ -14,14 +14,12 @@ function AddHotel() {
 	async function onSubmit(data) {
 		console.log('data', data);
 
-		// when creating an establishment we need to use the POST method
-		FETCH_OPTIONS.method = 'POST';
-
+		// Create establishment with POST method
 		// serialise the data
-		FETCH_OPTIONS.body = JSON.stringify(data);
+		const methods = { headers, method: 'POST', body: JSON.stringify(data) };
 
 		// send every
-		await fetch(url, FETCH_OPTIONS);
+		await fetch(url, methods);
 
 		history.push('/admin');
 	}

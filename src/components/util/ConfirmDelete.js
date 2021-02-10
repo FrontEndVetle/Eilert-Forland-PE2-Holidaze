@@ -5,7 +5,7 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 import { useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-function ConfirmDelete({ id, deletePath }) {
+function ConfirmDelete({ id, deletePath, historyPath }) {
 	const history = useHistory();
 
 	function checkDelete() {
@@ -31,7 +31,7 @@ function ConfirmDelete({ id, deletePath }) {
 
 		await fetch(url, options);
 
-		history.push('/admin');
+		history.push(historyPath);
 	}
 
 	return <Button onClick={checkDelete}>Delete</Button>;

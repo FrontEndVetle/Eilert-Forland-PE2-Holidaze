@@ -14,6 +14,7 @@ type Props = {
 	checkOut?: number;
 	deletePath?: string;
 	hotelName?: string;
+	historyPath: string;
 };
 
 function EnquiriesList({
@@ -26,6 +27,7 @@ function EnquiriesList({
 	checkOut,
 	deletePath,
 	hotelName,
+	historyPath,
 }: Props) {
 	return (
 		<>
@@ -69,7 +71,11 @@ function EnquiriesList({
 						</Row>
 					</Card.Body>
 
-					<ConfirmDelete id={id} deletePath={deletePath} />
+					<ConfirmDelete
+						historyPath={historyPath}
+						id={id}
+						deletePath={deletePath}
+					/>
 				</Card>
 			</Col>
 		</>

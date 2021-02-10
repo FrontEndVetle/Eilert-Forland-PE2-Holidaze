@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Spinner from 'react-bootstrap/Spinner';
 
 import { useParams } from 'react-router-dom';
-import { BASE_URL, FETCH_OPTIONS } from '../../../constants/api';
+import { BASE_URL, headers } from '../../../constants/api';
 import HotelInfo from './HotelInfo';
 import EnquiryModal from './EnquiryModal';
 import BookDate from './BookDate';
@@ -25,10 +25,26 @@ function HomeDetail() {
 
 	const url = BASE_URL + 'establishments/' + id;
 
+	const options = { headers };
+
 	useEffect(() => {
-		fetch(url, FETCH_OPTIONS)
+		fetch(url, options)
 			.then((response) => response.json())
-			.then((json) => setDetail(json))
+			.then((json) => {
+				console.log(json);
+				// handle error
+				if (json.error) {
+					setHotels([]);
+					Swal.fire({
+						icon: 'error',
+						title: 'Oops...',
+						text: 'Something went wrong!',
+						footer: 'Please try and reload the ',
+					});
+				} else {
+					setDetail(json);
+				}
+			})
 			.catch((error) => console.log(error))
 			.finally(() => setLoading(false));
 	}, []);
@@ -76,11 +92,10 @@ function HomeDetail() {
 	function onSubmit(data) {
 		const urlEnquiry = BASE_URL + 'enquiries';
 
-		FETCH_OPTIONS.method = 'POST';
-		FETCH_OPTIONS.body = JSON.stringify(data);
+		const methods = { headers, method: 'POST', body: JSON.stringify(data) };
 
 		// send every
-		fetch(urlEnquiry, FETCH_OPTIONS)
+		fetch(urlEnquiry, methods)
 			.then((r) => r.json())
 			.then((j) => console.log(j));
 		setShow(false);

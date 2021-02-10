@@ -1,39 +1,48 @@
 import React, { useState, useEffect } from 'react';
-import { BASE_URL, FETCH_OPTIONS } from '../../../constants/api';
+import { BASE_URL, headers } from '../../../constants/api';
 import HotelCards from '../../accommodation/HotelCards';
 import { Row, Container, Col } from 'react-bootstrap/';
+import Spinner from 'react-bootstrap/Spinner';
+import Swal from 'sweetalert2';
 
 function Hotels() {
 	const [hotels, setHotels] = useState([]);
-	const [error, setError] = useState(null);
+	const [loading, setLoading] = useState(true);
 
 	const url = BASE_URL + 'establishments';
 	const linkPath = '/admin/hotels/edit/';
 	const btnText = 'Edit';
+	const options = { headers };
 
 	useEffect(() => {
-		fetch(url, FETCH_OPTIONS)
-			.then((response) => {
-				console.log(response);
-				if (response.ok) {
-					return response.json();
-				} else {
+		fetch(url, options)
+			.then((response) => response.json())
+			.then((json) => {
+				console.log(json);
+				// handle error
+				if (json.error) {
 					setHotels([]);
-					setError(response.message);
-					console.log(response);
+					Swal.fire({
+						icon: 'error',
+						title: 'Oops...',
+						text: 'Something went wrong!',
+						footer: 'Please try and reload the ',
+					});
+				} else {
+					setHotels(json);
 				}
 			})
-			.then((json) => {
-				setHotels(json);
-			})
-
-			.catch((error) => console.log(error));
+			.catch((error) => console.log(error))
+			.finally(() => setLoading(false));
 	}, []);
+
+	if (loading) {
+		return <Spinner className='spinner' animation='border' variant='primary' />;
+	}
 
 	return (
 		<Container>
 			<h1> Hotels </h1>
-			{error && <div className='error'>{error}</div>}
 
 			<Row>
 				{hotels &&

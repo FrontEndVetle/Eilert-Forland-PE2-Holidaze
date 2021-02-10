@@ -3,7 +3,7 @@ import ContactForm from './ContactForm';
 import { Container, Row, Col } from 'react-bootstrap';
 
 import { useHistory } from 'react-router-dom';
-import { BASE_URL, FETCH_OPTIONS } from '../../constants/api';
+import { BASE_URL, header } from '../../constants/api';
 
 import HotelMap from '../accommodation/hotelMap/HotelMap';
 
@@ -30,10 +30,9 @@ function Contact() {
 
 		const url = BASE_URL + 'contacts';
 
-		FETCH_OPTIONS.method = 'POST';
-		FETCH_OPTIONS.body = JSON.stringify(data);
+		const methods = { headers, method: 'POST', body: JSON.stringify(data) };
 
-		fetch(url, FETCH_OPTIONS)
+		fetch(url, methods)
 			.then((r) => r.json())
 			.then((j) => console.log(j));
 		Swal.fire({

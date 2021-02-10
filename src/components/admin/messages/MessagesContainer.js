@@ -1,37 +1,45 @@
 import React, { useState, useEffect } from 'react';
-import { BASE_URL, FETCH_OPTIONS } from '../../../constants/api';
+import { BASE_URL, headers } from '../../../constants/api';
 import MessageList from './MessageList';
 import moment from 'moment';
 import { Container, Col, Row } from 'react-bootstrap/';
-import CircularProgress from '@material-ui/core/CircularProgress';
+import Spinner from 'react-bootstrap/Spinner';
+import Swal from 'sweetalert2';
 
 function Messages() {
-	const [hotels, setHotels] = useState([]);
-	const [error, setError] = useState(null);
+	const [messages, setMessages] = useState([]);
 	const [loading, setLoading] = useState(true);
 
 	const url = BASE_URL + 'contacts';
 	const deletePath = 'contacts/';
+	const historyPath = '/admin';
+
+	const options = { headers };
 
 	useEffect(() => {
-		fetch(url, FETCH_OPTIONS)
+		fetch(url, options)
 			.then((response) => response.json())
-			.finally(() => setLoading(false))
 			.then((json) => {
 				console.log(json);
 				// handle error
 				if (json.error) {
-					setHotels([]);
-					setError(json.message);
+					setMessages([]);
+					Swal.fire({
+						icon: 'error',
+						title: 'Oops...',
+						text: 'Something went wrong!',
+						footer: 'Please try and reload the ',
+					});
 				} else {
-					setHotels(json);
+					setMessages(json);
 				}
 			})
-			.catch((error) => console.log(error));
+			.catch((error) => console.log(error))
+			.finally(() => setLoading(false));
 	}, []);
 
 	if (loading) {
-		return <CircularProgress className='spinner' />;
+		return <Spinner className='spinner' animation='border' variant='primary' />;
 	}
 
 	return (
@@ -40,23 +48,25 @@ function Messages() {
 				<Col xs={12}>
 					<h1> Contact messages </h1>
 				</Col>
-				{hotels.map((hotel, i) => {
-					const { name, email, message, createdAt, id } = hotel;
+				{messages &&
+					messages.map((contact, i) => {
+						const { name, email, message, createdAt, id } = contact;
 
-					let sentDate = moment(createdAt).format('YYYY-MM-DD');
+						let sentDate = moment(createdAt).format('YYYY-MM-DD');
 
-					return (
-						<MessageList
-							key={i}
-							name={name}
-							email={email}
-							message={message}
-							createdAt={sentDate}
-							id={id}
-							deletePath={deletePath}
-						/>
-					);
-				})}
+						return (
+							<MessageList
+								key={i}
+								name={name}
+								email={email}
+								message={message}
+								createdAt={sentDate}
+								id={id}
+								deletePath={deletePath}
+								historyPath={historyPath}
+							/>
+						);
+					})}
 			</Row>
 		</Container>
 	);

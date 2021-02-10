@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { BASE_URL, FETCH_OPTIONS } from '../../constants/api';
+import { BASE_URL, headers } from '../../constants/api';
 import HotelCards from '../accommodation/HotelCards';
 import { Row, Col } from 'react-bootstrap';
-
+import Swal from 'sweetalert2';
 import Search from '../util/filter/Search';
 import Filters from '../util/filter/Filters';
 import Spinner from 'react-bootstrap/Spinner';
@@ -10,10 +10,8 @@ import HotelMap from './hotelMap/HotelMap';
 
 function GetHotels() {
 	const [hotels, setHotels] = useState([]);
-	const [error, setError] = useState(null);
 	const [filteredHotels, setFilteredHotels] = useState([]);
 	const [loading, setLoading] = useState(true);
-
 	const url = BASE_URL + 'establishments';
 	const linkPath = 'hotel/';
 	const btnText = 'View';
@@ -21,21 +19,29 @@ function GetHotels() {
 	//map coordinates and
 	let pinList = [];
 
+	const options = { headers };
+
 	useEffect(() => {
-		fetch(url, FETCH_OPTIONS)
+		fetch(url, options)
 			.then((response) => response.json())
-			.finally(() => setLoading(false))
 			.then((json) => {
+				console.log(json);
 				// handle error
 				if (json.error) {
 					setHotels([]);
-					setError(json.message);
+					Swal.fire({
+						icon: 'error',
+						title: 'Oops...',
+						text: 'Something went wrong!',
+						footer: 'Please try and reload the ',
+					});
 				} else {
 					setHotels(json);
 					setFilteredHotels(json);
 				}
 			})
-			.catch((error) => console.log(error));
+			.catch((error) => console.log(error))
+			.finally(() => setLoading(false));
 	}, []);
 
 	if (loading) {
@@ -94,7 +100,6 @@ function GetHotels() {
 	return (
 		<div className='content'>
 			<h1>Accommodations</h1>
-			{error && <div className='error'>{error}</div>}
 
 			<Search searchName={searchName} hotels={hotels} />
 			<Row className='d-flex justify-content-around'>
@@ -107,31 +112,31 @@ function GetHotels() {
 			<Row className='d-flex justify-content-between'>
 				<Col md={8}>
 					<Row>
-						{error && <div className='error'> {error} </div>}
-						{filteredHotels.map((hotel) => {
-							const { id, name, image, price, maxGuests } = hotel;
-							pinList.push({
-								lat: hotel.lat,
-								lng: hotel.lng,
-								name: hotel.name,
-								maxGuests: 'Guest capacity ' + hotel.maxGuests,
-								price: 'Price ' + hotel.price + ' euro',
-							});
+						{hotels &&
+							filteredHotels.map((hotel) => {
+								const { id, name, image, price, maxGuests } = hotel;
+								pinList.push({
+									lat: hotel.lat,
+									lng: hotel.lng,
+									name: hotel.name,
+									maxGuests: 'Guest capacity ' + hotel.maxGuests,
+									price: 'Price ' + hotel.price + ' euro',
+								});
 
-							return (
-								<Col xs={12} md={5} lg={4} key={id}>
-									<HotelCards
-										maxGuests={maxGuests}
-										name={name}
-										image={image}
-										price={price}
-										id={id}
-										linkPath={linkPath}
-										btnText={btnText}
-									/>
-								</Col>
-							);
-						})}
+								return (
+									<Col xs={12} md={5} lg={4} key={id}>
+										<HotelCards
+											maxGuests={maxGuests}
+											name={name}
+											image={image}
+											price={price}
+											id={id}
+											linkPath={linkPath}
+											btnText={btnText}
+										/>
+									</Col>
+								);
+							})}
 					</Row>
 				</Col>
 				<Col xs={12} md={4}>
