@@ -3,23 +3,23 @@ import { Route, Redirect } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthContext';
 
 const ProtectedRoute = ({ component: Component, ...rest }) => {
-	const { admin } = useContext(AuthContext);
+    const { admin } = useContext(AuthContext);
 
-	return (
-		<Route
-			{...rest}
-			render={(props) =>
-				admin ? (
-					<Component {...rest} {...props} />
-				) : (
-					<Redirect
-						to='/register
-                '
-					/>
-				)
-			}
-		/>
-	);
+    return ( <
+        Route {...rest }
+        render = {
+            (props) =>
+            admin ? ( <
+                Component {...rest } {...props }
+                />
+            ) : ( <
+                Redirect to = '/register
+                ' /
+                >
+            )
+        }
+        />
+    );
 };
 
 export default ProtectedRoute;

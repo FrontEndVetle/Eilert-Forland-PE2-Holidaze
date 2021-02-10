@@ -8,7 +8,7 @@
         ],
         "icons": ["BeachAccessIcon", "BeachAccessIcon", "BeachAccessIcon"],
 
-        "image": "/images/night-city.jpg"
+        "image": "/images/hotellist.jpg"
     },
     {
         "id": 2,
@@ -32,6 +32,6 @@
         ],
         "icons": ["BeachAccessIcon", "BeachAccessIcon", "BeachAccessIcon"],
 
-        "image": "/images/bryggen.jpg"
+        "image": "/images/floyen.jpg"
     }
 ]

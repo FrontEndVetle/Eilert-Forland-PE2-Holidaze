@@ -17,7 +17,7 @@ function CardContainer() {
 					));
 
 					return (
-						<Col xs={12} sm={5} md={4} key={id}>
+						<Col className='d-flex ' xs={12} sm={6} md={4} key={id}>
 							<HomeInfoCards title={title} infoList={infoList} image={image} />{' '}
 						</Col>
 					);

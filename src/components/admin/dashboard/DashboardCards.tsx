@@ -9,31 +9,34 @@ import ListGroup from 'react-bootstrap/ListGroup';
 type Props = {
 	name: string;
 	link: string;
+	img: string;
 };
 
-function DashboardCards({ link, name }: Props) {
+function DashboardCards({ link, name, img }: Props) {
 	return (
-		<>
-			<Col xs={12} sm={6} md={3}>
-				<Card className='card'>
-					<NavLink to={link}>
-						<Card.Img
-							variant='top'
-							className='card__img'
-							src=''
-							alt='Admin utilities image'
-						/>
+		<Card className='card'>
+			<NavLink to={link}>
+				<Card.Img
+					variant='top'
+					className='card__img'
+					src={img}
+					alt='Admin utilities image'
+				/>
+				<Card.Body>
+					<ListGroup variant='flush'>
 						<ListGroup.Item>
 							<h2 className='card__title'> {name}</h2>
 						</ListGroup.Item>
-					</NavLink>
+					</ListGroup>
+				</Card.Body>
+			</NavLink>
 
-					<NavLink to={link}>
-						<Button className='card__btn btn btn__primary'>Select</Button>
-					</NavLink>
-				</Card>
-			</Col>
-		</>
+			<NavLink to={link}>
+				<Card.Body>
+					<Button className='card__btn btn btn__primary'>Select</Button>
+				</Card.Body>
+			</NavLink>
+		</Card>
 	);
 }
 

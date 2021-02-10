@@ -1,31 +1,58 @@
 import React from 'react';
 import DashBoardCards from './DashboardCards';
-import { Container, Row } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 
 function Dashboard() {
 	const adminOptions = [
-		{ id: 1, name: 'Hotels', link: '/admin/hotels', info: 'gr' },
-		{ id: 2, name: 'Add hotel', link: '/admin/hotels/add', info: 'gr' },
-		{ id: 3, name: 'Enquiries', link: '/admin/enquiries', info: 't' },
-		{ id: 4, name: 'Contact forms', link: '/admin/messages', info: 'gtr' },
+		{
+			id: 1,
+			name: 'Accommodations',
+			link: '/admin/hotels',
+			img: './images/hotellist.jpg',
+		},
+		{
+			id: 2,
+			name: 'Add hotel',
+			link: '/admin/hotels/add',
+			img: './images/add.jpg',
+		},
+		{
+			id: 3,
+			name: 'Enquiries',
+			link: '/admin/enquiries',
+			img: './images/enquiry.jpg',
+		},
+		{
+			id: 4,
+			name: 'Contact forms',
+			link: '/admin/messages',
+			info: 'gtr',
+			img: './images/contact.jpg',
+		},
 	];
 
 	return (
 		<Container>
-			<Row className='content d-flex justify-content-around'>
-				{adminOptions.map((option) => {
-					const { id, name, link, info } = option;
+			<Row className='content d-flex justify-content-center'>
+				<Col lg={8}>
+					<Row>
+						{adminOptions.map((option) => {
+							const { id, name, link, img } = option;
 
-					return (
-						<DashBoardCards
-							key={id}
-							id={id}
-							name={name}
-							link={link}
-							info={info}
-						/>
-					);
-				})}
+							return (
+								<Col className='d-flex' xs={12} sm={6}>
+									<DashBoardCards
+										key={id}
+										id={id}
+										name={name}
+										link={link}
+										img={img}
+									/>
+								</Col>
+							);
+						})}
+					</Row>
+				</Col>
 			</Row>
 		</Container>
 	);

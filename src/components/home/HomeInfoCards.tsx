@@ -24,14 +24,13 @@ function HomeInfoCards({ title, infoList, image }: Props) {
 					<h2 className='card__title font-special'> {title}</h2>
 				</Card.Title>
 
-				<ListGroup className='card__text' variant='flush'>
+				<ListGroup variant='flush' className='card__text'>
 					<ListGroup.Item>{infoList}</ListGroup.Item>
 				</ListGroup>
-
-				<NavLink to='/accommodation'>
-					<Button className='card__btn btn'>Accommodations</Button>
-				</NavLink>
 			</Card.Body>
+			<NavLink to='/accommodation'>
+				<Button className=' card__btn btn'>Accommodations</Button>
+			</NavLink>
 		</Card>
 	);
 }

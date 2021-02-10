@@ -12,7 +12,7 @@ import Contact from '../contact/Contact';
 import Accommodation from '../accommodation/Accommodation';
 import Login from '../auth/Login';
 import Register from '../auth/Login';
-import Hotels from '../admin/hotelEdit/Hotels';
+import Hotels from '../admin/hotelEdit/AdminHotels';
 import AddHotel from '../admin/hotelEdit/AddHotel';
 import EditHotel from '../admin/hotelEdit/EditHotel';
 import Dashboard from '../admin/dashboard/DashboardContainer';

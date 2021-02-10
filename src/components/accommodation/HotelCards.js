@@ -9,29 +9,26 @@ import { NavLink } from 'react-router-dom';
 function HotelCards({ name, id, image, price, maxGuests, linkPath, btnText }) {
 	return (
 		<>
-			<Card>
-				<NavLink to={linkPath + id}>
-					<Card.Img
-						variant='top'
-						className='card__img'
-						src={image}
-						alt='Accommodation image'
-					/>
-					<Card.Body>
-						<ListGroup className='card__text' variant='flush'>
-							<ListGroup.Item>
-								<h2 className='card__title'> {name}</h2>
-							</ListGroup.Item>
-							<ListGroup.Item>
-								<Card.Text>{price}</Card.Text>
-							</ListGroup.Item>
-							<ListGroup.Item>
-								<Card.Text>{maxGuests}</Card.Text>
-							</ListGroup.Item>
-						</ListGroup>
-					</Card.Body>
-				</NavLink>
-
+			<Card className='card'>
+				<Card.Img
+					variant='top'
+					className='card__img'
+					src={image}
+					alt='Accommodation image'
+				/>
+				<Card.Body>
+					<ListGroup className='card__text' variant='flush'>
+						<ListGroup.Item>
+							<h2 className='card__title'> {name}</h2>
+						</ListGroup.Item>
+						<ListGroup.Item>
+							<Card.Text>{price}</Card.Text>
+						</ListGroup.Item>
+						<ListGroup.Item>
+							<Card.Text>{maxGuests}</Card.Text>
+						</ListGroup.Item>
+					</ListGroup>
+				</Card.Body>
 				<NavLink to={linkPath + id}>
 					<Button className='card__btn btn btn__primary'>{btnText}</Button>
 				</NavLink>

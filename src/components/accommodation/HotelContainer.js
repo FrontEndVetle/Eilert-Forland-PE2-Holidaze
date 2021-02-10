@@ -124,7 +124,7 @@ function GetHotels() {
 								});
 
 								return (
-									<Col xs={12} md={5} lg={4} key={id}>
+									<Col xs={12} md={6} lg={5} className='d-flex' key={id}>
 										<HotelCards
 											maxGuests={maxGuests}
 											name={name}
