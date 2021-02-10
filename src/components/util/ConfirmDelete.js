@@ -19,7 +19,7 @@ function ConfirmDelete({ id, deletePath }) {
 			confirmButtonText: 'Yes, delete it!',
 		}).then((result) => {
 			if (result.isConfirmed) {
-				deleteHotel(deletePath);
+				deleteHotel();
 				Swal.fire('Deleted!', 'removed successfully', 'success');
 			}
 		});
