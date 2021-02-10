@@ -21,9 +21,8 @@ function AddHotel() {
 		FETCH_OPTIONS.body = JSON.stringify(data);
 
 		// send every
-		await fetch(url, FETCH_OPTIONS)
-			.then((r) => r.json())
-			.then((j) => console.log(j));
+		await fetch(url, FETCH_OPTIONS);
+
 		history.push('/admin');
 	}
 

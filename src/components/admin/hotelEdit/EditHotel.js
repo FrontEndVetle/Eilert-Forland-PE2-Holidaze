@@ -37,9 +37,7 @@ function EditHotel() {
 
 		FETCH_OPTIONS.body = JSON.stringify(data);
 
-		await fetch(url, FETCH_OPTIONS)
-			.then((r) => r.json())
-			.then((j) => console.log(j));
+		await fetch(url, FETCH_OPTIONS);
 	}
 
 	const {
