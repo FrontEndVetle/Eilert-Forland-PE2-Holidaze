@@ -34,7 +34,6 @@ function Hotels() {
 	useEffect(() => {
 		fetch(url, FETCH_OPTIONS)
 			.then((response) => response.json())
-			.finally(() => setLoading(false))
 			.then((json) => {
 				console.log(json);
 				// handle error
@@ -45,6 +44,8 @@ function Hotels() {
 					setHotels(json);
 				}
 			})
+			.finally(() => setLoading(false))
+
 			.catch((error) => console.log(error));
 	}, []);
 
