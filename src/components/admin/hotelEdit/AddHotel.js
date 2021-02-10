@@ -11,7 +11,7 @@ function AddHotel() {
 
 	const url = BASE_URL + 'establishments';
 
-	function onSubmit(data) {
+	async function onSubmit(data) {
 		console.log('data', data);
 
 		// when creating an establishment we need to use the POST method
@@ -21,7 +21,7 @@ function AddHotel() {
 		FETCH_OPTIONS.body = JSON.stringify(data);
 
 		// send every
-		fetch(url, FETCH_OPTIONS)
+		await fetch(url, FETCH_OPTIONS)
 			.then((r) => r.json())
 			.then((j) => console.log(j));
 		history.push('/admin');

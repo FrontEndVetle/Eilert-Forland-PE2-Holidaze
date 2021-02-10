@@ -21,17 +21,18 @@ function ConfirmDelete({ id, deletePath }) {
 			if (result.isConfirmed) {
 				deleteHotel(deletePath);
 				Swal.fire('Deleted!', 'removed successfully', 'success');
-				history.push('/admin');
 			}
 		});
 	}
 
-	function deleteHotel() {
+	async function deleteHotel() {
 		const url = BASE_URL + deletePath + id;
 
 		FETCH_OPTIONS.method = 'DELETE';
 
-		fetch(url, FETCH_OPTIONS);
+		await fetch(url, FETCH_OPTIONS);
+
+		history.push('/admin');
 	}
 
 	return <Button onClick={checkDelete}>Delete</Button>;

@@ -8,10 +8,28 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 function Hotels() {
 	const [hotels, setHotels] = useState([]);
 	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState(null);
 
 	const url = BASE_URL + 'establishments';
 	const linkPath = '/admin/hotels/edit/';
 	const btnText = 'Edit';
+
+	useEffect(() => {
+		fetch(url, FETCH_OPTIONS)
+			.then((response) => response.json())
+			.then((json) => {
+				console.log(json);
+				// handle error
+				if (json.error) {
+					setHotels([]);
+					setError(json.message);
+				} else {
+					setHotels(json);
+				}
+			})
+			.finally(() => setLoading(false))
+			.catch((error) => console.log(error));
+	}, []);
 
 	useEffect(() => {
 		fetch(url, FETCH_OPTIONS)
@@ -22,7 +40,7 @@ function Hotels() {
 				// handle error
 				if (json.error) {
 					setHotels([]);
-					setError(json.message);
+					console.log(error);
 				} else {
 					setHotels(json);
 				}
@@ -37,6 +55,8 @@ function Hotels() {
 	return (
 		<Container>
 			<h1> Hotels </h1>
+			{error && <div className='error'>{error}</div>}
+
 			<Row>
 				{hotels.map((hotel) => {
 					const { id, name, image, price, maxGuests } = hotel;

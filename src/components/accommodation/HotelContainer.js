@@ -29,12 +29,48 @@ function GetHotels() {
 				// handle error
 				if (json.error) {
 					setHotels([]);
+				} else {
+					setHotels(json);
+					setFilteredHotels(json);
+				}
+			})
+			.catch((error) => console.log(error));
+	}, []);
+
+	useEffect(() => {
+		fetch(url, FETCH_OPTIONS)
+			.then((response) => response.json())
+			.then((json) => {
+				console.log(json);
+				// handle error
+				if (json.error) {
+					setHotels([]);
 					setError(json.message);
 				} else {
 					setHotels(json);
 					setFilteredHotels(json);
 				}
 			})
+			.finally(() => setLoading(false))
+
+			.catch((error) => console.log(error));
+	}, []);
+
+	useEffect(() => {
+		fetch(url, FETCH_OPTIONS)
+			.then((response) => response.json())
+			.then((json) => {
+				console.log(json);
+				// handle error
+				if (json.error) {
+					setHotels([]);
+					alert('alert');
+				} else {
+					setHotels(json);
+					setFilteredHotels(json);
+				}
+			})
+			.finally(() => setLoading(false))
 			.catch((error) => console.log(error));
 	}, []);
 
@@ -94,6 +130,7 @@ function GetHotels() {
 	return (
 		<div className='content'>
 			<h1>Accommodations</h1>
+			{error && <div className='error'>{error}</div>}
 
 			<Search searchName={searchName} hotels={hotels} />
 			<Row className='d-flex justify-content-around'>

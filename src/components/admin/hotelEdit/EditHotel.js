@@ -21,8 +21,8 @@ function EditHotel() {
 	useEffect(() => {
 		fetch(url, FETCH_OPTIONS)
 			.then((response) => response.json())
-			.finally(() => setLoading(false))
 			.then((json) => setHotel(json))
+			.finally(() => setLoading(false))
 			.catch((error) => console.log(error));
 	}, []);
 
@@ -37,7 +37,7 @@ function EditHotel() {
 
 		FETCH_OPTIONS.body = JSON.stringify(data);
 
-		fetch(url, FETCH_OPTIONS)
+		await fetch(url, FETCH_OPTIONS)
 			.then((r) => r.json())
 			.then((j) => console.log(j));
 	}
