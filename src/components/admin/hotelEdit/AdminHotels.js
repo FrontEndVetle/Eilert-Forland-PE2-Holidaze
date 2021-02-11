@@ -44,12 +44,12 @@ function Hotels() {
 		<Container>
 			<h1> Hotels </h1>
 
-			<Row>
+			<Row className='content'>
 				{hotels &&
 					hotels.map((hotel) => {
 						const { id, name, image, price, maxGuests } = hotel;
 						return (
-							<Col className='d-flex' xs={12} md={3} key={id}>
+							<Col className='d-flex' xs={12} md={6} key={id}>
 								<HotelCards
 									maxGuests={maxGuests}
 									name={name}

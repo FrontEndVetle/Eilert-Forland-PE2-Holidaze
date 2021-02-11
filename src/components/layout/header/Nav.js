@@ -12,7 +12,11 @@ function Navigation() {
 	const { admin, user } = useContext(AuthContext);
 
 	return (
-		<Navbar collapseOnSelect expand='lg' variant='dark' className='nav'>
+		<Navbar
+			collapseOnSelect
+			expand='lg'
+			variant='dark'
+			className='nav fixed-top'>
 			<Navbar.Brand href='/'>
 				<img className='logo' src={Logo} alt='Logo' />
 			</Navbar.Brand>

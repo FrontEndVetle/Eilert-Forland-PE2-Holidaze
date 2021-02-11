@@ -4,13 +4,11 @@
 
 .google-map {
     height: 170px;
-    position: relative;
 }
 
 @media (min-width: 641px) {
     .google-map {
         height: 200px;
-        position: relative;
     }
 }
 
@@ -19,8 +17,6 @@
         height: 250px;
     }
     .google-map {
-        height: 450px;
-        position: fixed;
-        width: 400px;
+        height: 600px;
     }
 }
