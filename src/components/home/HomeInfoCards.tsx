@@ -15,11 +15,11 @@ function HomeInfoCards({ title, infoList, image }: Props) {
 		<Card className='hotel-card'>
 			<Card.Img
 				variant='top'
-				className='hotel-card__img'
+				className='card__img'
 				src={image}
 				alt='Homepage information image'
 			/>
-			<Card.Body>
+			<Card.Body className='flex'>
 				<Card.Title>
 					<h2 className='hotel-card__title font-special'> {title}</h2>
 				</Card.Title>

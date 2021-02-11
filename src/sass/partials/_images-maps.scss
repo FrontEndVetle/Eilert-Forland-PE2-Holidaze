@@ -2,10 +2,25 @@
     height: 150px;
 }
 
-@media (min-width: 641px) {}
+.google-map {
+    height: 170px;
+    position: relative;
+}
 
-@media (min-width: 961px) {
+@media (min-width: 641px) {
+    .google-map {
+        height: 200px;
+        position: relative;
+    }
+}
+
+@media (min-width: 1000px) {
     .map-specific {
         height: 250px;
+    }
+    .google-map {
+        height: 450px;
+        position: fixed;
+        width: 400px;
     }
 }

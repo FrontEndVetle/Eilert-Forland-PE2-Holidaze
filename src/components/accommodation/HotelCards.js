@@ -5,41 +5,49 @@ import Button from 'react-bootstrap/Button';
 import { FaEuroSign, FaBed } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
+import { Row, Col } from 'react-bootstrap';
 
 function HotelCards({ name, id, image, price, maxGuests, linkPath, btnText }) {
 	return (
 		<>
 			<Card className='hotel-card'>
-				<Card.Img
-					variant='top'
-					className='hotel-card__img'
-					src={image}
-					alt='Accommodation image'
-				/>
-				<Card.Body>
-					<Card.Title>
-						<h2 className='hotel-card__title'> {name}</h2>
-					</Card.Title>
-					<ListGroup className='hotel-card__text' variant='flush'>
-						<ListGroup.Item></ListGroup.Item>
-						<ListGroup.Item>
-							<Card.Text>
-								<FaEuroSign className='icons' /> {price}
-							</Card.Text>
-						</ListGroup.Item>
-						<ListGroup.Item>
-							<Card.Text>
-								<FaBed className='icons' />
-								{maxGuests}
-							</Card.Text>
-						</ListGroup.Item>
-					</ListGroup>
-				</Card.Body>
-				<NavLink to={linkPath + id}>
-					<Button className='hotel-card__btn btn btn__primary'>
-						{btnText}
-					</Button>
-				</NavLink>
+				<Row className='d-flex justify-content-between'>
+					<Col xs={12} sm={12} lg={6}>
+						<Card.Img
+							variant='top'
+							className='hotel-card__img'
+							src={image}
+							alt='Accommodation image'
+						/>
+					</Col>
+					<Col xs={12} lg={6}>
+						<Card.Body>
+							<Card.Title>
+								<h4 className='hotel-card__title'> {name}</h4>
+							</Card.Title>
+							<ListGroup className='hotel-card__text' variant='flush'>
+								<ListGroup.Item></ListGroup.Item>
+								<ListGroup.Item>
+									<Card.Text>
+										<FaEuroSign className='icons' /> {price + ' euros'}
+									</Card.Text>
+								</ListGroup.Item>
+								<ListGroup.Item>
+									<Card.Text>
+										<FaBed className='icons' />
+										{'Guest capacity ' + maxGuests}
+									</Card.Text>
+								</ListGroup.Item>
+							</ListGroup>
+						</Card.Body>
+
+						<NavLink to={linkPath + id}>
+							<Button className='hotel-card__btn btn btn__primary'>
+								{btnText}
+							</Button>
+						</NavLink>
+					</Col>
+				</Row>
 			</Card>
 		</>
 	);

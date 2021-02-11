@@ -109,7 +109,12 @@ function GetHotels() {
 			<hr />
 
 			<Row className='d-flex justify-content-between'>
-				<Col md={8}>
+				<Col xs={12} lg={4} className='order-lg-2'>
+					<div className='google-map'>
+						<HotelMap pinList={pinList} mapZoom={10} />
+					</div>
+				</Col>
+				<Col md={12} lg={8} className='order-lg-1'>
 					<Row>
 						{hotels &&
 							filteredHotels.map((hotel) => {
@@ -123,7 +128,7 @@ function GetHotels() {
 								});
 
 								return (
-									<Col xs={12} md={6} lg={5} className='d-flex' key={id}>
+									<Col xs={12} md={6} lg={12} className='d-flex' key={id}>
 										<HotelCards
 											maxGuests={maxGuests}
 											name={name}
@@ -137,11 +142,6 @@ function GetHotels() {
 								);
 							})}
 					</Row>
-				</Col>
-				<Col xs={12} md={4}>
-					<div className='google-map'>
-						<HotelMap pinList={pinList} mapZoom={10} />
-					</div>
 				</Col>
 			</Row>
 		</div>
