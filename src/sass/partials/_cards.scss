@@ -1,5 +1,5 @@
 /*.d-flex .card {
-    background-color: $dark-bg;
+    background-color: $primary-bg;
 }*/
 
 .hotel-card {
@@ -47,20 +47,20 @@
         width: 130px;
         border-radius: 5%;
         color: $text-light;
-        background-color: $nav-bg;
+        background-color: $primary-bg;
         padding: 3px;
         text-align: center;
     }
     &__pickers {
         color: $text-light;
-        background-color: $nav-bg;
+        background-color: $primary-bg;
         padding: 3px;
         text-align: center;
     }
     &__guests {
         border-radius: 5%;
         color: $text-light;
-        background-color: $nav-bg;
+        background-color: $primary-bg;
         padding: 3px;
     }
 }

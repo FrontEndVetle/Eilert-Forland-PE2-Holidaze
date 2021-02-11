@@ -4,12 +4,12 @@
 }
 
 .navbar .dropdown-menu {
-    background-color: $nav-bg;
+    background-color: $footer-nav-bg;
     text-align: center;
 }
 
 .nav {
-    background-color: $nav-bg;
+    background-color: $footer-nav-bg;
     text-align: center;
     a {
         color: $text-light;
@@ -17,7 +17,7 @@
             color: $hover-a;
             text-decoration: underline;
             text-align: center;
-            background-color: $nav-bg;
+            background-color: $footer-nav-bg;
         }
     }
 }
@@ -40,7 +40,7 @@
 
 //footer
 .footer {
-    background-color: $footer-bg;
+    background-color: $footer-nav-bg;
     color: $text-light;
     text-align: center;
     padding-top: 30px;

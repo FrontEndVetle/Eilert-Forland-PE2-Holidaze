@@ -2,6 +2,11 @@
     margin: 70px 0;
 }
 
+.App {
+    background-color: $light-bg;
+    padding-top: 1px;
+}
+
 @media (min-width: 641px) {}
 
 @media (min-width: 961px) {
