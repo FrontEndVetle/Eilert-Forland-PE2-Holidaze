@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
-import Button from '@material-ui/core/Button';
+import Button from 'react-bootstrap/Button';
 
 function LogOut() {
 	const { logout } = useContext(AuthContext);
@@ -13,7 +13,7 @@ function LogOut() {
 	}
 
 	return (
-		<Button className='menu__btn btn' onClick={doLogout}>
+		<Button className='menu__btn btn btn__primary' onClick={doLogout}>
 			Log out
 		</Button>
 	);

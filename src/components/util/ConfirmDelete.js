@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import { BASE_URL, headers, DELETE } from '../../constants/api';
-import 'react-confirm-alert/src/react-confirm-alert.css';
 import { useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2';
 

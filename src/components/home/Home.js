@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import CardContainer from './HomeCardContainer';
 import { NavLink } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
+import Button from 'react-bootstrap/Button';
 
 function Home() {
 	return (

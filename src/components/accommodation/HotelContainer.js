@@ -12,6 +12,8 @@ function GetHotels() {
 	const [hotels, setHotels] = useState([]);
 	const [filteredHotels, setFilteredHotels] = useState([]);
 	const [loading, setLoading] = useState(true);
+	const [filterPrice, setFilterPrice] = React.useState(200);
+	const [filterGuests, setFilterGuests] = React.useState(1);
 	const url = BASE_URL + 'establishments';
 	const linkPath = 'hotel/';
 	const btnText = 'View';
@@ -53,7 +55,7 @@ function GetHotels() {
 	let numberGuests;
 	let searchValue;
 
-	//get users filter for number of visitors
+	/*//get users filter for number of visitors
 	function maxGuests(visitors) {
 		return (numberGuests = visitors);
 	}
@@ -62,7 +64,7 @@ function GetHotels() {
 	function maxPrice(max) {
 		price = max;
 		return price;
-	}
+	}*/
 
 	function searchName(e) {
 		searchValue = e.target.value.toLowerCase();
@@ -82,8 +84,8 @@ function GetHotels() {
 			}
 			//check if the hotel name includes the search value
 			if (
-				hotelPrice < maxPrice(price) &&
-				hotelCapacity > maxGuests(numberGuests) &&
+				hotelPrice < filterPrice &&
+				hotelCapacity > filterGuests &&
 				lowerCaseName.includes(searchValue)
 			) {
 				//add to filtered array
@@ -104,8 +106,10 @@ function GetHotels() {
 			<Search searchName={searchName} hotels={hotels} />
 			<Row className='d-flex justify-content-around'>
 				<Filters
-					maxGuests={maxGuests}
-					maxPrice={maxPrice}
+					filterGuests={filterGuests}
+					filterPrice={filterPrice}
+					setFilterGuests={setFilterGuests}
+					setFilterPrice={setFilterPrice}
 					handleSearch={filterHotels}
 				/>
 			</Row>
