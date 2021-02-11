@@ -40,14 +40,8 @@ function Dashboard() {
 							const { id, name, link, img } = option;
 
 							return (
-								<Col className='d-flex' xs={12} sm={6}>
-									<DashBoardCards
-										key={id}
-										id={id}
-										name={name}
-										link={link}
-										img={img}
-									/>
+								<Col className='d-flex' xs={12} sm={6} key={id}>
+									<DashBoardCards id={id} name={name} link={link} img={img} />
 								</Col>
 							);
 						})}

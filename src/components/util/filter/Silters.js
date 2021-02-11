@@ -12,24 +12,22 @@ function Filters({
 }) {
 	return (
 		<Form onChange={(event) => handleSearch(event)}>
-			<Form.Group as={Row}>
+			<Row className='d-flex justify-content-between'>
 				<Col xs={5}>
-					<Form.Label className='filter__title'>
-						<p>Price €</p>
-					</Form.Label>
-					<RangeSlider
-						value={filterPrice}
-						onChange={(e) => setFilterPrice(e.target.value)}
-						tooltipPlacement='top'
-						tooltip='on'
-						max={300}
-						min={85}
-					/>
-				</Col>
+					<Col xs={12}>
+						<p className='slider__title'> Price€ </p>{' '}
+						<RangeSlider
+							value={filterPrice}
+							onChange={(e) => setFilterPrice(e.target.value)}
+							tooltipPlacement='top'
+							tooltip='on'
+							max={300}
+							min={85}
+						/>{' '}
+					</Col>{' '}
+				</Col>{' '}
 				<Col xs={5}>
-					<Form.Label className='filter__title'>
-						<p>Max Guests</p>
-					</Form.Label>
+					<p className='slider__title'> Max Guests </p>{' '}
 					<RangeSlider
 						value={filterGuests}
 						onChange={(e) => setFilterGuests(e.target.value)}
@@ -37,9 +35,9 @@ function Filters({
 						tooltip='on'
 						max={20}
 						min={1}
-					/>
-				</Col>
-			</Form.Group>
+					/>{' '}
+				</Col>{' '}
+			</Row>{' '}
 		</Form>
 	);
 }

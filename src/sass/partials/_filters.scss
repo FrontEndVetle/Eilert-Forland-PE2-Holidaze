@@ -1,14 +1,17 @@
-.filter {
+.slider {
     margin-top: 50px;
     &__title {
         text-align: center;
-        margin-bottom: 50px;
     }
 }
 
-.search-link {
-    width: 100%;
-    color: $text-color;
+.search {
+    margin-top: 30px;
+    column-rule-color: black;
+    &__link {
+        width: 100%;
+        color: $text-color;
+    }
 }
 
 @media (min-width: 641px) {}

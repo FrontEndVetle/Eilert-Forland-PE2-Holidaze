@@ -4,7 +4,7 @@ import HotelCards from '../accommodation/HotelCards';
 import { Row, Col } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 import Search from '../util/filter/Search';
-import Filters from '../util/filter/Filters';
+import Filters from '../util/filter/Silters';
 import Spinner from 'react-bootstrap/Spinner';
 import HotelMap from './hotelMap/HotelMap';
 
@@ -88,17 +88,25 @@ function GetHotels() {
 	return (
 		<div className='content'>
 			<h1>Accommodations</h1>
+			<hr />
+			<h4 className='text-center'>What are you looking for?</h4>
 
-			<Search searchName={searchName} hotels={hotels} />
-			<Row className='d-flex justify-content-around'>
-				<Filters
-					filterGuests={filterGuests}
-					filterPrice={filterPrice}
-					setFilterGuests={setFilterGuests}
-					setFilterPrice={setFilterPrice}
-					handleSearch={filterHotels}
-				/>
+			<Row className='filter d-flex justify-content-between'>
+				<Col md={6}>
+					<Search searchName={searchName} hotels={hotels} />
+				</Col>
+				<Col md={4}>
+					<Filters
+						filterGuests={filterGuests}
+						filterPrice={filterPrice}
+						setFilterGuests={setFilterGuests}
+						setFilterPrice={setFilterPrice}
+						handleSearch={filterHotels}
+					/>
+				</Col>
 			</Row>
+			<hr />
+
 			<Row className='d-flex justify-content-between'>
 				<Col md={8}>
 					<Row>

@@ -1,9 +1,9 @@
 import React from 'react';
-import Image from 'react-bootstrap/Image';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tabs';
 import Accordion from 'react-bootstrap/Accordion';
+import PropTypes from 'prop-types';
 
 import { FaHome, FaGlassMartiniAlt } from 'react-icons/fa';
 import { Card, Button } from 'react-bootstrap';
@@ -19,9 +19,10 @@ function HotelInfo({ image, name, info, dining }) {
 			/>
 			<Card.Body>
 				<Card.Title>
-					<h1 detail__title>{name}</h1>
+					<h1 className='detail__title'>{name}</h1>
 				</Card.Title>
-				<Accordion className='d-md-none' defaultActiveKey='0'>
+				<hr />
+				<Accordion className='accord d-md-none' defaultActiveKey='0'>
 					<Card>
 						<Card.Header>
 							<Accordion.Toggle as={Button} variant='link' eventKey='0'>
@@ -48,7 +49,7 @@ function HotelInfo({ image, name, info, dining }) {
 							<Card.Body>
 								<ListGroup variant='flush'>
 									<ListGroup.Item>
-										<FaGlassMartiniAlt className='icons' /> {dining}
+										<FaGlassMartiniAlt className='icons' /> <p>{dining}</p>
 									</ListGroup.Item>
 								</ListGroup>
 							</Card.Body>
@@ -58,18 +59,11 @@ function HotelInfo({ image, name, info, dining }) {
 				<div className='d-none d-md-block'>
 					<Tabs defaultActiveKey='info' id='uncontrolled-tab-example'>
 						<Tab eventKey='info' title='Information'>
-							<ListGroup variant='flush'>
-								<ListGroup.Item>
-									<FaHome className='icons' /> {info}
-								</ListGroup.Item>
-							</ListGroup>
+							<FaHome className='icons' />
+							<p>{info}</p>
 						</Tab>
 						<Tab eventKey='catering' title='Catering'>
-							<ListGroup variant='flush'>
-								<ListGroup.Item>
-									<FaGlassMartiniAlt className='icons' /> {dining}
-								</ListGroup.Item>
-							</ListGroup>
+							<FaGlassMartiniAlt className='icons' /> <p>{dining}</p>
 						</Tab>
 					</Tabs>
 				</div>
@@ -77,5 +71,12 @@ function HotelInfo({ image, name, info, dining }) {
 		</Card>
 	);
 }
+
+HotelInfo.propTypes = {
+	image: PropTypes.string,
+	dining: PropTypes.string,
+	info: PropTypes.string,
+	name: PropTypes.string.isRequired,
+};
 
 export default HotelInfo;

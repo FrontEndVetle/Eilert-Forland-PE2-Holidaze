@@ -6,6 +6,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { FaChevronRight } from 'react-icons/fa';
 import { Card } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
 import Button from 'react-bootstrap/Button';
 
@@ -22,10 +23,11 @@ function BookDate({
 		<Card className='detail'>
 			<Card.Title>
 				<h2 className='detail__title'>Choose booking dates</h2>
+				<hr />
 			</Card.Title>
 			<Card.Body>
 				<ListGroup variant='flush'>
-					<Row container spacing={1} className='d-flex justify-content-between'>
+					<Row spacing={1} className='d-flex justify-content-between'>
 						<Col xs={12} sm={5}>
 							<DatePicker
 								dateFormat='yyyy-MM-dd'
@@ -73,5 +75,15 @@ function BookDate({
 		</Card>
 	);
 }
+
+BookDate.propTypes = {
+	endDate: PropTypes.instanceOf(Date),
+	startDate: PropTypes.instanceOf(Date),
+	handleSelect: PropTypes.func,
+	setStartDate: PropTypes.func,
+	setEndDate: PropTypes.func,
+	guestOptions: PropTypes.array,
+	modalSHow: PropTypes.func,
+};
 
 export default BookDate;

@@ -29,6 +29,7 @@ function ContactForm({ onSubmit, heading }) {
 	return (
 		<Form noValidate onSubmit={handleSubmit(onSubmit)}>
 			<h1>{heading}</h1>
+			<hr />
 
 			<Row>
 				<Col>

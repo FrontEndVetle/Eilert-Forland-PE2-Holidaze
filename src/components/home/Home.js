@@ -24,9 +24,11 @@ function Home() {
 				<Row className='d-flex justify-content-center'>
 					<Col xs={10} md={10}>
 						<p className='home-info__text'>
+							<hr />
 							Holidaze assists tourists in providing traditional and
 							untraditional accommodation in and around Bergen. We connect local
 							owners of quality accommodations with adventurous travelers.
+							<hr />
 						</p>
 					</Col>
 				</Row>
