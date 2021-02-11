@@ -34,7 +34,7 @@ function HomeDetail() {
 				console.log(data);
 				// handle error
 				if (data.error) {
-					setHotels([]);
+					setDetail([]);
 					Swal.fire({
 						icon: 'error',
 						title: 'Oops...',
