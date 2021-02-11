@@ -3,7 +3,7 @@ import ContactForm from './ContactForm';
 import { Container, Row, Col } from 'react-bootstrap';
 
 import { useHistory } from 'react-router-dom';
-import { BASE_URL, header } from '../../constants/api';
+import { BASE_URL, headers } from '../../constants/api';
 
 import HotelMap from '../accommodation/hotelMap/HotelMap';
 

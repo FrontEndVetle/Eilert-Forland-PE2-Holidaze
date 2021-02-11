@@ -29,7 +29,7 @@ function EditHotel() {
 				console.log(json);
 				// handle error
 				if (json.error) {
-					setHotels([]);
+					setHotel([]);
 					Swal.fire({
 						icon: 'error',
 						title: 'Oops...',
