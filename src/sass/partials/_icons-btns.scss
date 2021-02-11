@@ -13,26 +13,26 @@
         cursor: pointer;
     }
     &__primary {
-        border: $btn-border !important;
-        color: $text-color !important;
+        border: $btn-border;
+        color: $text-color;
         &:hover {
-            background-color: $btn-hover !important;
-            color: $text-light !important;
+            background-color: $btn-hover;
+            color: $text-light;
         }
     }
     &__secondary {
-        border: $btn-border !important;
-        color: $text-color !important;
+        border: $btn-border;
+        color: $text-color;
         &:hover {
-            background-color: $btn-hover !important;
-            color: $text-light !important;
+            background-color: $btn-hover;
+            color: $text-light;
         }
     }
     &__action {
-        background-color: $btn-action !important;
-        color: $text-light !important;
+        background-color: $btn-action;
+        color: $text-light;
         &:hover {
-            background-color: $btn-action-hover !important;
+            background-color: $btn-action-hover;
         }
     }
 }

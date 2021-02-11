@@ -1,8 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.css';
-import RangeSlider from 'react-bootstrap-range-slider';
 import Form from 'react-bootstrap/Form';
+import RangeSlider from 'react-bootstrap-range-slider';
 
 function Filters({
 	filterPrice,

@@ -12,7 +12,7 @@ function GetHotels() {
 	const [hotels, setHotels] = useState([]);
 	const [filteredHotels, setFilteredHotels] = useState([]);
 	const [loading, setLoading] = useState(true);
-	const [filterPrice, setFilterPrice] = React.useState(200);
+	const [filterPrice, setFilterPrice] = React.useState(270);
 	const [filterGuests, setFilterGuests] = React.useState(1);
 	const url = BASE_URL + 'establishments';
 	const linkPath = 'hotel/';
@@ -50,22 +50,8 @@ function GetHotels() {
 		return <Spinner className='spinner' animation='border' variant='primary' />;
 	}
 
-	//varibles to store user filter input
-	let price;
-	let numberGuests;
+	//use searchValue to filter on hotels displaying correct cards
 	let searchValue;
-
-	/*//get users filter for number of visitors
-	function maxGuests(visitors) {
-		return (numberGuests = visitors);
-	}
-
-	//get maxPrice value user has set
-	function maxPrice(max) {
-		price = max;
-		return price;
-	}*/
-
 	function searchName(e) {
 		searchValue = e.target.value.toLowerCase();
 		filterHotels();

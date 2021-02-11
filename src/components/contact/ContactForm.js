@@ -33,7 +33,7 @@ function ContactForm({ onSubmit, heading }) {
 			<Row>
 				<Col>
 					<Form.Row>
-						<Form.Group as={Col} md='10' controlId='name'>
+						<Form.Group as={Col} md='12' controlId='name'>
 							<Form.Label>Full name</Form.Label>
 							<Form.Control
 								type='text'
@@ -46,7 +46,7 @@ function ContactForm({ onSubmit, heading }) {
 								{errors.name && <p>{errors.name.message}</p>}
 							</Form.Control.Feedback>
 						</Form.Group>
-						<Form.Group as={Col} md='10' controlId='email'>
+						<Form.Group as={Col} md='12' controlId='email'>
 							<Form.Label>Email</Form.Label>
 							<Form.Control
 								type='text'
@@ -59,7 +59,7 @@ function ContactForm({ onSubmit, heading }) {
 								{errors.email && <p>{errors.email.message}</p>}
 							</Form.Control.Feedback>
 						</Form.Group>
-						<Form.Group as={Col} md='10' controlId='message'>
+						<Form.Group as={Col} md='12' controlId='message'>
 							<Form.Label>Send us a message</Form.Label>
 							<Form.Control
 								name='message'
@@ -85,45 +85,3 @@ function ContactForm({ onSubmit, heading }) {
 }
 
 export default ContactForm;
-/*<form className='form' onSubmit={handleSubmit(onSubmit)}>
-			<Grid>
-				<TextField
-					name='name'
-					label='Full Name'
-					placeholder='Name'
-					fullWidth
-					margin='normal'
-					required
-					inputRef={register}
-				/>
-
-				<TextField
-					name='email'
-					label='Email'
-					placeholder='Enter your Email'
-					inputRef={register}
-					required
-					fullWidth
-					margin='normal'
-				/>
-
-				<TextField
-					name='message'
-					as='textarea'
-					required
-					label='Message'
-					placeholder='Enter your message'
-					rows={3}
-					inputRef={register}
-					fullWidth
-					margin='normal'
-					multiline
-					rowsMax={4}
-					variant='outlined'
-				/>
-
-				<Button className='form__btn btn' type='submit'>
-					Submit
-				</Button>
-			</Grid>
-		</form>*/

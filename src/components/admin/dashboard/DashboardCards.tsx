@@ -14,26 +14,25 @@ type Props = {
 
 function DashboardCards({ link, name, img }: Props) {
 	return (
-		<Card className='card'>
+		<Card className='hotel-card'>
 			<NavLink to={link}>
 				<Card.Img
 					variant='top'
-					className='card__img'
+					className='hotel-card__img'
 					src={img}
 					alt='Admin utilities image'
 				/>
 				<Card.Body>
-					<ListGroup variant='flush'>
-						<ListGroup.Item>
-							<h2 className='card__title'> {name}</h2>
-						</ListGroup.Item>
-					</ListGroup>
+					<Card.Title>
+						<h2 className='hotel-card__title'> {name}</h2>
+					</Card.Title>
+					<ListGroup variant='flush'></ListGroup>
 				</Card.Body>
 			</NavLink>
 
 			<NavLink to={link}>
 				<Card.Body>
-					<Button className='card__btn btn btn__primary'>Select</Button>
+					<Button className='hotel-card__btn btn btn__primary'>Select</Button>
 				</Card.Body>
 			</NavLink>
 		</Card>

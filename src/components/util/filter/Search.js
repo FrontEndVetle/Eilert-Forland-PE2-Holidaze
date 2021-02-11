@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { NavLink } from 'react-router-dom';
-import { Typeahead, Token } from 'react-bootstrap-typeahead';
+import { Typeahead } from 'react-bootstrap-typeahead';
 import 'react-bootstrap-typeahead/css/Typeahead.css';
 import Form from 'react-bootstrap/Form';
 
 import PropTypes from 'prop-types';
-
-let id;
 
 export default function Search({ searchName, hotels }) {
 	console.log(hotels);
@@ -24,7 +22,7 @@ export default function Search({ searchName, hotels }) {
 							<div>
 								<p>
 									<NavLink className='search-link' to={'hotel/' + option.id}>
-										{option.name} ${option.price}{' '}
+										{option.name} ${option.price}
 									</NavLink>
 								</p>
 							</div>

@@ -1,4 +1,4 @@
-.card {
+.hotel-card {
     -webkit-box-shadow: $kit-shadow;
     box-shadow: $box-shadow;
     margin: 20px 5px;
@@ -24,13 +24,13 @@
 .detail {
     -webkit-box-shadow: $kit-shadow;
     box-shadow: $box-shadow;
-    padding: 20px;
     border: none;
     margin-top: 20px;
     text-align: center;
     &__title {
         text-align: center;
         color: $text-color;
+        margin: 20px 0px;
     }
     &__img {
         width: 100%;
@@ -46,6 +46,7 @@
         color: $text-light;
         background-color: $nav-bg;
         padding: 3px;
+        text-align: center;
     }
     &__guests {
         border-radius: 5%;

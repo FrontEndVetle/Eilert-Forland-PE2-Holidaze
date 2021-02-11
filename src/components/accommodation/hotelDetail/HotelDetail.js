@@ -121,25 +121,22 @@ function HomeDetail() {
 		<Container>
 			<Row className='content d-flex justify-content-between'>
 				<Col xs={12} sm={7} md={6}>
-					<div className='detail'>
-						<HotelInfo
-							info={detail.description}
-							image={detail.image}
-							name={detail.name}
-							dining={dining}
-						/>
-					</div>
-					<div className='detail'>
-						<BookDate
-							startDate={startDate}
-							setStartDate={setStartDate}
-							endDate={endDate}
-							setEndDate={setEndDate}
-							handleSelect={handleSelect}
-							guestOptions={guestOptions}
-							modalShow={modalShow}
-						/>
-					</div>
+					<HotelInfo
+						info={detail.description}
+						image={detail.image}
+						name={detail.name}
+						dining={dining}
+					/>
+
+					<BookDate
+						startDate={startDate}
+						setStartDate={setStartDate}
+						endDate={endDate}
+						setEndDate={setEndDate}
+						handleSelect={handleSelect}
+						guestOptions={guestOptions}
+						modalShow={modalShow}
+					/>
 				</Col>
 				<Col xs={12} sm={5}>
 					<div className='detail'>
@@ -147,17 +144,15 @@ function HomeDetail() {
 							<HotelMap pinList={pinList} mapZoom={10} />
 						</div>
 					</div>
-					<div className='detail'>
-						<BookingInfo
-							days={days}
-							price={detail.price}
-							totalPrice={totalPrice}
-							guests={guests}
-							startDate={startDate}
-							checkinDate={checkinDate}
-							checkoutDate={checkoutDate}
-						/>
-					</div>
+					<BookingInfo
+						days={days}
+						price={detail.price}
+						totalPrice={totalPrice}
+						guests={guests}
+						startDate={startDate}
+						checkinDate={checkinDate}
+						checkoutDate={checkoutDate}
+					/>
 				</Col>
 			</Row>
 			<EnquiryModal
