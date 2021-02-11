@@ -18,15 +18,15 @@ export default function Search({ searchName, hotels }) {
 						id='basic-typeahead-single'
 						labelKey='name'
 						options={hotels}
-						placeholder='Choose a state...'
+						placeholder='Search bt name...'
 						renderMenuItemChildren={(option) => (
 							<div>
 								<NavLink className='search__link' to={'hotel/' + option.id}>
 									<p>
 										<FaBed /> ┃ {option.name} ┃ $ {option.price}
 									</p>
+									<hr className='search__hr' />
 								</NavLink>
-								<hr />
 							</div>
 						)}
 					/>

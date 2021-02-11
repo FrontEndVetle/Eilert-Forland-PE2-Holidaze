@@ -1,16 +1,43 @@
+.rbt .dropdown-menu {
+    background-color: $nav-bg;
+}
+
+.rbt .dropdown-menu .dropdown-item {
+    background-color: $nav-bg;
+}
+
 .slider {
     margin-top: 50px;
+    color: $text-light;
     &__title {
         text-align: center;
+        color: $text-light;
     }
 }
 
 .search {
     margin-top: 30px;
-    column-rule-color: black;
+    color: $text-light;
+    background-color: $dark-bg;
     &__link {
         width: 100%;
-        color: $text-color;
+        color: $text-light;
+        &:hover {
+            color: $link-hover;
+        }
+    }
+    &__hr {
+        background-color: $text-light;
+    }
+}
+
+.filter {
+    background-color: $dark-bg;
+    padding: 20px;
+    border-radius: 20px;
+    color: $text-light;
+    &__title {
+        text-align: center;
     }
 }
 

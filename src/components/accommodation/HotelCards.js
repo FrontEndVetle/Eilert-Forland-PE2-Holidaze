@@ -2,7 +2,7 @@ import React from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-
+import { FaEuroSign, FaBed } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
@@ -23,10 +23,15 @@ function HotelCards({ name, id, image, price, maxGuests, linkPath, btnText }) {
 					<ListGroup className='hotel-card__text' variant='flush'>
 						<ListGroup.Item></ListGroup.Item>
 						<ListGroup.Item>
-							<Card.Text>{price}</Card.Text>
+							<Card.Text>
+								<FaEuroSign className='icons' /> {price}
+							</Card.Text>
 						</ListGroup.Item>
 						<ListGroup.Item>
-							<Card.Text>{maxGuests}</Card.Text>
+							<Card.Text>
+								<FaBed className='icons' />
+								{maxGuests}
+							</Card.Text>
 						</ListGroup.Item>
 					</ListGroup>
 				</Card.Body>

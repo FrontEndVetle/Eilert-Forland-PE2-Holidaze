@@ -3,6 +3,11 @@
     width: 100px;
 }
 
+.navbar .dropdown-menu {
+    background-color: $nav-bg;
+    text-align: center;
+}
+
 .nav {
     background-color: $nav-bg;
     text-align: center;
@@ -12,19 +17,8 @@
             color: $hover-a;
             text-decoration: underline;
             text-align: center;
+            background-color: $nav-bg;
         }
-    }
-}
-
-.dropdown-menu {
-    background-color: $nav-bg;
-}
-
-.dropdown-item {
-    text-align: center;
-    color: $text-color;
-    &:hover {
-        background-color: $nav-bg;
     }
 }
 
@@ -34,12 +28,12 @@
     }
     &__btn {
         width: 100%;
-        border: $btn-border !important;
-        color: $text-light !important;
-        background-color: $btn-color !important;
+        border: $btn-border;
+        color: $text-light;
+        background-color: $btn-color;
         &:hover {
-            background-color: $btn-hover !important;
-            color: $text-light !important;
+            background-color: $btn-hover;
+            color: $text-light;
         }
     }
 }

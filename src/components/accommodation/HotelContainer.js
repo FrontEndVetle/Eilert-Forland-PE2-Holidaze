@@ -89,22 +89,23 @@ function GetHotels() {
 		<div className='content'>
 			<h1>Accommodations</h1>
 			<hr />
-			<h4 className='text-center'>What are you looking for?</h4>
-
-			<Row className='filter d-flex justify-content-between'>
-				<Col md={6}>
-					<Search searchName={searchName} hotels={hotels} />
-				</Col>
-				<Col md={4}>
-					<Filters
-						filterGuests={filterGuests}
-						filterPrice={filterPrice}
-						setFilterGuests={setFilterGuests}
-						setFilterPrice={setFilterPrice}
-						handleSearch={filterHotels}
-					/>
-				</Col>
-			</Row>
+			<div className='filter'>
+				<h4 className='filter__title'>What are you looking for?</h4>
+				<Row className=' d-flex justify-content-between'>
+					<Col xs={12} md={6} lg={5}>
+						<Search searchName={searchName} hotels={hotels} />
+					</Col>
+					<Col sm={12} md={6} lg={4}>
+						<Filters
+							filterGuests={filterGuests}
+							filterPrice={filterPrice}
+							setFilterGuests={setFilterGuests}
+							setFilterPrice={setFilterPrice}
+							handleSearch={filterHotels}
+						/>
+					</Col>
+				</Row>
+			</div>
 			<hr />
 
 			<Row className='d-flex justify-content-between'>

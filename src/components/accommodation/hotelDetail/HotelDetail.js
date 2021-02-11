@@ -30,10 +30,10 @@ function HomeDetail() {
 	useEffect(() => {
 		fetch(url, options)
 			.then((response) => response.json())
-			.then((json) => {
-				console.log(json);
+			.then((data) => {
+				console.log(data);
 				// handle error
-				if (json.error) {
+				if (data.error) {
 					setHotels([]);
 					Swal.fire({
 						icon: 'error',
@@ -42,7 +42,7 @@ function HomeDetail() {
 						footer: 'Please try and reload the ',
 					});
 				} else {
-					setDetail(json);
+					setDetail(data);
 				}
 			})
 			.catch((error) => console.log(error))
