@@ -27,35 +27,40 @@ function BookDate({
 			</Card.Title>
 			<Card.Body>
 				<ListGroup variant='flush'>
-					<Row spacing={1} className='d-flex justify-content-between'>
-						<Col xs={12} sm={5}>
-							<DatePicker
-								dateFormat='yyyy-MM-dd'
-								selected={startDate}
-								onChange={(date) => setStartDate(date)}
-								selectsStart
-								startDate={startDate}
-								endDate={endDate}
-								className='detail__datepicker'
-							/>
-						</Col>
-						<Col xs={12} sm={1}>
-							<FaChevronRight className='icons' />
-						</Col>
-						<Col xs={12} sm={5}>
-							<DatePicker
-								className='detail__datepicker'
-								dateFormat='yyyy-MM-dd'
-								selected={endDate}
-								onChange={(date) => setEndDate(date)}
-								selectsEnd
-								startDate={startDate}
-								endDate={endDate}
-								minDate={startDate}
-							/>
-						</Col>
-					</Row>
-
+					<ListGroup.Item>
+						<Row
+							spacing={1}
+							className='d-flex justify-content-between detail__pickers'>
+							<Col xs={12} sm={4}>
+								<p className='text-center font-special'>checkin</p>
+								<DatePicker
+									dateFormat='yyyy-MM-dd'
+									selected={startDate}
+									onChange={(date) => setStartDate(date)}
+									selectsStart
+									startDate={startDate}
+									endDate={endDate}
+									className='detail__datepicker'
+								/>
+							</Col>
+							<Col xs={12} sm={1}>
+								<FaChevronRight className='icons' />
+							</Col>
+							<Col xs={12} sm={4}>
+								<p className='text-center font-special'>checkout</p>
+								<DatePicker
+									className='detail__datepicker'
+									dateFormat='yyyy-MM-dd'
+									selected={endDate}
+									onChange={(date) => setEndDate(date)}
+									selectsEnd
+									startDate={startDate}
+									endDate={endDate}
+									minDate={startDate}
+								/>
+							</Col>
+						</Row>
+					</ListGroup.Item>
 					<ListGroup.Item>
 						<Form.Group>
 							<Form.Label>Number of guests</Form.Label>

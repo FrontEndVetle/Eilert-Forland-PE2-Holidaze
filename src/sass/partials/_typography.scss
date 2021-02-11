@@ -3,7 +3,7 @@
 body {
     font-size: $body-text-m;
     font-family: $font-stack;
-    color: $text-color;
+    color: $text-light;
 }
 
 a {
@@ -13,10 +13,6 @@ a {
     &:hover {
         color: $link-hover;
     }
-}
-
-.MuiAvatar-colorDefault {
-    background-color: $nav-bg;
 }
 
 

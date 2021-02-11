@@ -1,3 +1,7 @@
+/*.d-flex .card {
+    background-color: $dark-bg;
+}*/
+
 .hotel-card {
     -webkit-box-shadow: $kit-shadow;
     box-shadow: $box-shadow;
@@ -27,7 +31,6 @@
     box-shadow: $box-shadow;
     border: none;
     margin-top: 20px;
-    text-align: center;
     &__title {
         text-align: center;
         color: $text-color;
@@ -43,6 +46,12 @@
     &__datepicker {
         width: 130px;
         border-radius: 5%;
+        color: $text-light;
+        background-color: $nav-bg;
+        padding: 3px;
+        text-align: center;
+    }
+    &__pickers {
         color: $text-light;
         background-color: $nav-bg;
         padding: 3px;
