@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Row, Container } from 'react-bootstrap/';
 
 import { useHistory } from 'react-router-dom';
@@ -8,6 +8,7 @@ import Heading from '../../ui/Heading';
 import EditHotelForm from './EditHotelForm';
 
 function AddHotel() {
+	const [catering, setCatering] = useState('true');
 	const history = useHistory();
 	const btnName = 'Add Accommodation';
 
@@ -15,9 +16,14 @@ function AddHotel() {
 
 	async function onSubmit(data) {
 		console.log('data', data);
+		//check if user has clicked for selfCatering
+		if (catering === true) {
+			data.selfCatering = false;
+		} else {
+			data.selfCatering = true;
+		}
 
 		// Create establishment with POST method
-		// serialise the data
 		const methods = { headers, method: 'POST', body: JSON.stringify(data) };
 
 		// send every
@@ -34,6 +40,8 @@ function AddHotel() {
 					<EditHotelForm
 						onSubmit={onSubmit}
 						btnName={btnName}
+						setCatering={setCatering}
+						catering={catering}
 						btnVar={<CardBtn linkPath='/admin' btnText='Cancel' />}
 					/>
 				</Row>

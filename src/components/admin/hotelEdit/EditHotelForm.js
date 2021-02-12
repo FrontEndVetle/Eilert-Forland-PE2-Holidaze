@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { Col, Row, Form, Button } from 'react-bootstrap/';
-
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import ToggleButton from 'react-bootstrap/ToggleButton';
 import PropTypes from 'prop-types';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -35,10 +36,17 @@ function EditHotelForm({
 	name,
 	btnName,
 	btnVar,
+	setCatering,
+	catering,
 }) {
 	const { register, handleSubmit, errors } = useForm({
 		resolver: yupResolver(schema),
 	});
+
+	const radios = [
+		{ name: 'catering', value: 'false' },
+		{ name: 'Self-Catering', value: 'true' },
+	];
 
 	return (
 		<Form onSubmit={handleSubmit(onSubmit)}>
@@ -85,6 +93,21 @@ function EditHotelForm({
 							<Form.Control.Feedback type='invalid'>
 								{errors.maxGuests && <p>{errors.maxGuests.message}</p>}
 							</Form.Control.Feedback>
+
+							<ButtonGroup toggle>
+								{radios.map((radio, idx) => (
+									<ToggleButton
+										key={idx}
+										type='radio'
+										variant='secondary'
+										name='radio'
+										value={radio.value}
+										checked={catering === radio.value}
+										onChange={(e) => setCatering(e.currentTarget.value)}>
+										{radio.name}
+									</ToggleButton>
+								))}
+							</ButtonGroup>
 						</Form.Group>
 						<Form.Group as={Col} md='10' controlId='description'>
 							<Form.Label>Send us a message</Form.Label>
@@ -207,6 +230,7 @@ EditHotelForm.propTypes = {
 	id: PropTypes.string,
 	btnName: PropTypes.string,
 	btnVar: PropTypes.object,
+	selfCatering: PropTypes.bool,
 };
 
 export default EditHotelForm;

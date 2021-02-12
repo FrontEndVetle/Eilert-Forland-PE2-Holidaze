@@ -13,6 +13,7 @@ function EditHotel() {
 	const history = useHistory();
 	const [hotel, setHotel] = useState({});
 	const [loading, setLoading] = useState(true);
+	const [catering, setCatering] = useState('true');
 
 	const deletePath = 'establishments/';
 	const historyPath = '/admin/hotels';
@@ -50,14 +51,18 @@ function EditHotel() {
 	}
 
 	async function onSubmit(data) {
-		console.log('data', data);
+		//check if user has clicked for selfCatering
+		if (catering === true) {
+			data.selfCatering = false;
+		} else {
+			data.selfCatering = true;
+		}
 
 		const methods = { headers, method: 'PATCH', body: JSON.stringify(data) };
 
 		await fetch(url, methods);
 		history.push('/admin/hotels');
 	}
-
 	const {
 		name,
 		description,
@@ -68,7 +73,6 @@ function EditHotel() {
 		maxGuests,
 		lng,
 		lat,
-		selfCatering,
 	} = hotel;
 
 	if (hotel) {
@@ -90,7 +94,8 @@ function EditHotel() {
 							lng={lng}
 							description={description}
 							address={address}
-							selfCatering={selfCatering}
+							setCatering={setCatering}
+							catering={catering}
 							btnName={btnName}
 							btnVar={
 								<ConfirmDelete
