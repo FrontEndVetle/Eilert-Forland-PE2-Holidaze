@@ -9,7 +9,8 @@ import HotelMap from '../accommodation/hotelMap/HotelMap';
 
 import Swal from 'sweetalert2';
 import { ListGroup } from 'react-bootstrap';
-import { FaMobileAlt, FaEnvelope, FaHome } from 'react-icons/fa';
+import { FaMobileAlt, FaEnvelope, FaHome, FaMobile } from 'react-icons/fa';
+import ListInfoIcon from '../ui/ListInfoIcon';
 
 function Contact() {
 	const history = useHistory();
@@ -53,26 +54,26 @@ function Contact() {
 								<ContactForm onSubmit={onSubmit} heading={heading} />
 							</Col>
 							<div className='border-right d-none d-md-block d-lg-block'></div>
-							<Col xs={12} md={5} className='form'>
+							<Col xs={12} md={6} className='form'>
 								<div className='map-specific'>
 									<HotelMap pinList={pinList} mapZoom={10} />
 								</div>
 								<ListGroup variant='flush'>
-									<ListGroup.Item>
-										<FaHome className='icons' />
-										<p>Bryggen 14</p>
-										<small>address</small>
-									</ListGroup.Item>
-									<ListGroup.Item>
-										<FaEnvelope className='icons' />
-										<p>holidaze@vacation.no</p>
-										<small>Email</small>
-									</ListGroup.Item>
-									<ListGroup.Item>
-										<FaMobileAlt className='icons' />
-										<p>+47 55849390030</p>
-										<small>Phone number</small>
-									</ListGroup.Item>
+									<ListInfoIcon
+										small='Address'
+										info='Bryggen 14'
+										icon={<FaHome />}
+									/>
+									<ListInfoIcon
+										small='Email'
+										info='holidaze@vacation.no'
+										icon={<FaEnvelope />}
+									/>
+									<ListInfoIcon
+										small='Phone number'
+										info='+47 55849390030'
+										icon={<FaMobileAlt />}
+									/>
 								</ListGroup>
 							</Col>
 						</Row>

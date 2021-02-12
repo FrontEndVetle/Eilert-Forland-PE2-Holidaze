@@ -2,6 +2,8 @@ import React from 'react';
 import { ListGroup } from 'react-bootstrap';
 import { FaCalendar, FaEuroSign, FaUserAlt, FaBed } from 'react-icons/fa';
 import { Card } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
+import ListInfoIcon from '../../ui/ListInfoIcon';
 
 function BookingInfo({
 	days,
@@ -15,34 +17,41 @@ function BookingInfo({
 		<Card className='detail'>
 			<Card.Title>
 				<h3 className='detail__title'>Booking information</h3>
-				<hr />
 			</Card.Title>
-
 			<Card.Body>
-				<ListGroup variant='flush'>
-					<ListGroup.Item>
-						<FaCalendar className='icons' /> Checkin {checkinDate}
-					</ListGroup.Item>
-					<ListGroup.Item>
-						<FaCalendar className='icons' />
-						CheckOut {checkoutDate}
-					</ListGroup.Item>
-					<ListGroup.Item>
-						<FaBed className='icons' /> {days + ' Nights'}
-					</ListGroup.Item>
-					<ListGroup.Item>
-						<FaEuroSign className='icons' />
-						{'€' + totalPrice + ' Total'}
-					</ListGroup.Item>
-					<ListGroup.Item>
-						<FaEuroSign className='icons' />
-						{'€' + price + ' per person per night'}
-					</ListGroup.Item>
-					<ListGroup.Item>
-						<FaUserAlt className='icons' />
-						{guests + ' Guests'}
-					</ListGroup.Item>
-				</ListGroup>
+				<Row>
+					<Col xs={12} lg={6}>
+						<ListGroup variant='flush'>
+							<ListInfoIcon
+								small='Checkin'
+								info={checkinDate}
+								icon={<FaCalendar />}
+							/>
+							<ListInfoIcon
+								small='Checkin'
+								info={checkinDate}
+								icon={<FaCalendar />}
+							/>
+							<ListInfoIcon small='Nights' info={days} icon={<FaBed />} />
+						</ListGroup>
+					</Col>
+					<Col xs={12} lg={6}>
+						<ListGroup variant='flush'>
+							<ListInfoIcon
+								small='Total price'
+								info={'€' + totalPrice}
+								icon={<FaEuroSign />}
+							/>
+							<ListInfoIcon small='Guests' info={guests} icon={<FaUserAlt />} />
+
+							<ListInfoIcon
+								small='pr night pr person'
+								info={'€' + price}
+								icon={<FaEuroSign />}
+							/>
+						</ListGroup>
+					</Col>
+				</Row>
 			</Card.Body>
 		</Card>
 	);

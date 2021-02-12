@@ -127,14 +127,20 @@ function HomeDetail() {
 	return (
 		<Container>
 			<Row className='content d-flex justify-content-between'>
-				<Col xs={12} sm={7} md={6}>
+				<Col xs={12} md={5} md={6}>
 					<HotelInfo
 						info={detail.description}
 						image={detail.image}
 						name={detail.name}
 						dining={dining}
 					/>
-
+					<div className='detail'>
+						<div className=' detail__map'>
+							<HotelMap pinList={pinList} mapZoom={10} />
+						</div>
+					</div>
+				</Col>
+				<Col xs={12} md={6} lg={5}>
 					<BookDate
 						startDate={startDate}
 						setStartDate={setStartDate}
@@ -144,13 +150,6 @@ function HomeDetail() {
 						guestOptions={guestOptions}
 						modalShow={modalShow}
 					/>
-				</Col>
-				<Col xs={12} sm={5}>
-					<div className='detail'>
-						<div className=' detail__map'>
-							<HotelMap pinList={pinList} mapZoom={10} />
-						</div>
-					</div>
 					<BookingInfo
 						days={days}
 						price={detail.price}
