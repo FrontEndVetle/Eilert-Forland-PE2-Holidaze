@@ -76,5 +76,4 @@ function Navigation() {
 		</Navbar>
 	);
 }
-
 export default Navigation;

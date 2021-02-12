@@ -3,10 +3,10 @@ import { BASE_URL, headers } from '../../constants/api';
 import HotelCards from '../accommodation/HotelCards';
 import { Row, Col } from 'react-bootstrap';
 import Swal from 'sweetalert2';
-import Search from '../util/filter/Search';
-import Sliders from '../util/filter/Silders';
+import Search from '../ui/Search';
+import Sliders from '../ui/Silders';
 import Spinner from 'react-bootstrap/Spinner';
-import HotelMap from './hotelMap/HotelMap';
+import HotelMap from '../ui/hotelMap/HotelMap';
 import ListGroup from 'react-bootstrap/ListGroup';
 
 function GetHotels() {

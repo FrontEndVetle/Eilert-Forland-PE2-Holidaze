@@ -8,7 +8,7 @@ import BookDate from './BookDate';
 import BookingInfo from './BookingInfo';
 import Swal from 'sweetalert2';
 import moment from 'moment';
-import HotelMap from '../hotelMap/HotelMap';
+import HotelMap from '../../ui/hotelMap/HotelMap';
 
 function HomeDetail() {
 	const [detail, setDetail] = useState([]);

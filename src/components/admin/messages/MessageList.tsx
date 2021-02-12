@@ -1,5 +1,5 @@
 import React from 'react';
-import ConfirmDelete from '../../util/ConfirmDelete';
+import ConfirmDelete from '../ConfirmDelete';
 
 import { Col, Row, Card, ListGroup } from 'react-bootstrap/';
 import { FaHome, FaGlassMartiniAlt } from 'react-icons/fa';

@@ -5,7 +5,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import { BASE_URL, headers } from '../../constants/api';
 
-import HotelMap from '../accommodation/hotelMap/HotelMap';
+import HotelMap from '../ui/hotelMap/HotelMap';
 
 import Swal from 'sweetalert2';
 import { ListGroup } from 'react-bootstrap';
