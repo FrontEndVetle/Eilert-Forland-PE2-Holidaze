@@ -4,6 +4,9 @@
 
 .google-map {
     height: 170px;
+    -webkit-box-shadow: $kit-shadow;
+    box-shadow: $box-shadow;
+    margin-top: 20px;
 }
 
 @media (min-width: 641px) {
