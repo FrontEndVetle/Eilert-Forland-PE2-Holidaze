@@ -6,7 +6,7 @@ import { FaEuroSign, FaBed } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { Row, Col } from 'react-bootstrap';
-import ListInfoIcon from '../ui/ListInfoIcon';
+import InfoIcon from '../ui/InfoIcon';
 
 function HotelCards({ name, id, image, price, maxGuests, linkPath, btnText }) {
 	return (
@@ -28,16 +28,20 @@ function HotelCards({ name, id, image, price, maxGuests, linkPath, btnText }) {
 									<h4 className='hotel-card__title'> {name}</h4>
 								</Card.Title>
 								<ListGroup className='hotel-card__text' variant='flush'>
-									<ListInfoIcon
-										small='Price from'
-										info={'€' + price}
-										icon={<FaEuroSign />}
-									/>
-									<ListInfoIcon
-										small='Guest capacity'
-										info={maxGuests}
-										icon={<FaBed />}
-									/>
+									<ListGroup.Item>
+										<InfoIcon
+											small='Price from'
+											info={'€' + price}
+											icon={<FaEuroSign />}
+										/>
+									</ListGroup.Item>
+									<ListGroup.Item>
+										<InfoIcon
+											small='Guest capacity'
+											info={maxGuests}
+											icon={<FaBed />}
+										/>
+									</ListGroup.Item>
 								</ListGroup>
 							</Card.Body>
 						</NavLink>

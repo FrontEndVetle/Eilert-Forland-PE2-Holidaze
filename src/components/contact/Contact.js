@@ -10,7 +10,7 @@ import HotelMap from '../ui/hotelMap/HotelMap';
 import Swal from 'sweetalert2';
 import { ListGroup } from 'react-bootstrap';
 import { FaMobileAlt, FaEnvelope, FaHome, FaMobile } from 'react-icons/fa';
-import ListInfoIcon from '../ui/ListInfoIcon';
+import ListInfoIcon from '../ui/InfoIcon';
 
 function Contact() {
 	const history = useHistory();
@@ -59,21 +59,27 @@ function Contact() {
 									<HotelMap pinList={pinList} mapZoom={10} />
 								</div>
 								<ListGroup variant='flush'>
-									<ListInfoIcon
-										small='Address'
-										info='Bryggen 14'
-										icon={<FaHome />}
-									/>
-									<ListInfoIcon
-										small='Email'
-										info='holidaze@vacation.no'
-										icon={<FaEnvelope />}
-									/>
-									<ListInfoIcon
-										small='Phone number'
-										info='+47 55849390030'
-										icon={<FaMobileAlt />}
-									/>
+									<ListGroup.Item>
+										<ListInfoIcon
+											small='Address'
+											info='Bryggen 14'
+											icon={<FaHome />}
+										/>
+									</ListGroup.Item>
+									<ListGroup.Item>
+										<ListInfoIcon
+											small='Email'
+											info='holidaze@vacation.no'
+											icon={<FaEnvelope />}
+										/>
+									</ListGroup.Item>
+									<ListGroup.Item>
+										<ListInfoIcon
+											small='Phone number'
+											info='+47 55849390030'
+											icon={<FaMobileAlt />}
+										/>
+									</ListGroup.Item>
 								</ListGroup>
 							</Col>
 						</Row>

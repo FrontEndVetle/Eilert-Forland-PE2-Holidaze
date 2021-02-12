@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, ListGroup, Spinner } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
-import { BASE_URL, headers } from '../../../constants/api';
+import { BASE_URL, headers } from '../../constants/api';
 import HotelInfo from './HotelInfo';
 import EnquiryModal from './EnquiryModal';
 import BookDate from './BookDate';
 import BookingInfo from './BookingInfo';
 import Swal from 'sweetalert2';
 import moment from 'moment';
-import HotelMap from '../../ui/hotelMap/HotelMap';
+import HotelMap from '../ui/hotelMap/HotelMap';
 
 function HomeDetail() {
 	const [detail, setDetail] = useState([]);
@@ -73,7 +73,9 @@ function HomeDetail() {
 	for (let i = 0; i < detail.maxGuests; i++) {
 		guestOptions.push(
 			<option key={i} value={1 + i}>
-				{1 + i} Guest
+				{' '}
+				{1 + i}
+				Guest{' '}
 			</option>
 		);
 	}
@@ -113,12 +115,15 @@ function HomeDetail() {
 		name: detail.name,
 		maxGuests: (
 			<ListGroup.Item>
-				<p> Guest capacity: {detail.maxGuests}</p>
+				<p> Guest capacity: {detail.maxGuests} </p>{' '}
 			</ListGroup.Item>
 		),
 		price: (
 			<ListGroup.Item>
-				<p>Price: {detail.price} euro</p>
+				<p>
+					Price: {detail.price}
+					euro
+				</p>
 			</ListGroup.Item>
 		),
 		address: detail.address,
@@ -133,13 +138,13 @@ function HomeDetail() {
 						image={detail.image}
 						name={detail.name}
 						dining={dining}
-					/>
+					/>{' '}
 					<div className='detail'>
 						<div className=' detail__map'>
-							<HotelMap pinList={pinList} mapZoom={10} />
-						</div>
-					</div>
-				</Col>
+							<HotelMap pinList={pinList} mapZoom={10} />{' '}
+						</div>{' '}
+					</div>{' '}
+				</Col>{' '}
 				<Col xs={12} md={6} lg={5}>
 					<BookDate
 						startDate={startDate}
@@ -149,7 +154,7 @@ function HomeDetail() {
 						handleSelect={handleSelect}
 						guestOptions={guestOptions}
 						modalShow={modalShow}
-					/>
+					/>{' '}
 					<BookingInfo
 						days={days}
 						price={detail.price}
@@ -158,9 +163,9 @@ function HomeDetail() {
 						startDate={startDate}
 						checkinDate={checkinDate}
 						checkoutDate={checkoutDate}
-					/>
-				</Col>
-			</Row>
+					/>{' '}
+				</Col>{' '}
+			</Row>{' '}
 			<EnquiryModal
 				hotel={detail.name}
 				checkinDate={checkinDate}
@@ -168,7 +173,7 @@ function HomeDetail() {
 				modalClose={modalClose}
 				show={show}
 				onSubmit={onSubmit}
-			/>
+			/>{' '}
 		</Container>
 	);
 }

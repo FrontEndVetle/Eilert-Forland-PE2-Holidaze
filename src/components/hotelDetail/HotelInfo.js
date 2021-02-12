@@ -3,9 +3,11 @@ import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tabs';
 import Accordion from 'react-bootstrap/Accordion';
 import PropTypes from 'prop-types';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 import { FaHome, FaGlassMartiniAlt } from 'react-icons/fa';
 import { Card, Button, Col, Row } from 'react-bootstrap';
+import InfoIcon from '../ui/InfoIcon';
 
 function HotelInfo({ image, name, info, dining }) {
 	return (
@@ -18,7 +20,7 @@ function HotelInfo({ image, name, info, dining }) {
 			/>
 			<Card.Body>
 				<Card.Title>
-					<h1 className='detail__title'>{name}</h1>
+					<h1 className='detail__title'> {name} </h1>{' '}
 				</Card.Title>
 				<hr />
 				<Accordion className='accord d-md-none' defaultActiveKey='0'>
@@ -30,17 +32,13 @@ function HotelInfo({ image, name, info, dining }) {
 						</Card.Header>
 						<Accordion.Collapse eventKey='0'>
 							<Card.Body>
-								<Row className='d-flex align-items-center'>
-									<Col xs={3}>
-										<FaHome className='icons' />
-									</Col>
-									<Col xs={9}>
-										<p>{info}</p>
-									</Col>
-								</Row>
+								<ListGroup variant='flush'>
+									<InfoIcon info={info} icon={<FaHome />} />
+								</ListGroup>
 							</Card.Body>
 						</Accordion.Collapse>
 					</Card>
+
 					<Card>
 						<Card.Header>
 							<Accordion.Toggle as={Button} variant='link' eventKey='1'>
@@ -49,14 +47,9 @@ function HotelInfo({ image, name, info, dining }) {
 						</Card.Header>
 						<Accordion.Collapse eventKey='1'>
 							<Card.Body>
-								<Row className='d-flex align-items-center'>
-									<Col xs={3}>
-										<FaGlassMartiniAlt className='icons' />
-									</Col>
-									<Col xs={9}>
-										<p>{dining}</p>
-									</Col>
-								</Row>
+								<ListGroup variant='flush'>
+									<InfoIcon info={dining} icon={<FaGlassMartiniAlt />} />
+								</ListGroup>
 							</Card.Body>
 						</Accordion.Collapse>
 					</Card>
@@ -64,24 +57,10 @@ function HotelInfo({ image, name, info, dining }) {
 				<div className=' d-none d-md-block'>
 					<Tabs defaultActiveKey='info' id='detailTab'>
 						<Tab className='detail-tabs' eventKey='info' title='Information'>
-							<Row className='d-flex align-items-center'>
-								<Col md={2}>
-									<FaHome className='icons' />
-								</Col>
-								<Col md={10}>
-									<p>{info}</p>
-								</Col>
-							</Row>
+							<InfoIcon info={info} icon={<FaHome />} />
 						</Tab>
 						<Tab className='detail-tabs' eventKey='catering' title='Catering'>
-							<Row className='d-flex align-items-center'>
-								<Col md={2}>
-									<FaGlassMartiniAlt className='icons' />
-								</Col>
-								<Col md={10}>
-									<p>{dining}</p>
-								</Col>
-							</Row>
+							<InfoIcon info={dining} icon={<FaGlassMartiniAlt />} />
 						</Tab>
 					</Tabs>
 				</div>
