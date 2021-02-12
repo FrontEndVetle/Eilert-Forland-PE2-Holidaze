@@ -1,16 +1,14 @@
 import React from 'react';
 import ContactForm from './ContactForm';
 import { Container, Row, Col } from 'react-bootstrap';
-
 import { useHistory } from 'react-router-dom';
 import { BASE_URL, headers } from '../../constants/api';
-
 import HotelMap from '../ui/hotelMap/HotelMap';
-
 import Swal from 'sweetalert2';
 import { ListGroup } from 'react-bootstrap';
 import { FaMobileAlt, FaEnvelope, FaHome, FaMobile } from 'react-icons/fa';
 import ListInfoIcon from '../ui/InfoIcon';
+import Heading from '../ui/Heading';
 
 function Contact() {
 	const history = useHistory();
@@ -49,9 +47,10 @@ function Contact() {
 			<Container>
 				<Row className='d-flex justify-content-center'>
 					<Col md={10} className='contact__content '>
+						<Heading title='Contact' />
 						<Row className='d-flex justify-content-around'>
 							<Col xs={10} md={5}>
-								<ContactForm onSubmit={onSubmit} heading={heading} />
+								<ContactForm onSubmit={onSubmit} />
 							</Col>
 							<div className='border-right d-none d-md-block d-lg-block'></div>
 							<Col xs={12} md={6} className='form'>

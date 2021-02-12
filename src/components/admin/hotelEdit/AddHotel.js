@@ -28,14 +28,16 @@ function AddHotel() {
 
 	return (
 		<Container>
-			<Heading title='Add accommodation' />
-			<Row className='content d-flex justify-content-center '>
-				<EditHotelForm
-					onSubmit={onSubmit}
-					btnName={btnName}
-					btnVar={<CardBtn linkPath='/admin' btnText='Cancel' />}
-				/>
-			</Row>
+			<div className='content'>
+				<Heading title='Add accommodation' />
+				<Row className=' d-flex justify-content-center '>
+					<EditHotelForm
+						onSubmit={onSubmit}
+						btnName={btnName}
+						btnVar={<CardBtn linkPath='/admin' btnText='Cancel' />}
+					/>
+				</Row>
+			</div>
 		</Container>
 	);
 }

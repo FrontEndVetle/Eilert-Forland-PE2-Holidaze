@@ -4,6 +4,7 @@ import HotelCards from '../../accommodation/HotelCards';
 import { Row, Container, Col } from 'react-bootstrap/';
 import Spinner from 'react-bootstrap/Spinner';
 import Swal from 'sweetalert2';
+import Heading from '../../ui/Heading';
 
 function Hotels() {
 	const [hotels, setHotels] = useState([]);
@@ -42,27 +43,29 @@ function Hotels() {
 
 	return (
 		<Container>
-			<h1> Hotels </h1>
+			<div className='content'>
+				<Heading title='Current Listings' />
 
-			<Row className='content'>
-				{hotels &&
-					hotels.map((hotel) => {
-						const { id, name, image, price, maxGuests } = hotel;
-						return (
-							<Col className='d-flex' xs={12} md={6} key={id}>
-								<HotelCards
-									maxGuests={maxGuests}
-									name={name}
-									image={image}
-									price={price}
-									id={id}
-									linkPath={linkPath}
-									btnText={btnText}
-								/>
-							</Col>
-						);
-					})}
-			</Row>
+				<Row>
+					{hotels &&
+						hotels.map((hotel) => {
+							const { id, name, image, price, maxGuests } = hotel;
+							return (
+								<Col className='d-flex' xs={12} md={6} key={id}>
+									<HotelCards
+										maxGuests={maxGuests}
+										name={name}
+										image={image}
+										price={price}
+										id={id}
+										linkPath={linkPath}
+										btnText={btnText}
+									/>
+								</Col>
+							);
+						})}
+				</Row>
+			</div>
 		</Container>
 	);
 }

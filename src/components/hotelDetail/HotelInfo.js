@@ -20,7 +20,7 @@ function HotelInfo({ image, name, info, dining }) {
 			/>
 			<Card.Body>
 				<Card.Title>
-					<h1 className='detail__title'> {name} </h1>{' '}
+					<h2 className='detail__title'> {name} </h2>
 				</Card.Title>
 				<hr />
 				<Accordion className='accord d-md-none' defaultActiveKey='0'>

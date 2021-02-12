@@ -7,6 +7,7 @@ import ConfirmDelete from '../ConfirmDelete';
 import Spinner from 'react-bootstrap/Spinner';
 import Swal from 'sweetalert2';
 import { Col, Row, Container } from 'react-bootstrap/';
+import Heading from '../../ui/Heading';
 
 function EditHotel() {
 	const history = useHistory();
@@ -73,32 +74,35 @@ function EditHotel() {
 	if (hotel) {
 		return (
 			<Container>
-				<Row className='content'>
-					<h1> Edit Establishment </h1>
-					<EditHotelForm
-						onSubmit={onSubmit}
-						name={name}
-						email={email}
-						id={id}
-						image={image}
-						price={price}
-						maxGuests={maxGuests}
-						lat={lat}
-						lng={lng}
-						description={description}
-						address={address}
-						selfCatering={selfCatering}
-						btnName={btnName}
-						btnVar={
-							<ConfirmDelete
-								historyPath={historyPath}
-								id={id}
-								deletePath={deletePath}
-								className='form__btn btn btn__primary'
-							/>
-						}
-					/>
-				</Row>
+				<div className='content'>
+					<Heading title='Edit Accommodation' />
+
+					<Row>
+						<EditHotelForm
+							onSubmit={onSubmit}
+							name={name}
+							email={email}
+							id={id}
+							image={image}
+							price={price}
+							maxGuests={maxGuests}
+							lat={lat}
+							lng={lng}
+							description={description}
+							address={address}
+							selfCatering={selfCatering}
+							btnName={btnName}
+							btnVar={
+								<ConfirmDelete
+									historyPath={historyPath}
+									id={id}
+									deletePath={deletePath}
+									className='form__btn btn btn__primary'
+								/>
+							}
+						/>
+					</Row>
+				</div>
 			</Container>
 		);
 	}

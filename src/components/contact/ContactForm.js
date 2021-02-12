@@ -21,16 +21,13 @@ const schema = yup.object().shape({
 		.max(100, 'Message can not be longer then 100 characters'),
 });
 
-function ContactForm({ onSubmit, heading }) {
+function ContactForm({ onSubmit }) {
 	const { register, handleSubmit, errors } = useForm({
 		resolver: yupResolver(schema),
 	});
 
 	return (
 		<Form noValidate onSubmit={handleSubmit(onSubmit)}>
-			<h1>{heading}</h1>
-			<hr />
-
 			<Row>
 				<Col>
 					<Form.Row>

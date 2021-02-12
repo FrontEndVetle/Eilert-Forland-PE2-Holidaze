@@ -9,6 +9,7 @@ import BookingInfo from './BookingInfo';
 import Swal from 'sweetalert2';
 import moment from 'moment';
 import HotelMap from '../ui/hotelMap/HotelMap';
+import Heading from '../ui/Heading';
 
 function HomeDetail() {
 	const [detail, setDetail] = useState([]);
@@ -131,49 +132,52 @@ function HomeDetail() {
 
 	return (
 		<Container>
-			<Row className='content d-flex justify-content-between'>
-				<Col xs={12} md={5} md={6}>
-					<HotelInfo
-						info={detail.description}
-						image={detail.image}
-						name={detail.name}
-						dining={dining}
-					/>{' '}
-					<div className='detail'>
-						<div className=' detail__map'>
-							<HotelMap pinList={pinList} mapZoom={10} />{' '}
-						</div>{' '}
-					</div>{' '}
-				</Col>{' '}
-				<Col xs={12} md={6} lg={5}>
-					<BookDate
-						startDate={startDate}
-						setStartDate={setStartDate}
-						endDate={endDate}
-						setEndDate={setEndDate}
-						handleSelect={handleSelect}
-						guestOptions={guestOptions}
-						modalShow={modalShow}
-					/>{' '}
-					<BookingInfo
-						days={days}
-						price={detail.price}
-						totalPrice={totalPrice}
-						guests={guests}
-						startDate={startDate}
-						checkinDate={checkinDate}
-						checkoutDate={checkoutDate}
-					/>{' '}
-				</Col>{' '}
-			</Row>{' '}
-			<EnquiryModal
-				hotel={detail.name}
-				checkinDate={checkinDate}
-				checkoutDate={checkoutDate}
-				modalClose={modalClose}
-				show={show}
-				onSubmit={onSubmit}
-			/>{' '}
+			<div className='content'>
+				<Heading title={detail.name} />
+				<Row className=' d-flex justify-content-between'>
+					<Col xs={12} md={5} md={6}>
+						<HotelInfo
+							info={detail.description}
+							image={detail.image}
+							name={detail.name}
+							dining={dining}
+						/>
+						<div className='detail'>
+							<div className=' detail__map'>
+								<HotelMap pinList={pinList} mapZoom={10} />{' '}
+							</div>
+						</div>
+					</Col>
+					<Col xs={12} md={6} lg={5}>
+						<BookDate
+							startDate={startDate}
+							setStartDate={setStartDate}
+							endDate={endDate}
+							setEndDate={setEndDate}
+							handleSelect={handleSelect}
+							guestOptions={guestOptions}
+							modalShow={modalShow}
+						/>{' '}
+						<BookingInfo
+							days={days}
+							price={detail.price}
+							totalPrice={totalPrice}
+							guests={guests}
+							startDate={startDate}
+							checkinDate={checkinDate}
+							checkoutDate={checkoutDate}
+						/>
+					</Col>
+				</Row>
+				<EnquiryModal
+					hotel={detail.name}
+					checkinDate={checkinDate}
+					checkoutDate={checkoutDate}
+					modalClose={modalClose}
+					show={show}
+					onSubmit={onSubmit}
+				/>
+			</div>
 		</Container>
 	);
 }
