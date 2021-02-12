@@ -12,6 +12,7 @@ const schema = yup.object().shape({
 	image: yup.string().required('Please fill out the field'),
 	lat: yup.number().required('Please fill out the field'),
 	lng: yup.number().required('Please fill out the field'),
+	maxGuests: yup.number().required('Please fill out the field'),
 	price: yup.number().required('Please fill out the field'),
 	email: yup.string().required('Please write your Email').email(),
 	description: yup
@@ -78,11 +79,11 @@ function EditHotelForm({
 								type='number'
 								name='maxGuests'
 								ref={register}
-								isInvalid={errors.max}
+								isInvalid={errors.maxGuests}
 								placeholder='Maximum guest capacity..'
 							/>
 							<Form.Control.Feedback type='invalid'>
-								{errors.max && <p>{errors.message}</p>}
+								{errors.maxGuests && <p>{errors.maxGuests.message}</p>}
 							</Form.Control.Feedback>
 						</Form.Group>
 						<Form.Group as={Col} md='10' controlId='description'>
