@@ -7,6 +7,8 @@ import Search from '../util/filter/Search';
 import Filters from '../util/filter/Silters';
 import Spinner from 'react-bootstrap/Spinner';
 import HotelMap from './hotelMap/HotelMap';
+import { FaEuroSign, FaBed } from 'react-icons/fa';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 function GetHotels() {
 	const [hotels, setHotels] = useState([]);
@@ -123,8 +125,17 @@ function GetHotels() {
 									lat: hotel.lat,
 									lng: hotel.lng,
 									name: hotel.name,
-									maxGuests: 'Guest capacity ' + hotel.maxGuests,
-									price: 'Price ' + hotel.price + ' euro',
+									maxGuests: (
+										<ListGroup.Item>
+											<p> Guest capacity: {hotel.maxGuests}</p>
+										</ListGroup.Item>
+									),
+									price: (
+										<ListGroup.Item>
+											<p>Price: {hotel.price} euro</p>
+										</ListGroup.Item>
+									),
+									address: hotel.address,
 								});
 
 								return (

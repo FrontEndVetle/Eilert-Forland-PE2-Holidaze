@@ -21,26 +21,26 @@ function HotelCards({ name, id, image, price, maxGuests, linkPath, btnText }) {
 						/>
 					</Col>
 					<Col xs={12} lg={6}>
-						<Card.Body>
-							<Card.Title>
-								<h4 className='hotel-card__title'> {name}</h4>
-							</Card.Title>
-							<ListGroup className='hotel-card__text' variant='flush'>
-								<ListGroup.Item></ListGroup.Item>
-								<ListGroup.Item>
-									<Card.Text>
-										<FaEuroSign className='icons' /> {price + ' euros'}
-									</Card.Text>
-								</ListGroup.Item>
-								<ListGroup.Item>
-									<Card.Text>
-										<FaBed className='icons' />
-										{'Guest capacity ' + maxGuests}
-									</Card.Text>
-								</ListGroup.Item>
-							</ListGroup>
-						</Card.Body>
-
+						<NavLink to={linkPath + id}>
+							<Card.Body>
+								<Card.Title>
+									<h4 className='hotel-card__title'> {name}</h4>
+								</Card.Title>
+								<ListGroup className='hotel-card__text' variant='flush'>
+									<ListGroup.Item>
+										<Card.Text>
+											<FaEuroSign className='icons' /> {'from ' + price + '  €'}
+										</Card.Text>
+									</ListGroup.Item>
+									<ListGroup.Item>
+										<Card.Text>
+											<FaBed className='icons' />
+											{'Guest capacity ' + maxGuests}
+										</Card.Text>
+									</ListGroup.Item>
+								</ListGroup>
+							</Card.Body>
+						</NavLink>
 						<NavLink to={linkPath + id}>
 							<Button className='hotel-card__btn btn btn__primary'>
 								{btnText}

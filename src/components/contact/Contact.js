@@ -20,8 +20,7 @@ function Contact() {
 			lat: 60.397076,
 			lng: 5.324383,
 			name: 'Holidaze office',
-			maxGuests: '',
-			price: '',
+			address: 'Bryggen 14',
 		},
 	];
 

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import ListGroup from 'react-bootstrap/ListGroup';
+import PropTypes from 'prop-types';
 import {
 	GoogleMap,
 	LoadScript,
@@ -45,16 +47,38 @@ function HotelMap({ pinList, mapZoom }) {
 						onCloseClick={() => {
 							setPinHotel(null);
 						}}>
-						<div>
-							<h4>{pinHotel.name} </h4>
-							<p>{pinHotel.price} </p>
-							<p>{pinHotel.maxGuests} </p>
-						</div>
+						<ListGroup variant='flush'>
+							<ListGroup.Item>
+								<h4>{pinHotel.name} </h4>
+							</ListGroup.Item>
+							{pinHotel.price}
+
+							{pinHotel.maxGuests}
+
+							<ListGroup.Item>
+								<p>Address: {pinHotel.address} </p>
+							</ListGroup.Item>
+						</ListGroup>
 					</InfoWindow>
 				)}
 			</GoogleMap>
 		</LoadScript>
 	);
 }
+
+HotelMap.propTypes = {
+	pinList: PropTypes.arrayOf(
+		PropTypes.shape({
+			name: PropTypes.string.isRequired,
+			address: PropTypes.string.isRequired,
+			lat: PropTypes.number.isRequired,
+			lng: PropTypes.number.isRequired,
+			maxGuests: PropTypes.object,
+			price: PropTypes.object,
+		})
+	).isRequired,
+
+	mapZoom: PropTypes.number.isRequired,
+};
 
 export default HotelMap;

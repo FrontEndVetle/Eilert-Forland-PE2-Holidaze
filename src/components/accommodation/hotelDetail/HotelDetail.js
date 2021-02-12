@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-import Spinner from 'react-bootstrap/Spinner';
-
+import { Container, Row, Col, ListGroup, Spinner } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { BASE_URL, headers } from '../../../constants/api';
 import HotelInfo from './HotelInfo';
@@ -113,8 +111,17 @@ function HomeDetail() {
 		lat: detail.lat,
 		lng: detail.lng,
 		name: detail.name,
-		maxGuests: detail.maxGuests,
-		price: detail.price,
+		maxGuests: (
+			<ListGroup.Item>
+				<p> Guest capacity: {detail.maxGuests}</p>
+			</ListGroup.Item>
+		),
+		price: (
+			<ListGroup.Item>
+				<p>Price: {detail.price} euro</p>
+			</ListGroup.Item>
+		),
+		address: detail.address,
 	});
 
 	return (

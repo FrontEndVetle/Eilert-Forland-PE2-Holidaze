@@ -18,7 +18,7 @@ const schema = yup.object().shape({
 		.string()
 		.required('Please enter your message')
 		.min(10, 'Message must be atleast 10 characters')
-		.max(100, 'Message can not be longer then 100 characters'),
+		.max(200, 'Message can not be longer then 200 characters'),
 });
 
 function EditHotelForm({
@@ -140,7 +140,7 @@ function EditHotelForm({
 								name='address'
 								ref={register}
 								isInvalid={errors.address}
-								placeholder='price pr night..'
+								placeholder='Street name..'
 							/>
 							<Form.Control.Feedback type='invalid'>
 								{errors.address && <p>{errors.address.message}</p>}

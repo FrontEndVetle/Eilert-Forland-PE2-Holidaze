@@ -1,10 +1,3 @@
-/* Color Theme Swatches in Hex
-$Game-of-thrones-1-hex: #A2C0DC;
-$Game-of-thrones-2-hex: #284C58;
-$Game-of-thrones-3-hex: #4C7B8D;
-$Game-of-thrones-4-hex: #EEF8FA;
-$Game-of-thrones-5-hex: #0A0C0E;/*
-
 /*font*/
 
 @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Nunito:wght@400;600&family=Open+Sans&display=swap');
@@ -19,11 +12,11 @@ sans-serif;
 
 $heading-home-m: 30px;
 $heading-home-t: 40px;
-$heading-home-d: 50px;
+$heading-home-d: 40px;
 $heading-size-m: 16px;
 $heading-size-t: 24px;
-$heading-size-d: 40px;
-$sub-heading-d: 60px;
+$heading-size-d: 30px;
+$sub-heading-d: 25px;
 $sub-heading-t: 16px;
 $sub-heading-m: 14px;
 $nav-text-d: 16px;
