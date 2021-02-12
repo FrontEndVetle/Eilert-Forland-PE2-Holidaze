@@ -7,16 +7,18 @@
 }
 
 .slider {
-    margin-top: 50px;
     color: $text-light;
     &__title {
-        text-align: center;
         color: $text-light;
+        margin-top: 20px;
+    }
+    &__range {
+        width: 100%;
     }
 }
 
 .search {
-    margin-top: 30px;
+    margin-top: 50px;
     color: $text-light;
     background-color: $primary-bg;
     &__link {
@@ -26,9 +28,6 @@
             color: $link-hover;
         }
     }
-    &__hr {
-        background-color: $text-light;
-    }
 }
 
 .filter {
@@ -36,6 +35,7 @@
     padding: 20px;
     border-radius: 20px;
     color: $text-light;
+    margin: 30px auto;
     &__title {
         text-align: center;
     }

@@ -4,7 +4,11 @@ body {
 }
 
 .content {
-    margin: 70px 0;
+    padding: 70px 0;
+    &__hr {
+        background-color: $primary-bg;
+        margin: 1% auto;
+    }
 }
 
 .App {

@@ -4,10 +4,9 @@ import HotelCards from '../accommodation/HotelCards';
 import { Row, Col } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 import Search from '../util/filter/Search';
-import Filters from '../util/filter/Silters';
+import Sliders from '../util/filter/Silders';
 import Spinner from 'react-bootstrap/Spinner';
 import HotelMap from './hotelMap/HotelMap';
-import { FaEuroSign, FaBed } from 'react-icons/fa';
 import ListGroup from 'react-bootstrap/ListGroup';
 
 function GetHotels() {
@@ -90,15 +89,18 @@ function GetHotels() {
 	return (
 		<div className='content'>
 			<h1>Accommodations</h1>
-			<hr />
+			<hr className='content__hr' />
 			<div className='filter'>
 				<h4 className='filter__title'>What are you looking for?</h4>
+
 				<Row className=' d-flex justify-content-between'>
-					<Col xs={12} md={6} lg={5}>
+					<Col xs={12} sm={12} lg={5}>
 						<Search searchName={searchName} hotels={hotels} />
 					</Col>
-					<Col sm={12} md={6} lg={4}>
-						<Filters
+					<div className='border-right d-none d-md-block d-lg-block'></div>
+
+					<Col sm={12} sm={12} lg={6}>
+						<Sliders
 							filterGuests={filterGuests}
 							filterPrice={filterPrice}
 							setFilterGuests={setFilterGuests}
@@ -108,7 +110,7 @@ function GetHotels() {
 					</Col>
 				</Row>
 			</div>
-			<hr />
+			<hr className='content__hr' />
 
 			<Row className='d-flex justify-content-between'>
 				<Col xs={12} lg={4} className='order-lg-2'>
