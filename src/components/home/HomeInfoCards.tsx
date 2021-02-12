@@ -1,6 +1,5 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
 
 type Props = {
 	title: string;
@@ -21,9 +20,7 @@ function HomeInfoCards({ title, infoList, image }: Props) {
 				<Card.Title>
 					<h2 className='hotel-card__title font-special'> {title}</h2>
 				</Card.Title>
-				<ListGroup variant='flush' className='card__text'>
-					<ListGroup.Item>{infoList}</ListGroup.Item>
-				</ListGroup>
+				{infoList}
 			</Card.Body>
 		</Card>
 	);

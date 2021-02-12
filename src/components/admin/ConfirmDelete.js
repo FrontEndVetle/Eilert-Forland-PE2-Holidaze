@@ -33,7 +33,11 @@ function ConfirmDelete({ id, deletePath, historyPath }) {
 		history.push(historyPath);
 	}
 
-	return <Button onClick={checkDelete}>Delete</Button>;
+	return (
+		<Button className='form__btn btn btn__primary danger' onClick={checkDelete}>
+			Delete
+		</Button>
+	);
 }
 
 export default ConfirmDelete;

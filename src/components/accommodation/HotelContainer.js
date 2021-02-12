@@ -87,9 +87,7 @@ function GetHotels() {
 	};
 
 	return (
-		<div className='content'>
-			<h1>Accommodations</h1>
-			<hr className='content__hr' />
+		<div>
 			<div className='filter'>
 				<h4 className='filter__title'>What are you looking for?</h4>
 

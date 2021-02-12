@@ -33,6 +33,7 @@ function EditHotelForm({
 	address,
 	name,
 	btnName,
+	btnVar,
 }) {
 	const { register, handleSubmit, errors } = useForm({
 		resolver: yupResolver(schema),
@@ -177,9 +178,16 @@ function EditHotelForm({
 					</Form.Row>
 				</Col>
 			</Row>
-			<Button className='form__btn btn btn__primary' type='submit'>
-				{btnName}
-			</Button>
+			<Row className='d-flex justify-content-center'>
+				<Col xs={8} md={4}>
+					<Button className='form__btn btn btn__primary' type='submit'>
+						{btnName}
+					</Button>
+				</Col>
+				<Col xs={8} md={4}>
+					{btnVar}
+				</Col>
+			</Row>
 		</Form>
 	);
 }
@@ -197,6 +205,7 @@ EditHotelForm.propTypes = {
 	address: PropTypes.string,
 	id: PropTypes.string,
 	btnName: PropTypes.string,
+	btnVar: PropTypes.object,
 };
 
 export default EditHotelForm;

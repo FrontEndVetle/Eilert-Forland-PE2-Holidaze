@@ -3,6 +3,8 @@ import { Row, Container } from 'react-bootstrap/';
 
 import { useHistory } from 'react-router-dom';
 import { BASE_URL, headers } from '../../../constants/api';
+import CardBtn from '../../ui/CardBtn';
+import Heading from '../../ui/Heading';
 import EditHotelForm from './EditHotelForm';
 
 function AddHotel() {
@@ -26,9 +28,13 @@ function AddHotel() {
 
 	return (
 		<Container>
+			<Heading title='Add accommodation' />
 			<Row className='content d-flex justify-content-center '>
-				<h1>Add Establishment</h1>
-				<EditHotelForm onSubmit={onSubmit} btnName={btnName} />
+				<EditHotelForm
+					onSubmit={onSubmit}
+					btnName={btnName}
+					btnVar={<CardBtn linkPath='/admin' btnText='Cancel' />}
+				/>
 			</Row>
 		</Container>
 	);

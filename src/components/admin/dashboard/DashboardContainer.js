@@ -1,6 +1,8 @@
 import React from 'react';
-import DashBoardCards from './DashboardCards';
+import MenuCards from '../../ui/MenuCards';
 import { Container, Row, Col } from 'react-bootstrap';
+import CardBtn from '../../ui/CardBtn';
+import Heading from '../../ui/Heading';
 
 function Dashboard() {
 	const adminOptions = [
@@ -33,21 +35,30 @@ function Dashboard() {
 
 	return (
 		<Container>
-			<Row className='content d-flex justify-content-center'>
-				<Col lg={8}>
-					<Row>
-						{adminOptions.map((option) => {
-							const { id, name, link, img } = option;
+			<div className='content'>
+				<Heading title='Dashboard' />
 
-							return (
-								<Col xs={12} sm={6} key={id}>
-									<DashBoardCards id={id} name={name} link={link} img={img} />
-								</Col>
-							);
-						})}
-					</Row>
-				</Col>
-			</Row>
+				<Row className='content d-flex justify-content-center'>
+					<Col lg={8}>
+						<Row>
+							{adminOptions.map((option) => {
+								const { id, name, link, img } = option;
+
+								return (
+									<Col xs={12} sm={6} key={id}>
+										<MenuCards
+											title={name}
+											link={link}
+											img={img}
+											btn={<CardBtn linkPath={link} btnText='Select' />}
+										/>
+									</Col>
+								);
+							})}
+						</Row>
+					</Col>
+				</Row>
+			</div>
 		</Container>
 	);
 }
