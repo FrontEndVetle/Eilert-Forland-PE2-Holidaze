@@ -22,8 +22,16 @@
         margin: 30px 0px;
     }
     &__btn {
-        margin: 20px auto;
+        margin-top: 10%;
     }
+}
+
+.body-dark {
+    background-color: rgb(233, 233, 233);
+}
+
+.body-light {
+    background-color: rgb(223, 223, 223);
 }
 
 .home-info {
@@ -33,7 +41,7 @@
     }
     &__hr {
         background-color: $primary;
-        margin: 7% auto;
+        margin: 5% 40%;
     }
 }
 

@@ -21,7 +21,11 @@ function Home() {
 					<Col xs={12} sm={7} lg={4} className='home-banner__content'>
 						<div>
 							<h1 className='home-banner__title'>Holidaze</h1>
-							<p className='home-banner__text'>CABINS ┃ GUESTHOUSES ┃ HOTELS</p>
+							<NavLink to='/accommodation'>
+								<small className='home-banner__text'>
+									CABINS ┃ GUESTHOUSES ┃ HOTELS
+								</small>
+							</NavLink>
 							<div>
 								<NavLink to='/accommodation'>
 									<Button variant='outline-light' className='home-banner__btn '>
@@ -33,21 +37,27 @@ function Home() {
 					</Col>
 				</Row>
 			</Container>
-			<Container className='home-info'>
-				<Row className='d-flex justify-content-center'>
-					<Col xs={10} md={10}>
-						<hr className='home-info__hr' />
+			<Container fluid className='body-dark p-0'>
+				<div>
+					<Row className='d-flex justify-content-center'>
+						<Col xs={10} md={10}>
+							<hr className='home-info__hr' />
+							<blockquote className='blockquote text-center home-info__text'>
+								<p>Holidaze is the go-to booking agency for Bergen</p>
+								<footer className='blockquote-footer'>
+									Karl Hansen,
+									<cite title='Source Title'> Vestlandet News</cite>
+								</footer>
+							</blockquote>
 
-						<p className='home-info__text'>
-							Holidaze assists tourists in providing traditional and
-							untraditional accommodation in and around Bergen. We connect local
-							owners of quality accommodations with adventurous travelers.
-						</p>
-						<hr className='home-info__hr' />
-					</Col>
-				</Row>
+							<hr className='home-info__hr' />
+						</Col>
+					</Row>
+				</div>
+				<Container fluid className='body-light p-1'>
+					<CardContainer />
+				</Container>
 			</Container>
-			<CardContainer />
 		</>
 	);
 }
