@@ -33,10 +33,10 @@ function EnquiriesList({
 	return (
 		<>
 			<Col xs={10}>
-				<Card>
+				<Card className='card-list'>
 					<Card.Header className='text-center'>Sent {createdAt}</Card.Header>
 					<Card.Body>
-						<Row>
+						<Row className='d-flex justify-content-center'>
 							<Col md={6}>
 								<ListGroup variant='flush'>
 									<ListGroup.Item>
@@ -54,14 +54,15 @@ function EnquiriesList({
 							<div className='border-right d-none d-md-block d-lg-block'></div>
 
 							<Col md={5}>{messageContent}</Col>
+							<Col md={4}>
+								<ConfirmDelete
+									historyPath={historyPath}
+									id={id}
+									deletePath={deletePath}
+								/>
+							</Col>
 						</Row>
 					</Card.Body>
-
-					<ConfirmDelete
-						historyPath={historyPath}
-						id={id}
-						deletePath={deletePath}
-					/>
 				</Card>
 			</Col>
 		</>

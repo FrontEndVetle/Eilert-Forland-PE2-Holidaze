@@ -45,11 +45,15 @@ function HotelCards({ name, id, image, price, maxGuests, linkPath, btnText }) {
 								</ListGroup>
 							</Card.Body>
 						</NavLink>
-						<NavLink to={linkPath + id}>
-							<Button variant='outline-primary' className='card-list__btn'>
-								{btnText}
-							</Button>
-						</NavLink>
+						<Row className='d-flex justify-content-center'>
+							<Col xs={8}>
+								<NavLink to={linkPath + id}>
+									<Button variant='outline-primary' className='card-list__btn'>
+										{btnText}
+									</Button>
+								</NavLink>
+							</Col>
+						</Row>
 					</Col>
 				</Row>
 			</Card>

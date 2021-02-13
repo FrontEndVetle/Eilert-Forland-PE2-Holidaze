@@ -1,12 +1,11 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../context/AuthContext';
-import { NavLink } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import Button from 'react-bootstrap/Button';
 import Nav from 'react-bootstrap/Nav';
 import Logout from '../../auth/Logout';
 import Logo from './logo.png';
+import { FaBed } from 'react-icons/fa';
 
 function Navigation() {
 	const { admin, user } = useContext(AuthContext);
