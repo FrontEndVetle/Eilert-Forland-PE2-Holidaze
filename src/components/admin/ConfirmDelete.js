@@ -35,7 +35,8 @@ function ConfirmDelete({ id, deletePath, historyPath }) {
 
 	return (
 		<Button
-			className='form__btn btn btn__primary btn-danger'
+			variant='outline-danger'
+			className='form__btn'
 			onClick={checkDelete}>
 			Delete
 		</Button>

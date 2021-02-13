@@ -15,16 +15,16 @@ type Props = {
 
 function DashboardCards({ title, img, infoList, btn }: Props) {
 	return (
-		<Card className='hotel-card'>
+		<Card className='card-list'>
 			<Card.Img
 				variant='top'
-				className='hotel-card__img'
+				className='card-list__img'
 				src={img}
 				alt='Admin utilities image'
 			/>
 			<Card.Body>
 				<Card.Title>
-					<h2 className='hotel-card__title'> {title}</h2>
+					<h2 className='card-list__title'> {title}</h2>
 				</Card.Title>
 				{infoList}
 			</Card.Body>

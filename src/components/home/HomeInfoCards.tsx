@@ -9,7 +9,7 @@ type Props = {
 
 function HomeInfoCards({ title, infoList, image }: Props) {
 	return (
-		<Card className='hotel-card'>
+		<Card className='card-list'>
 			<Card.Img
 				variant='top'
 				className='card__img'
@@ -18,7 +18,7 @@ function HomeInfoCards({ title, infoList, image }: Props) {
 			/>
 			<Card.Body className='flex'>
 				<Card.Title>
-					<h2 className='hotel-card__title font-special'> {title}</h2>
+					<h2 className='card-list__title font-special'> {title}</h2>
 				</Card.Title>
 				{infoList}
 			</Card.Body>

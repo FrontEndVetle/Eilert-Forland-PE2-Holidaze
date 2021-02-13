@@ -11,12 +11,12 @@ import InfoIcon from '../ui/InfoIcon';
 function HotelCards({ name, id, image, price, maxGuests, linkPath, btnText }) {
 	return (
 		<>
-			<Card className='hotel-card'>
+			<Card className='card-list'>
 				<Row className='d-flex justify-content-between'>
 					<Col xs={12} sm={12} lg={6}>
 						<Card.Img
 							variant='top'
-							className='hotel-card__img'
+							className='card-list__img'
 							src={image}
 							alt='Accommodation image'
 						/>
@@ -25,9 +25,9 @@ function HotelCards({ name, id, image, price, maxGuests, linkPath, btnText }) {
 						<NavLink to={linkPath + id}>
 							<Card.Body>
 								<Card.Title>
-									<h4 className='hotel-card__title'> {name}</h4>
+									<h4 className='card-list__title'> {name}</h4>
 								</Card.Title>
-								<ListGroup className='hotel-card__text' variant='flush'>
+								<ListGroup className='card-list__text' variant='flush'>
 									<ListGroup.Item>
 										<InfoIcon
 											small='Price from'
@@ -46,7 +46,7 @@ function HotelCards({ name, id, image, price, maxGuests, linkPath, btnText }) {
 							</Card.Body>
 						</NavLink>
 						<NavLink to={linkPath + id}>
-							<Button variant='outline-primary' className='hotel-card__btn'>
+							<Button variant='outline-primary' className='card-list__btn'>
 								{btnText}
 							</Button>
 						</NavLink>

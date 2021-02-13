@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { BASE_URL, headers } from '../../../constants/api';
 import MessageList from './MessageList';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, ListGroup } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import moment from 'moment';
 import Spinner from 'react-bootstrap/Spinner';
 import Swal from 'sweetalert2';
+import Heading from '../../ui/Heading';
+import { FaCalendar, FaHome } from 'react-icons/fa';
+import InfoIcon from '../../ui/InfoIcon';
 
 function EnquiriesContainer() {
 	const [messages, setMessages] = useState([]);
@@ -46,7 +49,7 @@ function EnquiriesContainer() {
 		<Container>
 			<Row className='content d-flex justify-content-center'>
 				<Col xs={12}>
-					<h1> Enquiries </h1>
+					<Heading title='Enquiries' />
 				</Col>
 				{messages &&
 					messages.map((contact, i) => {
@@ -72,12 +75,34 @@ function EnquiriesContainer() {
 								email={email}
 								message={message}
 								createdAt={sentDate}
-								checkIn={checkInDate}
-								checkOut={checkOutDate}
 								id={id}
 								deletePath={deletePath}
-								hotelName={establishmentId}
 								historyPath={historyPath}
+								messageContent={
+									<ListGroup variant='flush'>
+										<ListGroup.Item>
+											<InfoIcon
+												small='Establishment'
+												info={establishmentId}
+												icon={<FaHome />}
+											/>
+										</ListGroup.Item>
+										<ListGroup.Item>
+											<InfoIcon
+												small='Checkin'
+												info={checkInDate}
+												icon={<FaCalendar />}
+											/>
+										</ListGroup.Item>
+										<ListGroup.Item>
+											<InfoIcon
+												small='Checkout'
+												info={checkOutDate}
+												icon={<FaCalendar />}
+											/>
+										</ListGroup.Item>
+									</ListGroup>
+								}
 							/>
 						);
 					})}

@@ -1,8 +1,9 @@
 import React from 'react';
 import ConfirmDelete from '../ConfirmDelete';
+import { FaEnvelope } from 'react-icons/fa';
 
 import { Col, Row, Card, ListGroup } from 'react-bootstrap/';
-import { FaHome, FaGlassMartiniAlt } from 'react-icons/fa';
+import InfoIcon from '../../ui/InfoIcon';
 
 type Props = {
 	id: string;
@@ -15,6 +16,7 @@ type Props = {
 	deletePath?: string;
 	hotelName?: string;
 	historyPath: string;
+	messageContent: object;
 };
 
 function EnquiriesList({
@@ -23,17 +25,16 @@ function EnquiriesList({
 	email,
 	message,
 	createdAt,
-	checkIn,
-	checkOut,
+	messageContent,
 	deletePath,
-	hotelName,
+
 	historyPath,
 }: Props) {
 	return (
 		<>
 			<Col xs={10}>
-				<Card className='card'>
-					<Card.Header>Sent {createdAt}</Card.Header>
+				<Card>
+					<Card.Header className='text-center'>Sent {createdAt}</Card.Header>
 					<Card.Body>
 						<Row>
 							<Col md={6}>
@@ -42,32 +43,17 @@ function EnquiriesList({
 										<h2>{name}</h2>
 									</ListGroup.Item>
 									<ListGroup.Item>
-										<FaGlassMartiniAlt className='icons' />
-										<p>{message}</p>
-									</ListGroup.Item>
-									<ListGroup.Item>
-										<FaGlassMartiniAlt className='icons' />
-										<p>{email}</p>
+										<InfoIcon
+											small='Email'
+											info={email}
+											icon={<FaEnvelope />}
+										/>
 									</ListGroup.Item>
 								</ListGroup>
 							</Col>
 							<div className='border-right d-none d-md-block d-lg-block'></div>
 
-							<Col md={5}>
-								<ListGroup variant='flush'>
-									<ListGroup.Item>
-										<h2>{hotelName}</h2>
-									</ListGroup.Item>
-									<ListGroup.Item>
-										<FaGlassMartiniAlt className='icons' />
-										<p>{checkIn}</p>
-									</ListGroup.Item>
-									<ListGroup.Item>
-										<FaGlassMartiniAlt className='icons' />
-										<p>{checkOut}</p>
-									</ListGroup.Item>
-								</ListGroup>
-							</Col>
+							<Col md={5}>{messageContent}</Col>
 						</Row>
 					</Card.Body>
 

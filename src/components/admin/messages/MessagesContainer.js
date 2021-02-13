@@ -5,6 +5,9 @@ import moment from 'moment';
 import { Container, Col, Row } from 'react-bootstrap/';
 import Spinner from 'react-bootstrap/Spinner';
 import Swal from 'sweetalert2';
+import { FaFileAlt } from 'react-icons/fa';
+import InfoIcon from '../../ui/InfoIcon';
+import Heading from '../../ui/Heading';
 
 function Messages() {
 	const [messages, setMessages] = useState([]);
@@ -46,7 +49,7 @@ function Messages() {
 		<Container>
 			<Row className='content d-flex justify-content-center'>
 				<Col xs={12}>
-					<h1> Contact messages </h1>
+					<Heading title='Contact messages' />
 				</Col>
 				{messages &&
 					messages.map((contact, i) => {
@@ -64,6 +67,13 @@ function Messages() {
 								id={id}
 								deletePath={deletePath}
 								historyPath={historyPath}
+								messageContent={
+									<InfoIcon
+										small='Contact message'
+										info={message}
+										icon={<FaFileAlt />}
+									/>
+								}
 							/>
 						);
 					})}

@@ -8,7 +8,7 @@ import { BASE_URL, headers } from '../../constants/api';
 import HotelMap from '../ui/hotelMap/HotelMap';
 import Swal from 'sweetalert2';
 import { ListGroup } from 'react-bootstrap';
-import { FaMobileAlt, FaEnvelope, FaHome, FaMobile } from 'react-icons/fa';
+import { FaMobileAlt, FaEnvelope, FaHome } from 'react-icons/fa';
 import ListInfoIcon from '../ui/InfoIcon';
 import Heading from '../ui/Heading';
 
