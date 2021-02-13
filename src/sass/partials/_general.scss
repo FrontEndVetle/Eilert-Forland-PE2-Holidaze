@@ -6,13 +6,13 @@ body {
 .content {
     padding: 70px 0;
     &__hr {
-        background-color: $primary-bg;
+        background-color: $primary;
         margin: 1% auto;
     }
 }
 
 .App {
-    background-color: $body-bg;
+    background-color: $light;
     padding-top: 1px;
 }
 

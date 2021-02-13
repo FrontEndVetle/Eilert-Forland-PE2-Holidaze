@@ -18,13 +18,17 @@ function Home() {
 			</MetaTags>
 			<Container fluid className='home-banner'>
 				<Row className='d-flex justify-content-center'>
-					<Col xs={11} sm={8} className='home-banner__content'>
-						<h1 className='home-banner__title'>Holidaze</h1>
-						<p className='home-banner__text'>CABINS ┃ GUESTHOUSES ┃ HOTELS</p>
+					<Col xs={12} sm={7} lg={4} className='home-banner__content'>
 						<div>
-							<NavLink to='/accommodation'>
-								<Button className='home-banner__btn btn'>accommodations</Button>
-							</NavLink>
+							<h1 className='home-banner__title'>Holidaze</h1>
+							<p className='home-banner__text'>CABINS ┃ GUESTHOUSES ┃ HOTELS</p>
+							<div>
+								<NavLink to='/accommodation'>
+									<Button variant='outline-light' className='home-banner__btn '>
+										accommodations
+									</Button>
+								</NavLink>
+							</div>
 						</div>
 					</Col>
 				</Row>

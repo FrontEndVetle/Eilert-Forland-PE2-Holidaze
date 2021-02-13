@@ -3,16 +3,11 @@
 body {
     font-size: $body-text-m;
     font-family: $font-stack;
-    color: $text-light;
 }
 
 a {
     list-style: none;
     text-decoration: none;
-    color: $text-light;
-    &:hover {
-        color: $link-hover;
-    }
 }
 
 

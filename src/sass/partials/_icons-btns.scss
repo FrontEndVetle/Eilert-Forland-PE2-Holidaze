@@ -1,39 +1,12 @@
 .icons {
     font-size: 30px;
-    color: $primary-bg;
+    color: $primary;
     margin: 5px;
 }
 
 //the different buttons styles on the site
 .btn {
-    padding: 7px;
-    font-size: $btn-text-m;
-    &:hover {
-        cursor: pointer;
-    }
-    &__primary {
-        border: $btn-border;
-        color: $text-color;
-        &:hover {
-            background-color: $btn-hover;
-            color: $text-light;
-        }
-    }
-    &__secondary {
-        border: $btn-border;
-        color: $text-color;
-        &:hover {
-            background-color: $btn-hover;
-            color: $text-light;
-        }
-    }
-    &__action {
-        background-color: $btn-action;
-        color: $text-light;
-        &:hover {
-            background-color: $btn-action-hover;
-        }
-    }
+    text-transform: uppercase;
 }
 
 //utilities
@@ -44,15 +17,6 @@
     margin-bottom: 40vh;
 }
 
-@media (min-width: 641px) {
-    .btn {
-        font-size: $btn-text-t;
-        padding: 5px;
-    }
-}
+@media (min-width: 641px) {}
 
-@media (min-width: 961px) {
-    .btn {
-        font-size: $btn-text-d;
-    }
-}
+@media (min-width: 961px) {}

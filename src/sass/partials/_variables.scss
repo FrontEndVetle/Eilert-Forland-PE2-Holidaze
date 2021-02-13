@@ -31,13 +31,18 @@ $btn-text-m: 12px;
 
 /*colours*/
 
-//btns
-$btn-color: #2b528f;
-$btn-action: #a6082a;
-$btn-action-hover: #ce1d37;
-$btn-hover: #4d748c;
-$btn-border: 1px solid #2b528f;
-$btn-border-light: 1px solid #ebebeb;
+//overwrite bootstrap theme colors
+$primary: #00103d;
+$secondary: blue;
+$success: purple;
+$info: green;
+$warning: yellow;
+$danger: red;
+$light: white;
+$dark: black;
+$link: white;
+//borders
+$light-border: 1px solid $light;
 //text
 $text-light: #ebebeb;
 $text-color: #2e2e2e;
@@ -61,8 +66,4 @@ $box-shadow: 0 2px 2px 0 rgba(0,
 0,
 0.2);
 //bg-colors
-$primary-bg: #00103d;
 $copyright-bg: #070727;
-$body-bg: #f7f7f7;
-$footer-nav-bg: #00103d;
-$light-bg: #f7f7f7;

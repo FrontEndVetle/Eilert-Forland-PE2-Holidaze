@@ -1,9 +1,9 @@
 .rbt .dropdown-menu {
-    background-color: $primary-bg;
+    background-color: $primary;
 }
 
 .rbt .dropdown-menu .dropdown-item {
-    background-color: $primary-bg;
+    background-color: $primary;
 }
 
 .slider {
@@ -20,7 +20,7 @@
 .search {
     margin-top: 50px;
     color: $text-light;
-    background-color: $primary-bg;
+    background-color: $primary;
     &__link {
         width: 100%;
         color: $text-light;
@@ -31,7 +31,7 @@
 }
 
 .filter {
-    background-color: $primary-bg;
+    background-color: $primary;
     padding: 20px;
     border-radius: 20px;
     color: $text-light;
