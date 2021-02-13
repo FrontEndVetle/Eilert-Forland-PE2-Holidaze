@@ -15,10 +15,11 @@ function Accommodation() {
 					content='This page displays available accommodations'
 				/>
 			</MetaTags>
-			<Container>
+			<Container fluid className='body-light p-0 '>
 				<div className='content'>
-					<Heading title='Accommodation' />
-
+					<Container>
+						<Heading title='Accommodation' />
+					</Container>
 					<HotelContainer />
 				</div>
 			</Container>

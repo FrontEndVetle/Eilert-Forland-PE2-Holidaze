@@ -37,7 +37,7 @@ function Home() {
 					</Col>
 				</Row>
 			</Container>
-			<Container fluid className='body-dark p-0'>
+			<Container fluid className='body-light p-0'>
 				<div>
 					<Row className='d-flex justify-content-center'>
 						<Col xs={10} md={10}>
@@ -54,7 +54,7 @@ function Home() {
 						</Col>
 					</Row>
 				</div>
-				<Container fluid className='body-light p-1'>
+				<Container fluid className='body-dark p-1'>
 					<CardContainer />
 				</Container>
 			</Container>

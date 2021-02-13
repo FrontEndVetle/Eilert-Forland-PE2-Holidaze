@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BASE_URL, headers } from '../../constants/api';
 import HotelCards from '../accommodation/HotelCards';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Container } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 import Search from '../ui/Search';
 import Sliders from '../ui/Silders';
@@ -87,75 +87,79 @@ function GetHotels() {
 	};
 
 	return (
-		<div>
-			<div className='filter'>
-				<h4 className='filter__title'>What are you looking for?</h4>
+		<Container fluid className='body-light p-0  '>
+			<Container>
+				<div className='filter'>
+					<h4 className='filter__title'>What are you looking for?</h4>
 
-				<Row className=' d-flex justify-content-between'>
-					<Col xs={12} sm={12} lg={5}>
-						<Search searchName={searchName} hotels={hotels} />
-					</Col>
-					<div className='border-right d-none d-md-block d-lg-block'></div>
+					<Row className=' d-flex justify-content-between'>
+						<Col xs={12} sm={12} lg={5}>
+							<Search searchName={searchName} hotels={hotels} />
+						</Col>
+						<div className='border-right d-none d-md-block d-lg-block'></div>
 
-					<Col sm={12} sm={12} lg={6}>
-						<Sliders
-							filterGuests={filterGuests}
-							filterPrice={filterPrice}
-							setFilterGuests={setFilterGuests}
-							setFilterPrice={setFilterPrice}
-							handleSearch={filterHotels}
-						/>
-					</Col>
-				</Row>
-			</div>
-			<hr className='content__hr' />
-
-			<Row className='d-flex justify-content-between'>
-				<Col xs={12} lg={4} className='order-lg-2'>
-					<div className='google-map'>
-						<HotelMap pinList={pinList} mapZoom={10} />
-					</div>
-				</Col>
-				<Col md={12} lg={8} className='order-lg-1'>
-					<Row>
-						{hotels &&
-							filteredHotels.map((hotel) => {
-								const { id, name, image, price, maxGuests } = hotel;
-								pinList.push({
-									lat: hotel.lat,
-									lng: hotel.lng,
-									name: hotel.name,
-									maxGuests: (
-										<ListGroup.Item>
-											<p> Guest capacity: {hotel.maxGuests}</p>
-										</ListGroup.Item>
-									),
-									price: (
-										<ListGroup.Item>
-											<p>Price: {hotel.price} euro</p>
-										</ListGroup.Item>
-									),
-									address: hotel.address,
-								});
-
-								return (
-									<Col xs={12} md={6} lg={12} className='d-flex' key={id}>
-										<HotelCards
-											maxGuests={maxGuests}
-											name={name}
-											image={image}
-											price={price}
-											id={id}
-											linkPath={linkPath}
-											btnText={btnText}
-										/>
-									</Col>
-								);
-							})}
+						<Col sm={12} sm={12} lg={6}>
+							<Sliders
+								filterGuests={filterGuests}
+								filterPrice={filterPrice}
+								setFilterGuests={setFilterGuests}
+								setFilterPrice={setFilterPrice}
+								handleSearch={filterHotels}
+							/>
+						</Col>
 					</Row>
-				</Col>
-			</Row>
-		</div>
+				</div>
+			</Container>
+			<Container fluid className='body-dark pt-2'>
+				<Container>
+					<Row className='d-flex justify-content-between'>
+						<Col xs={12} lg={4} className='order-lg-2'>
+							<div className='google-map'>
+								<HotelMap pinList={pinList} mapZoom={10} />
+							</div>
+						</Col>
+						<Col md={12} lg={8} className='order-lg-1'>
+							<Row>
+								{hotels &&
+									filteredHotels.map((hotel) => {
+										const { id, name, image, price, maxGuests } = hotel;
+										pinList.push({
+											lat: hotel.lat,
+											lng: hotel.lng,
+											name: hotel.name,
+											maxGuests: (
+												<ListGroup.Item>
+													<p> Guest capacity: {hotel.maxGuests}</p>
+												</ListGroup.Item>
+											),
+											price: (
+												<ListGroup.Item>
+													<p>Price: {hotel.price} euro</p>
+												</ListGroup.Item>
+											),
+											address: hotel.address,
+										});
+
+										return (
+											<Col xs={12} md={6} lg={12} className='d-flex' key={id}>
+												<HotelCards
+													maxGuests={maxGuests}
+													name={name}
+													image={image}
+													price={price}
+													id={id}
+													linkPath={linkPath}
+													btnText={btnText}
+												/>
+											</Col>
+										);
+									})}
+							</Row>
+						</Col>
+					</Row>
+				</Container>
+			</Container>
+		</Container>
 	);
 }
 
