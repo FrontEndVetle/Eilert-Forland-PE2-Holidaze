@@ -13,8 +13,8 @@ function Sliders({
 	return (
 		<Form onChange={(event) => handleSearch(event)}>
 			<Row className='d-flex justify-content-center'>
-				<Col sm={5} md={3} lg={4}>
-					<p className='slider__title'> Price€ </p>
+				<Col sm={5} md={5}>
+					<p className='slider__title'> Price € </p>
 					<RangeSlider
 						className='slider__range'
 						value={filterPrice}
@@ -25,7 +25,7 @@ function Sliders({
 						min={85}
 					/>
 				</Col>
-				<Col sm={5} md={3} lg={4}>
+				<Col sm={5} md={5}>
 					<p className='slider__title'> Max Guests </p>
 					<RangeSlider
 						className='slider__range'

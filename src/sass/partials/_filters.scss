@@ -10,7 +10,8 @@
     color: $text-light;
     &__title {
         color: $text-light;
-        margin-top: 20px;
+        margin-top: 5%;
+        text-align: center;
     }
     &__range {
         width: 100%;
@@ -18,7 +19,7 @@
 }
 
 .search {
-    margin-top: 50px;
+    margin: 9% 3% 0px 3%;
     color: $text-light;
     background-color: $primary;
     &__link {
@@ -32,10 +33,10 @@
 
 .filter {
     background-color: $primary;
-    padding: 20px;
+    padding: 15px;
     border-radius: 20px;
     color: $text-light;
-    margin: 30px auto;
+    margin: 10% 0 3% 0;
     &__title {
         text-align: center;
     }

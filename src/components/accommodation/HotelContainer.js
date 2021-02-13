@@ -90,8 +90,6 @@ function GetHotels() {
 		<Container fluid className='body-light p-0  '>
 			<Container>
 				<div className='filter'>
-					<h4 className='filter__title'>What are you looking for?</h4>
-
 					<Row className=' d-flex justify-content-between'>
 						<Col xs={12} sm={12} lg={5}>
 							<Search searchName={searchName} hotels={hotels} />

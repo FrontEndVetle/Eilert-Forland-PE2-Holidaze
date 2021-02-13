@@ -18,7 +18,7 @@ function Accommodation() {
 			<Container fluid className='body-light p-0 '>
 				<div className='content'>
 					<Container>
-						<Heading title='Accommodation' />
+						<Heading title='Accommodations' />
 					</Container>
 					<HotelContainer />
 				</div>
