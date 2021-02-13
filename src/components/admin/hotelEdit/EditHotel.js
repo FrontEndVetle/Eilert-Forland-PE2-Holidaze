@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import MetaTags from 'react-meta-tags';
+
 import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import { BASE_URL, headers } from '../../../constants/api';
@@ -77,38 +79,47 @@ function EditHotel() {
 
 	if (hotel) {
 		return (
-			<Container>
-				<div className='content'>
-					<Heading title='Edit Accommodation' />
+			<>
+				<MetaTags>
+					<title>Edit Accommodation</title>
+					<meta
+						name='description'
+						content='This page lets you edit accommodations'
+					/>
+				</MetaTags>
+				<Container>
+					<div className='content'>
+						<Heading title='Edit Accommodation' />
 
-					<Row>
-						<EditHotelForm
-							onSubmit={onSubmit}
-							name={name}
-							email={email}
-							id={id}
-							image={image}
-							price={price}
-							maxGuests={maxGuests}
-							lat={lat}
-							lng={lng}
-							description={description}
-							address={address}
-							setCatering={setCatering}
-							catering={catering}
-							btnName={btnName}
-							btnVar={
-								<ConfirmDelete
-									historyPath={historyPath}
-									id={id}
-									deletePath={deletePath}
-									className='form__btn btn btn__primary'
-								/>
-							}
-						/>
-					</Row>
-				</div>
-			</Container>
+						<Row>
+							<EditHotelForm
+								onSubmit={onSubmit}
+								name={name}
+								email={email}
+								id={id}
+								image={image}
+								price={price}
+								maxGuests={maxGuests}
+								lat={lat}
+								lng={lng}
+								description={description}
+								address={address}
+								setCatering={setCatering}
+								catering={catering}
+								btnName={btnName}
+								btnVar={
+									<ConfirmDelete
+										historyPath={historyPath}
+										id={id}
+										deletePath={deletePath}
+										className='form__btn btn btn__primary'
+									/>
+								}
+							/>
+						</Row>
+					</div>
+				</Container>
+			</>
 		);
 	}
 }

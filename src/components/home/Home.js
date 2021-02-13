@@ -1,4 +1,6 @@
 import React from 'react';
+import MetaTags from 'react-meta-tags';
+
 import { Container, Row, Col } from 'react-bootstrap';
 import CardContainer from './HomeCardContainer';
 import { NavLink } from 'react-router-dom';
@@ -7,6 +9,13 @@ import Button from 'react-bootstrap/Button';
 function Home() {
 	return (
 		<>
+			<MetaTags>
+				<title>Holidaze homepage</title>
+				<meta
+					name='description'
+					content='welcome to holidaze booking homepage. Holidaze is a booking agency in Bergen'
+				/>
+			</MetaTags>
 			<Container fluid className='home-banner'>
 				<Row className='d-flex justify-content-center'>
 					<Col xs={11} sm={8} className='home-banner__content'>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Row, Container } from 'react-bootstrap/';
+import MetaTags from 'react-meta-tags';
 
 import { useHistory } from 'react-router-dom';
 import { BASE_URL, headers } from '../../../constants/api';
@@ -33,20 +34,29 @@ function AddHotel() {
 	}
 
 	return (
-		<Container>
-			<div className='content'>
-				<Heading title='Add accommodation' />
-				<Row className=' d-flex justify-content-center '>
-					<EditHotelForm
-						onSubmit={onSubmit}
-						btnName={btnName}
-						setCatering={setCatering}
-						catering={catering}
-						btnVar={<CardBtn linkPath='/admin' btnText='Cancel' />}
-					/>
-				</Row>
-			</div>
-		</Container>
+		<>
+			<MetaTags>
+				<title>Add accommodation</title>
+				<meta
+					name='description'
+					content='This page lets you add accommodations'
+				/>
+			</MetaTags>
+			<Container>
+				<div className='content'>
+					<Heading title='Add accommodation' />
+					<Row className=' d-flex justify-content-center '>
+						<EditHotelForm
+							onSubmit={onSubmit}
+							btnName={btnName}
+							setCatering={setCatering}
+							catering={catering}
+							btnVar={<CardBtn linkPath='/admin' btnText='Cancel' />}
+						/>
+					</Row>
+				</div>
+			</Container>
+		</>
 	);
 }
 

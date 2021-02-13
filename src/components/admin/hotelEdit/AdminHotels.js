@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import MetaTags from 'react-meta-tags';
+
 import { BASE_URL, headers } from '../../../constants/api';
 import HotelCards from '../../accommodation/HotelCards';
 import { Row, Container, Col } from 'react-bootstrap/';
@@ -42,31 +44,40 @@ function Hotels() {
 	}
 
 	return (
-		<Container>
-			<div className='content'>
-				<Heading title='Current Listings' />
+		<>
+			<MetaTags>
+				<title>Admin accommodation list</title>
+				<meta
+					name='description'
+					content='This page displays available accommodations'
+				/>
+			</MetaTags>
+			<Container>
+				<div className='content'>
+					<Heading title='Current Listings' />
 
-				<Row>
-					{hotels &&
-						hotels.map((hotel) => {
-							const { id, name, image, price, maxGuests } = hotel;
-							return (
-								<Col className='d-flex' xs={12} md={6} key={id}>
-									<HotelCards
-										maxGuests={maxGuests}
-										name={name}
-										image={image}
-										price={price}
-										id={id}
-										linkPath={linkPath}
-										btnText={btnText}
-									/>
-								</Col>
-							);
-						})}
-				</Row>
-			</div>
-		</Container>
+					<Row>
+						{hotels &&
+							hotels.map((hotel) => {
+								const { id, name, image, price, maxGuests } = hotel;
+								return (
+									<Col className='d-flex' xs={12} md={6} key={id}>
+										<HotelCards
+											maxGuests={maxGuests}
+											name={name}
+											image={image}
+											price={price}
+											id={id}
+											linkPath={linkPath}
+											btnText={btnText}
+										/>
+									</Col>
+								);
+							})}
+					</Row>
+				</div>
+			</Container>
+		</>
 	);
 }
 

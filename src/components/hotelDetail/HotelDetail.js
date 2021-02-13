@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import MetaTags from 'react-meta-tags';
+
 import { Container, Row, Col, ListGroup, Spinner } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { BASE_URL, headers } from '../../constants/api';
@@ -131,54 +133,64 @@ function HomeDetail() {
 	});
 
 	return (
-		<Container>
-			<div className='content'>
-				<Heading title={detail.name} />
-				<Row className=' d-flex justify-content-between'>
-					<Col xs={12} md={5} md={6}>
-						<HotelInfo
-							info={detail.description}
-							image={detail.image}
-							name={detail.name}
-							dining={dining}
-						/>
-						<div className='detail'>
-							<div className=' detail__map'>
-								<HotelMap pinList={pinList} mapZoom={10} />{' '}
-							</div>
-						</div>
-					</Col>
-					<Col xs={12} md={6} lg={5}>
-						<BookDate
-							startDate={startDate}
-							setStartDate={setStartDate}
-							endDate={endDate}
-							setEndDate={setEndDate}
-							handleSelect={handleSelect}
-							guestOptions={guestOptions}
-							modalShow={modalShow}
-						/>{' '}
-						<BookingInfo
-							days={days}
-							price={detail.price}
-							totalPrice={totalPrice}
-							guests={guests}
-							startDate={startDate}
-							checkinDate={checkinDate}
-							checkoutDate={checkoutDate}
-						/>
-					</Col>
-				</Row>
-				<EnquiryModal
-					hotel={detail.name}
-					checkinDate={checkinDate}
-					checkoutDate={checkoutDate}
-					modalClose={modalClose}
-					show={show}
-					onSubmit={onSubmit}
+		<>
+			<MetaTags>
+				<title>Accommodation specific page</title>
+				<meta
+					name='description'
+					content='Check booking information, send enquiry for availablility'
 				/>
-			</div>
-		</Container>
+			</MetaTags>
+
+			<Container>
+				<div className='content'>
+					<Heading title={detail.name} />
+					<Row className=' d-flex justify-content-between'>
+						<Col xs={12} md={5} md={6}>
+							<HotelInfo
+								info={detail.description}
+								image={detail.image}
+								name={detail.name}
+								dining={dining}
+							/>
+							<div className='detail'>
+								<div className=' detail__map'>
+									<HotelMap pinList={pinList} mapZoom={10} />{' '}
+								</div>
+							</div>
+						</Col>
+						<Col xs={12} md={6} lg={5}>
+							<BookDate
+								startDate={startDate}
+								setStartDate={setStartDate}
+								endDate={endDate}
+								setEndDate={setEndDate}
+								handleSelect={handleSelect}
+								guestOptions={guestOptions}
+								modalShow={modalShow}
+							/>{' '}
+							<BookingInfo
+								days={days}
+								price={detail.price}
+								totalPrice={totalPrice}
+								guests={guests}
+								startDate={startDate}
+								checkinDate={checkinDate}
+								checkoutDate={checkoutDate}
+							/>
+						</Col>
+					</Row>
+					<EnquiryModal
+						hotel={detail.name}
+						checkinDate={checkinDate}
+						checkoutDate={checkoutDate}
+						modalClose={modalClose}
+						show={show}
+						onSubmit={onSubmit}
+					/>
+				</div>
+			</Container>
+		</>
 	);
 }
 
