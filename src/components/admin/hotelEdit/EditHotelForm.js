@@ -218,6 +218,8 @@ function EditHotelForm({
 
 EditHotelForm.propTypes = {
 	name: PropTypes.string,
+	setCatering: PropTypes.func,
+	catering: PropTypes.string,
 	onSubmit: PropTypes.func,
 	email: PropTypes.string,
 	image: PropTypes.string,
