@@ -8,6 +8,7 @@ import Sliders from '../ui/Silders';
 import Spinner from 'react-bootstrap/Spinner';
 import HotelMap from '../ui/hotelMap/HotelMap';
 import ListGroup from 'react-bootstrap/ListGroup';
+import { BicyclingLayer } from '@react-google-maps/api';
 
 function GetHotels() {
 	const [hotels, setHotels] = useState([]);
@@ -28,22 +29,23 @@ function GetHotels() {
 		fetch(url, options)
 			.then((response) => response.json())
 			.then((json) => {
-				console.log(json);
 				// handle error
 				if (json.error) {
 					setHotels([]);
-					Swal.fire({
-						icon: 'error',
-						title: 'Oops...',
-						text: 'Something went wrong!',
-						footer: 'Please try and reload the ',
-					});
 				} else {
 					setHotels(json);
 					setFilteredHotels(json);
 				}
 			})
-			.catch((error) => console.log(error))
+			.catch((error) => {
+				console.log(error);
+				Swal.fire({
+					icon: 'error',
+					title: 'Oops...',
+					text: 'Something went wrong!',
+					footer: 'Please try and reload the page',
+				});
+			})
 			.finally(() => setLoading(false));
 	}, []);
 

@@ -27,18 +27,20 @@ function Hotels() {
 				// handle error
 				if (json.error) {
 					setHotels([]);
-					Swal.fire({
-						icon: 'error',
-						title: 'Oops...',
-						text: 'Something went wrong!',
-						footer: 'Please try and reload the ',
-					});
 				} else {
 					setHotels(json);
 					setFilteredHotels(json);
 				}
 			})
-			.catch((error) => console.log(error))
+			.catch((error) => {
+				console.log(error);
+				Swal.fire({
+					icon: 'error',
+					title: 'Oops...',
+					text: 'Something went wrong!',
+					footer: 'Please try and reload the page',
+				});
+			})
 			.finally(() => setLoading(false));
 	}, []);
 

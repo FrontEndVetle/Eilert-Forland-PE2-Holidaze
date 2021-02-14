@@ -27,17 +27,19 @@ function MessagesContainer() {
 				// handle error
 				if (json.error) {
 					setMessages([]);
-					Swal.fire({
-						icon: 'error',
-						title: 'Oops...',
-						text: 'Something went wrong!',
-						footer: 'Please try and reload the ',
-					});
 				} else {
 					setMessages(json);
 				}
 			})
-			.catch((error) => console.log(error))
+			.catch((error) => {
+				console.log(error);
+				Swal.fire({
+					icon: 'error',
+					title: 'Oops...',
+					text: 'Something went wrong!',
+					footer: 'Please try and reload the page',
+				});
+			})
 			.finally(() => setLoading(false));
 	}, []);
 
