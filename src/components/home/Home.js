@@ -29,7 +29,7 @@ function Home() {
 							<div>
 								<NavLink to='/accommodation'>
 									<Button variant='outline-light' className='home-banner__btn '>
-										accommodations
+										ACCOMMODATIONS
 									</Button>
 								</NavLink>
 							</div>

@@ -13,8 +13,8 @@ function LogOut() {
 	}
 
 	return (
-		<Button className='menu__btn btn btn__primary' onClick={doLogout}>
-			Log out{' '}
+		<Button variant='danger' className='menu__btn ' onClick={doLogout}>
+			Log out
 		</Button>
 	);
 }
