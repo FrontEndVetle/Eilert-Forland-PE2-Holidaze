@@ -148,6 +148,7 @@ function HomeDetail() {
 							<Col xs={12} md={5} md={6}>
 								<HotelInfo
 									info={detail.description}
+									address={detail.address}
 									image={detail.image}
 									name={detail.name}
 									dining={dining}

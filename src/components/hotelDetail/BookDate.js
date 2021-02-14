@@ -32,7 +32,7 @@ function BookDate({
 							spacing={1}
 							className='d-flex justify-content-center detail__pickers'>
 							<Col xs={12} sm={4}>
-								<p className='text-center font-special'>checkin</p>
+								<p className='detail__label'>checkin</p>
 								<DatePicker
 									dateFormat='yyyy-MM-dd'
 									selected={startDate}
@@ -47,7 +47,7 @@ function BookDate({
 								<FaChevronRight className='icons' />
 							</Col>
 							<Col xs={12} sm={4}>
-								<p className='text-center font-special'>checkout</p>
+								<p className='detail__label'>checkout</p>
 								<DatePicker
 									className='detail__datepicker'
 									dateFormat='yyyy-MM-dd'
@@ -65,7 +65,9 @@ function BookDate({
 						<Row className='d-flex justify-content-center'>
 							<Col xs={6}>
 								<Form.Group onChange={handleSelect}>
-									<Form.Label>Number of guests</Form.Label>
+									<Form.Label className='detail__label'>
+										Number of guests
+									</Form.Label>
 									<Form.Control className='detail__guests' as='select'>
 										{guestOptions}
 									</Form.Control>

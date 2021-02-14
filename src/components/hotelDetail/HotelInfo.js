@@ -9,7 +9,7 @@ import { FaHome, FaGlassMartiniAlt } from 'react-icons/fa';
 import { Card, Button } from 'react-bootstrap';
 import InfoIcon from '../ui/InfoIcon';
 
-function HotelInfo({ image, name, info, dining }) {
+function HotelInfo({ image, name, info, dining, address }) {
 	return (
 		<Card className='detail'>
 			<Card.Img
@@ -25,24 +25,37 @@ function HotelInfo({ image, name, info, dining }) {
 				<hr />
 				<Accordion className='accord d-md-none' defaultActiveKey='0'>
 					<Card>
-						<Card.Header>
-							<Accordion.Toggle as={Button} variant='link' eventKey='0'>
-								Information
+						<Card.Header className='detail__head'>
+							<Accordion.Toggle
+								as={Button}
+								variant='link'
+								eventKey='0'
+								className='detail__head'>
+								<p className='detail__tabs'> Information</p>
 							</Accordion.Toggle>
 						</Card.Header>
 						<Accordion.Collapse eventKey='0'>
 							<Card.Body>
 								<ListGroup variant='flush'>
-									<InfoIcon info={info} icon={<FaHome />} />
+									<ListGroup.Item>
+										<InfoIcon info={info} icon={<FaHome />} />
+									</ListGroup.Item>
+									<ListGroup.Item>
+										<InfoIcon info={address} icon={<FaHome />} />
+									</ListGroup.Item>
 								</ListGroup>
 							</Card.Body>
 						</Accordion.Collapse>
 					</Card>
 
 					<Card>
-						<Card.Header>
-							<Accordion.Toggle as={Button} variant='link' eventKey='1'>
-								Catering
+						<Card.Header className='detail__head'>
+							<Accordion.Toggle
+								as={Button}
+								variant='link'
+								eventKey='1'
+								className='detail__head'>
+								<p className='detail__tabs'> Catering</p>
 							</Accordion.Toggle>
 						</Card.Header>
 						<Accordion.Collapse eventKey='1'>
@@ -55,12 +68,18 @@ function HotelInfo({ image, name, info, dining }) {
 					</Card>
 				</Accordion>
 				<div className=' d-none d-md-block'>
-					<Tabs defaultActiveKey='info' id='detailTab'>
+					<Tabs
+						defaultActiveKey='info'
+						id='detailTab'
+						className=' detail__tabs'>
 						<Tab className='detail-tabs' eventKey='info' title='Information'>
 							<InfoIcon info={info} icon={<FaHome />} />
 						</Tab>
 						<Tab className='detail-tabs' eventKey='catering' title='Catering'>
 							<InfoIcon info={dining} icon={<FaGlassMartiniAlt />} />
+						</Tab>
+						<Tab className='detail-tabs' eventKey='address' title='Address'>
+							<InfoIcon info={address} icon={<FaHome />} />
 						</Tab>
 					</Tabs>
 				</div>
@@ -73,6 +92,7 @@ HotelInfo.propTypes = {
 	image: PropTypes.string,
 	dining: PropTypes.string,
 	info: PropTypes.string,
+	address: PropTypes.string,
 	name: PropTypes.string.isRequired,
 };
 

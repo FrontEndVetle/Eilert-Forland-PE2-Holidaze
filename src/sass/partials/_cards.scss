@@ -27,8 +27,8 @@
     border: none;
     margin-top: 20px;
     &__head {
-        background-color: $primary;
-        color: $text-light;
+        background-color: $primary !important;
+        color: $text-light !important;
     }
     &__title {
         text-align: center;
@@ -60,6 +60,15 @@
     }
     &__btn {
         margin-top: 30px;
+    }
+    &__label {
+        font-family: $font-special;
+        margin-left: 20%;
+    }
+    &__tabs {
+        font-family: $font-special;
+        padding: 10px 0px;
+        margin: 10px;
     }
 }
 
