@@ -1,8 +1,6 @@
 import React from 'react';
 
-import { NavLink } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
 import { Row, Col } from 'react-bootstrap';
 
 type Props = {

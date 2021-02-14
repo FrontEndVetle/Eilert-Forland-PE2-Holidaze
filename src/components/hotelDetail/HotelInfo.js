@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import ListGroup from 'react-bootstrap/ListGroup';
 
 import { FaHome, FaGlassMartiniAlt } from 'react-icons/fa';
-import { Card, Button, Col, Row } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
 import InfoIcon from '../ui/InfoIcon';
 
 function HotelInfo({ image, name, info, dining }) {

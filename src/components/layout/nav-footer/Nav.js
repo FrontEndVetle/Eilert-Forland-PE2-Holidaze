@@ -5,7 +5,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Nav from 'react-bootstrap/Nav';
 import Logout from '../../auth/Logout';
 import Logo from './logo.png';
-import { FaBed } from 'react-icons/fa';
+import DropdownButton from 'react-bootstrap/DropdownButton';
 
 function Navigation() {
 	const { admin, user } = useContext(AuthContext);
@@ -29,9 +29,10 @@ function Navigation() {
 				<Nav>
 					{admin ? (
 						<>
-							<NavDropdown
-								title={'Hello ' + 'Admin'}
-								id='collasible-nav-dropdown'>
+							<DropdownButton
+								menuAlign='right'
+								title={'Hello, ' + 'Admin'}
+								id='dropdown-menu-align-right'>
 								<NavDropdown.Item href='/admin'>
 									Admin dashboard
 								</NavDropdown.Item>
@@ -48,20 +49,21 @@ function Navigation() {
 								<NavDropdown.Item>
 									<Logout />
 								</NavDropdown.Item>
-							</NavDropdown>
+							</DropdownButton>
 							<Nav.Link disabled>
 								<i className='fa fa-user-circle fa-2x'></i>
 							</Nav.Link>
 						</>
 					) : user ? (
 						<>
-							<NavDropdown
+							<DropdownButton
+								menuAlign='right'
 								title={'Hello, ' + user}
-								id='collasible-nav-dropdown'>
+								id='dropdown-menu-align-right'>
 								<NavDropdown.Item href='#action/3.4'>
 									<Logout />
 								</NavDropdown.Item>
-							</NavDropdown>
+							</DropdownButton>
 
 							<Nav.Link disabled>
 								<i className='fa fa-user-circle fa-2x'></i>

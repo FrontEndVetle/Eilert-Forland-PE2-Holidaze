@@ -32,7 +32,7 @@ function EnquiryModal({
 	return (
 		<Modal show={show} onHide={modalClose} centered>
 			<Modal.Header closeButton>
-				<Modal.Title>Enquire about availability</Modal.Title>
+				<Modal.Title>SEND ENQUIRY</Modal.Title>
 			</Modal.Header>
 
 			<Form noValidate onSubmit={handleSubmit(onSubmit)}>
@@ -110,10 +110,10 @@ function EnquiryModal({
 				</Modal.Body>
 				<Modal.Footer>
 					<Button className='form__btn btn btn__primary' type='submit'>
-						Send
+						SEND
 					</Button>
 					<Button className='form__btn btn btn__primary' onClick={modalClose}>
-						Close
+						CLOSE
 					</Button>
 				</Modal.Footer>
 			</Form>
