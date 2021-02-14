@@ -31,7 +31,7 @@ function EnquiryModal({
 
 	return (
 		<Modal show={show} onHide={modalClose} centered>
-			<Modal.Header closeButton>
+			<Modal.Header className='detail__head' closeButton>
 				<Modal.Title>SEND ENQUIRY</Modal.Title>
 			</Modal.Header>
 

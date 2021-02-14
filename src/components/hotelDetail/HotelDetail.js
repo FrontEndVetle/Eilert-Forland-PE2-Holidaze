@@ -167,7 +167,7 @@ function HomeDetail() {
 								handleSelect={handleSelect}
 								guestOptions={guestOptions}
 								modalShow={modalShow}
-							/>{' '}
+							/>
 							<BookingInfo
 								days={days}
 								price={detail.price}

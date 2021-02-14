@@ -11,10 +11,23 @@ const schema = yup.object().shape({
 	name: yup.string().required('Please fill out the field'),
 	address: yup.string().required('Please fill out the field'),
 	image: yup.string().required('Please fill out the field'),
-	lat: yup.number().required('Please fill out the field'),
-	lng: yup.number().required('Please fill out the field'),
-	maxGuests: yup.number().required('Please fill out the field'),
-	price: yup.number().required('Please fill out the field'),
+	lat: yup
+		.number()
+		.typeError('Please provide a number value')
+		.required('Please fill out this field.'),
+
+	lng: yup
+		.number()
+		.typeError('Please provide a number value')
+		.required('Please fill out this field.'),
+	maxGuests: yup
+		.number()
+		.typeError('Please provide a number value')
+		.required('Please fill out this field.'),
+	price: yup
+		.number()
+		.typeError('Please provide a number value')
+		.required('Please fill out this field.'),
 	email: yup.string().required('Please write your Email').email(),
 	description: yup
 		.string()
