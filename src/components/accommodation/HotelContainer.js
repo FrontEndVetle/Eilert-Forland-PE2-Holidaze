@@ -8,7 +8,6 @@ import Sliders from '../ui/Silders';
 import Spinner from 'react-bootstrap/Spinner';
 import HotelMap from '../ui/hotelMap/HotelMap';
 import ListGroup from 'react-bootstrap/ListGroup';
-import { BicyclingLayer } from '@react-google-maps/api';
 
 function GetHotels() {
 	const [hotels, setHotels] = useState([]);
