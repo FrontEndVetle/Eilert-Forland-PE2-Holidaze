@@ -38,7 +38,7 @@ function EnquiryModal({
 			<Form noValidate onSubmit={handleSubmit(onSubmit)}>
 				<Modal.Body>
 					<Row>
-						<Col>
+						<Col xs={12} sm={6}>
 							<Form.Row>
 								<Form.Group as={Col} md='10' controlId='name'>
 									<Form.Label>Full name</Form.Label>
@@ -68,7 +68,7 @@ function EnquiryModal({
 								</Form.Group>
 							</Form.Row>
 						</Col>
-						<Col>
+						<Col xs={12} sm={6}>
 							<Form.Row>
 								<Form.Group as={Col} md='12' controlId='hotel'>
 									<Form.Label>Hotel Name</Form.Label>
@@ -108,13 +108,20 @@ function EnquiryModal({
 						</Col>
 					</Row>
 				</Modal.Body>
+
 				<Modal.Footer>
-					<Button className='form__btn btn btn__primary' type='submit'>
-						SEND
-					</Button>
-					<Button className='form__btn btn btn__primary' onClick={modalClose}>
-						CLOSE
-					</Button>
+					<Row className='d-flex justify-content-center'>
+						<Col xs={12} sm={6}>
+							<Button className='form__btn' type='submit'>
+								SEND
+							</Button>
+						</Col>
+						<Col xs={12} sm={6}>
+							<Button className='form__btn ' onClick={modalClose}>
+								CLOSE
+							</Button>
+						</Col>
+					</Row>
 				</Modal.Footer>
 			</Form>
 		</Modal>

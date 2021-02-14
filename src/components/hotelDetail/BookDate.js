@@ -21,7 +21,7 @@ function BookDate({
 }) {
 	return (
 		<Card className='detail'>
-			<Card.Title>
+			<Card.Title className='detail__head'>
 				<h2 className='detail__title'>Choose booking dates</h2>
 				<hr />
 			</Card.Title>
@@ -30,7 +30,7 @@ function BookDate({
 					<ListGroup.Item>
 						<Row
 							spacing={1}
-							className='d-flex justify-content-between detail__pickers'>
+							className='d-flex justify-content-center detail__pickers'>
 							<Col xs={12} sm={4}>
 								<p className='text-center font-special'>checkin</p>
 								<DatePicker
@@ -62,18 +62,24 @@ function BookDate({
 						</Row>
 					</ListGroup.Item>
 					<ListGroup.Item>
-						<Form.Group>
-							<Form.Label>Number of guests</Form.Label>
-							<Form.Control
-								onChange={handleSelect}
-								as='select'
-								className='detail__guests'>
-								{guestOptions}
-							</Form.Control>
-						</Form.Group>
-						<Button className='detail__btn btn btn__action' onClick={modalShow}>
-							Enquire about availability
-						</Button>
+						<Row className='d-flex justify-content-center'>
+							<Col xs={6}>
+								<Form.Group onChange={handleSelect}>
+									<Form.Label>Number of guests</Form.Label>
+									<Form.Control className='detail__guests' as='select'>
+										{guestOptions}
+									</Form.Control>
+								</Form.Group>
+							</Col>
+							<Col xs={6}>
+								<Button
+									variant='danger'
+									className='detail__btn'
+									onClick={modalShow}>
+									SEND ENQUIRY
+								</Button>
+							</Col>
+						</Row>
 					</ListGroup.Item>
 				</ListGroup>
 			</Card.Body>

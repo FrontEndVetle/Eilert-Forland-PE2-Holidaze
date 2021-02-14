@@ -27,9 +27,12 @@
     box-shadow: $box-shadow;
     border: none;
     margin-top: 20px;
+    &__head {
+        background-color: $primary;
+        color: $text-light;
+    }
     &__title {
         text-align: center;
-        color: $text-color;
         margin: 20px 0px;
     }
     &__img {
@@ -43,22 +46,21 @@
     &__datepicker {
         width: 130px;
         border-radius: 5%;
-        color: $text-light;
-        background-color: $primary;
+        border-color: $primary;
         padding: 3px;
         text-align: center;
     }
     &__pickers {
-        color: $text-light;
-        background-color: $primary;
         padding: 3px;
         text-align: center;
     }
     &__guests {
-        border-radius: 5%;
-        color: $text-light;
-        background-color: $primary;
+        border-radius: 50px;
         padding: 3px;
+        border: 2px solid $primary;
+    }
+    &__btn {
+        margin-top: 30px;
     }
 }
 

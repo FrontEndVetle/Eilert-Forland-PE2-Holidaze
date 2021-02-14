@@ -15,7 +15,7 @@ function BookingInfo({
 }) {
 	return (
 		<Card className='detail'>
-			<Card.Title>
+			<Card.Title className='detail__head'>
 				<h3 className='detail__title'> Booking information </h3>
 			</Card.Title>
 			<Card.Body>
