@@ -12,7 +12,7 @@
     background-color: $primary;
     text-align: center;
     a {
-        color: $light;
+        color: $text-light;
         &:hover {
             color: $hover-a;
             text-decoration: underline;
@@ -24,7 +24,7 @@
 
 .menu {
     a {
-        color: $light !important;
+        color: $text-light !important;
     }
 }
 

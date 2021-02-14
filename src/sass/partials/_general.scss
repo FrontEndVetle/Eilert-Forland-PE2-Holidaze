@@ -11,13 +11,6 @@ body {
     }
 }
 
-.App {
-    background-color: $light;
-    padding-top: 1px;
-}
-
-@media (min-width: 641px) {}
-
 @media (min-width: 961px) {
     .content {
         padding: 150px 0;

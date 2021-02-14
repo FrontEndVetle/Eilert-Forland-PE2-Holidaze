@@ -1,11 +1,7 @@
 .body-dark {
-    background-color: rgb(223, 223, 223);
+    background-color: $bg-dark;
 }
 
 .body-light {
-    background-color: rgb(233, 233, 233);
+    background-color: $bg-light;
 }
-
-@media (min-width: 641px) {}
-
-@media (min-width: 961px) {}
