@@ -21,7 +21,7 @@ function Sliders({
 						onChange={(e) => setFilterPrice(e.target.value)}
 						tooltipPlacement='top'
 						tooltip='on'
-						max={300}
+						max={350}
 						min={85}
 					/>
 				</Col>
@@ -33,7 +33,7 @@ function Sliders({
 						onChange={(e) => setFilterGuests(e.target.value)}
 						tooltipPlacement='bottom'
 						tooltip='on'
-						max={20}
+						max={15}
 						min={1}
 					/>
 				</Col>

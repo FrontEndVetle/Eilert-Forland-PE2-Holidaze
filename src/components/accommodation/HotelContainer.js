@@ -92,7 +92,11 @@ function GetHotels() {
 				<div className='filter'>
 					<Row className=' d-flex justify-content-between'>
 						<Col xs={12} sm={12} lg={5}>
-							<Search searchName={searchName} hotels={hotels} />
+							<Search
+								linkPath={linkPath}
+								searchName={searchName}
+								hotels={hotels}
+							/>
 						</Col>
 						<div className='border-right d-none d-md-block d-lg-block'></div>
 

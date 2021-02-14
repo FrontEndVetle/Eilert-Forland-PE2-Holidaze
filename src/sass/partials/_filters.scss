@@ -21,13 +21,15 @@
 .search {
     margin: 9% 3% 0px 3%;
     color: $text-light;
-    background-color: $primary;
     &__link {
         width: 100%;
         color: $text-light;
         &:hover {
             color: $link-hover;
         }
+    }
+    &__hr {
+        background-color: $text-light;
     }
 }
 

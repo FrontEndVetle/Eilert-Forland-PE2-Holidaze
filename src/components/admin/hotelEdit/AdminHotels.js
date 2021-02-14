@@ -7,10 +7,12 @@ import { Row, Container, Col } from 'react-bootstrap/';
 import Spinner from 'react-bootstrap/Spinner';
 import Swal from 'sweetalert2';
 import Heading from '../../ui/Heading';
+import Search from '../../ui/Search';
 
 function Hotels() {
 	const [hotels, setHotels] = useState([]);
 	const [loading, setLoading] = useState(true);
+	const [filteredHotels, setFilteredHotels] = useState([]);
 
 	const url = BASE_URL + 'establishments';
 	const linkPath = '/admin/hotels/edit/';
@@ -33,6 +35,7 @@ function Hotels() {
 					});
 				} else {
 					setHotels(json);
+					setFilteredHotels(json);
 				}
 			})
 			.catch((error) => console.log(error))
@@ -42,6 +45,27 @@ function Hotels() {
 	if (loading) {
 		return <Spinner className='spinner' animation='border' variant='primary' />;
 	}
+
+	const filterHotels = function filter(e) {
+		//create a new array from the hotels array
+		const filteredArray = hotels.filter(function (acco) {
+			//each hotel name to lowercase to compare with search value
+
+			const lowerCaseName = acco.name.toLowerCase();
+			const searchValue = e.target.value.toLowerCase();
+
+			//check if the hotel name includes the search value
+			if (lowerCaseName.includes(searchValue)) {
+				//add to filtered array
+
+				return true;
+			}
+
+			return false;
+		});
+		//set filtered hotels to the new array
+		setFilteredHotels(filteredArray);
+	};
 
 	return (
 		<>
@@ -57,8 +81,15 @@ function Hotels() {
 					<Heading title='Current Listings' />
 
 					<Row className='d-flex justify-content-center'>
+						<Col xs={12}>
+							<Search
+								linkPath={linkPath}
+								searchName={filterHotels}
+								hotels={hotels}
+							/>
+						</Col>
 						{hotels &&
-							hotels.map((hotel) => {
+							filteredHotels.map((hotel) => {
 								const { id, name, image, price, maxGuests } = hotel;
 								return (
 									<Col className='d-flex' xs={12} md={6} lg={9} key={id}>

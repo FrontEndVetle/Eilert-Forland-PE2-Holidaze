@@ -111,12 +111,12 @@ function EnquiryModal({
 
 				<Modal.Footer>
 					<Row className='d-flex justify-content-center'>
-						<Col xs={12} sm={6}>
+						<Col xs={6}>
 							<Button className='form__btn' type='submit'>
 								SEND
 							</Button>
 						</Col>
-						<Col xs={12} sm={6}>
+						<Col xs={6}>
 							<Button className='form__btn ' onClick={modalClose}>
 								CLOSE
 							</Button>
