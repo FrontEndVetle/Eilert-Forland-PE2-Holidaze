@@ -10,6 +10,12 @@ function LogOut() {
 	function doLogout() {
 		logout();
 		history.push('/');
+		Swal.fire({
+			title: 'Logged out!',
+			text: 'Hope to see you soon',
+			icon: 'success',
+			confirmButtonText: 'OK',
+		});
 	}
 
 	return (

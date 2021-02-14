@@ -3,13 +3,11 @@ import { Row, Container, Col } from 'react-bootstrap/';
 import MetaTags from 'react-meta-tags';
 
 import { useHistory } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { BASE_URL, headers } from '../../../constants/api';
 import CardBtn from '../../ui/CardBtn';
 import Heading from '../../ui/Heading';
 import EditHotelForm from './EditHotelForm';
-import ListGroup from 'react-bootstrap/ListGroup';
-import InfoIcon from '../../ui/InfoIcon';
-import { FaEuroSign, FaBed } from 'react-icons/fa';
 
 function AddHotel() {
 	const [catering, setCatering] = useState('true');
@@ -34,6 +32,12 @@ function AddHotel() {
 		await fetch(url, methods);
 
 		history.push('/admin');
+		Swal.fire({
+			title: 'Establishment added',
+			text: 'Establishment was successfully added',
+			icon: 'success',
+			confirmButtonText: 'OK',
+		});
 	}
 
 	return (

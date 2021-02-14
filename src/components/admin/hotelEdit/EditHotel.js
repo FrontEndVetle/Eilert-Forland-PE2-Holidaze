@@ -66,6 +66,12 @@ function EditHotel() {
 
 		await fetch(url, methods);
 		history.push('/admin/hotels');
+		Swal.fire({
+			title: 'Edit Confirmed',
+			text: 'Hotel was successfully edited',
+			icon: 'success',
+			confirmButtonText: 'OK',
+		});
 	}
 	const {
 		name,
