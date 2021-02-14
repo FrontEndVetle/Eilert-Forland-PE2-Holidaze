@@ -58,7 +58,7 @@ function Contact() {
 					<Row className='d-flex justify-content-center'>
 						<Col md={10} className='contact__content '>
 							<Heading title='Contact' />
-							<Row className='d-flex justify-content-around'>
+							<Row className='d-flex justify-content-around mt-5'>
 								<Col xs={10} md={5}>
 									<ContactForm onSubmit={onSubmit} />
 								</Col>

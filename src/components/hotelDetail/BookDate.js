@@ -22,7 +22,7 @@ function BookDate({
 	return (
 		<Card className='detail'>
 			<Card.Title className='detail__head'>
-				<h2 className='detail__title'>Choose booking dates</h2>
+				<h3 className='detail__title'>Choose booking dates</h3>
 				<hr />
 			</Card.Title>
 			<Card.Body>

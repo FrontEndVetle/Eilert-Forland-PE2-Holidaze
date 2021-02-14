@@ -66,6 +66,7 @@ function HotelInfo({ image, name, info, dining, address }) {
 							</Card.Body>
 						</Accordion.Collapse>
 					</Card>
+					<hr />
 				</Accordion>
 				<div className=' d-none d-md-block'>
 					<Tabs
@@ -82,6 +83,7 @@ function HotelInfo({ image, name, info, dining, address }) {
 							<InfoIcon info={address} icon={<FaHome />} />
 						</Tab>
 					</Tabs>
+					<hr />
 				</div>
 			</Card.Body>
 		</Card>
