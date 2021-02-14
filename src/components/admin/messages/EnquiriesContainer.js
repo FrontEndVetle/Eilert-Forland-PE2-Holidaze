@@ -52,60 +52,63 @@ function EnquiriesContainer() {
 					<Heading title='Enquiries' />
 				</Col>
 				{messages &&
-					messages.map((contact, i) => {
-						const {
-							name,
-							email,
-							message,
-							createdAt,
-							checkIn,
-							checkOut,
-							id,
-							establishmentId,
-						} = contact;
+					messages
+						.slice(0)
+						.reverse()
+						.map((contact, i) => {
+							const {
+								name,
+								email,
+								message,
+								createdAt,
+								checkIn,
+								checkOut,
+								id,
+								establishmentId,
+							} = contact;
 
-						let checkInDate = moment(checkIn).format('YYYY-MM-DD');
-						let checkOutDate = moment(checkOut).format('YYYY-MM-DD');
-						let sentDate = moment(createdAt).format('YYYY-MM-DD');
+							let checkInDate = moment(checkIn).format('YYYY-MM-DD');
+							let checkOutDate = moment(checkOut).format('YYYY-MM-DD');
+							let sentDate = moment(createdAt).format('YYYY-MM-DD');
 
-						return (
-							<MessageList
-								key={i}
-								name={name}
-								email={email}
-								message={message}
-								createdAt={sentDate}
-								id={id}
-								deletePath={deletePath}
-								historyPath={historyPath}
-								messageContent={
-									<ListGroup variant='flush'>
-										<ListGroup.Item>
-											<InfoIcon
-												small='Establishment'
-												info={establishmentId}
-												icon={<FaHome />}
-											/>
-										</ListGroup.Item>
-										<ListGroup.Item>
-											<InfoIcon
-												small='Checkin'
-												info={checkInDate}
-												icon={<FaCalendar />}
-											/>
-										</ListGroup.Item>
-										<ListGroup.Item>
-											<InfoIcon
-												small='Checkout'
-												info={checkOutDate}
-												icon={<FaCalendar />}
-											/>
-										</ListGroup.Item>
-									</ListGroup>
-								}
-							/>
-						);
-					})}
+							return (
+								<MessageList
+									key={i}
+									name={name}
+									email={email}
+									message={message}
+									createdAt={sentDate}
+									id={id}
+									deletePath={deletePath}
+									historyPath={historyPath}
+									messageContent={
+										<ListGroup variant='flush'>
+											<ListGroup.Item>
+												<InfoIcon
+													small='Establishment'
+													info={establishmentId}
+													icon={<FaHome />}
+												/>
+											</ListGroup.Item>
+											<ListGroup.Item>
+												<InfoIcon
+													small='Checkin'
+													info={checkInDate}
+													icon={<FaCalendar />}
+												/>
+											</ListGroup.Item>
+											<ListGroup.Item>
+												<InfoIcon
+													small='Checkout'
+													info={checkOutDate}
+													icon={<FaCalendar />}
+												/>
+											</ListGroup.Item>
+										</ListGroup>
+									}
+								/>
+							);
+						})}
 			</Row>
 		</Container>
 	);

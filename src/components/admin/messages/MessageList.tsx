@@ -23,7 +23,6 @@ function EnquiriesList({
 	id,
 	name,
 	email,
-	message,
 	createdAt,
 	messageContent,
 	deletePath,

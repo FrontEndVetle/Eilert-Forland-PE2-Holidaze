@@ -52,31 +52,33 @@ function Messages() {
 					<Heading title='Contact messages' />
 				</Col>
 				{messages &&
-					messages.map((contact, i) => {
-						const { name, email, message, createdAt, id } = contact;
+					messages
+						.slice(0)
+						.reverse()
+						.map((contact, i) => {
+							const { name, email, message, createdAt, id } = contact;
 
-						let sentDate = moment(createdAt).format('YYYY-MM-DD');
+							let sentDate = moment(createdAt).format('YYYY-MM-DD');
 
-						return (
-							<MessageList
-								key={i}
-								name={name}
-								email={email}
-								message={message}
-								createdAt={sentDate}
-								id={id}
-								deletePath={deletePath}
-								historyPath={historyPath}
-								messageContent={
-									<InfoIcon
-										small='Contact message'
-										info={message}
-										icon={<FaFileAlt />}
-									/>
-								}
-							/>
-						);
-					})}
+							return (
+								<MessageList
+									key={i}
+									name={name}
+									email={email}
+									createdAt={sentDate}
+									id={id}
+									deletePath={deletePath}
+									historyPath={historyPath}
+									messageContent={
+										<InfoIcon
+											small='Contact message'
+											info={message}
+											icon={<FaFileAlt />}
+										/>
+									}
+								/>
+							);
+						})}
 			</Row>
 		</Container>
 	);
