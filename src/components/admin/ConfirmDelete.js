@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Button from 'react-bootstrap/Button';
 import { BASE_URL, headers, DELETE } from '../../constants/api';
 import { useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import PropTypes from 'prop-types';
 
 function ConfirmDelete({ id, deletePath, historyPath }) {
 	const history = useHistory();
@@ -42,5 +43,11 @@ function ConfirmDelete({ id, deletePath, historyPath }) {
 		</Button>
 	);
 }
+
+ConfirmDelete.propTypes = {
+	id: PropTypes.string.isRequired,
+	deletePath: PropTypes.string.isRequired,
+	historyPath: PropTypes.string.isRequired,
+};
 
 export default ConfirmDelete;

@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { Row, Col } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
 const schema = yup.object().shape({
 	name: yup
@@ -81,5 +82,9 @@ function ContactForm({ onSubmit }) {
 		</Form>
 	);
 }
+
+ContactForm.propTypes = {
+	onSubmit: PropTypes.func,
+};
 
 export default ContactForm;

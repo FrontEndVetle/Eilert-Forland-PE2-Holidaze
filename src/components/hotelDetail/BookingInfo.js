@@ -4,6 +4,7 @@ import { FaCalendar, FaEuroSign, FaUserAlt, FaBed } from 'react-icons/fa';
 import { Card } from 'react-bootstrap';
 import { Row, Col } from 'react-bootstrap';
 import InfoIcon from '../ui/InfoIcon';
+import PropTypes from 'prop-types';
 
 function BookingInfo({
 	days,
@@ -67,5 +68,14 @@ function BookingInfo({
 		</Card>
 	);
 }
+
+BookDate.propTypes = {
+	checkinDate: PropTypes.instanceOf(Date),
+	checkoutDate: PropTypes.instanceOf(Date),
+	price: PropTypes.string,
+	guests: PropTypes.number,
+	days: PropTypes.number,
+	totalPrice: PropTypes.number,
+};
 
 export default BookingInfo;

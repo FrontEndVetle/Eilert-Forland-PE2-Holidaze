@@ -9,12 +9,8 @@ type Props = {
 	id: string;
 	name: string;
 	email?: string;
-	message?: string;
 	createdAt: number;
-	checkIn?: number;
-	checkOut?: number;
-	deletePath?: string;
-	hotelName?: string;
+	deletePath: string;
 	historyPath: string;
 	messageContent: object;
 };
@@ -26,7 +22,6 @@ function EnquiriesList({
 	createdAt,
 	messageContent,
 	deletePath,
-
 	historyPath,
 }: Props) {
 	return (

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useForm, Controller } from 'react-hook-form';
+import React from 'react';
+import { useForm } from 'react-hook-form';
 import { Col, Row, Form, Button } from 'react-bootstrap/';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
@@ -231,9 +231,7 @@ function EditHotelForm({
 
 EditHotelForm.propTypes = {
 	name: PropTypes.string,
-	setCatering: PropTypes.func,
 	catering: PropTypes.string,
-	onSubmit: PropTypes.func,
 	email: PropTypes.string,
 	image: PropTypes.string,
 	price: PropTypes.number,

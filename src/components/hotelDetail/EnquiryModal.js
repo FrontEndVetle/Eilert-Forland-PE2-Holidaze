@@ -7,6 +7,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import PropTypes from 'prop-types';
 
 const schema = yup.object().shape({
 	name: yup
@@ -127,5 +128,14 @@ function EnquiryModal({
 		</Modal>
 	);
 }
+
+EnquiryModal.propTypes = {
+	hotel: PropTypes.string.isRequired,
+	checkinDate: PropTypes.instanceOf(Date),
+	checkoutDate: PropTypes.instanceOf(Date),
+	show: PropTypes.func,
+	modalClose: PropTypes.func,
+	onSubmit: PropTypes.func,
+};
 
 export default EnquiryModal;

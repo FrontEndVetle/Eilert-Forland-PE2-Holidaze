@@ -24,7 +24,7 @@ const schema = yup.object().shape({
 		.min(3, 'password have minimum 3 letters'),
 });
 
-function Register() {
+function Login() {
 	const { register, handleSubmit, errors } = useForm({
 		resolver: yupResolver(schema),
 	});
@@ -113,4 +113,4 @@ function Register() {
 	);
 }
 
-export default Register;
+export default Login;

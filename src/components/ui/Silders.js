@@ -2,6 +2,7 @@ import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import RangeSlider from 'react-bootstrap-range-slider';
+import PropTypes from 'prop-types';
 
 function Sliders({
 	filterPrice,
@@ -41,5 +42,13 @@ function Sliders({
 		</Form>
 	);
 }
+
+Sliders.propTypes = {
+	filterGuests: PropTypes.number,
+	filterPrice: PropTypes.number,
+	setFilterGuests: PropTypes.func,
+	setFilterPrice: PropTypes.func,
+	handleSearch: PropTypes.func,
+};
 
 export default Sliders;

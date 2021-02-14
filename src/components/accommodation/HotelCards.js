@@ -65,6 +65,7 @@ function HotelCards({ name, id, image, price, maxGuests, linkPath, btnText }) {
 	);
 }
 HotelCards.propTypes = {
+	name: PropTypes.string.isRequired,
 	image: PropTypes.string,
 	id: PropTypes.string.isRequired,
 	price: PropTypes.number.isRequired,
