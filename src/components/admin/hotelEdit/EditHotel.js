@@ -90,7 +90,15 @@ function EditHotel() {
 				<Container>
 					<div className='content'>
 						<Heading title='Edit Accommodation' />
+						<hr />
+						<blockquote className='blockquote text-center'>
+							"A wise man changes his mind, a fool never will."
+							<footer className='blockquote-footer'>
+								<cite title='Source Title'> Spanish Proverb</cite>
+							</footer>
+						</blockquote>
 
+						<hr />
 						<EditHotelForm
 							onSubmit={onSubmit}
 							name={name}
