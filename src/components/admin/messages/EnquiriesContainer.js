@@ -6,7 +6,6 @@ import Container from 'react-bootstrap/Container';
 import moment from 'moment';
 import Spinner from 'react-bootstrap/Spinner';
 import Swal from 'sweetalert2';
-import Heading from '../../ui/Heading';
 import { FaCalendar, FaHome } from 'react-icons/fa';
 import InfoIcon from '../../ui/InfoIcon';
 
@@ -48,10 +47,6 @@ function EnquiriesContainer() {
 	return (
 		<Container>
 			<Row className='content d-flex justify-content-center'>
-				<Col xs={12}>
-					<Heading title='Enquiries' />
-				</Col>
-
 				{messages &&
 					messages
 						.slice(0)

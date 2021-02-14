@@ -6,6 +6,12 @@
     }
 }
 
+input,
+textarea,
+select {
+    border: $dark-border !important;
+}
+
 @media (min-width: 641px) {}
 
 @media (min-width: 961px) {

@@ -9,7 +9,7 @@ import { FaFileAlt } from 'react-icons/fa';
 import InfoIcon from '../../ui/InfoIcon';
 import Heading from '../../ui/Heading';
 
-function Messages() {
+function MessagesContainer() {
 	const [messages, setMessages] = useState([]);
 	const [loading, setLoading] = useState(true);
 
@@ -48,9 +48,6 @@ function Messages() {
 	return (
 		<Container>
 			<Row className='content d-flex justify-content-center'>
-				<Col xs={12}>
-					<Heading title='Contact messages' />
-				</Col>
 				{messages &&
 					messages
 						.slice(0)
@@ -84,4 +81,4 @@ function Messages() {
 	);
 }
 
-export default Messages;
+export default MessagesContainer;
