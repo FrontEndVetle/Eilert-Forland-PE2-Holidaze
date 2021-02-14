@@ -46,15 +46,13 @@ function AddHotel() {
 				<div className='content'>
 					<Heading title='Add accommodation' />
 
-					<Row className=' d-flex justify-content-center '>
-						<EditHotelForm
-							onSubmit={onSubmit}
-							btnName={btnName}
-							setCatering={setCatering}
-							catering={catering}
-							btnVar={<CardBtn linkPath='/admin' btnText='Cancel' />}
-						/>
-					</Row>
+					<EditHotelForm
+						onSubmit={onSubmit}
+						btnName={btnName}
+						setCatering={setCatering}
+						catering={catering}
+						btnVar={<CardBtn linkPath='/admin' btnText='Cancel' />}
+					/>
 				</div>
 			</Container>
 		</>

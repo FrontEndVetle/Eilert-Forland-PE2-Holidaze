@@ -107,12 +107,12 @@ function EditHotelForm({
 								{errors.maxGuests && <p>{errors.maxGuests.message}</p>}
 							</Form.Control.Feedback>
 
-							<ButtonGroup toggle>
+							<ButtonGroup toggle className='m-4'>
 								{radios.map((radio, idx) => (
 									<ToggleButton
 										key={idx}
 										type='radio'
-										variant='secondary'
+										variant='outline-primary'
 										name='radio'
 										value={radio.value}
 										checked={catering === radio.value}
