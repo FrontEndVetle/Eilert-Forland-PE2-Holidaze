@@ -76,9 +76,8 @@ function HomeDetail() {
 	for (let i = 0; i < detail.maxGuests; i++) {
 		guestOptions.push(
 			<option key={i} value={1 + i}>
-				{' '}
 				{1 + i}
-				Guest{' '}
+				-Guests
 			</option>
 		);
 	}
@@ -118,7 +117,7 @@ function HomeDetail() {
 		name: detail.name,
 		maxGuests: (
 			<ListGroup.Item>
-				<p> Guest capacity: {detail.maxGuests} </p>{' '}
+				<p> Guest capacity: {detail.maxGuests} </p>
 			</ListGroup.Item>
 		),
 		price: (
