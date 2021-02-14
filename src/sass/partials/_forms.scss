@@ -10,6 +10,7 @@ input,
 textarea,
 select {
     border: $dark-border !important;
+    padding: 10px;
 }
 
 @media (min-width: 641px) {}
