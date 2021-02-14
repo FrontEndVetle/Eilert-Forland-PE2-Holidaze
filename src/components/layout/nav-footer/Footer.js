@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
 import { NavLink } from 'react-router-dom';
+import { FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa';
 
 //icons
 
@@ -39,19 +40,23 @@ function Footer() {
 
 						<ul className='footer__list'>
 							<a href='https://www.facebook.com/'>
-								<li>Facebook</li>
+								<li>
+									<FaFacebookF /> {''}Facebook
+								</li>
 							</a>
 							<a href='https://www.twitter.com/'>
-								<li>Twitter</li>
+								<li>
+									<FaTwitter /> {''}
+									FaTwitter
+								</li>
 							</a>
 							<a href='https://www.instagram.com/'>
-								<li>Instagram</li>
+								<li>
+									<FaInstagram /> {''}
+									Instagram
+								</li>
 							</a>
 						</ul>
-
-						<a href='https://www.facebook.com/'></a>
-						<a href='https://www.twitter.com/'></a>
-						<a href='https://www.instagram.com/'></a>
 					</Col>
 				</Row>
 

@@ -31,11 +31,11 @@ function EnquiriesList({
 }: Props) {
 	return (
 		<>
-			<Col xs={10}>
+			<Col xs={10} className='mt-3'>
 				<Card className='card-list'>
 					<Card.Header className='text-center'>Sent {createdAt}</Card.Header>
 					<Card.Body>
-						<Row className='d-flex justify-content-center'>
+						<Row className='d-flex justify-content-center '>
 							<Col md={6}>
 								<ListGroup variant='flush'>
 									<ListGroup.Item>

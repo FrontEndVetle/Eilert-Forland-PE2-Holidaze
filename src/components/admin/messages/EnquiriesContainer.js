@@ -51,6 +51,7 @@ function EnquiriesContainer() {
 				<Col xs={12}>
 					<Heading title='Enquiries' />
 				</Col>
+
 				{messages &&
 					messages
 						.slice(0)
