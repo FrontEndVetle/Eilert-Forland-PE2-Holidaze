@@ -11,7 +11,7 @@ type Props = {
 function CardBtn({ linkPath, btnText, id = '' }: Props) {
 	return (
 		<NavLink to={linkPath + id}>
-			<Button className='card-list__btn btn btn__primary danger'>
+			<Button variant='outline-primary' className='card-list__btn '>
 				{btnText}
 			</Button>
 		</NavLink>

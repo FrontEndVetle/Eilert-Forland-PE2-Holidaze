@@ -13,7 +13,7 @@ type Props = {
 
 function DashboardCards({ title, img, infoList, btn }: Props) {
 	return (
-		<Card className='card-list'>
+		<Card className='card-list '>
 			<Card.Img
 				variant='top'
 				className='card-list__img'
@@ -22,12 +22,12 @@ function DashboardCards({ title, img, infoList, btn }: Props) {
 			/>
 			<Card.Body>
 				<Card.Title>
-					<h2 className='card-list__title'> {title}</h2>
+					<h3 className='card-list__title'> {title}</h3>
 				</Card.Title>
 				{infoList}
 			</Card.Body>
 			<Row>
-				<Col>
+				<Col className='text-center'>
 					<Card.Body>{btn}</Card.Body>
 				</Col>
 			</Row>

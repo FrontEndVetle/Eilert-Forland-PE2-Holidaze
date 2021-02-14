@@ -47,7 +47,7 @@ function Footer() {
 							<a href='https://www.twitter.com/'>
 								<li>
 									<FaTwitter /> {''}
-									FaTwitter
+									Twitter
 								</li>
 							</a>
 							<a href='https://www.instagram.com/'>

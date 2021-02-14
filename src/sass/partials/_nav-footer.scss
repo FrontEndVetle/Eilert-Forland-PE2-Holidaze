@@ -34,6 +34,12 @@
     color: $text-light;
     text-align: center;
     padding-top: 30px;
+    a {
+        color: $text-light;
+        &:hover {
+            color: $text-light;
+        }
+    }
     li {
         color: $light;
         margin: 10px 0px;
