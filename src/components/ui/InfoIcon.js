@@ -19,7 +19,7 @@ function InfoIcon({ small, info, icon }) {
 InfoIcon.propTypes = {
 	small: PropTypes.string,
 	icon: PropTypes.object,
-	info: PropTypes.string,
+	info: PropTypes.any,
 };
 
 export default InfoIcon;

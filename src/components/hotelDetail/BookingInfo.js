@@ -69,10 +69,10 @@ function BookingInfo({
 	);
 }
 
-BookDate.propTypes = {
-	checkinDate: PropTypes.instanceOf(Date),
-	checkoutDate: PropTypes.instanceOf(Date),
-	price: PropTypes.string,
+BookingInfo.propTypes = {
+	checkinDate: PropTypes.string,
+	checkoutDate: PropTypes.string,
+	price: PropTypes.number,
 	guests: PropTypes.number,
 	days: PropTypes.number,
 	totalPrice: PropTypes.number,

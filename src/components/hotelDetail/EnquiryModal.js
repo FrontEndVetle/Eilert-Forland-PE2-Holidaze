@@ -131,9 +131,9 @@ function EnquiryModal({
 
 EnquiryModal.propTypes = {
 	hotel: PropTypes.string.isRequired,
-	checkinDate: PropTypes.instanceOf(Date),
-	checkoutDate: PropTypes.instanceOf(Date),
-	show: PropTypes.func,
+	checkinDate: PropTypes.string,
+	checkoutDate: PropTypes.string,
+	show: PropTypes.bool,
 	modalClose: PropTypes.func,
 	onSubmit: PropTypes.func,
 };

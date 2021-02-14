@@ -11,15 +11,10 @@ const schema = yup.object().shape({
 	name: yup.string().required('Please fill out the field'),
 	address: yup.string().required('Please fill out the field'),
 	image: yup.string().required('Please fill out the field'),
-	lat: yup
-		.number()
-		.typeError('Please provide a number value')
-		.required('Please fill out this field.'),
+	lat: yup.number().typeError('Please provide a number value'),
 
-	lng: yup
-		.number()
-		.typeError('Please provide a number value')
-		.required('Please fill out this field.'),
+	lng: yup.number().typeError('Please provide a number value'),
+
 	maxGuests: yup
 		.number()
 		.typeError('Please provide a number value')
@@ -188,7 +183,7 @@ function EditHotelForm({
 							<Form.Label>Latitude</Form.Label>
 							<Form.Control
 								defaultValue={lat}
-								type='number'
+								type='text'
 								name='lat'
 								ref={register}
 								isInvalid={errors.lat}
@@ -202,7 +197,7 @@ function EditHotelForm({
 							<Form.Label>Longitude</Form.Label>
 							<Form.Control
 								defaultValue={lng}
-								type='number'
+								type='text'
 								name='lng'
 								ref={register}
 								isInvalid={errors.lng}

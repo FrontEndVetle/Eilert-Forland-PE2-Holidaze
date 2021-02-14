@@ -44,8 +44,8 @@ function Sliders({
 }
 
 Sliders.propTypes = {
-	filterGuests: PropTypes.number,
-	filterPrice: PropTypes.number,
+	filterGuests: PropTypes.any,
+	filterPrice: PropTypes.any,
 	setFilterGuests: PropTypes.func,
 	setFilterPrice: PropTypes.func,
 	handleSearch: PropTypes.func,
