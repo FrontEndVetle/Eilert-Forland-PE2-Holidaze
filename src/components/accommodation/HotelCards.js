@@ -26,7 +26,7 @@ function HotelCards({ name, id, image, price, maxGuests, linkPath, btnText }) {
 							<NavLink to={linkPath + id}>
 								<Card.Body className='m-0 p-0'>
 									<Col lg={6} className='float-lg-left mb-5'>
-										<Card.Title className='mt-3'>
+										<Card.Title>
 											<h4 className='card-list__hotel'> {name}</h4>
 										</Card.Title>
 									</Col>
