@@ -45,30 +45,34 @@ function AddHotel() {
 					content='This page lets you add accommodations'
 				/>
 			</MetaTags>
-
-			<Container>
+			<Container fluid className='body-light pt-2 p-0 '>
 				<div className='content'>
-					<Heading title='Add accommodation' />
-					<Row className='d-flex justify-content-center'>
-						<Col xs={10} md={10}>
-							<hr />
-							<blockquote className='blockquote text-center'>
-								“Customers loves certainty, make sure you give it to them.”
-								<footer className='blockquote-footer'>
-									<cite title='Source Title'> Amit Kalantri</cite>
-								</footer>
-							</blockquote>
-
-							<hr />
-						</Col>
-					</Row>
-					<EditHotelForm
-						onSubmit={onSubmit}
-						btnName={btnName}
-						setCatering={setCatering}
-						catering={catering}
-						btnVar={<CardBtn linkPath='/admin' btnText='Cancel' />}
-					/>
+					<Container>
+						<Heading title='Add accommodation' />
+						<Row className='d-flex justify-content-center'>
+							<Col xs={10} md={10}>
+								<blockquote className='blockquote text-center'>
+									<hr className='blockquote__hr' />
+									“Customers loves certainty, make sure you give it to them.”
+									<footer className='blockquote-footer'>
+										<cite title='Source Title'> Amit Kalantri</cite>
+									</footer>
+									<hr className='blockquote__hr' />
+								</blockquote>
+							</Col>
+						</Row>
+					</Container>
+					<Container fluid className='body-dark  pt-5 pb-4 '>
+						<Container>
+							<EditHotelForm
+								onSubmit={onSubmit}
+								btnName={btnName}
+								setCatering={setCatering}
+								catering={catering}
+								btnVar={<CardBtn linkPath='/admin' btnText='Cancel' />}
+							/>
+						</Container>
+					</Container>
 				</div>
 			</Container>
 		</>

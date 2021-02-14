@@ -41,16 +41,15 @@ function Home() {
 				<div>
 					<Row className='d-flex justify-content-center'>
 						<Col xs={10} md={10}>
-							<hr className='home-info__hr' />
 							<blockquote className='blockquote text-center '>
+								<hr className='blockquote__hr' />
 								“Holidaze is the go-to booking agency for Bergen”
 								<footer className='blockquote-footer'>
 									Karl Hansen,
 									<cite title='Source Title'> Vestlandet News</cite>
 								</footer>
+								<hr className='blockquote__hr' />
 							</blockquote>
-
-							<hr className='home-info__hr' />
 						</Col>
 					</Row>
 				</div>

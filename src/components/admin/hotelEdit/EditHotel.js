@@ -87,42 +87,49 @@ function EditHotel() {
 						content='This page lets you edit accommodations'
 					/>
 				</MetaTags>
-				<Container>
+				<Container fluid className='body-light pt-2 p-0 '>
 					<div className='content'>
-						<Heading title='Edit Accommodation' />
-						<hr />
-						<blockquote className='blockquote text-center'>
-							"A wise man changes his mind, a fool never will."
-							<footer className='blockquote-footer'>
-								<cite title='Source Title'> Spanish Proverb</cite>
-							</footer>
-						</blockquote>
+						<Container>
+							<Heading title='Edit Accommodation' />
 
-						<hr />
-						<EditHotelForm
-							onSubmit={onSubmit}
-							name={name}
-							email={email}
-							id={id}
-							image={image}
-							price={price}
-							maxGuests={maxGuests}
-							lat={lat}
-							lng={lng}
-							description={description}
-							address={address}
-							setCatering={setCatering}
-							catering={catering}
-							btnName={btnName}
-							btnVar={
-								<ConfirmDelete
-									historyPath={historyPath}
+							<blockquote className='blockquote text-center'>
+								<hr className='blockquote__hr' />
+								"A wise man changes his mind, a fool never will."
+								<footer className='blockquote-footer'>
+									<cite title='Source Title'> Spanish Proverb</cite>
+								</footer>
+								<hr className='blockquote__hr' />
+							</blockquote>
+						</Container>
+
+						<Container fluid className='body-dark pt-5 pb-4 '>
+							<Container>
+								<EditHotelForm
+									onSubmit={onSubmit}
+									name={name}
+									email={email}
 									id={id}
-									deletePath={deletePath}
-									className='form__btn btn btn__primary'
+									image={image}
+									price={price}
+									maxGuests={maxGuests}
+									lat={lat}
+									lng={lng}
+									description={description}
+									address={address}
+									setCatering={setCatering}
+									catering={catering}
+									btnName={btnName}
+									btnVar={
+										<ConfirmDelete
+											historyPath={historyPath}
+											id={id}
+											deletePath={deletePath}
+											className='form__btn btn btn__primary'
+										/>
+									}
 								/>
-							}
-						/>
+							</Container>
+						</Container>
 					</div>
 				</Container>
 			</>

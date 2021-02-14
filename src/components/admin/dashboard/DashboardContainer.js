@@ -41,31 +41,33 @@ function Dashboard() {
 				<title>Admin Dashboard</title>
 				<meta name='description' content='This is the admin dasboard page' />
 			</MetaTags>
-			<Container>
-				<div className='content'>
-					<Heading title='Dashboard' />
+			<Container fluid className='body-light p-0 '>
+				<Container>
+					<div className='content'>
+						<Heading title='Dashboard' />
 
-					<Row className='content d-flex justify-content-center'>
-						<Col lg={8}>
-							<Row>
-								{adminOptions.map((option) => {
-									const { id, name, link, img } = option;
+						<Row className='content d-flex justify-content-center'>
+							<Col lg={8}>
+								<Row>
+									{adminOptions.map((option) => {
+										const { id, name, link, img } = option;
 
-									return (
-										<Col xs={12} sm={6} key={id}>
-											<MenuCards
-												title={name}
-												link={link}
-												img={img}
-												btn={<CardBtn linkPath={link} btnText='Select' />}
-											/>
-										</Col>
-									);
-								})}
-							</Row>
-						</Col>
-					</Row>
-				</div>
+										return (
+											<Col xs={12} sm={6} key={id}>
+												<MenuCards
+													title={name}
+													link={link}
+													img={img}
+													btn={<CardBtn linkPath={link} btnText='Select' />}
+												/>
+											</Col>
+										);
+									})}
+								</Row>
+							</Col>
+						</Row>
+					</div>
+				</Container>
 			</Container>
 		</div>
 	);
