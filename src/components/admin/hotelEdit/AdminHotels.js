@@ -56,12 +56,12 @@ function Hotels() {
 				<div className='content'>
 					<Heading title='Current Listings' />
 
-					<Row>
+					<Row className='d-flex justify-content-center'>
 						{hotels &&
 							hotels.map((hotel) => {
 								const { id, name, image, price, maxGuests } = hotel;
 								return (
-									<Col className='d-flex' xs={12} md={6} key={id}>
+									<Col className='d-flex' xs={12} md={6} lg={9} key={id}>
 										<HotelCards
 											maxGuests={maxGuests}
 											name={name}

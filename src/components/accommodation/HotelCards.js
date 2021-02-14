@@ -13,7 +13,7 @@ function HotelCards({ name, id, image, price, maxGuests, linkPath, btnText }) {
 		<>
 			<Card className='card-list'>
 				<Row className='d-flex justify-content-between'>
-					<Col xs={12} sm={12} lg={6}>
+					<Col xs={12} sm={12} lg={4}>
 						<Card.Img
 							variant='top'
 							className='card-list__img'
@@ -21,38 +21,42 @@ function HotelCards({ name, id, image, price, maxGuests, linkPath, btnText }) {
 							alt='Accommodation image'
 						/>
 					</Col>
-					<Col xs={12} lg={6}>
-						<NavLink to={linkPath + id}>
-							<Card.Body>
-								<Card.Title>
-									<h4 className='card-list__title'> {name}</h4>
-								</Card.Title>
-								<ListGroup className='card-list__text' variant='flush'>
-									<ListGroup.Item>
-										<InfoIcon
-											small='Price from'
-											info={'€' + price}
-											icon={<FaEuroSign />}
-										/>
-									</ListGroup.Item>
-									<ListGroup.Item>
-										<InfoIcon
-											small='Guest capacity'
-											info={maxGuests}
-											icon={<FaBed />}
-										/>
-									</ListGroup.Item>
-								</ListGroup>
-							</Card.Body>
-						</NavLink>
+					<Col xs={12} lg={8}>
 						<Row className='d-flex justify-content-center'>
-							<Col xs={8}>
-								<NavLink to={linkPath + id}>
-									<Button variant='outline-primary' className='card-list__btn'>
-										{btnText}
-									</Button>
-								</NavLink>
-							</Col>
+							<NavLink to={linkPath + id}>
+								<Card.Body className='m-0 p-0'>
+									<Col lg={6} className='float-lg-left mb-5'>
+										<Card.Title>
+											<h4 className='card-list__hotel'> {name}</h4>
+										</Card.Title>
+									</Col>
+									<Col lg={6} className='float-lg-right'>
+										<ListGroup className='card-list__text ' variant='flush'>
+											<ListGroup.Item className='card-list__text '>
+												<InfoIcon
+													small='Price from'
+													info={'€' + price}
+													icon={<FaEuroSign />}
+												/>
+											</ListGroup.Item>
+											<ListGroup.Item className='card-list__text '>
+												<InfoIcon
+													small='Guest capacity'
+													info={maxGuests}
+													icon={<FaBed />}
+												/>
+											</ListGroup.Item>
+										</ListGroup>
+									</Col>
+									<Col>
+										<Button
+											variant='outline-primary'
+											className='mt-0 card-list__btn '>
+											{btnText}
+										</Button>
+									</Col>
+								</Card.Body>
+							</NavLink>
 						</Row>
 					</Col>
 				</Row>
